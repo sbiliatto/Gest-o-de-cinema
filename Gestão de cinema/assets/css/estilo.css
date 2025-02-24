@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    background-color: black;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: black;
+    padding: 15px 50px;
+    color: white;
+}
+
+.logo {
+    width: 20vh;
+    margin-left: 45px;
+}
+
+
+nav ul {
+    padding-left: 110vh;
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: red;
+}
+
+.btn-entrar {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-entrar:hover {
+    background-color: darkred;
+}
+
+.action {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.action i {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.barra {
+    margin-top: 10px;
+    text-align: center;
+    margin-left: 5%;
+    width: 90%;
+    height: 4px;
+    background-color: darkred;
+}
+
+.film1{
+    width: 90%;
+    margin-left: 20vh;
+}
+
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+div{
+    background-color: 0;
+}
