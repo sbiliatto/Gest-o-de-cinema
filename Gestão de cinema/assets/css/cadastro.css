@@ -94,3 +94,37 @@ input::placeholder {
     background-color: brown;
     transition: 0,9s;
 }
+
+
+
+@media (max-width: 900px) {
+    .conteiner {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .painel-esquerdo {
+        width: 100%;
+        padding: 40px 20px;
+    }
+
+    .painel-direito {
+        width: 100%;
+        padding: 40px 20px;
+    }
+}
+
+
+@media (max-width: 600px) {
+    h2 {
+        font-size: 28px;
+    }
+
+    .campo-entrada {
+        max-width: 90%;
+    }
+
+    .botao {
+        max-width: 90%;
+    }
+}
