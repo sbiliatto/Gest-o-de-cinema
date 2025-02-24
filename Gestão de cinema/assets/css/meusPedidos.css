@@ -1,9 +1,13 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: black;
-    color: white;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: black;
+    color: white;
     text-align: center;
 }
 
@@ -18,14 +22,13 @@ header {
 
 .logo {
     width: 20vh;
-    margin-left: 45px;
 }
 
 nav ul {
-    padding-left: 99vh;
     list-style: none;
     display: flex;
     gap: 20px;
+    padding-left: 632px;
 }
 
 nav ul li a {
@@ -36,7 +39,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: red;
+    color: rgba(255, 0, 0, 0.65);
 }
 
 .btn-entrar {
@@ -54,24 +57,11 @@ nav ul li a:hover {
     background-color: darkred;
 }
 
-.action {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.action i {
-    font-size: 18px;
-    cursor: pointer;
-}
-
 .barra {
-    margin-top: 10px;
-    text-align: center;
-    margin-left: 5%;
     width: 90%;
     height: 4px;
-    background-color: darkred;
+    background-color: red;
+    margin: 10px auto;
 }
 
 main {
@@ -82,6 +72,12 @@ main {
 
 .profile, .orders {
     width: 40%;
+}
+
+.divider {
+    width: 2px;
+    background-color: white;
+    height: 100%;
 }
 
 .btn {
@@ -109,5 +105,22 @@ main {
 footer {
     background-color: red;
     padding: 20px;
-    margin-top: 149px;
+    margin-top: 230px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-content p {
+    font-weight: bold;
+}
+
+.cabecalhobotao{
+    padding-right: 20px;
 }
