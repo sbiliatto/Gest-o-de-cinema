@@ -5,11 +5,19 @@
     font-family: Arial, sans-serif;
 }
 
+.erro {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+}
+
 .conteiner {
     display: flex;
     height: 100vh;
+    align-items: center;
+    justify-content: center;
 }
-
 
 .painel-esquerdo {
     width: 40%;
@@ -17,17 +25,12 @@
     color: white;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 20px;
+    align-items: center; 
+    justify-content: center; 
+    padding: 20px; 
+    height: 100vh;
 }
 
-.logo {
-    width: 80%;
-    max-width: 315px;
-    margin-bottom: 20px;
-}
 
 
 .painel-direito {
@@ -66,10 +69,6 @@ h2 {
     padding-left: 10px;
 }
 
-input::placeholder {
-    color: red; 
-}
-
 .icone {
     color: rgba(239, 0, 0, 1);
     font-size: 18px;
@@ -86,16 +85,12 @@ input::placeholder {
     margin-top: 10px;
     width: 100%;
     max-width: 300px;
-   
-   
 }
 
 .botao:hover{
     background-color: brown;
-    transition: 0,9s;
+    transition: 0.9s;
 }
-
-
 
 @media (max-width: 900px) {
     .conteiner {
@@ -114,7 +109,6 @@ input::placeholder {
     }
 }
 
-
 @media (max-width: 600px) {
     h2 {
         font-size: 28px;
@@ -127,4 +121,9 @@ input::placeholder {
     .botao {
         max-width: 90%;
     }
+}
+
+.img_logo {
+    width: 60%; 
+    max-width: 300px;
 }

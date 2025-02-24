@@ -5,34 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prime Cine - Cadastro</title>
     <link rel="stylesheet" href="assets/css/cadastro.css">
-
-    
+    <script>
+        function validarFormulario(event) {
+            event.preventDefault();
+            
+            const telefone = document.getElementById('telefone');
+            const email = document.getElementById('email');
+            const senha = document.getElementById('senha');
+            const telefoneErro = document.getElementById('telefone-erro');
+            const emailErro = document.getElementById('email-erro');
+            const senhaErro = document.getElementById('senha-erro');
+            let valido = true;
+            
+            const telefoneRegex = /^[0-9]+$/;
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+            const senhaRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}":;'?/>,.<]).{8,}$/;
+            
+            telefoneErro.textContent = "";
+            emailErro.textContent = "";
+            senhaErro.textContent = "";
+            
+            if (!telefoneRegex.test(telefone.value)) {
+                telefoneErro.textContent = 'O telefone deve conter apenas números!';
+                valido = false;
+            }
+            
+            if (!emailRegex.test(email.value)) {
+                emailErro.textContent = 'O e-mail deve ser um @gmail.com válido!';
+                valido = false;
+            }
+            
+            if (!senhaRegex.test(senha.value)) {
+                senhaErro.textContent = 'A senha deve ser forte, contendo pelo menos 8 caracteres, uma letra maiúscula e um caractere especial!';
+                valido = false;
+            }
+            
+            if (valido) {
+                document.getElementById('form-cadastro').submit();
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="conteiner">
         <div class="painel-esquerdo">
-            <img src="assets/img/logo.png" alt="Logo Prime Cine" class="logo">
+            <img class="img_logo" src="assets/img/Captura de tela 2025-02-18 105934.png" alt="Logo Prime Cine" class="logo">
         </div>
         <div class="painel-direito">
             <h2>CADASTRO</h2>
-            <form>
+            <form id="form-cadastro" onsubmit="validarFormulario(event)">
                 <div class="campo-entrada">
-                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"&gt;
+                    <span class="icone"><i class="fas fa-user"></i></span>
+                    <input type="text" id="nome" placeholder="Nome">
+                </div>
+                <div class="campo-entrada">
                     <span class="icone"><i class="fas fa-phone"></i></span>
-                    <input type="text" placeholder="Telefone">
+                    <input type="text" id="telefone" placeholder="Telefone" inputmode="numeric" pattern="[0-9]*">
                 </div>
-                <div class="campo-entrada">
-                    <span class="icone"><i class="fas fa-id-card"></i></span>
-                    <input type="text" placeholder="CPF">
-                </div>
+                <span id="telefone-erro" class="erro"></span>
                 <div class="campo-entrada">
                     <span class="icone"><i class="fas fa-envelope"></i></span>
-                    <input type="email" placeholder="E-mail">
+                    <input type="email" id="email" placeholder="E-mail">
                 </div>
+                <span id="email-erro" class="erro"></span>
                 <div class="campo-entrada">
                     <span class="icone"><i class="fas fa-lock"></i></span>
-                    <input type="password" placeholder="Senha">
+                    <input type="password" id="senha" placeholder="Senha">
                 </div>
+                <span id="senha-erro" class="erro"></span>
                 <button type="submit" class="botao">ENTRAR</button>
             </form>
         </div>
