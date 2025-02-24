@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prime Cine - Cadastro</title>
     <link rel="stylesheet" href="assets/css/cadastro.css">
-    <!-- Adicione o link para o Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script>
         function validarFormulario(event) {
-            event.preventDefault();
+            event.preventDefault(); 
             
             const telefone = document.getElementById('telefone');
             const email = document.getElementById('email');
@@ -17,31 +16,31 @@
             const telefoneErro = document.getElementById('telefone-erro');
             const emailErro = document.getElementById('email-erro');
             const senhaErro = document.getElementById('senha-erro');
-            let valido = true;
-            
-            const telefoneRegex = /^[0-9]+$/;
+            let valido = true; // Assume que os dados estão corretos
+
+            const telefoneRegex = /^[0-9]+$/; 
             const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
-            const senhaRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}":;'?/>,.<]).{8,}$/;
-            
+            const senhaRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}":;'?/>,.<]).{8,}$/; 
+
             telefoneErro.textContent = "";
             emailErro.textContent = "";
             senhaErro.textContent = "";
-            
+
             if (!telefoneRegex.test(telefone.value)) {
                 telefoneErro.textContent = 'O telefone deve conter apenas números!';
                 valido = false;
             }
-            
+
             if (!emailRegex.test(email.value)) {
                 emailErro.textContent = 'O e-mail deve ser um @gmail.com válido!';
                 valido = false;
             }
-            
+
             if (!senhaRegex.test(senha.value)) {
-                senhaErro.textContent = 'A senha deve ser forte, contendo pelo menos 8 caracteres, uma letra maiúscula e um caractere especial!';
+                senhaErro.textContent = 'A senha deve ser forte, com pelo menos 8 caracteres, uma letra maiúscula e um caractere especial!';
                 valido = false;
             }
-            
+
             if (valido) {
                 document.getElementById('form-cadastro').submit();
             }
@@ -75,8 +74,9 @@
                     <input type="password" id="senha" placeholder="Senha">
                 </div>
                 <span id="senha-erro" class="erro"></span>
-                <button type="submit" class="botao">ENTRAR</button>
+                <button type="submit" class="botao">CADASTRAR</button>
             </form>
+            <button class="jatenhoconta" onclick="window.location.href='login.html'" class="botao">JÁ TENHO UMA CONTA</button>
         </div>
     </div>
 </body>
