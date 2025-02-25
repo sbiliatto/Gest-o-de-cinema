@@ -86,11 +86,12 @@ input::placeholder {
     margin-top: 10px;
     width: 100%;
     max-width: 300px;
-   
-   
+    text-align: center;
+    text-decoration: none;
+    display: inline-block; 
 }
 
-.botao:hover{
+.botao:hover {
     background-color: brown;
-    transition: 0,9s;
+    transition: 0.9s;
 }
