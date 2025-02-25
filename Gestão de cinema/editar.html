@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Prime Cine</title>
+    <link rel="stylesheet" href="assets/css/cadastro.css">
+    <script>
+        function validarFormulario(event) {
+            event.preventDefault(); 
+            
+            const email = document.getElementById('email');
+            const senha = document.getElementById('senha');
+            const erroEmail = document.getElementById('erro-email');
+            const erroSenha = document.getElementById('erro-senha');
+            let valido = true; 
+
+            const emailValido = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+            const senhaValida = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}":;'?/>,.<]).{8,}$/; 
+
+            erroEmail.textContent = "";
+            erroSenha.textContent = "";
+
+           
+
+            if (!emailValido.test(email.value)) {
+                erroEmail.textContent = 'Digite um e-mail válido do Gmail!';
+                valido = false;
+            }
+
+            if (!senhaValida.test(senha.value)) {
+                erroSenha.textContent = 'A senha deve ter 8 caracteres, 1 letra maiúscula e 1 símbolo!';
+                valido = false;
+            }
+
+            if (valido) {
+                document.getElementById('form-cadastro').submit();
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="esquerda">
+            <img src="assets/img/logo.png" alt="Logo Prime Cine" class="logo">
+        </div>
+        <div class="direita">
+            <h2>EDITAR</h2>
+            <form id="form-cadastro" onsubmit="validarFormulario(event)">
+                <div class="campo">
+                    <input type="email" id="email" placeholder="Editar e-mail">
+                </div>
+                <span id="erro-email" class="erro"></span>
+                <div class="campo">
+                    <input type="password" id="senha" placeholder="Editar senha">
+                </div>
+                <span id="erro-senha" class="erro"></span>
+                <button type="submit" class="botao">SALVAR</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
