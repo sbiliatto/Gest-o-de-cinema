@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro - Prime Cine</title>
     <link rel="stylesheet" href="assets/css/cadastro.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script>
         function validarFormulario(event) {
             event.preventDefault(); 
@@ -53,20 +54,20 @@
         </div>
         <div class="direita">
             <h2>Cadastro</h2>
-            <form id="form-cadastro" onsubmit="validarFormulario(event)">
+            <form id="form_cadastro">
                 <div class="campo">
-                    <input type="text" id="nome" placeholder="Nome">
+                    <input type="text" name="nome" id="nome" placeholder="Nome">
                 </div>
                 <div class="campo">
-                    <input type="text" id="telefone" placeholder="Telefone" inputmode="numeric">
+                    <input type="text" name="tel" id="telefone" placeholder="Telefone" inputmode="numeric">
                 </div>
                 <span id="erro-telefone" class="erro"></span>
                 <div class="campo">
-                    <input type="email" id="email" placeholder="E-mail">
+                    <input type="email" name="email" id="email" placeholder="E-mail">
                 </div>
                 <span id="erro-email" class="erro"></span>
                 <div class="campo">
-                    <input type="password" id="senha" placeholder="Senha">
+                    <input type="password" name="senha" id="senha" placeholder="Senha">
                 </div>
                 <span id="erro-senha" class="erro"></span>
                 <button type="submit" class="botao">Cadastrar</button>
@@ -74,5 +75,39 @@
             <button onclick="window.location.href='login.html'" class="botao">Já tenho uma conta</button>
         </div>
     </div>
+    <script>
+        $("#form_cadastro").on("submit", function(e) {
+            
+            e.preventDefault()
+            let dados = new FormData (this)        
+
+            let envia = {
+                nome: dados.get("nome"),
+                email: dados.get("email"),
+                telefone: dados.get("tel"),
+                senha: dados.get("senha"),
+                tipo: "cliente"
+            }
+
+            envia = JSON.stringify(envia)
+
+            $.ajax({
+                method : "POST",
+
+                url: "http://192.168.1.127:5000/cadastro",
+                data: envia,
+                contentType: "application/json",
+
+                success: function(retorno) {
+                    alert("Cadastro Realizado!")
+                    console.log(retorno) 
+                },
+
+                error: function(retorno) {
+                    alert(retorno.responseJSON.error)
+                }
+            })
+        })
+    </script>
 </body>
 </html>
