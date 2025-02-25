@@ -1,143 +1,122 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 .erro {
-    color: red;
-    font-size: 14px;
-    margin-top: 5px;
-    display: none;
-}
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
 
-.conteiner {
-    display: flex;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-}
+.container {
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+        }
 
-.painel-esquerdo {
-    width: 40%;
-    background-color: black;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    justify-content: center; 
-    padding: 20px; 
-    height: 100vh;
-}
+.esquerda {
+            width: 40%;
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center; 
+            padding: 20px; 
+            height: 100vh;
+        }
 
-.painel-direito {
-    width: 60%;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
+.direita {
+            width: 60%;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
 
 h2 {
-    color: rgba(206, 5, 5, 0.86);
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-align: center;
-}
+            color: rgba(206, 5, 5, 0.86);
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
 
-.campo-entrada {
-    width: 100%;
-    max-width: 300px;
-    display: flex;
-    align-items: center;
-    border: 2px solid rgba(239, 0, 0, 1);
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
-}
+.campo {
+            width: 100%;
+            max-width: 300px;
+            display: flex;
+            align-items: center;
+            border: 2px solid rgba(239, 0, 0, 1);
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
 
-.campo-entrada input {
-    border: none;
-    outline: none;
-    flex: 1;
-    padding-left: 10px;
-}
-
-.icone {
-    color: rgba(239, 0, 0, 1);
-    font-size: 18px;
-}
+.campo input {
+            border: none;
+            outline: none;
+            flex: 1;
+            padding-left: 10px;
+        }
 
 .botao {
-    background-color: rgba(237, 17, 17, 1);
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    width: 100%;
-    max-width: 300px;
-}
+            background-color: rgba(237, 17, 17, 1);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+            max-width: 300px;
+        }
 
 .botao:hover {
-    background-color: brown;
-    transition: 0.9s;
-}
+            background-color: brown;
+            transition: 0.9s;
+        }
 
 @media (max-width: 900px) {
-    .conteiner {
-        flex-direction: column;
-        height: auto;
+.container {
+                flex-direction: column;
+                height: auto;
+            }
+
+.esquerda {
+                width: 100%;
+                padding: 40px 20px;
+            }
+
+.direita {
+                width: 100%;
+                padding: 40px 20px;
+            }
+        }
+
+ @media (max-width: 600px) {}
+
+ h2 {
+font-size: 28px;
     }
 
-    .painel-esquerdo {
-        width: 100%;
-        padding: 40px 20px;
+.campo {
+    max-width: 90%;
     }
 
-    .painel-direito {
-        width: 100%;
-        padding: 40px 20px;
-    }
-}
+.botao {
+    max-width: 90%;
+     }
+         
 
-@media (max-width: 600px) {
-    h2 {
-        font-size: 28px;
-    }
-
-    .campo-entrada {
-        max-width: 90%;
-    }
-
-    .botao {
-        max-width: 90%;
-    }
-}
-
-.img_logo {
-    width: 80%;
-    max-width: 315px;
-    margin-bottom: 20px;
-}
-
-.jatenhoconta{
-    background-color: rgba(237, 17, 17, 1);
-    color: white;
-    padding: 12px 35px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    
-}
-
-.jatenhoconta:hover {
-    background-color: brown;
-    transition: 0.9s;
-}
+.logo {
+      width: 80%;
+      max-width: 315px;
+      margin-bottom: 20px;
+        }

@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prime Cine - Cadastro</title>
+    <title>Cadastro - Prime Cine</title>
     <link rel="stylesheet" href="assets/css/cadastro.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script>
         function validarFormulario(event) {
             event.preventDefault(); 
@@ -13,31 +12,31 @@
             const telefone = document.getElementById('telefone');
             const email = document.getElementById('email');
             const senha = document.getElementById('senha');
-            const telefoneErro = document.getElementById('telefone-erro');
-            const emailErro = document.getElementById('email-erro');
-            const senhaErro = document.getElementById('senha-erro');
-            let valido = true; // Assume que os dados estão corretos
+            const erroTelefone = document.getElementById('erro-telefone');
+            const erroEmail = document.getElementById('erro-email');
+            const erroSenha = document.getElementById('erro-senha');
+            let valido = true; 
 
-            const telefoneRegex = /^[0-9]+$/; 
-            const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
-            const senhaRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}":;'?/>,.<]).{8,}$/; 
+            const telefoneValido = /^[0-9]+$/; 
+            const emailValido = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+            const senhaValida = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}":;'?/>,.<]).{8,}$/; 
 
-            telefoneErro.textContent = "";
-            emailErro.textContent = "";
-            senhaErro.textContent = "";
+            erroTelefone.textContent = "";
+            erroEmail.textContent = "";
+            erroSenha.textContent = "";
 
-            if (!telefoneRegex.test(telefone.value)) {
-                telefoneErro.textContent = 'O telefone deve conter apenas números!';
+            if (!telefoneValido.test(telefone.value)) {
+                erroTelefone.textContent = 'O telefone deve conter apenas números!';
                 valido = false;
             }
 
-            if (!emailRegex.test(email.value)) {
-                emailErro.textContent = 'O e-mail deve ser um @gmail.com válido!';
+            if (!emailValido.test(email.value)) {
+                erroEmail.textContent = 'Digite um e-mail válido do Gmail!';
                 valido = false;
             }
 
-            if (!senhaRegex.test(senha.value)) {
-                senhaErro.textContent = 'A senha deve ser forte, com pelo menos 8 caracteres, uma letra maiúscula e um caractere especial!';
+            if (!senhaValida.test(senha.value)) {
+                erroSenha.textContent = 'A senha deve ter 8 caracteres, 1 letra maiúscula e 1 símbolo!';
                 valido = false;
             }
 
@@ -48,35 +47,31 @@
     </script>
 </head>
 <body>
-    <div class="conteiner">
-        <div class="painel-esquerdo">
-            <img class="img_logo" src="assets/img/logo.png" alt="Logo Prime Cine" class="logo">
+    <div class="container">
+        <div class="esquerda">
+            <img src="assets/img/logo.png" alt="Logo Prime Cine" class="logo">
         </div>
-        <div class="painel-direito">
-            <h2>CADASTRO</h2>
+        <div class="direita">
+            <h2>Cadastro</h2>
             <form id="form-cadastro" onsubmit="validarFormulario(event)">
-                <div class="campo-entrada">
-                    <span class="icone"><i class="fas fa-user"></i></span>
+                <div class="campo">
                     <input type="text" id="nome" placeholder="Nome">
                 </div>
-                <div class="campo-entrada">
-                    <span class="icone"><i class="fas fa-phone"></i></span>
-                    <input type="text" id="telefone" placeholder="Telefone" inputmode="numeric" pattern="[0-9]*">
+                <div class="campo">
+                    <input type="text" id="telefone" placeholder="Telefone" inputmode="numeric">
                 </div>
-                <span id="telefone-erro" class="erro"></span>
-                <div class="campo-entrada">
-                    <span class="icone"><i class="fas fa-envelope"></i></span>
+                <span id="erro-telefone" class="erro"></span>
+                <div class="campo">
                     <input type="email" id="email" placeholder="E-mail">
                 </div>
-                <span id="email-erro" class="erro"></span>
-                <div class="campo-entrada">
-                    <span class="icone"><i class="fas fa-lock"></i></span>
+                <span id="erro-email" class="erro"></span>
+                <div class="campo">
                     <input type="password" id="senha" placeholder="Senha">
                 </div>
-                <span id="senha-erro" class="erro"></span>
-                <button type="submit" class="botao">CADASTRAR</button>
+                <span id="erro-senha" class="erro"></span>
+                <button type="submit" class="botao">Cadastrar</button>
             </form>
-            <button class="jatenhoconta" onclick="window.location.href='login.html'" class="botao">JÁ TENHO UMA CONTA</button>
+            <button onclick="window.location.href='login.html'" class="botao">Já tenho uma conta</button>
         </div>
     </div>
 </body>
