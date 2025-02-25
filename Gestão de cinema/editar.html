@@ -59,5 +59,40 @@
             </form>
         </div>
     </div>
+
+    <script>
+        $("#form_cadastro").on("submit", function(e) {
+           
+            e.preventDefault()
+            let dados = new FormData (this)        
+
+            let envia = {
+                
+                email: dados.get("email"),
+                senha: dados.get("senha"),
+                tipo: "cliente"
+            }
+
+            envia = JSON.stringify(envia)
+
+            $.ajax({
+                method : "PUT",
+
+                url: "http://192.168.1.127:5000/cadastro&quot;",
+                data: envia,
+                contentType: "application/json",
+
+                success: function(retorno) {
+                    alert("Edição Realizada!")
+                    console.log(retorno)
+                },
+
+                error: function(retorno) {
+                    alert(retorno.responseJSON.error)
+                }
+            })
+        })
+    </script>
+
 </body>
 </html>
