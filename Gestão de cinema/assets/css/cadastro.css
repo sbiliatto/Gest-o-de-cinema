@@ -74,15 +74,20 @@ h2 {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 18px;
     margin-top: 10px;
     width: 100%;
-    max-width: 197px;
+    max-width: 300px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block; 
 }
 
 .botao:hover {
     background-color: brown;
     transition: 0.9s;
 }
+
 
 @media (max-width: 900px) {
     .container {
