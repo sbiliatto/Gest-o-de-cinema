@@ -41,11 +41,10 @@
             let email = $("#email").val().trim();
             let senha = $("#senha").val().trim();
 
-            let emailRegex = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/;  // Regex para e-mail
-            let telefoneRegex = /^[0-9]{10,11}$/;  // Aceita 10 ou 11 dígitos para telefone
+            let emailRegex = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/;  
+            let telefoneRegex = /^[0-9]{10,11}$/;  // Aceita 10 ou 11 dígitos no telefone
             let senhaRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}":;'?/>,.<]).{8,}$/;
 
-            // Validação do telefone
             if (!telefoneRegex.test(telefone)) {
                 return Swal.fire({
                     title: "Erro!",
@@ -54,7 +53,6 @@
                 });
             }
 
-            // Validação do email
             if (!emailRegex.test(email)) {
                 return Swal.fire({
                     title: "Erro!",
@@ -63,7 +61,6 @@
                 });
             }
 
-            // Validação da senha
             if (!senhaRegex.test(senha)) {
                 return Swal.fire({
                     title: "Erro!",
@@ -72,16 +69,14 @@
                 });
             }
 
-            // Log para verificar os dados antes de enviar
             console.log("Dados para envio:", { nome, telefone, email, senha });
 
             let dados = JSON.stringify({ nome, telefone, email, senha, tipo: "cliente" });
 
             $.ajax({
-                method : "POST",
-
-                url: "http://10.92.3.211:5000/cadastro",
-                data: envia,
+                method: "POST",
+                url: "http://192.168.1.127:5000/cadastro",  // Verifique se a URL está correta
+                data: dados,
                 contentType: "application/json",
                 success: function(response) {
                     console.log("Cadastro realizado com sucesso:", response);
@@ -90,12 +85,10 @@
                         text: "Cadastro realizado com sucesso!",
                         icon: "success"
                     }).then(() => {
-                        // Redireciona para a página de login
                         window.location.href = "login.html";
                     });
                 },
                 error: function(xhr, status, error) {
-                    // Exibe o erro completo para depuração
                     console.log("Erro ao tentar cadastrar:", xhr.responseJSON, status, error);
                     Swal.fire({
                         title: "Erro!",
