@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar - Prime Cine</title>
     <link rel="stylesheet" href="assets/css/editar.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>    
-
-    <script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>    <script>
         function validarFormulario(event) {
             event.preventDefault();
            
@@ -18,44 +16,35 @@
             const erroEmail = document.getElementById('erro-email');
             const erroSenha = document.getElementById('erro-senha');
             let valido = true;
-    
+
             const telefoneValido = /^[0-9]+$/;
             const emailValido = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
             const senhaValida = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}":;'?/>,.<]).{8,}$/;
-    
+
             erroTelefone.textContent = "";
             erroEmail.textContent = "";
             erroSenha.textContent = "";
-    
+
             if (!telefoneValido.test(telefone.value)) {
                 erroTelefone.textContent = 'O telefone deve conter apenas números!';
                 valido = false;
             }
-    
+
             if (!emailValido.test(email.value)) {
                 erroEmail.textContent = 'Digite um e-mail válido do Gmail!';
                 valido = false;
             }
-    
+
             if (!senhaValida.test(senha.value)) {
                 erroSenha.textContent = 'A senha deve ter 8 caracteres, 1 letra maiúscula e 1 símbolo!';
                 valido = false;
             }
-    
+
             if (valido) {
-                document.getElementById('form_editar').submit(); 
+                document.getElementById('form-editar').submit();
             }
         }
     </script>
-    
-    <script>
-        $("#form_editar").on("submit", function(e) {
-            e.preventDefault();
-    
-            validarFormulario(e);
-        });
-    </script>
-    
 </head>
 <body>
     <div class="container">
@@ -84,5 +73,40 @@
             </form>
         </div>
     </div>
+    <script>
+        $("#form_editar").on("submit", function(e) {
+           
+            e.preventDefault()
+            let dados = new FormData (this)        
+
+            let envia = {
+                nome: dados.get("nome"),
+                email: dados.get("email"),
+                telefone: dados.get("tel"),
+                senha: dados.get("senha"),
+                tipo: "cliente"
+            }
+
+            envia = JSON.stringify(envia)
+
+            $.ajax({
+                method : "PUT",
+
+                url: "http://192.168.1.127:5000/cadastro",
+                data: envia,
+                contentType: "application/json",
+
+                success: function(retorno) {
+                    alert("Edição Realizada!")
+                    console.log(retorno)
+                },
+
+                error: function(retorno) {
+                    alert(retorno.responseJSON.error)
+                }
+            })
+        })
+    </script>
 </body>
 </html>
+

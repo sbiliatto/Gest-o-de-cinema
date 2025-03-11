@@ -42,7 +42,7 @@
             let senha = $("#senha").val().trim();
 
             let emailRegex = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/;  
-            let telefoneRegex = /^[0-9]{10,11}$/;  // Aceita 10 ou 11 dígitos no telefone
+            let telefoneRegex = /^[0-9]{10,11}$/;  
             let senhaRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}":;'?/>,.<]).{8,}$/;
 
             if (!telefoneRegex.test(telefone)) {
@@ -75,7 +75,7 @@
 
             $.ajax({
                 method: "POST",
-                url: "http://192.168.1.127:5000/cadastro",  // Verifique se a URL está correta
+                url: "http://10.92.3.211:5000/cadastro",  
                 data: dados,
                 contentType: "application/json",
                 success: function(response) {
@@ -92,7 +92,7 @@
                     console.log("Erro ao tentar cadastrar:", xhr.responseJSON, status, error);
                     Swal.fire({
                         title: "Erro!",
-                        text: xhr.responseJSON?.error || "Erro ao tentar realizar cadastro.",
+                        text: xhr.responseJSON?.error || "Erro: usuario já cadastrado!",
                         icon: "error"
                     });
                 }
