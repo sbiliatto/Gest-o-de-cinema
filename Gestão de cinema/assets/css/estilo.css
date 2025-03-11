@@ -208,7 +208,7 @@ img {
     display: none;
 }
 
-.cadastro{
+.cadastro {
     background-color: white;
     color: red;
     border: none;
@@ -218,11 +218,66 @@ img {
     border-radius: 5px;
     transition: 0.3s;
     display: inline-flex;
-    margin: 10vh 40vh;
+    margin: 10vh 25vh;
     text-decoration: none;
 }
 
 .cadastro:hover {
     background-color: darkred;
     color: white;
+}
+
+.rodape {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.cadastro {
+    background-color: white;
+    color: red;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.socialicones {
+    display: flex;
+    gap: 10px;
+}
+
+.socialicones img {
+    width: 30px;
+}
+
+.info {
+    text-align: right;
+}
+
+.info p {
+    margin: 5px 0;
+}
+
+.barraverm {
+    background-color: #B90000;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.barraverm img {
+    background-color: #B90000;
+    width: 30vh;
+    margin-right: 10px;
 }
