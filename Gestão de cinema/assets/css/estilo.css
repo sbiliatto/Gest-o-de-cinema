@@ -216,6 +216,7 @@ img {
     cursor: pointer;
     border-radius: 5px;
     transition: 0.3s;
+    align-items: center;
 }
 
 .cadastro:hover {
