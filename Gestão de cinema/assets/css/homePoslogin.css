@@ -202,7 +202,10 @@ img {
     align-items: center;
     flex-wrap: wrap;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8d214001b3b4dbc5ab749e1cc4af458c3bca1f75
 .cadastro {
     background-color: white;
     color: red;
@@ -213,11 +216,15 @@ img {
     border: none;
     cursor: pointer;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8d214001b3b4dbc5ab749e1cc4af458c3bca1f75
 .socialicones {
     display: flex;
     gap: 10px;
 }
+<<<<<<< HEAD
 
 .socialicones img {
     width: 30px;
@@ -233,6 +240,19 @@ img {
 
 .barraverm {
     background-color: #B90000;
+=======
+.socialicones img {
+    width: 30px;
+}
+.info {
+    text-align: right;
+}
+.info p {
+    margin: 5px 0;
+}
+.barraverm {
+    background-color: red;
+>>>>>>> 8d214001b3b4dbc5ab749e1cc4af458c3bca1f75
     padding: 10px;
     text-align: center;
     font-weight: bold;
@@ -241,6 +261,7 @@ img {
     justify-content: center;
     align-items: center;
 }
+<<<<<<< HEAD
 
 .barraverm img {
     background-color: #B90000;
@@ -248,3 +269,86 @@ img {
     margin-right: 10px;
 }
 
+=======
+.barraverm img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+
+/* Container do perfil */
+.perfil-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Botão do perfil */
+.btn-perfil {
+    background-color: #ff0000;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    
+}
+
+.btn-perfil:hover {
+    background-color: #cc0000;
+    
+}
+
+/* Menu suspenso */
+.menu-perfil {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #D7D6D6;
+    color: black;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 15px;
+    z-index: 100;
+    width: 250px;
+}
+
+/* Estilizar itens do menu */
+.menu-perfil p {
+    font-weight: bold;
+    color: #ff0000;
+    margin-bottom: 10px;
+    background-color:  #D7D6D6;
+}
+
+.menu-perfil ul {
+    list-style: none;
+    padding: 0;
+    background-color:  #D7D6D6;
+}
+
+.menu-perfil ul li {
+    margin: 10px 0;
+    background-color:  #D7D6D6;
+}
+
+.menu-perfil ul li a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color:  #D7D6D6;
+}
+
+.menu-perfil ul li a:hover {
+    color: #ff0000;
+    background-color:  #D7D6D6;
+}
+
+.nome-veisitante {
+    background-color:  #D7D6D6;
+}
+
+>>>>>>> 8d214001b3b4dbc5ab749e1cc4af458c3bca1f75

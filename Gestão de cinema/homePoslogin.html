@@ -18,6 +18,24 @@ necessita de segurança
 
 </head>
 
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("menuPerfil");
+            menu.style.display = (menu.style.display === "block") ? "none" : "block";
+        }
+
+        window.onclick = function (event) {
+            const menu = document.getElementById("menuPerfil");
+            const botaoPerfil = document.querySelector('.btn-perfil');
+
+            if (menu.style.display === "block" && event.target !== menu && event.target !== botaoPerfil) {
+                menu.style.display = "none";
+            }
+        }
+    </script>
+    
+</header>
+
 <body>
     <header>
         <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
@@ -29,8 +47,21 @@ necessita de segurança
             </ul>
         </nav>
 
+<<<<<<< HEAD
         <div class="acao">
             <a class="perfil" href="perfi.html"> <img src="assets/img/do-utilizador.png" alt=""></a>
+=======
+        <div class="perfil-container">
+            <button class="btn-perfil" onclick="toggleMenu()">Perfil</button>
+            <div class="menu-perfil" id="menuPerfil">
+                <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
+                <ul>
+                    <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
+                    <li><a href="editar.html">✏️ Editar perfil</a></li>
+                    <li><a href="#">🚪 Sair da Conta</a></li>
+                </ul>
+            </div>
+>>>>>>> 8d214001b3b4dbc5ab749e1cc4af458c3bca1f75
         </div>
 
     </header>
