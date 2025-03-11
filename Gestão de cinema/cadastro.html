@@ -30,6 +30,10 @@
                 erroTelefone.textContent = 'O telefone deve conter apenas números!';
                 valido = false;
             }
+            else if (telefone.value.length < 11) {
+                erroTelefone.textContent = 'O telefone está incorreto! Deve ter 11 números.';
+                valido = false;
+            }
 
             if (!emailValido.test(email.value)) {
                 erroEmail.textContent = 'Digite um e-mail válido do Gmail!';
@@ -42,7 +46,7 @@
             }
 
             if (valido) {
-                document.getElementById('form-cadastro').submit();
+                document.getElementById('form_cadastro').submit();
             }
         }
     </script>
@@ -70,7 +74,7 @@
                     <input type="password" name="senha" id="senha" placeholder="Senha">
                 </div>
                 <span id="erro-senha" class="erro"></span>
-                <a class="botao" href="homePoslogin.html">Cadastrar</a>
+                <button type="submit" class="botao">Cadastrar</button>
             </form>
         
         </div>
@@ -94,7 +98,7 @@
             $.ajax({
                 method : "POST",
 
-                url: "http://192.168.1.127:5000/cadastro",
+                url: "http://10.92.3.211:5000/cadastro",
                 data: envia,
                 contentType: "application/json",
 
