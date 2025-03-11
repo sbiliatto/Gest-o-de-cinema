@@ -16,6 +16,24 @@
 
 </head>
 
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("menuPerfil");
+            menu.style.display = (menu.style.display === "block") ? "none" : "block";
+        }
+
+        window.onclick = function (event) {
+            const menu = document.getElementById("menuPerfil");
+            const botaoPerfil = document.querySelector('.btn-perfil');
+
+            if (menu.style.display === "block" && event.target !== menu && event.target !== botaoPerfil) {
+                menu.style.display = "none";
+            }
+        }
+    </script>
+    
+</header>
+
 <body>
     <header>
         <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
@@ -27,9 +45,16 @@
             </ul>
         </nav>
 
-        <div class="acao">
-            <a class="btn-entrar" href="assets/css/perfi.html">PERFIL</a>
-            <i class="fas fa-search"></i>
+        <div class="perfil-container">
+            <button class="btn-perfil" onclick="toggleMenu()">Perfil</button>
+            <div class="menu-perfil" id="menuPerfil">
+                <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
+                <ul>
+                    <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
+                    <li><a href="editar.html">✏️ Editar perfil</a></li>
+                    <li><a href="#">🚪 Sair da Conta</a></li>
+                </ul>
+            </div>
         </div>
 
     </header>
