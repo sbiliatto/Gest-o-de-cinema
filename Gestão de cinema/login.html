@@ -48,9 +48,12 @@
             let dados = JSON.stringify({ email, senha });
 
             $.ajax({
-                method: "POST",
-                url: "http://192.168.1.127:5000/login",
-                data: dados,
+                method: "post",
+
+                url: "http://10.92.3.211:5000/login",
+
+                data: envia,
+
                 contentType: "application/json",
                 success: function(retorno) {
                     Swal.fire({
