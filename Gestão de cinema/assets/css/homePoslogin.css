@@ -233,16 +233,20 @@ img {
 
 .barraverm {
     background-color: #B90000;
+}
 
 .socialicones img {
     width: 30px;
 }
+
 .info {
     text-align: right;
 }
+
 .info p {
     margin: 5px 0;
 }
+
 .barraverm {
     background-color: red;
     padding: 10px;
@@ -282,12 +286,12 @@ img {
     cursor: pointer;
     border-radius: 5px;
     font-weight: bold;
-    
+
 }
 
 .btn-perfil:hover {
     background-color: #cc0000;
-    
+
 }
 
 /* Menu suspenso */
@@ -310,18 +314,18 @@ img {
     font-weight: bold;
     color: #ff0000;
     margin-bottom: 10px;
-    background-color:  #D7D6D6;
+    background-color: #D7D6D6;
 }
 
 .menu-perfil ul {
     list-style: none;
     padding: 0;
-    background-color:  #D7D6D6;
+    background-color: #D7D6D6;
 }
 
 .menu-perfil ul li {
     margin: 10px 0;
-    background-color:  #D7D6D6;
+    background-color: #D7D6D6;
 }
 
 .menu-perfil ul li a {
@@ -330,14 +334,14 @@ img {
     display: flex;
     align-items: center;
     gap: 10px;
-    background-color:  #D7D6D6;
+    background-color: #D7D6D6;
 }
 
 .menu-perfil ul li a:hover {
     color: #ff0000;
-    background-color:  #D7D6D6;
+    background-color: #D7D6D6;
 }
 
 .nome-veisitante {
-    background-color:  #D7D6D6;
+    background-color: #D7D6D6;
 }
