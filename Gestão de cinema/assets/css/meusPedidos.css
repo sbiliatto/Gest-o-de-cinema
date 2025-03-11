@@ -71,15 +71,18 @@ nav ul li a:hover {
     padding: 40px;
 }
 
-.perfil-info, .meus-pedidos {
+.perfil-info,
+.meus-pedidos {
     width: 45%;
 }
 
-.perfil-info h2, .meus-pedidos h2 {
+.perfil-info h2,
+.meus-pedidos h2 {
     font-size: 24px;
 }
 
-.btn-pedidos, .btn-encontrar {
+.btn-pedidos,
+.btn-encontrar {
     background-color: red;
     color: white;
     border: none;
@@ -90,7 +93,8 @@ nav ul li a:hover {
     transition: 0.3s;
 }
 
-.btn-pedidos:hover, .btn-encontrar:hover {
+.btn-pedidos:hover,
+.btn-encontrar:hover {
     background-color: darkred;
 }
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="assets/css/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
     <div class="conteiner">
         <div class="painel-esquerdo">
@@ -30,7 +32,7 @@
         </div>
     </div>
     <script>
-        $("#form_login").on("submit", function(e) {
+        $("#form_login").on("submit", function (e) {
             e.preventDefault();
 
             let email = $("input[name='email']").val().trim();
@@ -55,7 +57,7 @@
                 data: envia,
 
                 contentType: "application/json",
-                success: function(retorno) {
+                success: function (retorno) {
                     Swal.fire({
                         title: "Deu Certo!",
                         text: "Login realizado com sucesso!",
@@ -64,7 +66,7 @@
                         window.location.href = "homePoslogin.html";
                     });
                 },
-                error: function(retorno) {
+                error: function (retorno) {
                     Swal.fire({
                         title: "Erro!",
                         text: retorno.responseJSON?.error || "Erro ao tentar fazer login.",
@@ -76,8 +78,8 @@
     </script>
 
     <script>
-        $("#btn").on("click", function(){
-        
+        $("#btn").on("click", function () {
+
             let token = "SECRETY_KEY"
 
             localStorage.setItem("calopsita", token)
@@ -88,4 +90,5 @@
     </script>
 
 </body>
+
 </html>

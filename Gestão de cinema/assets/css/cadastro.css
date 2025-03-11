@@ -126,3 +126,32 @@ h2 {
     max-width: 315px;
     margin-bottom: 20px;
 }
+
+
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .esquerda, .direita {
+        width: 100%;
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    h2 {
+        font-size: 28px;
+    }
+
+    .campo, .botao {
+        max-width: 90%;
+    }
+}
+
+.logo {
+    width: 80%;
+    max-width: 315px;
+    margin-bottom: 20px;
+}

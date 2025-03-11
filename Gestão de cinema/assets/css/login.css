@@ -67,7 +67,7 @@ h2 {
 }
 
 input::placeholder {
-    color: red; 
+    color: red;
 }
 
 .icone {
@@ -88,10 +88,73 @@ input::placeholder {
     max-width: 300px;
     text-align: center;
     text-decoration: none;
-    display: inline-block; 
+    display: inline-block;
 }
 
 .botao:hover {
     background-color: brown;
     transition: 0.9s;
+}
+
+@media (max-width: 1024px) {
+    .conteiner {
+        flex-direction: column;
+    }
+
+    .painel-esquerdo {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
+
+    .painel-direito {
+        width: 100%;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    .campo-entrada {
+        width: 80%;
+        max-width: 280px;
+    }
+
+    .botao {
+        width: 80%;
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    .conteiner {
+        flex-direction: column;
+    }
+
+    .painel-esquerdo {
+        width: 100%;
+        height: auto;
+        padding: 15px;
+    }
+
+    .painel-direito {
+        width: 100%;
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .campo-entrada {
+        width: 90%;
+        max-width: 260px;
+    }
+
+    .botao {
+        width: 90%;
+        max-width: 260px;
+    }
+
 }
