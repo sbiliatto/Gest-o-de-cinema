@@ -237,3 +237,17 @@ button:hover {
     gap: 39px;
     margin-right: 150vh;
 }
+
+
+.adicionar {
+    left: 592px;
+    background-color: rgba(255, 0, 0, 0.65);
+    color: white;
+    position: relative;
+ 
+}
+
+.adicionar:hover {
+    background-color:rgba(239, 0, 0, 1);
+}
+
