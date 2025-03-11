@@ -202,10 +202,7 @@ img {
     align-items: center;
     flex-wrap: wrap;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 8d214001b3b4dbc5ab749e1cc4af458c3bca1f75
 .cadastro {
     background-color: white;
     color: red;
@@ -216,15 +213,11 @@ img {
     border: none;
     cursor: pointer;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 8d214001b3b4dbc5ab749e1cc4af458c3bca1f75
 .socialicones {
     display: flex;
     gap: 10px;
 }
-<<<<<<< HEAD
 
 .socialicones img {
     width: 30px;
@@ -240,7 +233,7 @@ img {
 
 .barraverm {
     background-color: #B90000;
-=======
+
 .socialicones img {
     width: 30px;
 }
@@ -252,7 +245,6 @@ img {
 }
 .barraverm {
     background-color: red;
->>>>>>> 8d214001b3b4dbc5ab749e1cc4af458c3bca1f75
     padding: 10px;
     text-align: center;
     font-weight: bold;
@@ -261,7 +253,6 @@ img {
     justify-content: center;
     align-items: center;
 }
-<<<<<<< HEAD
 
 .barraverm img {
     background-color: #B90000;
@@ -269,7 +260,7 @@ img {
     margin-right: 10px;
 }
 
-=======
+
 .barraverm img {
     width: 40px;
     margin-right: 10px;
@@ -350,5 +341,3 @@ img {
 .nome-veisitante {
     background-color:  #D7D6D6;
 }
-
->>>>>>> 8d214001b3b4dbc5ab749e1cc4af458c3bca1f75
