@@ -33,6 +33,15 @@ header {
     padding-bottom: 50px;
 }
 
+.p {
+    font-size: 20px; /* Ajuste o tamanho do ícone, se necessário */
+    padding-bottom: 50px;
+    color: white;
+    text-align: center;
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
 .relatorio {
     color: white;
     text-align: center;
@@ -302,7 +311,6 @@ img {
     cursor: pointer;
     border-radius: 5px;
     font-weight: bold;
-
 }
 
 .btn-perfil:hover {
