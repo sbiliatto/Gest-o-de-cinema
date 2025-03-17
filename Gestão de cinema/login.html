@@ -12,6 +12,7 @@
 </head>
 
 <body>
+
     <div class="conteiner">
         <div class="painel-esquerdo">
             <img src="assets/img/logo.png" alt="Logo Prime Cine" class="logo">
@@ -31,6 +32,9 @@
             </form>
         </div>
     </div>
+
+
+
     <script>
         $("#form_login").on("submit", function (e) {
             e.preventDefault();
@@ -58,6 +62,12 @@
 
                 contentType: "application/json",
                 success: function (retorno) {
+
+                    localStorage.setItem("token", retorno.token)
+                    localStorage.setItem("nome", retorno.nome)
+                    localStorage.setItem("email", retorno.email)
+                    localStorage.setItem("senha", retorno.senha)
+
                     Swal.fire({
                         title: "Deu Certo!",
                         text: "Login realizado com sucesso!",
