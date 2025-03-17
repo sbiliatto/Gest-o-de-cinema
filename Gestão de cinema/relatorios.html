@@ -79,6 +79,27 @@
         </a>
     </div>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const userId = 1; // Substitua pelo ID do usuário logado
+
+    fetch(`http://10.92.3.229:5000/cadastro/${userId}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                console.error("Usuário não encontrado");
+                return;
+            }
+
+            // Preenche os campos do formulário com os dados do usuário
+            document.getElementById("nome").value = data.nome;
+            document.getElementById("telefone").value = data.telefone;
+            document.getElementById("email").value = data.email;
+        })
+        .catch(error => console.error("Erro ao buscar usuário:", error));
+    });
+    </script>
+
     
 
     <div class="barra"></div>
