@@ -20,6 +20,7 @@
         <div class="painel-direito">
             <h2>LOGIN</h2>
             <form id="form_login">
+
                 <div class="campo-entrada">
                     <span class="icone"><i class="fas fa-envelope"></i></span>
                     <input type="email" name="email" placeholder="E-mail" required>
@@ -56,9 +57,9 @@
             $.ajax({
                 method: "post",
 
-                url: "http://10.92.3.211:5000/login",
+                url: "http://10.92.3.229:5000/login",
 
-                data: envia,
+                data: dados,
 
                 contentType: "application/json",
                 success: function (retorno) {
@@ -95,9 +96,11 @@
             localStorage.setItem("calopsita", token)
             localStorage.setItem("nome", "NOME")
             localStorage.setItem("ID", "ID do usuario")
+            
 
         })
     </script>
+
 
 </body>
 
