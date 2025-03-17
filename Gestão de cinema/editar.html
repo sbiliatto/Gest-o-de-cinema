@@ -119,6 +119,19 @@
                 }
             })
         })
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("nome").value = localStorage.getItem("nome") || "";
+            document.getElementById("email").value = localStorage.getItem("email") || "";
+        });
+
+        document.getElementById("form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            localStorage.setItem("nome", document.getElementById("nome").value);
+            localStorage.setItem("email", document.getElementById("email").value);
+            alert("Dados salvos!");
+        });
+
     </script>
 </body>
 
