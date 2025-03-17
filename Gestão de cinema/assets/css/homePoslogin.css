@@ -33,6 +33,7 @@ nav ul li a {
     text-decoration: none;
     font-size: 16px;
     transition: color 0.3s;
+    padding-left: 10px;
 }
 
 nav ul li a:hover {
@@ -281,7 +282,7 @@ img {
 .btn-perfil {
     background-color: #ff0000;
     color: white;
-    padding: 10px 20px;
+    padding: 10px 15px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
