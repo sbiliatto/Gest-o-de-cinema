@@ -1,22 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="Gestão de cinema/assets/css/adicfil.css">
-    
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
-            rel="stylesheet">
+<html lang="pt-br">
 
-        <script src="assets/js/seguranca.js"></script>
-    
-        <title>PrimeCine</title>
-    
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Cine - Perfil</title>
+    <link rel="stylesheet" href="Gestão de cinema/assets/css/adicfil.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="Gestão de cinema/assets/js/seguranca.js"></script>
+</head>
+
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById("menuPerfil");
+        menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    }
+
+    window.onclick = function (event) {
+        const menu = document.getElementById("menuPerfil");
+        const botaoPerfil = document.querySelector('.btn-perfil');
+
+        if (menu.style.display === "block" && event.target !== menu && event.target !== botaoPerfil) {
+            menu.style.display = "none";
+        }
+    }
+</script>
+
 <body>
-    
+    <header>
+        <img class="logo" src="Gestão de cinema/assets/img/PRIME CINE logo.png" alt="Logo empresarial">
+        <nav>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="promoções.html">PROMOÇÕES</a></li>
+                <li><a href="relatorios.html">RELATÓRIO</a></li>
+            </ul>
+        </nav>
+
+
+    </header>
+
+    <main>
+        <h2>Adicionar Filme</h2>
+        <form action="adicionar_filme.php" method="POST" enctype="multipart/form-data">
+            <label for="titulo">Título do Filme:</label>
+            <input type="text" id="titulo" name="titulo" required>
+
+            <label for="classificacao">Classificação:</label>
+            <input type="text" id="classificacao" name="classificacao" required>
+
+            <label for="genero">Gênero:</label>
+            <input type="text" id="genero" name="genero" required>
+
+            <label for="sinopse">Sinopse:</label>
+            <textarea id="sinopse" name="sinopse" required></textarea>
+
+            <label for="imagem">Imagem:</label>
+            <input type="file" id="imagem" name="imagem" accept="image/*">
+
+            <button type="submit">Adicionar Filme</button>
+        </form>
+    </main>
+
+
 </body>
+
 </html>
