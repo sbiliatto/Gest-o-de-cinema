@@ -105,7 +105,32 @@
         })
         .catch(error => console.error("Erro ao buscar usuário:", error));
     });
+
+    document.getElementById("form-editar").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const userId = 1; // Substitua pelo ID real do usuário
+    const nome = document.getElementById("nome").value;
+    const telefone = document.getElementById("telefone").value;
+    const email = document.getElementById("email").value;
+
+    fetch(`http://10.92.3.229:5000/cadastro/${userId}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ nome, telefone, email })
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);
+    })
+    .catch(error => console.error("Erro ao atualizar:", error));
+});
+
     </script>
+
+
 
     
 
