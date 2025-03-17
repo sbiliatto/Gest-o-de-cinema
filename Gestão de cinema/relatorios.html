@@ -8,56 +8,100 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
     <link
         href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
         rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        
+        
+
     <title>PrimeCine</title>
 
 </head>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("menuPerfil");
+            menu.style.display = (menu.style.display === "block") ? "none" : "block";
+        }
+
+        window.onclick = function (event) {
+            const menu = document.getElementById("menuPerfil");
+            const botaoPerfil = document.querySelector('.btn-perfil');
+
+            if (menu.style.display === "block" && event.target !== menu && event.target !== botaoPerfil) {
+                menu.style.display = "none";
+            }
+        }
+    </script>
+    
+</header>
 
 <body>
     <header>
         <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
         <nav>
             <ul>
-                <li><a href="#">HOME</a></li>
+                <li><a href="index.html">HOME</a></li>
                 <li><a href="promoções.html">PROMOÇÕES</a></li>
                 <li><a href="relatorios.html">RELATÓRIO</a></li>
             </ul>
         </nav>
 
+
         <div class="acao">
-            <a class="btn-entrar" href="login.html">ENTRAR</a>
-            <i class="fas fa-search"></i>
+            <a class="perfil" href="perfi.html"> <img src="assets/img/do-utilizador.png" alt=""></a>
+
+        <div class="perfil-container">
+            <button class="btn-perfil" onclick="toggleMenu()">Perfil</button>
+            <div class="menu-perfil" id="menuPerfil">
+                <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
+                <ul>
+                    <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
+                    <li><a href="editar.html">✏️ Editar perfil</a></li>
+                    <li><a href="#">🚪 Sair da Conta</a></li>
+                </ul>
+            </div>
+
         </div>
+
     </header>
 
     <div class="barra"></div>
-    
+
     <h1 class="relatorio">Relatório</h1>  
+
     <div class="download-container">
-        <a class="relatorio" href="cadastro.html">
+        <a href="http://10.92.3.229:5000/relatorio" class="relatorio">
             <i class="fa-solid fa-download" style="color: #dd1d1d;"></i>
         </a>
     </div>
 
-    <div class="barra"></div>
-
-
     
+
+    <div class="barra"></div>
 
     <footer class="rodape">
         <a class="cadastro" href="cadastro.html">Cadastrar-se</a>
 
         <div class="socialicones">
-            <img src="assets/img/instagram.png"alt="Instagram">
-            <img src="assets/img/twitter.png"  alt="Twitter">
-            <img src="assets/img/youtube.png"  alt="YouTube">
+            <a href="https://www.instagram.com/">
+                <img src="assets/img/instagram.png" alt="Instagram">
+            </a>
+
+            <a href="https://www.whatsapp.com/?lang=pt_BR">
+                <img src="assets/img/whatsapp (1).png" alt="Instagram">
+            </a>
+
+            <a href="https://x.com/?lang=pt">
+                <img src="assets/img/twitter.png" alt="Twitter">
+            </a>
+
+            <a href="https://www.facebook.com/?locale=pt_BR">
             <img src="assets/img/facebook.png" alt="Facebook">
-            <img src="assets/img/linkedin.png" alt="LinkedIn">
+            </a>
+            
         </div>
         <div class="info">
             <p><strong>ENDEREÇO:</strong> Rua Bragança, Bairro Tilagro, nº 307 - Birigui</p>
@@ -72,5 +116,6 @@
     </div>
 
 </body>
+ 
 
 </html>
