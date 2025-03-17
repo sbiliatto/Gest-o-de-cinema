@@ -1,21 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="Gestão de cinema/assets/css/editarfilm.css">
-    
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
-            rel="stylesheet">
+<html lang="pt-br">
 
-        <script src="assets/js/seguranca.js"></script>
-    
-        <title>PrimeCine</title>
-    
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Cine - Perfil</title>
+    <link rel="stylesheet" href="Gestão de cinema/assets/css/editarfilm.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="assets/js/seguranca.js"></script>
 
     <script>
         function toggleMenu() {
@@ -32,10 +26,10 @@
             }
         }
     </script>
-    
+
 <body>
     <header>
-        <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
+        <img class="logo" src="Gestão de cinema/assets/img/PRIME CINE logo.png" alt="Logo empresarial">
         <nav>
             <ul>
                 <li><a href="index.html">HOME</a></li>
@@ -45,26 +39,31 @@
         </nav>
 
 
-        <div class="acao">
-            <a class="perfil" href="perfi.html"> <img src="assets/img/do-utilizador.png" alt=""></a>
-
-        <div class="perfil-container">
-            <button class="btn-perfil" onclick="toggleMenu()">Perfil</button>
-            <div class="menu-perfil" id="menuPerfil">
-                <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
-                <ul>
-                    <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
-                    <li><a href="editar.html">✏️ Editar perfil</a></li>
-                    <li><a href="#">🚪 Sair da Conta</a></li>
-                </ul>
-            </div>
-
-        </div>
-
     </header>
 
-    <div class="barra"></div>
+    <main>
+        <h2>Editar Filme</h2>
+        <form action="editar_filme.php" method="POST" enctype="multipart/form-data">
+            <label for="titulo">Título do Filme:</label>
+            <input type="text" id="titulo" name="titulo" required>
 
-    
+            <label for="classificacao">Classificação:</label>
+            <input type="text" id="classificacao" name="classificacao" required>
+
+            <label for="genero">Gênero:</label>
+            <input type="text" id="genero" name="genero" required>
+
+            <label for="sinopse">Sinopse:</label>
+            <textarea id="sinopse" name="sinopse" required></textarea>
+
+            <label for="imagem">Imagem:</label>
+            <input type="file" id="imagem" name="imagem" accept="image/*">
+
+            <button type="submit">Salvar Alterações</button>
+        </form>
+    </main>
+
+
 </body>
+
 </html>
