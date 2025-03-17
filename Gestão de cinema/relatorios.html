@@ -85,53 +85,6 @@
             <i class="fa-solid fa-download" style="color: #dd1d1d;"></i>
         </a>
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-    const userId = 1; // Substitua pelo ID do usuário logado
-
-    fetch(`http://10.92.3.229:5000/cadastro/${userId}`)
-        .then(response => response.json())
-        .then(data => {
-            if (data.error) {
-                console.error("Usuário não encontrado");
-                return;
-            }
-
-            // Preenche os campos do formulário com os dados do usuário
-            document.getElementById("nome").value = data.nome;
-            document.getElementById("telefone").value = data.telefone;
-            document.getElementById("email").value = data.email;
-        })
-        .catch(error => console.error("Erro ao buscar usuário:", error));
-    });
-
-    document.getElementById("form-editar").addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    const userId = 1; // Substitua pelo ID real do usuário
-    const nome = document.getElementById("nome").value;
-    const telefone = document.getElementById("telefone").value;
-    const email = document.getElementById("email").value;
-
-    fetch(`http://10.92.3.229:5000/cadastro/${userId}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ nome, telefone, email })
-    })
-    .then(response => response.json())
-    .then(data => {
-        alert(data.message);
-    })
-    .catch(error => console.error("Erro ao atualizar:", error));
-});
-
-    </script>
-
-
-
     
 
     <div class="barra"></div>
