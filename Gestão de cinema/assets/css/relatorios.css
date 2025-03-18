@@ -428,3 +428,73 @@ img {
     width: 30vh;
     margin-right: 10px;
 }
+
+
+@media (max-width: 768px) {
+
+nav ul {
+    flex-direction: column;
+    padding-top: 10px;
+    padding-left: 0;
+}
+
+header {
+    flex-direction: column;
+    text-align: center;
+    display: flex;
+    gap: 29px;
+}
+
+.perfil{
+    display: none;
+
+}
+
+.perfil-container{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin-left: -13px;
+}
+
+.logo{
+    width: 20vh;
+    margin-left: 45px;
+    margin-right: 33px;
+}
+
+.relatorio{
+    font-size: 15px;
+}
+
+.p{
+    font-size: 15px;
+}
+    
+.socialicones {
+    margin-top: 108px;
+
+}
+
+.cadastro{
+    font-size: 10px;
+    margin-left: 90px;
+    margin-top: 25px;
+
+}
+
+.socialicones{
+    margin-left: 77px;
+    padding-bottom: 15px;
+    width: 112px;
+}
+
+.info{
+    text-align: left;
+    font-size: 15px;
+}
+
+
+
+
+}

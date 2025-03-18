@@ -25,15 +25,33 @@
                 <div class="campo">
                     <input type="email" name="email" id="email" placeholder="E-mail">
                 </div>
-                <div class="campo">
+                <div class="campo campo-senha">
                     <input type="password" name="senha" id="senha" placeholder="Senha">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2767/2767146.png" 
+                         alt="Mostrar senha" class="eye-icon" id="toggleSenha">
                 </div>
                 <span id="erro-senha" class="erro"></span>
                 <button type="submit" class="botao">Cadastrar</button>
             </form>
         </div>
     </div>
+
     <script>
+        // Alternar visibilidade da senha
+        $("#toggleSenha").on("click", function () {
+            let senhaInput = $("#senha");
+            let icone = $("#toggleSenha");
+
+            if (senhaInput.attr("type") === "password") {
+                senhaInput.attr("type", "text");
+                icone.attr("src", "https://cdn-icons-png.flaticon.com/512/2767/2767149.png"); // Olho aberto
+            } else {
+                senhaInput.attr("type", "password");
+                icone.attr("src", "https://cdn-icons-png.flaticon.com/512/2767/2767146.png"); // Olho fechado
+            }
+        });
+
+        // Validação e envio do formulário
         $("#form_cadastro").on("submit", function(e) {
             e.preventDefault();
             let nome = $("#nome").val().trim();
