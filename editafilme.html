@@ -11,6 +11,10 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
+    <script src="assets/js/seguranca.js" defer></script>
+
+
+
     <script>
         function toggleMenu() {
             const menu = document.getElementById("menuPerfil");
@@ -32,9 +36,9 @@
         <img class="logo" src="Gestão de cinema/assets/img/PRIME CINE logo.png" alt="Logo empresarial">
         <nav>
             <ul>
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="promoções.html">PROMOÇÕES</a></li>
-                <li><a href="relatorios.html">RELATÓRIO</a></li>
+                <li><a class="nav" href="index.html">HOME</a></li>
+                <li><a class="nav" href="promoções.html">PROMOÇÕES</a></li>
+                <li><a class="nav" href="relatorios.html">RELATÓRIO</a></li>
             </ul>
         </nav>
 
@@ -59,7 +63,7 @@
             <label for="imagem">Imagem:</label>
             <input type="file" id="imagem" name="imagem" accept="image/*">
 
-            <button type="submit">Salvar Alterações</button>
+            <a class="botao" type="submit" href="">Salvar alterações</a>
         </form>
     </main>
 

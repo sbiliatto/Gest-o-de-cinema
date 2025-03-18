@@ -12,6 +12,13 @@
         href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
         rel="stylesheet">
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+        <script src="assets/js/seguranca.js" defer></script>
+        <title>PrimeCine</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
         
         
@@ -78,28 +85,6 @@
             <i class="fa-solid fa-download" style="color: #dd1d1d;"></i>
         </a>
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-    const userId = 1; // Substitua pelo ID do usuário logado
-
-    fetch(`http://10.92.3.229:5000/cadastro/${userId}`)
-        .then(response => response.json())
-        .then(data => {
-            if (data.error) {
-                console.error("Usuário não encontrado");
-                return;
-            }
-
-            // Preenche os campos do formulário com os dados do usuário
-            document.getElementById("nome").value = data.nome;
-            document.getElementById("telefone").value = data.telefone;
-            document.getElementById("email").value = data.email;
-        })
-        .catch(error => console.error("Erro ao buscar usuário:", error));
-    });
-    </script>
-
     
 
     <div class="barra"></div>

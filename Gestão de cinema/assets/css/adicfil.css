@@ -72,7 +72,7 @@ input, textarea {
     color: white;
 }
 
-button {
+a {
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -81,8 +81,10 @@ button {
     font-size: 16px;
     cursor: pointer;
     transition: background 0.3s;
+    text-decoration: none;
+    text-align: center;
 }
 
-button:hover {
+a:hover {
     background-color: darkred;
 }

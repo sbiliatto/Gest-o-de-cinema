@@ -89,11 +89,16 @@ input::placeholder {
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    margin-bottom: 10px;
 }
 
 .botao:hover {
     background-color: brown;
     transition: 0.9s;
+}
+
+.oi {
+    color: red;
 }
 
 @media (max-width: 1024px) {
