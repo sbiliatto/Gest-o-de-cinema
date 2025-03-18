@@ -65,10 +65,11 @@
                 contentType: "application/json",
                 success: function (retorno) {
 
-                    localStorage.setItem("token", retorno.token)
-                    localStorage.setItem("nome", retorno.nome)
-                    localStorage.setItem("email", retorno.email)
-                    localStorage.setItem("senha", retorno.senha)
+                    localStorage.setItem("token", retorno.usuarios.token)
+                    localStorage.setItem("nome", retorno.usuarios.nome)
+                    localStorage.setItem("email", retorno.usuarios.email)
+                    localStorage.setItem("telefone", retorno.usuarios.telefone)
+                    localStorage.setItem("id_cadastro", retorno.usuarios.id_cadastro)
 
                     Swal.fire({
                         title: "Deu Certo!",
@@ -87,19 +88,6 @@
                 }
             });
         });
-    </script>
-
-    <script>
-        $("#btn").on("click", function () {
-
-            let token = "SECRETY_KEY"
-
-            localStorage.setItem("calopsita", token)
-            localStorage.setItem("nome", "NOME")
-            localStorage.setItem("ID", "ID do usuario")
-            
-
-        })
     </script>
 
 
