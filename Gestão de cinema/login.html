@@ -59,9 +59,11 @@
         $("#form_login").on("submit", function (e) {
             e.preventDefault();
 
+              // pega os valores dos campos email e senha
             let email = $("input[name='email']").val().trim();
             let senha = $("input[name='senha']").val().trim();
 
+              // ve se os campos estão preenchidos
             if (email === "" || senha === "") {
                 Swal.fire({
                     title: "Erro!",
@@ -76,9 +78,9 @@
             $.ajax({
                 method: "post",
                 url: "http://10.92.3.229:5000/login",
-                data: dados,
+                data: dados, // envia os dados do formulário
                 contentType: "application/json",
-                success: function (retorno) {
+                success: function (retorno) { // caso o login de certo
 
                     localStorage.setItem("token", retorno.usuarios.token)
                     localStorage.setItem("nome", retorno.usuarios.nome)
@@ -86,6 +88,8 @@
                     localStorage.setItem("telefone", retorno.usuarios.telefone)
                     localStorage.setItem("id_cadastro", retorno.usuarios.id_cadastro)
 
+
+                     // mostra mensagem que deu certo e redireciona para a página pós-login
                     Swal.fire({
                         title: "Deu Certo!",
                         text: "Login realizado com sucesso!",
@@ -94,7 +98,7 @@
                         window.location.href = "homePoslogin.html";
                     });
                 },
-                error: function (retorno) {
+                error: function (retorno) { // caso de erro no login
                     Swal.fire({
                         title: "Erro!",
                         text: retorno.responseJSON?.error || "Erro ao tentar fazer login.",
