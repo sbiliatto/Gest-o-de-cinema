@@ -253,6 +253,7 @@ img {
 
 .info {
     text-align: right;
+    margin-right: 49px;
 }
 
 .info p {
@@ -397,6 +398,7 @@ img {
 
 .socialicones {
     display: flex;
+    margin-left: 50px;
     gap: 10px;
 }
 
@@ -406,6 +408,7 @@ img {
 
 .info {
     text-align: right;
+    margin-right: 43px;
 }
 
 .info p {
@@ -489,9 +492,10 @@ header {
     width: 112px;
 }
 
-.info{
+.info {
     text-align: left;
     font-size: 15px;
+    margin-right: 33px
 }
 
 
