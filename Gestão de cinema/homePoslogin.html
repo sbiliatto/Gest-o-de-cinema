@@ -31,7 +31,7 @@
 
         window.onclick = function (event) {
             const menu = document.getElementById("menuPerfil");
-            const botaoPerfil = document.querySelector('.btn-perfil');
+            const botaoPerfil = document.querySelector('.btn-perfil2');
 
             if (menu.style.display === "block" && event.target !== menu && event.target !== botaoPerfil) {
                 menu.style.display = "none";
@@ -52,10 +52,9 @@
 
 
         <div class="acao">
-            <a class="perfil" href="perfi.html"> <img src="assets/img/do-utilizador.png" alt=""></a>
 
         <div class="perfil-container">
-            <button class="btn-perfil" onclick="toggleMenu()">perfil</button>
+            <img onclick="toggleMenu()" class="btn-perfil2" src="assets/img/do-utilizador.png" alt="">
             <div class="menu-perfil" id="menuPerfil">
                 <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
                 <ul>
