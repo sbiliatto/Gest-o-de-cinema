@@ -90,54 +90,61 @@
         </div>
     </div>
     <script>
-        $("#form_editar").on("submit", function (e) {
-
-            e.preventDefault()
-            let dados = new FormData(this)
-
+        document.getElementById("form_editar").addEventListener("submit", function (e) {
+            e.preventDefault(); 
+    
+            
+            let dados = new FormData(this);
+    
             let envia = {
                 nome: dados.get("nome"),
                 email: dados.get("email"),
                 telefone: dados.get("tel"),
                 senha: dados.get("senha"),
                 tipo: "cliente"
-            }
-
-            envia = JSON.stringify(envia)
-
+            };
+    
+            envia = JSON.stringify(envia);
+    
+           
+            localStorage.setItem("nome", dados.get("nome"));
+            localStorage.setItem("email", dados.get("email"));
+            localStorage.setItem("telefone", dados.get("tel"));
+    
             $.ajax({
                 method: "PUT",
-
                 url: "http://10.92.3.229:5000/cadastro",
                 data: envia,
                 contentType: "application/json",
-
                 success: function (retorno) {
-                    alert("Edição Realizada!")
-                    console.log(retorno)
+                    Swal.fire({
+                        icon: "success",
+                        title: "Edição Realizada!",
+                        text: "Seus dados foram atualizados com sucesso!",
+                        confirmButtonText: "OK"
+                    }).then(() => {
+                        window.location.reload(); 
+                    });
+                    console.log(retorno);
                 },
-
                 error: function (retorno) {
-                    alert(retorno.responseJSON.error)
+                    Swal.fire({
+                        icon: "error",
+                        title: "Erro!",
+                        text: retorno.responseJSON.error || "Erro ao atualizar os dados.",
+                        confirmButtonText: "OK"
+                    });
                 }
-            })
-        })
+            });
+        });
 
         document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("nome").value = localStorage.getItem("nome") || "";
             document.getElementById("email").value = localStorage.getItem("email") || "";
             document.getElementById("telefone").value = localStorage.getItem("telefone") || "";
         });
-
-        document.getElementById("form_editar").addEventListener("submit", function (e) {
-            e.preventDefault();
-            localStorage.setItem("nome", document.getElementById("nome").value);
-            localStorage.setItem("email", document.getElementById("email").value);
-            localStorage.setItem("telefone", document.getElementById("telefone").value);
-            alert("Dados salvos!");
-        });
-
     </script>
+    
 </body>
 
 </html>
