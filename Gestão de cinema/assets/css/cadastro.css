@@ -41,6 +41,25 @@
     padding: 20px;
 }
 
+.campo-senha {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.campo-senha input {
+    width: 100%;
+    padding-right: 40px;
+}
+
+.eye-icon {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
 h2 {
     color: rgba(206, 5, 5, 0.86);
     font-size: 32px;

@@ -70,6 +70,32 @@ input::placeholder {
     color: red;
 }
 
+
+.campo-entrada {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.campo-entrada input {
+    width: 100%;
+    padding-right: 40px;
+}
+
+.icone {
+    margin-right: 10px;
+}
+
+.eye-icon {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+
+
 .icone {
     color: rgba(239, 0, 0, 1);
     font-size: 18px;
