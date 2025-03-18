@@ -17,7 +17,44 @@
 
 
     <script>
-        
+        function validarFormulario(event) {
+            event.preventDefault();
+
+            const telefone = document.getElementById('telefone');
+            const email = document.getElementById('email');
+            const senha = document.getElementById('senha');
+            const erroTelefone = document.getElementById('erro-telefone');
+            const erroEmail = document.getElementById('erro-email');
+            const erroSenha = document.getElementById('erro-senha');
+            let valido = true;
+
+            const telefoneValido = /^[0-9]+$/;
+            const emailValido = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+            const senhaValida = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}":;'?/>,.<]).{8,}$/;
+
+            erroTelefone.textContent = "";
+            erroEmail.textContent = "";
+            erroSenha.textContent = "";
+
+            if (!telefoneValido.test(telefone.value)) {
+                erroTelefone.textContent = 'O telefone deve conter apenas números!';
+                valido = false;
+            }
+
+            if (!emailValido.test(email.value)) {
+                erroEmail.textContent = 'Digite um e-mail válido do Gmail!';
+                valido = false;
+            }
+
+            if (!senhaValida.test(senha.value)) {
+                erroSenha.textContent = 'A senha deve ter 8 caracteres, 1 letra maiúscula e 1 símbolo!';
+                valido = false;
+            }
+
+            if (valido) {
+                document.getElementById('form-editar').submit();
+            }
+        }
     </script>
 
 
