@@ -231,6 +231,7 @@ img {
 
 .info {
     text-align: right;
+    margin-right: 10px;
 }
 
 .info p {
@@ -399,6 +400,7 @@ header {
 
     .info{
         text-align: center;
+        
     }
 
 
