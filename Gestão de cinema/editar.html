@@ -120,6 +120,11 @@
                     text: "Seus dados foram atualizados com sucesso!",
                     confirmButtonText: "OK"
                 }).then(() => {
+                    localStorage.setItem("nome", dados.get("nome"))
+                    localStorage.setItem("email", dados.get("email"))
+                    localStorage.setItem("tel", dados.get("tel"))
+
+
                     window.location.href = "homePoslogin.html";
                 });
                 console.log(retorno);
