@@ -121,6 +121,29 @@
         <img src="assets/img/PRIMECINEll.PNG" alt="Logo Prime Cine">
     </div>
 
+    <script>
+        let indiceAtual = 0;
+        const slides = document.querySelector(".slides");
+        const indicadores = document.querySelectorAll(".indicador");
+
+        var nome = localStorage.getItem("nome")
+        document.getElementById("nome-visitante").innerHTML = nome
+
+        function mudarSlide(indice) {
+            indiceAtual = indice;
+            let deslocamento = -indice * 100 + "%";
+            slides.style.transform = "translateX(" + deslocamento + ")";
+            indicadores.forEach((ind, i) => {
+                ind.classList.toggle("ativo", i === indice);
+            });
+        }
+
+        setInterval(() => {
+            indiceAtual = (indiceAtual + 1) % 3;
+            mudarSlide(indiceAtual);
+        }, 5000);
+    </script>
+
 </body>
  
 
