@@ -235,7 +235,7 @@ img {
 .rodape {
     background-color: black;
     color: white;
-    padding: 20px;
+    padding: 20px 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -251,11 +251,13 @@ img {
     border-radius: 10px;
     border: none;
     cursor: pointer;
+    margin-left: 10px;
 }
 
 .socialicones {
     display: flex;
     gap: 10px;
+    padding-left: 65px;
 }
 
 .socialicones img {
@@ -265,7 +267,7 @@ img {
 .info {
     text-align: right;
 }
-
+  
 .info p {
     margin: 5px 0;
 }
@@ -282,6 +284,7 @@ img {
     width: 30vh;
     margin-right: 10px;
 }
+
 
 
 /*Responsivo*/
