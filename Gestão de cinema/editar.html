@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar - Prime Cine</title>
     <link rel="stylesheet" href="assets/css/editar.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -90,61 +89,59 @@
         </div>
     </div>
     <script>
-        document.getElementById("form_editar").addEventListener("submit", function (e) {
-            e.preventDefault(); 
-    
-            
-            let dados = new FormData(this);
-    
+        $("#form_editar").on("submit", function (e) {
+
+            e.preventDefault()
+            let dados = new FormData(this)
+
+            var id = localStorage.getItem("id_cadastro")
+
             let envia = {
                 nome: dados.get("nome"),
                 email: dados.get("email"),
                 telefone: dados.get("tel"),
                 senha: dados.get("senha"),
                 tipo: "cliente"
-            };
-    
-            envia = JSON.stringify(envia);
-    
-           
-            localStorage.setItem("nome", dados.get("nome"));
-            localStorage.setItem("email", dados.get("email"));
-            localStorage.setItem("telefone", dados.get("tel"));
-    
+            }
+
+            envia = JSON.stringify(envia)
+
             $.ajax({
                 method: "PUT",
-                url: "http://10.92.3.229:5000/cadastro",
+
+                url: "http://10.92.3.229:5000/cadastro/" + id,
                 data: envia,
                 contentType: "application/json",
+
                 success: function (retorno) {
-                    Swal.fire({
-                        icon: "success",
-                        title: "Edição Realizada!",
-                        text: "Seus dados foram atualizados com sucesso!",
-                        confirmButtonText: "OK"
-                    }).then(() => {
-                        window.location.reload(); 
-                    });
-                    console.log(retorno);
-                },
-                error: function (retorno) {
-                    Swal.fire({
-                        icon: "error",
-                        title: "Erro!",
-                        text: retorno.responseJSON.error || "Erro ao atualizar os dados.",
-                        confirmButtonText: "OK"
-                    });
-                }
-            });
-        });
+                Swal.fire({
+                    icon: "success",
+                    title: "Edição Realizada!",
+                    text: "Seus dados foram atualizados com sucesso!",
+                    confirmButtonText: "OK"
+                }).then(() => {
+                    window.location.href = "homePoslogin.html";
+                });
+                console.log(retorno);
+            },
+            error: function (retorno) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Erro!",
+                    text: retorno.responseJSON.error || "Esse e-mail já existe.",
+                    confirmButtonText: "OK"
+                });
+            }
+            })
+        })
 
         document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("nome").value = localStorage.getItem("nome") || "";
             document.getElementById("email").value = localStorage.getItem("email") || "";
             document.getElementById("telefone").value = localStorage.getItem("telefone") || "";
         });
+
     </script>
-    
 </body>
 
 </html>
