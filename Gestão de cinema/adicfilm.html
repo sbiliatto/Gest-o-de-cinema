@@ -10,6 +10,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <script src="assets/js/seguranca.js" defer></script>
+
 
 </head>
 
@@ -29,7 +31,7 @@
 
     <main>
         <h2>Adicionar Filme</h2>
-        <form action="adicionar_filme.php" method="POST" enctype="multipart/form-data">
+        <form id="form_cadastro">
             <label for="titulo">Título do Filme:</label>
             <input type="text" id="titulo" name="titulo" required>
 
@@ -45,12 +47,55 @@
             <label for="imagem">Imagem:</label>
             <input type="file" id="imagem" name="imagem" accept="image/*">
 
-            <button type="submit">Salvar alterações</button>
+            <button type="submit">Adicionar Filme</button>
 
         </form>
     </main>
 
+    <script>
+        $("#form_cadastro").on("submit", function(e) {
+            e.preventDefault();
 
+            var token = localStorage.getItem("token")
+
+            var form = new FormData(this);
+
+            var settings = {
+                "url": "http://10.92.3.229:5000/filme_imagem",
+                "method": "POST",
+                "timeout": 0,
+                "headers": {
+                    "Authorization": "Bearer " + token
+                },
+                "processData": false,
+                "mimeType": "multipart/form-data",
+                "contentType": false,
+                "data": form,
+                "success": function(retorno) {
+                    Swal.fire({
+                        title: "Deu Certo!",
+                        text: "Filme Adicionado com sucesso!",
+                        icon: "success"
+                    })
+                },
+
+                "error": function(retorno) {
+                    Swal.fire({
+                        title: "Erro!",
+                        text: retorno.responseJSON?.error || "Erro ao adicionar filme",
+                        icon: "error"
+    });
+                }
+            };
+
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+            })
+
+            
+        });
+
+    </script>
 </body>
 
 </html>
