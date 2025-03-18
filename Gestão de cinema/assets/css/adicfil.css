@@ -4,6 +4,11 @@
     box-sizing: border-box;
     font-family: Arial, sans-serif;
     color: white;
+    text-decoration: none;
+}
+
+body{
+    background: rgb(139, 137, 137);
 }
 
 header {
@@ -26,14 +31,14 @@ nav ul {
     padding-left: 110vh;
 }
 
-nav ul li a {
+nav ul li button {
     color: white;
     text-decoration: none;
     font-size: 16px;
     transition: color 0.3s;
 }
 
-nav ul li a:hover {
+nav ul li button, .nav:hover {
     color: red;
 }
 
@@ -72,7 +77,7 @@ input, textarea {
     color: white;
 }
 
-a {
+button {
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -85,6 +90,6 @@ a {
     text-align: center;
 }
 
-a:hover {
+button:hover {
     background-color: darkred;
 }

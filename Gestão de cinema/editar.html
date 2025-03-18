@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="assets/css/editar.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -68,7 +69,7 @@
         </div>
         <div class="direita">
             <h2>Editar Perfil</h2>
-            <form id="form_editar">
+            <form id="form_editar" onsubmit="validarFormulario(event)">
                 <div class="campo">
                     <input type="text" name="nome" id="nome" placeholder="Editar nome">
                 </div>
@@ -89,52 +90,61 @@
         </div>
     </div>
     <script>
-        $("#form_editar").on("submit", function (e) {
-
-            e.preventDefault()
-            let dados = new FormData(this)
-
+        document.getElementById("form_editar").addEventListener("submit", function (e) {
+            e.preventDefault(); 
+    
+            
+            let dados = new FormData(this);
+    
             let envia = {
                 nome: dados.get("nome"),
                 email: dados.get("email"),
                 telefone: dados.get("tel"),
                 senha: dados.get("senha"),
                 tipo: "cliente"
-            }
-
-            envia = JSON.stringify(envia)
-
+            };
+    
+            envia = JSON.stringify(envia);
+    
+           
+            localStorage.setItem("nome", dados.get("nome"));
+            localStorage.setItem("email", dados.get("email"));
+            localStorage.setItem("telefone", dados.get("tel"));
+    
             $.ajax({
                 method: "PUT",
-
                 url: "http://10.92.3.229:5000/cadastro",
                 data: envia,
                 contentType: "application/json",
-
                 success: function (retorno) {
-                    alert("Edição Realizada!")
-                    console.log(retorno)
+                    Swal.fire({
+                        icon: "success",
+                        title: "Edição Realizada!",
+                        text: "Seus dados foram atualizados com sucesso!",
+                        confirmButtonText: "OK"
+                    }).then(() => {
+                        window.location.reload(); 
+                    });
+                    console.log(retorno);
                 },
-
                 error: function (retorno) {
-                    alert(retorno.responseJSON.error)
+                    Swal.fire({
+                        icon: "error",
+                        title: "Erro!",
+                        text: retorno.responseJSON.error || "Erro ao atualizar os dados.",
+                        confirmButtonText: "OK"
+                    });
                 }
-            })
-        })
+            });
+        });
 
         document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("nome").value = localStorage.getItem("nome") || "";
             document.getElementById("email").value = localStorage.getItem("email") || "";
+            document.getElementById("telefone").value = localStorage.getItem("telefone") || "";
         });
-
-        document.getElementById("form").addEventListener("submit", function (e) {
-            e.preventDefault();
-            localStorage.setItem("nome", document.getElementById("nome").value);
-            localStorage.setItem("email", document.getElementById("email").value);
-            alert("Dados salvos!");
-        });
-
     </script>
+    
 </body>
 
 </html>
