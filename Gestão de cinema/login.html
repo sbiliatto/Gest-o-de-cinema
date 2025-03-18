@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prime Cine - Cadastro</title>
+    <title>Prime Cine - Login</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="assets/css/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 
 <body>
@@ -25,19 +26,36 @@
                     <span class="icone"><i class="fas fa-envelope"></i></span>
                     <input type="email" name="email" placeholder="E-mail" required>
                 </div>
+
                 <div class="campo-entrada">
                     <span class="icone"><i class="fas fa-lock"></i></span>
-                    <input type="password" name="senha" placeholder="Senha" required>
+                    <input type="password" name="senha" id="senha" placeholder="Senha" required>
+                    <img src="https://cdn-icons-png.flaticon.com/512/2767/2767146.png" 
+                         alt="Mostrar senha" class="eye-icon" id="toggleSenha">
                 </div>
+
                 <button type="submit" class="botao" id="btn">ENTRAR</button>
                 <p>Ainda não tem uma conta? <a class="oi" href="cadastro.html">Cadastre-se</a></p>
             </form>
         </div>
     </div>
 
-
-
     <script>
+        
+        $("#toggleSenha").on("click", function () {
+            let senhaInput = $("#senha");
+            let icone = $("#toggleSenha");
+
+            if (senhaInput.attr("type") === "password") {
+                senhaInput.attr("type", "text");
+                icone.attr("src", "https://cdn-icons-png.flaticon.com/512/2767/2767149.png"); 
+            } else {
+                senhaInput.attr("type", "password");
+                icone.attr("src", "https://cdn-icons-png.flaticon.com/512/2767/2767146.png"); 
+            }
+        });
+
+        
         $("#form_login").on("submit", function (e) {
             e.preventDefault();
 
@@ -57,11 +75,8 @@
 
             $.ajax({
                 method: "post",
-
                 url: "http://10.92.3.229:5000/login",
-
                 data: dados,
-
                 contentType: "application/json",
                 success: function (retorno) {
 
@@ -89,7 +104,6 @@
             });
         });
     </script>
-
 
 </body>
 
