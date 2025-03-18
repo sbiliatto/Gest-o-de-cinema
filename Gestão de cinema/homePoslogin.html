@@ -132,6 +132,9 @@
         const slides = document.querySelector(".slides");
         const indicadores = document.querySelectorAll(".indicador");
 
+        var nome = localStorage.getItem("nome")
+        document.getElementById("nome-visitante").innerHTML = nome
+
         function mudarSlide(indice) {
             indiceAtual = indice;
             let deslocamento = -indice * 100 + "%";

@@ -37,21 +37,21 @@
     </div>
 
     <script>
-        // Alternar visibilidade da senha
+        
         $("#toggleSenha").on("click", function () {
             let senhaInput = $("#senha");
             let icone = $("#toggleSenha");
 
             if (senhaInput.attr("type") === "password") {
                 senhaInput.attr("type", "text");
-                icone.attr("src", "https://cdn-icons-png.flaticon.com/512/2767/2767149.png"); // Olho aberto
+                icone.attr("src", "https://cdn-icons-png.flaticon.com/512/2767/2767149.png"); 
             } else {
                 senhaInput.attr("type", "password");
-                icone.attr("src", "https://cdn-icons-png.flaticon.com/512/2767/2767146.png"); // Olho fechado
+                icone.attr("src", "https://cdn-icons-png.flaticon.com/512/2767/2767146.png"); 
             }
         });
 
-        // Validação e envio do formulário
+        
         $("#form_cadastro").on("submit", function(e) {
             e.preventDefault();
             let nome = $("#nome").val().trim();
