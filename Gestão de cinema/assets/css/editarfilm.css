@@ -6,6 +6,11 @@
     color: white;
 }
 
+body{
+    background: rgb(139, 137, 137);
+
+}
+
 header {
     display: flex;
     align-items: center;
