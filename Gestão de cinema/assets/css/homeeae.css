@@ -14,22 +14,24 @@ header {
     align-items: center;
     justify-content: space-between;
     background: black;
-    padding: 15px 50px;
+    padding: 15px 89px;
     color: white;
+    
 }
 
-.cabecalho{
-    padding-right: 40px;
+.div-header{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 }
 
 .logo {
     width: 20vh;
-    margin-left: 45px;
+    margin-left: px;
 }
 
-
 nav ul {
-    padding-left: 110vh;
+    padding-left: 100vh;
     list-style: none;
     display: flex;
     gap: 20px;
@@ -42,8 +44,20 @@ nav ul li a {
     transition: color 0.3s;
 }
 
+.btn-perfil2{
+    margin-right: 43px;
+    
+}
+
 nav ul li a:hover {
     color: red;
+}
+
+.acao {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 6vh;
 }
 
 .barra {
