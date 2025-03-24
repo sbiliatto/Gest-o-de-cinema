@@ -12,6 +12,9 @@
         href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
         rel="stylesheet">
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 
     <title>PrimeCine</title>
@@ -125,8 +128,7 @@
 
     <div class="barra"></div>
 
-    <div class="gradedefilmes">
-    <div class="filme"><img src="assets/img/anybyoy.webp" alt="Todos Menos Você"></div>
+    <div class="gradedefilmes" id="exibeFilmes"></div>
         
 
     <div class="barra"></div>
@@ -165,6 +167,44 @@
     </div>
 
 </body>
+<script defer>
 
+function carregaProdutos() {
+    var settings = {
+        "url": "http://10.92.3.229:5000/filme_imagem",
+        "method": "GET",
+        "timeout": 0,
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    };
+  
+  $.ajax(settings).done(function (response) {
+    let exibe = $("#exibeFilmes")
+    exibe.html(" ")
+
+    var html = ""
+
+    response.cadastro.forEach((item) => {
+        console.log(item)
+
+        html += `
+        <div class="filme" >
+            <a href="">
+                <img src="http://10.92.3.229:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
+            </a>
+            </div>
+        `;
+
+        exibe.html(html)
+    })
+
+
+  });
+}
+
+carregaProdutos();
+
+</script>
 
 </html>
