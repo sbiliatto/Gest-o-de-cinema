@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Cine - Promoções</title>
+    <link rel="stylesheet" href="assets/css/promoções.css">
+</head>
+<body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="assets/js/seguranca.js" defer></script>
+
+    <title>PrimeCine</title>
+
+</head>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("menuPerfil");
+            menu.style.display = (menu.style.display === "block") ? "none" : "block";
+        }
+
+        window.onclick = function (event) {
+            const menu = document.getElementById("menuPerfil");
+            const botaoPerfil = document.querySelector('.btn-perfil2');
+
+            if (menu.style.display === "block" && event.target !== menu && event.target !== botaoPerfil) {
+                menu.style.display = "none";
+            }
+        }
+    </script>
+    
+<body>
+    <header>
+        <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
+        <nav>
+            <ul>
+                <li><a href="homePoslogin.html">HOME</a></li>
+                <li><a href="promoções.html">PROMOÇÕES</a></li>
+                <li><a href="relatorios.html">RELATÓRIO</a></li>
+            </ul>
+        </nav>
+    
+        <div class="acao">
+            <div class="perfil-container">
+                <img onclick="toggleMenu()" class="btn-perfil2" src="assets/img/do-utilizador.png" alt="">
+                <div class="menu-perfil" id="menuPerfil">
+                    <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
+                    <ul>
+                        <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
+                        <li><a href="editar.html">✏️ Editar perfil</a></li>
+                        <li><a href="#">🚪 Sair da Conta</a></li>
+                   
+    </header>
+
+    <div class="barra"></div>
+
+
+    <main>
+        <section class="promocoes">
+            <div class="filme">
+                <img src="assets/img/anybyoy.webp" alt="Todos Menos Você">
+                <div class="info">
+                    <p><strong>R$15,00</strong> valor unitário</p>
+                    <p>Dia 05 de Março de 2025. 15:45</p>
+                    <p>Sala 02</p>
+                    <p>*Na compra de 2 ingressos</p>
+                    <button>Reservar</button>
+                </div>
+            </div>
+            <div class="filme">
+                <img src="assets/img/Um_Lugar_Silencioso.webp" alt="Um Lugar Silencioso: Dia Um">
+                <div class="info">
+                    <p><strong>R$14,00</strong> valor unitário</p>
+                    <p>Dia 20 de Março de 2025. 21:00</p>
+                    <p>Sala 05</p>
+                    <p>*Na compra de 3 ingressos</p>
+                    <button>Reservar</button>
+                </div>
+            </div>
+            <div class="filme">
+                <img src="assets/img/sunstanciua.webp" alt="A Substância">
+                <div class="info">
+                    <p><strong>R$15,90</strong> valor unitário</p>
+                    <p>Dia 02 de Abril de 2025. 17:30</p>
+                    <p>Sala 01</p>
+                    <p>*Na compra de 1 ingresso</p>
+                    <button>Comprar</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="info">
+            <p><strong>PRIME CINE</strong></p>
+            <p>Endereço: Rua Bragança, Bairro Itágo, nº 307 - Birigui</p>
+            <p>Telefone: (00) 00000-0000</p>
+            <p>Email: primecine@gmail.com</p>
+        </div>
+    </footer>
+</body>
+</html>
