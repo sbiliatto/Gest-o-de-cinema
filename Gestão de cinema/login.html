@@ -96,8 +96,12 @@
                         text: "Login realizado com sucesso!",
                         icon: "success"
                     }).then(() => {
-                        window.location.href = "homePoslogin.html";
-                    });
+                        if (retorno.usuarios.tipo === "adm") {
+                            window.location.href = "home_adm.html";
+                        } else {
+                            window.location.href = "homePoslogin.html";
+                        }
+                    }); 
                 },
                 error: function (retorno) { // caso de erro no login
                     Swal.fire({

@@ -3,10 +3,12 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
+
 }
 
+
 body{
-    background-color: black;
+    background-color: black!important;
 }
 
 header {
@@ -17,6 +19,12 @@ header {
     padding: 15px 89px;
     color: white;
     
+}
+
+.div-header{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 }
 
 .logo {

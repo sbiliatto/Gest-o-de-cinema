@@ -21,7 +21,7 @@
 
 
     <script src="assets/js/seguranca.js" defer></script>
-    <script src=""></script>
+    <script src="assets/js/seguranca-adm.js" defer></script>
 
 
     <title>PrimeCine</title>
@@ -48,33 +48,38 @@
     <header>
         <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
 
-        <div class="btn-group">
-            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Right-aligned menu example
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="home_adm.html">HOME</a></li>
-                <li><a class="dropdown-item" href="promoções.html">PROMOÇÕES</a></li>
-                <li><a class="dropdown-item" href="relatorios.html">RELATÓRIO</a></li>
-                <li><a class="dropdown-item" href="config_filmes.html">CONFIG FILMES</a></li>
-                <li><a class="dropdown-item" href="listagem.html">LISTAGEM</a></li>
-            </ul>
-        </div>
+        
 
-        <div class="acao">
+            <div class="div-header">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-secondary dropdown-toggle bg-black border-2" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        MENU
+                    </button>
+                
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="home_adm.html">HOME</a></li>
+                    <li><a class="dropdown-item" href="promoções.html">PROMOÇÕES</a></li>
+                    <li><a class="dropdown-item" href="relatorios.html">RELATÓRIO</a></li>
+                    <li><a class="dropdown-item" href="homeeae.html">CONFIG FILMES</a></li>
+                    <li><a class="dropdown-item" href="listagem.html">LISTAGEM</a></li>
+                </ul>
+            </div>
 
-            <div class="perfil-container">
-                <img onclick="toggleMenu()" class="btn-perfil2" src="assets/img/do-utilizador.png" alt="">
-                <div class="menu-perfil" id="menuPerfil">
-                    <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
-                    <ul>
-                        <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
-                        <li><a href="editar.html">✏️ Editar perfil</a></li>
-                        <li><a href="#">🚪 Sair da Conta</a></li>
-                    </ul>
+            <div class="acao">
+
+                <div class="perfil-container">
+                    <img onclick="toggleMenu()" class="btn-perfil2" src="assets/img/do-utilizador.png" alt="">
+                    <div class="menu-perfil" id="menuPerfil">
+                        <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
+                        <ul>
+                            <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
+                            <li><a href="editar.html">✏️ Editar perfil</a></li>
+                            <li><a href="#">🚪 Sair da Conta</a></li>
+                        </ul>
                 </div>
 
+            </div>
             </div>
 
     </header>
