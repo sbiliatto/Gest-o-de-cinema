@@ -59,15 +59,19 @@
                     <ul>
                         <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
                         <li><a href="editar.html">✏️ Editar perfil</a></li>
-                        <li><a href="#">🚪 Sair da Conta</a></li>
+                        <li><a onclick="sair()" style="cursor: pointer;">🚪 Sair da Conta</a></li>
                     </ul>
                 </div>
 
             </div>
 
     <script>
-        localStorage.removeItem("token"); // Se armazenado no LocalStorage
-        sessionStorage.removeItem("token"); // Se armazenado no SessionStorage
+        function sair() {
+            localStorage.clear() // Se armazenado no LocalStorage
+            sessionStorage.clear() // Se armazenado no SessionStorage
+
+            window.location.href = "/login.html";
+        }
     </script>
     </header>
 
