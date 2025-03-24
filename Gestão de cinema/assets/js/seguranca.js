@@ -10,3 +10,8 @@ if(token === undefined || token === null) { //verifica se o token esta ausente, 
         window.location.href = "login.html"; //volta para a pagina de login
     });
 }
+
+
+
+
+
