@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar</title>
     <link rel="stylesheet" href="assets/css/editaradm.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body>
     <div class="sidebar">
@@ -14,7 +17,7 @@
         <h1>EDITAR</h1>
         <input type="text" placeholder="Edite o nome">
         <input type="email" placeholder="Edite o email">
-        <input type="password" placeholder="Edite a senha">
+        <input type="password" placeholder="Edite o telefone">
         <input type="text" placeholder="Edite o usuário">
         <div class="buttons">
             <button class="activate">ATIVAR</button>
@@ -22,14 +25,53 @@
         </div>
         <button class="save-button">SALVAR</button>
     </div>
+
+    <script>
+        $.ajax({
+                method: "PUT",
+
+                url: "http://10.92.3.229:5000/cadastro/" + id,
+                data: envia,
+                contentType: "application/json",
+
+                success: function (retorno) {
+                Swal.fire({
+                    icon: "success",
+                    title: "Edição Realizada!",
+                    text: "Os dados foram atualizados com sucesso!",
+                    confirmButtonText: "OK"
+                }).then(() => {
+                    localStorage.setItem("nome", dados.get("nome"))
+                    localStorage.setItem("email", dados.get("email"))
+                    localStorage.setItem("tel", dados.get("tel"))
+                    localStorage.setItem("tipo", dados.get("tipo"))
+
+
+                    window.location.href = "homePoslogin.html";
+                });
+                console.log(retorno);
+            },
+            error: function (retorno) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Erro!",
+                    text: retorno.responseJSON.error || "Esse e-mail já existe.",
+                    confirmButtonText: "OK"
+                });
+            }
+            })
+
+            document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("nome").value = localStorage.getItem("nome") || "";
+            document.getElementById("email").value = localStorage.getItem("email") || "";
+            document.getElementById("telefone").value = localStorage.getItem("telefone") || "";
+            document.getElementById("usuario").value = localStorage.getItem("usuario") || "";
+
+
+        });
+    </script>
+
 </body>
-
-
-
-
-
-
-
 
 </html>
 
