@@ -30,28 +30,48 @@
     <body>
         <header>
             <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
-            <nav>
-                <ul>
-                    <li><a href="homePoslogin.html">HOME</a></li>
-                    <li><a href="promoções.html">PROMOÇÕES</a></li>
-                    <li><a href="relatorios.html">RELATÓRIO</a></li>
-                </ul>
-            </nav>
-
-
-            <div class="acao">
-                <div class="perfil-container">
-                    <img onclick="toggleMenu()" class="btn-perfil2" src="assets/img/do-utilizador.png" alt="">
-                    <div class="menu-perfil" id="menuPerfil">
-                        <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
-                        <ul>
-                            <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
-                            <li><a href="editar.html">✏️ Editar perfil</a></li>
-                            <li><a href="#">🚪 Sair da Conta</a></li>
-                        </ul>
-                    </div>
+    
+            
+    
+                <div class="div-header">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary dropdown-toggle bg-black border-2" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            MENU
+                        </button>
+                    
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="home_adm.html">HOME</a></li>
+                        <li><a class="dropdown-item" href="promoadm.html">PROMOÇÕES</a></li>
+                        <li><a class="dropdown-item" href="relatorios_adm.html">RELATÓRIO</a></li>
+                        <li><a class="dropdown-item" href="homeeae.html">CONFIG FILMES</a></li>
+                        <li><a class="dropdown-item" href="listagem.html">LISTAGEM</a></li>
+                    </ul>
                 </div>
-            </div>         
+    
+                <div class="acao">
+    
+                    <div class="perfil-container">
+                        <img onclick="toggleMenu()" class="btn-perfil2" src="assets/img/do-utilizador.png" alt="">
+                        <div class="menu-perfil" id="menuPerfil">
+                            <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
+                            <ul>
+                                <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
+                                <li><a href="editar.html">✏️ Editar perfil</a></li>
+                                <li><a onclick="sair()" style="cursor: pointer;">🚪 Sair da Conta</a></li>
+                            </ul>
+                        </div>
+        
+                    </div>
+        
+            <script>
+                function sair() {
+                    localStorage.clear() // Se armazenado no LocalStorage
+                    sessionStorage.clear() // Se armazenado no SessionStorage
+        
+                    window.location.href = "/login.html";
+                }
+            </script>
         </header>
     
     <main>
@@ -67,7 +87,8 @@
                         <th>Ações</th>
                     </tr>
                 </thead>
-                <tbody id="user-list" class="hidden">
+                <tbody id="user-list">
+                    
                 </tbody>
             </table>
         </div>
@@ -107,36 +128,58 @@
     
     <div class="barraverm">
         <img src="assets/img/PRIMECINEll.PNG" alt="Logo Prime Cine">
-    </div>
+    </div> 
 
-    <script>
-        function addUser(name, email, phone, type) {
-            const userList = document.getElementById("user-list");
-            userList.classList.remove("hidden");
-            
-            const newRow = document.createElement("tr");
-            newRow.innerHTML = `
-                <td>${name}</td>
-                <td>${email}</td>
-                <td>${phone}</td>
-                <td>${type}</td>
-                <td><button class="edit-button">Editar</button></td>
-            `;
-            
-            userList.appendChild(newRow);
+    <script defer>
+
+        
+
+        function carregaProdutos() {
+            // configura a requisição AJAX para ter os dados dos filmes
+            var settings = {
+                "url": "http://192.168.1.120:5000/cadastros",
+                "method": "GET",
+                "timeout": 0,
+                "headers": {
+                    "Content-Type": "application/json" // define o tipo de conteúdo 
+                }
+            };
+          
+          $.ajax(settings).done(function (response) {
+            let exibe = $("#user-list") // pega o elemento HTML onde os filmes são exibidos
+            exibe.html(" ") // limpa o conteúdo antes de inserir novos dados
+        
+            var html = ""
+        
+            response.usuarios.forEach((item) => {
+                console.log(item)
+        
+                 // adiciona o HTML do filme à variável
+                html += `
+                    <tr>
+                        <td>${item.nome}</td>
+                        <td>${item.email}</td>
+                        <td>${item.telefone}</td>
+                        <td>${item.tipo}</td>
+                        <td>
+                            <a href="editaradm.html?id=${item.id_usuario}&nome=${item.nome}&email=${item.email}&telefone=${item.telefone}&tipo=${item.tipo}">
+                                <button>EDITAR</button>
+                            </a>
+                        </td>
+                    </tr>
+                `;
+        
+                // exibe o conteúdo dos filmes
+                exibe.html(html)
+            })
+        
+        
+          });
         }
-    </script>
-    <script>
-              $.ajax({
-                method: "PUT",
-
-                url: "http://192.168.1.120:5000/cadastro/" + id,
-                data: envia,
-                contentType: "application/json",
-
-        });
+        
+        carregaProdutos();
+        
     </script>
 
-    
 </body>
 </html>

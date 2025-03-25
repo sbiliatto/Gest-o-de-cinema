@@ -67,6 +67,7 @@ nav ul li a:hover {
     bottom: 0;
     left: 0;
 }
+
 /* Perfil logado */
 .perfil-logado {
     display: flex;

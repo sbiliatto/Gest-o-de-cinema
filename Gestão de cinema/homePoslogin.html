@@ -59,7 +59,7 @@
                     <ul>
                         <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
                         <li><a href="editar.html">✏️ Editar perfil</a></li>
-                        <li><a onclick="sair()" style="cursor: pointer;">🚪 Sair da Conta</a></li>
+                        <li><a onclick="sair()" style="cursor: pointer;" href="login.html">🚪 Sair da Conta</a></li>
                     </ul>
                 </div>
 
@@ -152,7 +152,7 @@
         }, 10000);
     </script>
 
-    <br><br>
+    
 
     <div class="categorias">
         <a href="#">AVENTURA</a>
@@ -163,12 +163,12 @@
         <a href="#">COMÉDIA</a>
     </div>
 
-    <div class="barra"></div>
+        <div class="barra"></div>
 
-    <div class="gradedefilmes" id="exibeFilmes"></div>
-        
+        <div class="gradedefilmes" id="exibeFilmes"></div>
+    
 
-    <div class="barra"></div>
+        <div class="barra"></div>
 
     <footer class="rodape">
 
@@ -208,7 +208,7 @@
 function carregaProdutos() {
     // configura a requisição AJAX para ter os dados dos filmes
     var settings = {
-        "url": "http://192.168.1.120:5000/filme_imagem",
+        "url": "http://192.168.1.120:5000/filmes",
         "method": "GET",
         "timeout": 0,
         "headers": {
@@ -222,7 +222,7 @@ function carregaProdutos() {
 
     var html = ""
 
-    response.cadastro.forEach((item) => {
+    response.filmes.forEach((item) => {
         console.log(item)
 
          // adiciona o HTML do filme à variável

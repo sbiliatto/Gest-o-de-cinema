@@ -75,13 +75,20 @@
                         <ul>
                             <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
                             <li><a href="editar.html">✏️ Editar perfil</a></li>
-                            <li><a href="#">🚪 Sair da Conta</a></li>
+                            <li><a onclick="sair()" style="cursor: pointer;">🚪 Sair da Conta</a></li>
                         </ul>
+                    </div>
+    
                 </div>
-
-            </div>
-            </div>
-
+    
+        <script>
+            function sair() {
+                localStorage.clear() // Se armazenado no LocalStorage
+                sessionStorage.clear() // Se armazenado no SessionStorage
+    
+                window.location.href = "/login.html";
+            }
+        </script>
     </header>
 
     <div class="barra"></div>
@@ -178,19 +185,10 @@
 
     <div class="barra"></div>
 
-    <div class="gradedefilmes">
-        <div class="filme"><img src="assets/img/anybyoy.webp" alt="Todos Menos Você"></div>
-        <div class="filme"><img src="assets/img/Um_Lugar_Silencioso.webp" alt="Um Lugar Silencioso: Dia Um"></div>
-        <div class="filme"><img src="assets/img/ttqt.webp" alt="Todo Tempo Que Temos"></div>
-    </div>
-
-    <div class="gradedefilmes">
-        <div class="filme"><img src="assets/img/sunstanciua.webp" alt="A Substância"></div>
-        <div class="filme"><img src="assets/img/garland_intl_teaser2_poster_brazil_c487c296.jpeg" alt="Moana"></div>
-        <div class="filme"><img src="assets/img/mmfsa.jpeg" alt="Mufasa"></div>
-    </div>
+    <div class="gradedefilmes" id="exibeFilmes"></div>
 
     <div class="barra"></div>
+
 
     <footer class="rodape">
 
@@ -227,6 +225,44 @@
 
 
 </body>
+<script defer>
 
+    function carregaProdutos() {
+        var settings = {
+            "url": "http://192.168.1.120:5000/filmes",
+            "method": "GET",
+            "timeout": 0,
+            "headers": {
+                "Content-Type": "application/json"
+            }
+        };
+      
+      $.ajax(settings).done(function (response) {
+        let exibe = $("#exibeFilmes")
+        exibe.html(" ")
+    
+        var html = ""
+    
+        response.filmes.forEach((item) => {
+            console.log(item)
+    
+            html += `
+            <div class="filme" >
+                <a href="">
+                    <img src="http://192.168.1.120:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
+                </a>
+                </div>
+            `;
+    
+            exibe.html(html)
+        })
+    
+    
+      });
+    }
+    
+    carregaProdutos();
+    
+</script>
 
 </html>
