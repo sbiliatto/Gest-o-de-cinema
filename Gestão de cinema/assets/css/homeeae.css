@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
+    text-decoration: none;
 }
 
 body {
@@ -322,7 +323,25 @@ img {
     margin-right: 80px;
 }
 
-button {
+.e{
+    background-color: rgba(255, 0, 0, 0.65);
+    color: white;
+    font-weight: bold;
+    margin-right: 9px;
+    display: flex;
+    align-items: center;   
+    text-decoration: none;
+}
+
+.x{
+    background-color: white;
+    color: rgba(239, 0, 0, 1);
+    font-weight: bold;
+    margin-right: 45px;
+    text-decoration: none;
+}
+
+a {
     border: none;
     padding: 8px 16px;
     margin: 4px;
@@ -339,16 +358,18 @@ button {
     margin-right: 9px;
     display: flex;
     align-items: center;
+    text-decoration: none;
 }
 
 .delete {
+    text-decoration: none;
     background-color: white;
     color: rgba(239, 0, 0, 1);
     font-weight: bold;
     margin-right: 45px;
 }
 
-button:hover {
+a:hover {
     opacity: 0.8;
 }
 
@@ -430,7 +451,7 @@ button:hover {
         gap: 20px;
     }
 
-    button {
+    a {
         padding: 6px 12px;
         font-size: 12px;
     }
@@ -479,7 +500,7 @@ button:hover {
         gap: 10px;
     }
 
-    button {
+    a {
         font-size: 10px;
     }
 
