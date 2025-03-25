@@ -126,6 +126,50 @@
             userList.appendChild(newRow);
         }
     </script>
+    <script>
+              $.ajax({
+                method: "PUT",
+
+                url: "/cadastro/" + id,
+                data: envia,
+                contentType: "application/json",
+
+                success: function (retorno) {
+                Swal.fire({
+                    icon: "success",
+                    title: "Edição Realizada!",
+                    text: "Os dados foram atualizados com sucesso!",
+                    confirmButtonText: "OK"
+                }).then(() => {
+                    localStorage.setItem("nome", dados.get("nome"))
+                    localStorage.setItem("email", dados.get("email"))
+                    localStorage.setItem("tel", dados.get("tel"))
+                    localStorage.setItem("tipo", dados.get("tipo"))
+
+
+                    window.location.href = "homePoslogin.html";
+                });
+                console.log(retorno);
+            },
+            error: function (retorno) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Erro!",
+                    text: retorno.responseJSON.error || "Esse e-mail já existe.",
+                    confirmButtonText: "OK"
+                });
+            }
+            })
+
+            document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("nome").value = localStorage.getItem("nome") || "";
+            document.getElementById("email").value = localStorage.getItem("email") || "";
+            document.getElementById("telefone").value = localStorage.getItem("telefone") || "";
+            document.getElementById("usuario").value = localStorage.getItem("usuario") || "";
+
+
+        });
+    </script>
 
     
 </body>
