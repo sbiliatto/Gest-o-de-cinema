@@ -63,7 +63,6 @@
             let email = $("input[name='email']").val().trim();
             let senha = $("input[name='senha']").val().trim();
 
-              // ve se os campos estão preenchidos
             if (email === "" || senha === "") {
                 Swal.fire({
                     title: "Erro!",
@@ -90,7 +89,6 @@
                     localStorage.setItem("tipo", retorno.usuarios.tipo)
 
 
-                     // mostra mensagem que deu certo e redireciona para a página pós-login
                     Swal.fire({
                         title: "Deu Certo!",
                         text: "Login realizado com sucesso!",
