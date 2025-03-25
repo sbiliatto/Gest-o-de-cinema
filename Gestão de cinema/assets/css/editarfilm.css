@@ -8,7 +8,7 @@
 }
 
 body{
-    background: rgb(139, 137, 137);
+    background: rgb(139, 137, 137)!important;
 
 }
 
@@ -18,11 +18,140 @@ header {
     justify-content: space-between;
     background: black;
     padding: 15px 50px;
+
+}
+
+
+.div-header{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 }
 
 .logo {
     width: 20vh;
-    margin-left: 45px;
+    margin-left: px;
+}
+
+
+.menu-button {
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+/* Container do perfil */
+.perfil-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* Botão do perfil */
+.btn-perfil {
+    background-color: #ff0000;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+
+}
+
+.btn-perfil:hover {
+    background-color: #cc0000;
+
+}
+
+/* Menu suspenso */
+.menu-perfil {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #D7D6D6;
+    color: black;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 15px;
+    z-index: 100;
+    width: 250px;
+}
+
+/* Estilizar itens do menu */
+.menu-perfil p {
+    font-weight: bold;
+    color: #ff0000;
+    margin-bottom: 10px;
+    background-color: #D7D6D6;
+}
+
+.menu-perfil ul {
+    list-style: none;
+    padding: 0;
+    background-color: #D7D6D6;
+}
+
+.menu-perfil ul li {
+    margin: 10px 0;
+    background-color: #D7D6D6;
+}
+
+.menu-perfil ul li a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #D7D6D6;
+}
+
+.menu-perfil ul li a:hover {
+    color: #ff0000;
+    background-color: #D7D6D6;
+}
+
+.nome-veisitante {
+    background-color: #D7D6D6;
+}
+
+nav ul {
+    padding-left: 100vh;
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.btn-perfil2{
+    margin-right: 43px;
+    
+}
+
+nav ul li a:hover {
+    color: red;
+}
+
+.acao {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 6vh;
+}
+
+.btn-perfil2 {
+    width: 49px;
 }
 
 nav ul {
