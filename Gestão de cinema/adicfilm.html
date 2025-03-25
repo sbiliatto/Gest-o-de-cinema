@@ -117,23 +117,24 @@
 
     <script>
         $("#form_cadastro").on("submit", function(e) {
-            e.preventDefault();
+            e.preventDefault(); // impede o envio padrão do formulário
 
-            var token = localStorage.getItem("token")
+            var token = localStorage.getItem("token") // pega o token do localStorage
 
-            var form = new FormData(this);
+            var form = new FormData(this); //cria um objeto com os dados do formulário
 
             var settings = {
-                "url": "http://10.92.3.229:5000/filme_imagem",
+                "url": "http://192.168.1.120:5000/filme_imagem", // URL da API para envio dos dados
                 "method": "POST",
                 "timeout": 0,
                 "headers": {
                     "Authorization": "Bearer " + token
                 },
                 "processData": false,
-                "mimeType": "multipart/form-data",
+                "mimeType": "multipart/form-data", // define o tipo de dados sendo enviados
                 "contentType": false,
                 "data": form,
+                //  executa quando a requisição é bem-sucedida
                 "success": function(retorno) {
                     Swal.fire({
                         title: "Deu Certo!",

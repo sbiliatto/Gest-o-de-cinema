@@ -171,7 +171,7 @@
 
 function carregaProdutos() {
     var settings = {
-        "url": "http://10.92.3.229:5000/filme_imagem",
+        "url": "http://192.168.1.120:5000/filmes",
         "method": "GET",
         "timeout": 0,
         "headers": {
@@ -185,7 +185,7 @@ function carregaProdutos() {
 
     var html = ""
 
-    response.cadastro.forEach((item) => {
+    response.filmes.forEach((item) => {
         console.log(item)
 
         html += `
