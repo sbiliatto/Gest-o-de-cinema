@@ -336,3 +336,135 @@ img {
 .nome-veisitante {
     background-color: #D7D6D6;
 }
+
+@media (max-width: 1024px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px 20px;
+    }
+
+    .div-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    .div-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn-group {
+        width: 100%;
+        text-align: center;
+    }
+
+    .btn-perfil2 {
+        margin-left: 28px;
+        margin-right: 29px;
+    }
+}
+
+    .acao {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .carrossel-container {
+        max-height: 300px;
+    }
+    
+    .slide img {
+        height: 300px;
+    }
+    
+    .texto {
+        left: 5%;
+        font-size: 0.9rem;
+    }
+
+    .categorias {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .categorias a {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+
+
+@media (max-width: 480px) {
+    .logo {
+        width: 21vh;
+    }
+
+    .menu-perfil {
+        width: 150px;
+    }
+    
+    .btn-group button {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+
+    .carrossel-container {
+        max-height: 250px;
+    }
+
+    .slide img {
+        height: 250px;
+    }
+    
+    .texto {
+        left: 3%;
+        font-size: 0.8rem;
+    }
+    
+    .categorias a {
+        font-size: 12px;
+        padding: 5px;
+    }
+
+    .rodape {
+        text-align: center;
+        padding: 10px;
+    }
+
+    .socialicones img {
+        width: 20px;
+    }
+
+    .texto p {
+        font-size: 8px;
+    }
+
+    .texto h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+}
+
+.info{
+    font-size: 10px;
+
+}
+
+.categorias{
+    padding: 0px;
+}
+
+}
