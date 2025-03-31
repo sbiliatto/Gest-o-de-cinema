@@ -257,7 +257,7 @@ img {
 .socialicones {
     display: flex;
     gap: 10px;
-    padding-left: 65px;
+    padding-left: 90px;
 }
 
 .socialicones img {
@@ -341,6 +341,7 @@ img {
 
     .cadastro{
         margin: 10vh 12vh;
+        font-size: 6px;
     }
 
     .gradedefilmes{

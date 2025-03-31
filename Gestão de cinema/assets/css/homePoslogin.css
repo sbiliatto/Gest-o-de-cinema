@@ -337,11 +337,6 @@ img {
     display: none;
 }
 
-.cadastro:hover {
-    background-color: darkred;
-    color: white;
-}
-
 .rodape {
     background-color: black;
     color: white;
@@ -350,18 +345,6 @@ img {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-}
-
-.cadastro {
-    background-color: white;
-    color: red;
-    padding: 10px 20px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    margin-left: 10px;
 }
 
 .socialicones {
@@ -481,7 +464,7 @@ header {
     flex-direction: column;
     text-align: center;
     display: flex;
-    gap: 29px;
+  
 }
 
     
@@ -511,8 +494,9 @@ header {
     
     .categorias{
         gap: 0px;
-        font-size: 8px;
+        font-size: 7px;
         padding: 5px 7px; 
+        margin-right: -2px;
     }
 
    

@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="assets/css/editaradm.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 </head>
 
 <body>
@@ -19,67 +18,93 @@
         <input type="text" name="nome" id="nome" placeholder="Edite o nome">
         <input type="email" name="email" id="email" placeholder="Edite o email">
         <input type="tel" name="telefone" id="telefone" placeholder="Edite o telefone">
-        <div class="buttons">
-            <button class="activate">ADM</button>
-            <button class="inactive">USUÁRIO</button>
-        </div>
-        <div class="buttons">
-            <button class="activate">ATIVAR</button>
-            <button class="inactive">INATIVAR</button>
-        </div>
+        <input type="password" name="senha" id="senha" placeholder="Edite a senha">
+
+        
+        <label for="tipo">Tipo de Usuário:</label>
+        <select id="tipo">
+            <option value="usuario">Usuário</option>
+            <option value="adm">ADM</option>
+        </select>
+
+        
+        <label for="editar">Editar:</label>
+        <select id="editar" name="editar" required>
+            <option value="" selected disabled>Selecione uma opção</option>
+            <option value= true >Ativo</option>
+            <option value= false>Inativo</option>
+        </select>
+
         <button class="save-button">SALVAR</button>
     </div>
 
     <script>
+        $(document).ready(function () {
+            
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+            const nome = params.get('nome');
+            const email = params.get('email');
+            const telefone = params.get('telefone');
+            const senha = params.get('senha');
+            const tipo = params.get('tipo');
+            let editar = params.get('editar'); 
 
-        const params = new URLSearchParams(window.location.search);
-        const id = params.get('id');
-        const nome = params.get('nome');
-        const email = params.get('email');
-        const telefone = params.get('telefone');
-        const tipo = params.get('tipo');
-
-        document.getElementById("nome").value = nome
-        document.getElementById("email").value = email
-        document.getElementById("telefone").value = telefone
-
-    
-        $.ajax({
-                method: "PUT",
-
-                url: "http://192.168.1.145:5000/cadastros/" + id,
-                data: envia,
-                contentType: "application/json",
-
-                success: function (retorno) {
-                Swal.fire({
-                    icon: "success",
-                    title: "Edição Realizada!",
-                    text: "Os dados foram atualizados com sucesso!",
-                    confirmButtonText: "OK"
-                }).then(() => {
-                    localStorage.setItem("nome", dados.get("nome"))
-                    localStorage.setItem("email", dados.get("email"))
-                    localStorage.setItem("tel", dados.get("tel"))
-                    localStorage.setItem("tipo", dados.get("tipo"))
-
-
-                    window.location.href = "homePoslogin.html";
-                });
-                console.log(retorno);
-            },
-            error: function (retorno) {
-                Swal.fire({
-                    icon: "error",
-                    title: "Erro!",
-                    text: retorno.responseJSON.error || "Esse e-mail já existe.",
-                    confirmButtonText: "OK"
-                });
+            if (editar === "ativo") {
+                editar = true
+            } else {
+                editar = false
             }
-        })
+
+            $("#nome").val(nome);
+            $("#email").val(email);
+            $("#telefone").val(telefone);
+            $("#senha").val(senha);
+            $("#tipo").val(tipo); 
+            $("#editar").val(editar); 
+
+            $(".save-button").click(function () {
+                const dados = {
+                    nome: $("#nome").val(),
+                    email: $("#email").val(),
+                    telefone: $("#telefone").val(),
+                    senha: $("#senha").val(),
+                    tipo: $("#tipo").val(), 
+                    ativo: $("#editar").val(), 
+                };
+
+
+
+                $.ajax({
+                    method: "PUT",
+                    url: `http://192.168.1.145:5000/cadastros/${id}`,
+                    data: JSON.stringify(dados),
+                    contentType: "application/json",
+                    success: function () {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Edição Realizada!",
+                            text: "Os dados foram atualizados com sucesso!",
+                            confirmButtonText: "OK"
+                        }).then(() => {
+                            window.location.href = "homePoslogin.html";
+                        });
+                    },
+                    error: function(xhr, status, error) {
+                        console.log("Erro ao tentar editar:", xhr.responseJSON, status, error);
+                        Swal.fire({
+                            title: "Erro!",
+                            text: xhr.responseJSON?.error || "Erro ao editar os dados!",
+                            icon: "error"
+                        });
+                    }
+                });
+            });
+        });
     </script>
 
 </body>
-
 </html>
+
+
 
