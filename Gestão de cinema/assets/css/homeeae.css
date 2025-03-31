@@ -508,26 +508,25 @@ a:hover {
         font-size: 10px;
     }
    
-    @media (max-width: 320px) {
+     
+
+
+     @media (max-width: 320px) {
+        
         .logo {
             margin-left: 2px;
-        }       
-     }
-     
-     @media (max-width: 320px) {
-        .botoes_decima {
-            margin-right: -1vh;
-        }      
-     }
-
-
-     @media (max-width: 320px) {
+        }   
+        
         .categorias {
             gap: 20px;
             padding: 58px;
             position: relative;
             left: 65px;
         }      
+
+        .botoes_decima {
+            margin-right: -1vh;
+        }  
      }
 
    

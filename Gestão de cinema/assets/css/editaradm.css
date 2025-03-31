@@ -86,5 +86,105 @@ button {
     text-align: center;
 }
 
+@media (min-width: 320px)   {
+    body {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 15px 0;
+        margin-bottom: 35px;
+    }
+
+    .logo-img {
+        width: 150px;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 500px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    input {
+        font-size: 14px;
+        width: 227px;
+    }
+
+    .buttons {
+        flex-direction: column;
+        padding: 5px 4px;
+    }
+
+    .buttons button {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 5px 4px;
+    }
+
+    .save-button {
+        width: 100%;
+    }
+}
+
+
+
+@media (min-width: 425px) {
+
+    body {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 15px 0;
+        margin-bottom: 35px;
+    }
+
+    .logo-img {
+        width: 150px;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 500px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    input {
+        font-size: 14px;
+        width: 227px;
+    }
+
+    .buttons {
+         padding: 5px 4px;
+    }
+
+    .buttons button {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 5px 4px;
+    }
+
+    .save-button {
+        width: 100%;
+    }
+
+}
+
+
 
 
