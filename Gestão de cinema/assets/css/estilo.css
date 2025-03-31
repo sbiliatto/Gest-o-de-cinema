@@ -257,7 +257,17 @@ img {
 .socialicones {
     display: flex;
     gap: 10px;
-    padding-left: 65px;
+    padding-left: 65
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    px;
 }
 
 .socialicones img {
