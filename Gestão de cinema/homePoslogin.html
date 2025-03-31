@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,32 +12,32 @@
         href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
         rel="stylesheet">
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
-        <script src="assets/js/seguranca.js" defer></script>
+    <script src="assets/js/seguranca.js" defer></script>
 
     <title>PrimeCine</title>
 
 </head>
 
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById("menuPerfil");
-            menu.style.display = (menu.style.display === "block") ? "none" : "block";
-        }
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById("menuPerfil");
+        menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    }
 
-        window.onclick = function (event) {
-            const menu = document.getElementById("menuPerfil");
-            const botaoPerfil = document.querySelector('.btn-perfil2');
+    window.onclick = function (event) {
+        const menu = document.getElementById("menuPerfil");
+        const botaoPerfil = document.querySelector('.btn-perfil2');
 
-            if (menu.style.display === "block" && event.target !== menu && event.target !== botaoPerfil) {
-                menu.style.display = "none";
-            }
+        if (menu.style.display === "block" && event.target !== menu && event.target !== botaoPerfil) {
+            menu.style.display = "none";
         }
-    </script>
-    
+    }
+</script>
+
 <body>
     <header>
         <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
@@ -53,19 +52,27 @@
 
         <div class="acao">
 
-        <div class="perfil-container">
-            <img onclick="toggleMenu()" class="btn-perfil2" src="assets/img/do-utilizador.png" alt="">
-            <div class="menu-perfil" id="menuPerfil">
-                <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
-                <ul>
-                    <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
-                    <li><a href="editar.html">✏️ Editar perfil</a></li>
-                    <li><a href="#">🚪 Sair da Conta</a></li>
-                </ul>
+            <div class="perfil-container">
+                <img onclick="toggleMenu()" class="btn-perfil2" src="assets/img/do-utilizador.png" alt="">
+                <div class="menu-perfil" id="menuPerfil">
+                    <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
+                    <ul>
+                        <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
+                        <li><a href="editar.html">✏️ Editar perfil</a></li>
+                        <li><a onclick="sair()" style="cursor: pointer;" href="login.html">🚪 Sair da Conta</a></li>
+                    </ul>
+                </div>
+
             </div>
 
-        </div>
+    <script>
+        function sair() {
+            localStorage.clear() // Se armazenado no LocalStorage
+            sessionStorage.clear() // Se armazenado no SessionStorage
 
+            window.location.href = "/login.html";
+        }
+    </script>
     </header>
 
     <div class="barra"></div>
@@ -76,7 +83,7 @@
             <div class="slide">
                 <img src="assets/img/fundo ainda eaq.png" alt="Imagem 1">
                 <div class="texto">
-                    <h2>Ainda estou <br> AQUI</h2>
+                    <h2>Ainda estou aqui</h2>
                     <br><br>
                     <p>No início da década de 1970, o Brasil enfrenta o endurecimento da ditadura militar. No Rio de
                         Janeiro,
@@ -124,15 +131,11 @@
             <span class="indicador" onclick="mudarSlide(2)"></span>
         </div>
     </div>
-    
 
     <script>
         let indiceAtual = 0;
         const slides = document.querySelector(".slides");
         const indicadores = document.querySelectorAll(".indicador");
-
-        var nome = localStorage.getItem("nome")
-        document.getElementById("nome-visitante").innerHTML = nome
 
         function mudarSlide(indice) {
             indiceAtual = indice;
@@ -146,10 +149,10 @@
         setInterval(() => {
             indiceAtual = (indiceAtual + 1) % 3;
             mudarSlide(indiceAtual);
-        }, 5000);
+        }, 10000);
     </script>
 
-    <br><br>
+    
 
     <div class="categorias">
         <a href="#">AVENTURA</a>
@@ -160,24 +163,14 @@
         <a href="#">COMÉDIA</a>
     </div>
 
-    <div class="barra"></div>
+        <div class="barra"></div>
 
-    <div class="gradedefilmes">
-        <div class="filme"><img src="assets/img/anybyoy.webp" alt="Todos Menos Você"></div>
-        <div class="filme"><img src="assets/img/Um_Lugar_Silencioso.webp" alt="Um Lugar Silencioso: Dia Um"></div>
-        <div class="filme"><img src="assets/img/ttqt.webp" alt="Todo Tempo Que Temos"></div>
-    </div>
+        <div class="gradedefilmes" id="exibeFilmes"></div>
+    
 
-    <div class="gradedefilmes">
-        <div class="filme"><img src="assets/img/sunstanciua.webp" alt="A Substância"></div>
-        <div class="filme"><img src="assets/img/garland_intl_teaser2_poster_brazil_c487c296.jpeg" alt="Moana"></div>
-            <div class="filme"><img src="assets/img/mmfsa.jpeg" alt="Mufasa"></div>
-        </div>
-
-    <div class="barra"></div>
+        <div class="barra"></div>
 
     <footer class="rodape">
-            
 
         <div class="socialicones">
             <a href="https://www.instagram.com/">
@@ -193,9 +186,9 @@
             </a>
 
             <a href="https://www.facebook.com/?locale=pt_BR">
-            <img src="assets/img/facebook.png" alt="Facebook">
+                <img src="assets/img/facebook.png" alt="Facebook">
             </a>
-            
+
         </div>
         <div class="info">
             <p><strong>ENDEREÇO:</strong> Rua Bragança, Bairro Tilagro, nº 307 - Birigui</p>
@@ -209,8 +202,47 @@
         <img src="assets/img/PRIMECINEll.PNG" alt="Logo Prime Cine">
     </div>
 
-
 </body>
- 
+<script defer>
 
+function carregaProdutos() {
+    // configura a requisição AJAX para ter os dados dos filmes
+    var settings = {
+        "url": "http://192.168.1.120:5000/filmes",
+        "method": "GET",
+        "timeout": 0,
+        "headers": {
+            "Content-Type": "application/json" // define o tipo de conteúdo 
+        }
+    };
+  
+  $.ajax(settings).done(function (response) {
+    let exibe = $("#exibeFilmes") // pega o elemento HTML onde os filmes são exibidos
+    exibe.html(" ") // limpa o conteúdo antes de inserir novos dados
+
+    var html = ""
+
+    response.filmes.forEach((item) => {
+        console.log(item)
+
+         // adiciona o HTML do filme à variável
+        html += `
+        <div class="filme" >
+            <a href="">
+                <img src="http://192.168.1.120:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
+            </a>
+            </div>
+        `;
+
+        // exibe o conteúdo dos filmes
+        exibe.html(html)
+    })
+
+
+  });
+}
+
+carregaProdutos();
+
+</script>
 </html>

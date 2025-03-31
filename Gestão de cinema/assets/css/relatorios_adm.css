@@ -6,7 +6,7 @@
 }
 
 body{
-    background-color: black;
+    background-color: black!important;
 }
 
 header {
@@ -14,13 +14,46 @@ header {
     align-items: center;
     justify-content: space-between;
     background: black;
-    padding: 15px 50px;
+    padding: 15px 89px;
     color: white;
+}
+
+.download-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.download-container a i:hover {
+    transform: scale(1.2); /* Aumenta o ícone em 20% */
+    transition: transform 0.3s ease-in-out;
+}
+
+
+.relatorio i {
+    font-size: 65px; /* Ajuste o tamanho do ícone, se necessário */
+    padding-bottom: 50px;
+}
+
+.p {
+    font-size: 20px; /* Ajuste o tamanho do ícone, se necessário */
+    padding-bottom: 50px;
+    color: white;
+    text-align: center;
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+.relatorio {
+    color: white;
+    text-align: center;
+    padding-top: 50px;
 }
 
 .logo {
     width: 20vh;
-    margin-left: 45px;
+    margin-left: px;
 }
 
 
@@ -38,35 +71,20 @@ nav ul li a {
     transition: color 0.3s;
 }
 
+.btn-perfil2{
+    margin-right: 43px;
+    
+}
+
 nav ul li a:hover {
     color: red;
-}
-
-.btn-entrar {
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: 0.3s;
-    text-decoration: none;
-}
-
-.btn-entrar:hover {
-    background-color: darkred;
 }
 
 .acao {
     display: flex;
     align-items: center;
     gap: 15px;
-}
-
-.acao i {
-    font-size: 18px;
-    cursor: pointer;
+    width: 6vh;
 }
 
 .barra {
@@ -137,9 +155,7 @@ img {
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-
 }
-
 
 .indicador {
     display: inline-block;
@@ -176,7 +192,7 @@ img {
 
 .gradedefilmes {
     display: grid;
-    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     padding: 20px;
     justify-content: center;
@@ -190,8 +206,8 @@ img {
 
 .filme img {
     justify-content: center;
-    width: 29vh;
-    height: 245px;
+    width: 40vh;
+    height: 400px;
     columns: auto;
     border-radius: 5px;
     transition: transform 0.3s;
@@ -213,29 +229,161 @@ img {
     display: none;
 }
 
-.cadastro {
-    background-color: white;
-    color: red;
-    border: none;
-    padding: 8px 15px;
-    font-size: 18px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: 0.3s;
-    display: inline-flex;
-    margin: 10vh 25vh;
-    text-decoration: none;
-}
-
 .cadastro:hover {
     background-color: darkred;
     color: white;
 }
 
+
+.cadastro {
+    background-color: white;
+    color: red;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.socialicones {
+    display: flex;
+    gap: 10px;
+}
+
+.socialicones img {
+    width: 30px;
+}
+
+.info {
+    text-align: right;
+    margin-right: 49px;
+}
+
+.info p {
+    margin: 5px 0;
+}
+
+.barraverm {
+    background-color: #B90000;
+}
+
+.socialicones img {
+    width: 30px;
+}
+
+.info {
+    text-align: right;
+}
+
+.info p {
+    margin: 5px 0;
+}
+
+.barraverm {
+    background-color: red;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.barraverm img {
+    background-color: #B90000;
+    width: 30vh;
+    margin-right: 10px;
+}
+
+
+.barraverm img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+
+/* Container do perfil */
+.perfil-container {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+}
+
+/* Botão do perfil */
+.btn-perfil {
+    background-color: #ff0000;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn-perfil:hover {
+    background-color: #cc0000;
+
+}
+
+/* Menu suspenso */
+.menu-perfil {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #D7D6D6;
+    color: black;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 15px;
+    z-index: 100;
+    width: 250px;
+}
+
+/* Estilizar itens do menu */
+.menu-perfil p {
+    font-weight: bold;
+    color: #ff0000;
+    margin-bottom: 10px;
+    background-color: #D7D6D6;
+}
+
+.menu-perfil ul {
+    list-style: none;
+    padding: 0;
+    background-color: #D7D6D6;
+}
+
+.menu-perfil ul li {
+    margin: 10px 0;
+    background-color: #D7D6D6;
+}
+
+.menu-perfil ul li a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #D7D6D6;
+}
+
+.menu-perfil ul li a:hover {
+    color: #ff0000;
+    background-color: #D7D6D6;
+}
+
+.nome-veisitante {
+    background-color: #D7D6D6;
+}
+
+
 .rodape {
     background-color: black;
     color: white;
-    padding: 20px 60px;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -251,23 +399,12 @@ img {
     border-radius: 10px;
     border: none;
     cursor: pointer;
-    margin-left: 10px;
 }
 
 .socialicones {
     display: flex;
+    margin-left: 50px;
     gap: 10px;
-    padding-left: 65
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    px;
 }
 
 .socialicones img {
@@ -276,8 +413,9 @@ img {
 
 .info {
     text-align: right;
+    margin-right: 43px;
 }
-  
+
 .info p {
     margin: 5px 0;
 }
@@ -285,101 +423,16 @@ img {
 .barraverm {
     background-color: #B90000;
     padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .barraverm img {
     background-color: #B90000;
     width: 30vh;
     margin-right: 10px;
-}
-
-
-
-/*Responsivo*/
-@media (max-width: 768px) {
-
-    header {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-
-    .carrossel-container {
-        max-width: 100%;
-    }
-
-    .gradedefilmes {
-        grid-template-columns: repeat(1, 1fr);
-    }
-    
-    .texto h2 {
-        font-size: 18px;
-    }
-    
-    .texto p {
-        font-size: 12px;
-        padding-right: 17px;
-    }
-
-    nav ul {
-        flex-direction: column;
-        padding-top: 10px;
-        padding-left: 0;
-    }
-    
-    .categorias{
-        gap: 0px;
-        font-size: 8px;
-        padding: 5px 7px; 
-    }
-
-   
-    .acao{
-        gap: 0px;
-    }
-
-    .logo{
-        margin-left: 5px;
-        padding: 10px;
-    }
-    .btn-entrar{
-        margin-top: 24px;
-        
-    }
-
-    .cadastro{
-        margin: 10vh 12vh;
-    }
-
-    .gradedefilmes{
-        padding-left: 0;
-        padding: 20px;
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .filme img{
-        width: 100%;
-        height: 183px;
-
-    }
-
-    .info{
-        text-align: center;
-    }
-
-
-    .rodape{
-        flex-direction: column;
-    }
-
-    .slide img{
-        height: 340px;
-    }
-
-
-    .barra{
-        margin-left: 5%;
-        width: 90%;
-    }
 }

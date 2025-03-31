@@ -5,6 +5,14 @@
     font-family: Arial, sans-serif;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
 body{
     background-color: black;
 }
@@ -14,22 +22,20 @@ header {
     align-items: center;
     justify-content: space-between;
     background: black;
-    padding: 15px 89px;
+    padding: 15px 50px;
     color: white;
-    
+    position: relative;
 }
 
 .logo {
     width: 20vh;
-    margin-left: px;
 }
 
-
 nav ul {
-    padding-left: 100vh;
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 30px;
+    margin-left: 620px;
 }
 
 nav ul li a {
@@ -39,11 +45,6 @@ nav ul li a {
     transition: color 0.3s;
 }
 
-.btn-perfil2{
-    margin-right: 43px;
-    
-}
-
 nav ul li a:hover {
     color: red;
 }
@@ -51,18 +52,157 @@ nav ul li a:hover {
 .acao {
     display: flex;
     align-items: center;
-    gap: 15px;
-    width: 6vh;
+    gap: 20px;
+}
+
+.btn-perfil2 {
+    width: 49px;
 }
 
 .barra {
-    margin-top: 10px;
-    text-align: center;
-    margin-left: 5%;
-    width: 90%;
+    width: 100%;
     height: 4px;
     background-color: darkred;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
+
+/* Perfil logado */
+.perfil-logado {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.perfil-logado img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid red;
+}
+
+.perfil-logado span {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Barra Vermelha */
+.barra {
+    width: 90%;
+    left: 5%;
+    background-color: darkred;
+    margin-bottom: 85vh;
+}
+
+.socialicones {
+    display: flex;
+    gap: 10px;
+    padding-left: 5px;
+}
+
+.socialicones img {
+    width: 30px;
+}
+
+.info {
+    text-align: right;
+    margin-right: 10px;
+}
+
+.info p {
+    margin: 5px 0;
+}
+
+.barraverm {
+    background-color: #B90000;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.barraverm img {
+    background-color: #B90000;
+    width: 30vh;
+    margin-right: 10px;
+}
+
+/* Container do perfil */
+.perfil-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* Botão do perfil */
+.btn-perfil {
+    background-color: #ff0000;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+
+}
+
+.btn-perfil:hover {
+    background-color: #cc0000;
+
+}
+
+/* Menu suspenso */
+.menu-perfil {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #D7D6D6;
+    color: black;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 15px;
+    z-index: 100;
+    width: 250px;
+}
+
+/* Estilizar itens do menu */
+.menu-perfil p {
+    font-weight: bold;
+    color: #ff0000;
+    margin-bottom: 10px;
+    background-color: #D7D6D6;
+}
+
+.menu-perfil ul {
+    list-style: none;
+    padding: 0;
+    background-color: #D7D6D6;
+}
+
+.menu-perfil ul li {
+    margin: 10px 0;
+    background-color: #D7D6D6;
+}
+
+.menu-perfil ul li a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #D7D6D6;
+}
+
+.menu-perfil ul li a:hover {
+    color: #ff0000;
+    background-color: #D7D6D6;
+}
+
+.nome-veisitante {
+    background-color: #D7D6D6;
+}
+
 
 .film1 {
     width: 90%;
@@ -399,7 +539,7 @@ header {
         grid-template-columns: repeat(3, 1fr);
     }
     .filme img{
-        width: 100%;
+        width: 80%;
         height: 109px;
 
     }

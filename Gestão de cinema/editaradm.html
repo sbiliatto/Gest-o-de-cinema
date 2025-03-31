@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar</title>
+    <link rel="stylesheet" href="assets/css/editaradm.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+
+<body>
+    <div class="sidebar">
+        <img src="assets/img/logo.png" alt="Logo Prime Cine" class="logo-img">
+    </div>
+    <div class="container">
+        <h1>EDITAR</h1>
+        <input type="text" name="nome" id="nome" placeholder="Edite o nome">
+        <input type="email" name="email" id="email" placeholder="Edite o email">
+        <input type="tel" name="telefone" id="telefone" placeholder="Edite o telefone">
+        <div class="buttons">
+            <button class="activate">ADM</button>
+            <button class="inactive">USUÁRIO</button>
+        </div>
+        <div class="buttons">
+            <button class="activate">ATIVAR</button>
+            <button class="inactive">INATIVAR</button>
+        </div>
+        <button class="save-button">SALVAR</button>
+    </div>
+
+    <script>
+
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+        const nome = params.get('nome');
+        const email = params.get('email');
+        const telefone = params.get('telefone');
+        const tipo = params.get('tipo');
+
+        document.getElementById("nome").value = nome
+        document.getElementById("email").value = email
+        document.getElementById("telefone").value = telefone
+
+    
+        $.ajax({
+                method: "PUT",
+
+                url: "http://192.168.1.145:5000/cadastros/" + id,
+                data: envia,
+                contentType: "application/json",
+
+                success: function (retorno) {
+                Swal.fire({
+                    icon: "success",
+                    title: "Edição Realizada!",
+                    text: "Os dados foram atualizados com sucesso!",
+                    confirmButtonText: "OK"
+                }).then(() => {
+                    localStorage.setItem("nome", dados.get("nome"))
+                    localStorage.setItem("email", dados.get("email"))
+                    localStorage.setItem("tel", dados.get("tel"))
+                    localStorage.setItem("tipo", dados.get("tipo"))
+
+
+                    window.location.href = "homePoslogin.html";
+                });
+                console.log(retorno);
+            },
+            error: function (retorno) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Erro!",
+                    text: retorno.responseJSON.error || "Esse e-mail já existe.",
+                    confirmButtonText: "OK"
+                });
+            }
+        })
+    </script>
+
+</body>
+
+</html>
+
