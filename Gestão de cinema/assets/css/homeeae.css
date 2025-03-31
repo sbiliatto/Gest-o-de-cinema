@@ -435,6 +435,7 @@ a:hover {
 
     .barra {
         width: 80%;
+        margin-left: 12%;
     }
 
     .texto h2 {
@@ -452,18 +453,18 @@ a:hover {
         padding: 10px;
     }
 
-    .gradedefilmes {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    }
-
+   
     .filme img {
-        width: 100%;
+        width: 60%;
         height: 250px;
+        height: 250px;
+        margin-left: 28%;
     }
 
     .botoes {
         gap: 20px;
-    }
+        MARGIN-LEFT: 167px;
+        }
 
     a {
         padding: 6px 12px;
@@ -472,30 +473,48 @@ a:hover {
 
     .botoes_decima {
         gap: 20px;
+        padding-right: 63px;
     }
 
     .adicionar {
         width: 100%;
         font-size: 12px;
+        margin-right: 97vh;
+    }
+
+    .menu-perfil{
+        width: 150px;
+    }
+    
+    .gradedefilmes{
+        padding-left: 50%;
+        padding-right: 50%;
+    }
+
+    .delete{
+        margin-right: 111px;
     }
 }
 
 @media (max-width: 480px) {
     .logo {
-        width: 10vh;
+        width: 19vh;
     }
 
     nav ul {
         gap: 5px;
     }
 
+    .x{
+        margin-right: -220px;
+
+    }
+
     nav ul li a {
         font-size: 12px;
     }
 
-    .gradedefilmes {
-        grid-template-columns: 1fr;
-    }
+    
 
     .filme img {
         height: 200px;
@@ -512,6 +531,7 @@ a:hover {
 
     .botoes {
         gap: 10px;
+        
     }
 
     a {
@@ -522,28 +542,28 @@ a:hover {
         font-size: 10px;
     }
    
-     
 
-
-     @media (max-width: 320px) {
-        
-        .logo {
-            margin-left: 2px;
-        }   
-        
-        .categorias {
-            gap: 20px;
-            padding: 58px;
-            position: relative;
-            left: 65px;
-        }      
-
-        .botoes_decima {
-            margin-right: -1vh;
-        }  
-     }
-
-   
-
+    .logo {
+        margin-left: 2px;
+    }   
     
+    .categorias {
+        
+        position: relative;
+        left: 65px;
+        margin-left: 50px;
+    }      
+
+    .botoes_decima {
+        padding-right: 63vh;
+    }  
+
+    .adicionar {
+        right: -57px;
+        left: auto;
+        margin: 0;
+        width: 100px;
+}
+
+     
 }
