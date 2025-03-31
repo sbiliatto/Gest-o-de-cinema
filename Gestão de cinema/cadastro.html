@@ -95,14 +95,18 @@
 
             $.ajax({
                 method: "POST",
-                url: "http://192.168.1.145:5000/cadastros",  
+                url: "http://192.168.1.145:5000/+.",  
                 data: dados, // envia os dados do formulário 
                 contentType: "application/json",
                 success: function(response) {  //caso o cadastro de certo
                     console.log("Cadastro realizado com sucesso:", response);
                     Swal.fire({
                         title: "Deu Certo!",
-                        text: response.mensagem,
+<<<<<<< Updated upstream
+                        text: response.message,
+=======
+                        text: response.,
+>>>>>>> Stashed changes
                         icon: "success"
                     }).then(() => {
                         window.location.href = "homePoslogin.html";
