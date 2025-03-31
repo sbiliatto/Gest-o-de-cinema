@@ -48,7 +48,13 @@
             const telefone = params.get('telefone');
             const senha = params.get('senha');
             const tipo = params.get('tipo');
-            const editar = params.get('editar'); 
+            let editar = params.get('editar'); 
+
+            if (editar === "ativo") {
+                editar = true
+            } else {
+                editar = false
+            }
 
             $("#nome").val(nome);
             $("#email").val(email);
@@ -66,6 +72,8 @@
                     tipo: $("#tipo").val(), 
                     ativo: $("#editar").val(), 
                 };
+
+                
 
                 $.ajax({
                     method: "PUT",
