@@ -170,40 +170,40 @@
 <script defer>
 
 function carregaProdutos() {
-    var settings = {
-        "url": "http://192.168.1.120:5000/filmes",
-        "method": "GET",
-        "timeout": 0,
-        "headers": {
-            "Content-Type": "application/json"
-        }
-    };
-  
-  $.ajax(settings).done(function (response) {
-    let exibe = $("#exibeFilmes")
-    exibe.html(" ")
-
-    var html = ""
-
-    response.filmes.forEach((item) => {
-        console.log(item)
-
-        html += `
-        <div class="filme" >
-            <a href="">
-                <img src="http://192.168.1.145:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
-            </a>
-            </div>
-        `;
-
-        exibe.html(html)
-    })
-
-
-  });
-}
-
-carregaProdutos();
+        var settings = {
+            "url": "http://192.168.1.145:5000/filmes",
+            "method": "GET",
+            "timeout": 0,
+            "headers": {
+                "Content-Type": "application/json"
+            }
+        };
+      
+      $.ajax(settings).done(function (response) {
+        let exibe = $("#exibeFilmes")
+        exibe.html(" ")
+    
+        var html = ""
+    
+        response.filmes.forEach((item) => {
+            console.log(item)
+    
+            html += `
+            <div class="filme" >
+                <a href="">
+                    <img src="http://192.168.1.145:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
+                </a>
+                </div>
+            `;
+    
+            exibe.html(html)
+        })
+    
+    
+      });
+    }
+    
+    carregaProdutos();
 
 </script>
 

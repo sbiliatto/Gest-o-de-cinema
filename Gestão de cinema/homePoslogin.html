@@ -62,7 +62,6 @@
                         <li><a onclick="sair()" style="cursor: pointer;" href="login.html">🚪 Sair da Conta</a></li>
                     </ul>
                 </div>
-
             </div>
 
     <script>
@@ -163,12 +162,12 @@
         <a href="#">COMÉDIA</a>
     </div>
 
-        <div class="barra"></div>
+    <div class="barra"></div>
 
-        <div class="gradedefilmes" id="exibeFilmes"></div>
-    
+    <div class="gradedefilmes" id="exibeFilmes"></div>
 
-        <div class="barra"></div>
+    <div class="barra"></div>
+
 
     <footer class="rodape">
 
@@ -206,43 +205,40 @@
 <script defer>
 
 function carregaProdutos() {
-    // configura a requisição AJAX para ter os dados dos filmes
-    var settings = {
-        "url": "http://192.168.1.120:5000/filmes",
-        "method": "GET",
-        "timeout": 0,
-        "headers": {
-            "Content-Type": "application/json" // define o tipo de conteúdo 
-        }
-    };
-  
-  $.ajax(settings).done(function (response) {
-    let exibe = $("#exibeFilmes") // pega o elemento HTML onde os filmes são exibidos
-    exibe.html(" ") // limpa o conteúdo antes de inserir novos dados
-
-    var html = ""
-
-    response.filmes.forEach((item) => {
-        console.log(item)
-
-         // adiciona o HTML do filme à variável
-        html += `
-        <div class="filme" >
-            <a href="">
-                <img src="http://192.168.1.120:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
-            </a>
-            </div>
-        `;
-
-        // exibe o conteúdo dos filmes
-        exibe.html(html)
-    })
-
-
-  });
-}
-
-carregaProdutos();
+        var settings = {
+            "url": "http://192.168.1.145:5000/filmes",
+            "method": "GET",
+            "timeout": 0,
+            "headers": {
+                "Content-Type": "application/json"
+            }
+        };
+      
+      $.ajax(settings).done(function (response) {
+        let exibe = $("#exibeFilmes")
+        exibe.html(" ")
+    
+        var html = ""
+    
+        response.filmes.forEach((item) => {
+            console.log(item)
+    
+            html += `
+            <div class="filme" >
+                <a href="">
+                    <img src="http://192.168.1.145:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
+                </a>
+                </div>
+            `;
+    
+            exibe.html(html)
+        })
+    
+    
+      });
+    }
+    
+    carregaProdutos();
 
 </script>
 </html>
