@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="assets/css/editaradm.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<<<<<<< Updated upstream
+=======
+    <script src="assets/js/seguranca.js" defer></script>
+
+>>>>>>> Stashed changes
 </head>
 
 <body>
@@ -84,7 +89,7 @@
                         Swal.fire({
                             icon: "success",
                             title: "Edição Realizada!",
-                            text: "Os dados foram atualizados com sucesso!",
+                            text: response.message,
                             confirmButtonText: "OK"
                         }).then(() => {
                             window.location.href = "homePoslogin.html";
