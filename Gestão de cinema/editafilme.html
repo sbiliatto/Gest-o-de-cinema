@@ -97,6 +97,15 @@
             <input type="text" id="titulo" name="titulo" required>
 
             <label for="classificacao">Classificação:</label>
+            
+            <select id="classificacao">
+                <option value="livre">Livre</option>
+                <option value= "10">10</option>
+                <option value= "12">12</option>
+                <option value= "14">14</option>
+                <option value= "16">16</option>
+                <option value= "18">18</option>
+            </select>
             <input type="text" id="classificacao" name="classificacao" required>
 
             <label for="genero">Gênero:</label>
@@ -114,7 +123,14 @@
     </main>
 
     <script>
-    document.getElementBy
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+
+        document.getElementById("titulo").value = params.get("titulo")
+        document.getElementById("classificacao").value = params.get("classificacao") 
+        document.getElementById("genero").value = params.get("genero") 
+        document.getElementById("sinopse").value = params.get("sinopse") 
+        
     </script>
 
 </body>
