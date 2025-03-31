@@ -542,28 +542,28 @@ a:hover {
         font-size: 10px;
     }
    
-     
 
-
-     @media (max-width: 320px) {
-        
-        .logo {
-            margin-left: 2px;
-        }   
-        
-        .categorias {
-            
-            position: relative;
-            left: 65px;
-            margin-left: 50px;
-        }      
-
-        .botoes_decima {
-            padding-right: 63vh;
-        }  
-     }
-
-   
-
+    .logo {
+        margin-left: 2px;
+    }   
     
+    .categorias {
+        
+        position: relative;
+        left: 65px;
+        margin-left: 50px;
+    }      
+
+    .botoes_decima {
+        padding-right: 63vh;
+    }  
+
+    .adicionar {
+        right: -57px;
+        left: auto;
+        margin: 0;
+        width: 100px;
+}
+
+     
 }
