@@ -101,6 +101,15 @@
     </main>
 
     <script>
+
+$("#reservar").on("click", function(){
+            Swal.fire({
+                title: "Deu Certo!",
+                text: "Reserva feita com sucesso!",
+                icon: "success"
+            });
+        })
+
 document.addEventListener("DOMContentLoaded", () => {
     const assentosContainer = document.getElementById("assentos-container");
     const totalItens = document.getElementById("itens");
