@@ -59,9 +59,11 @@ nav ul li a:hover {
 }
 
 .acao {
+    margin-right: 160px;
     display: flex;
     align-items: center;
     gap: 15px;
+    width: 6vh;
 }
 
 .acao i {
@@ -129,6 +131,7 @@ img {
 .texto p {
     font-size: 1rem;
     max-width: 500px;
+    line-height: 26px;
 }
 
 .indicadores {
