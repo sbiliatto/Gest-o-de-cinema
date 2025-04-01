@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+
 <body>
     <div class="container">
         <div class="esquerda">
@@ -27,8 +29,8 @@
                 </div>
                 <div class="campo campo-senha">
                     <input type="password" name="senha" id="senha" placeholder="Senha">
-                    <img src="https://cdn-icons-png.flaticon.com/512/2767/2767146.png" 
-                         alt="Mostrar senha" class="eye-icon" id="toggleSenha">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2767/2767146.png" alt="Mostrar senha"
+                        class="eye-icon" id="toggleSenha">
                 </div>
                 <span id="erro-senha" class="erro"></span>
                 <button type="submit" class="botao">Cadastrar</button>
@@ -37,22 +39,22 @@
     </div>
 
     <script>
-        
+
         $("#toggleSenha").on("click", function () {
             let senhaInput = $("#senha");
             let icone = $("#toggleSenha");
 
             if (senhaInput.attr("type") === "password") {
                 senhaInput.attr("type", "text");
-                icone.attr("src", "https://cdn-icons-png.flaticon.com/512/2767/2767149.png"); 
+                icone.attr("src", "https://cdn-icons-png.flaticon.com/512/2767/2767149.png");
             } else {
                 senhaInput.attr("type", "password");
-                icone.attr("src", "https://cdn-icons-png.flaticon.com/512/2767/2767146.png"); 
+                icone.attr("src", "https://cdn-icons-png.flaticon.com/512/2767/2767146.png");
             }
         });
 
-        
-        $("#form_cadastro").on("submit", function(e) {
+
+        $("#form_cadastro").on("submit", function (e) {
             e.preventDefault();
             // pegaq os valores do campo do formulário
             let nome = $("#nome").val().trim();
@@ -60,8 +62,8 @@
             let email = $("#email").val().trim();
             let senha = $("#senha").val().trim();
 
-            let emailRegex = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/;  
-            let telefoneRegex = /^[0-9]{10,11}$/;  
+            let emailRegex = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/;
+            let telefoneRegex = /^[0-9]{10,11}$/;
             let senhaRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}":;'?/>,.<]).{8,}$/;
 
             if (!telefoneRegex.test(telefone)) {
@@ -90,15 +92,15 @@
 
             console.log("Dados para envio:", { nome, telefone, email, senha });
 
-              // converte para JSON
+            // converte para JSON
             let dados = JSON.stringify({ nome, telefone, email, senha, tipo: "cliente" });
 
             $.ajax({
                 method: "POST",
-                url: "http://192.168.1.145:5000/+.",  
+                url: "http://192.168.1.145:5000/+.",
                 data: dados, // envia os dados do formulário 
                 contentType: "application/json",
-                success: function(response) {  //caso o cadastro de certo
+                success: function (response) {  //caso o cadastro de certo
                     console.log("Cadastro realizado com sucesso:", response);
                     Swal.fire({
                         title: "Deu Certo!",
@@ -108,7 +110,7 @@
                         window.location.href = "homePoslogin.html";
                     });
                 },
-                error: function(xhr, status, error) { //caso o cadastro de errado
+                error: function (xhr, status, error) { //caso o cadastro de errado
                     console.log("Erro ao tentar cadastrar:", xhr.responseJSON, status, error);
                     Swal.fire({
                         title: "Erro!",
@@ -120,4 +122,5 @@
         });
     </script>
 </body>
+
 </html>

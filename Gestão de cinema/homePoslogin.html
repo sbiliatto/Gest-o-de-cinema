@@ -64,14 +64,14 @@
                 </div>
             </div>
 
-    <script>
-        function sair() {
-            localStorage.clear() // Se armazenado no LocalStorage
-            sessionStorage.clear() // Se armazenado no SessionStorage
+            <script>
+                function sair() {
+                    localStorage.clear() // Se armazenado no LocalStorage
+                    sessionStorage.clear() // Se armazenado no SessionStorage
 
-            window.location.href = "/login.html";
-        }
-    </script>
+                    window.location.href = "/login.html";
+                }
+            </script>
     </header>
 
     <div class="barra"></div>
@@ -151,7 +151,7 @@
         }, 10000);
     </script>
 
-    
+
 
     <div class="categorias">
         <a href="#">AVENTURA</a>
@@ -204,7 +204,7 @@
 </body>
 <script defer>
 
-function carregaProdutos() {
+    function carregaProdutos() {
         var settings = {
             "url": "http://192.168.1.145:5000/filmes",
             "method": "GET",
@@ -213,32 +213,33 @@ function carregaProdutos() {
                 "Content-Type": "application/json"
             }
         };
-      
-      $.ajax(settings).done(function (response) {
-        let exibe = $("#exibeFilmes")
-        exibe.html(" ")
-    
-        var html = ""
-    
-        response.filmes.forEach((item) => {
-            console.log(item)
-    
-            html += `
+
+        $.ajax(settings).done(function (response) {
+            let exibe = $("#exibeFilmes")
+            exibe.html(" ")
+
+            var html = ""
+
+            response.filmes.forEach((item) => {
+                console.log(item)
+
+                html += `
             <div class="filme" >
                 <a href="">
                     <img src="http://192.168.1.145:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
                 </a>
                 </div>
             `;
-    
-            exibe.html(html)
-        })
-    
-    
-      });
+
+                exibe.html(html)
+            })
+
+
+        });
     }
-    
+
     carregaProdutos();
 
 </script>
+
 </html>

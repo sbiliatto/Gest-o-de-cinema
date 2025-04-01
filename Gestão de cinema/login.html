@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prime Cine - Login</title>
+    <title>Login</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="assets/css/login.css">
@@ -30,8 +30,8 @@
                 <div class="campo-entrada">
                     <span class="icone"><i class="fas fa-lock"></i></span>
                     <input type="password" name="senha" id="senha" placeholder="Senha" required>
-                    <img src="https://cdn-icons-png.flaticon.com/512/2767/2767146.png" 
-                         alt="Mostrar senha" class="eye-icon" id="toggleSenha">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2767/2767146.png" alt="Mostrar senha"
+                        class="eye-icon" id="toggleSenha">
                 </div>
 
                 <button type="submit" class="botao" id="btn">ENTRAR</button>
@@ -41,25 +41,25 @@
     </div>
 
     <script>
-        
+
         $("#toggleSenha").on("click", function () {
             let senhaInput = $("#senha");
             let icone = $("#toggleSenha");
 
             if (senhaInput.attr("type") === "password") {
                 senhaInput.attr("type", "text");
-                icone.attr("src", "https://cdn-icons-png.flaticon.com/512/2767/2767149.png"); 
+                icone.attr("src", "https://cdn-icons-png.flaticon.com/512/2767/2767149.png");
             } else {
                 senhaInput.attr("type", "password");
-                icone.attr("src", "https://cdn-icons-png.flaticon.com/512/2767/2767146.png"); 
+                icone.attr("src", "https://cdn-icons-png.flaticon.com/512/2767/2767146.png");
             }
         });
 
-        
+
         $("#form_login").on("submit", function (e) {
             e.preventDefault();
 
-              // pega os valores dos campos email e senha
+            // pega os valores dos campos email e senha
             let email = $("input[name='email']").val().trim();
             let senha = $("input[name='senha']").val().trim();
 
@@ -99,7 +99,7 @@
                         } else {
                             window.location.href = "homePoslogin.html";
                         }
-                    }); 
+                    });
                 },
                 error: function (retorno) { // caso de erro no login
                     Swal.fire({

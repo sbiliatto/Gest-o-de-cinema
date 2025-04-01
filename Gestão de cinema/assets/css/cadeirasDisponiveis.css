@@ -199,15 +199,13 @@ main {
     margin-bottom: 5px;
 }
 
-.assento.namoradeira {
+.namoradeira {
     background: pink;
 }
 
-.assento.cadeirante {
+
+.cadeirante {
     background: blue;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .assento.cadeirante i {
