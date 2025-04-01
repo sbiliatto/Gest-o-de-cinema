@@ -89,12 +89,10 @@ nav ul li a:hover {
     cursor: pointer;
     border-radius: 5px;
     font-weight: bold;
-
 }
 
 .btn-perfil:hover {
     background-color: #cc0000;
-
 }
 
 /* Menu suspenso */
@@ -149,7 +147,6 @@ nav ul li a:hover {
     background-color: #D7D6D6;
 }
 
-
 .barra {
     width: 100%;
     height: 4px;
@@ -189,10 +186,10 @@ main {
     background: red;
     border-radius: 50%;
     cursor: pointer;
-    display: inline-block;
-    margin: 5px;
+    display: flex;
     justify-content: center;
     align-items: center;
+    margin: 5px;
     font-size: 18px;
 }
 
@@ -203,21 +200,18 @@ main {
     margin-bottom: 5px;
 }
 
+.namoradeira, .cadeirante {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .namoradeira i {
-    color: white; /* Ícone de cadeirante */
+    color: rgb(255, 255, 255);
 }
 
 .namoradeira {
     background: blue;
-}
-
-
-.cadeirante {
-    background: pink;
-}
-
-.cadeirante i{
-    color: red; /* Ícone de coração em vermelho */
 }
 
 .assento.cadeirante i {
@@ -237,6 +231,11 @@ main {
     display: inline-block;
 }
 
+.assento i {
+    font-size: 1em;
+    color: #ffffff;
+}
+
 .disponivel {
     background: red;
 }
@@ -246,7 +245,7 @@ main {
 }
 
 .namoradeira {
-    background: pink;
+    background: red;
 }
 
 .cadeirante {
@@ -254,7 +253,7 @@ main {
 }
 
 .selecionado {
-    background: green;
+    background: rgb(26, 226, 26);
 }
 
 .pedido {
