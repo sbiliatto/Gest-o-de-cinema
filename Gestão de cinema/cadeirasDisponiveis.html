@@ -5,12 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/cadeirasDisponiveis.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -18,11 +17,9 @@
     <script src="assets/js/seguranca.js" defer></script>
 
     <title>Prime Cine</title>
-
 </head>
 
 <script>
-
     function toggleMenu() {
         const menu = document.getElementById("menuPerfil");
         menu.style.display = (menu.style.display === "block") ? "none" : "block";
@@ -50,7 +47,6 @@
         </nav>
 
         <div class="acao">
-
             <div class="perfil-container">
                 <img onclick="toggleMenu()" class="btn-perfil2" src="assets/img/do-utilizador.png" alt="">
                 <div class="menu-perfil" id="menuPerfil">
@@ -61,17 +57,16 @@
                         <li><a onclick="sair()" style="cursor: pointer;" href="login.html">🚪 Sair da Conta</a></li>
                     </ul>
                 </div>
-
             </div>
+        </div>
 
-            <script>
-                function sair() {
-                    localStorage.clear() // Se armazenado no LocalStorage
-                    sessionStorage.clear() // Se armazenado no SessionStorage
-
-                    window.location.href = "/login.html";
-                }
-            </script>
+        <script>
+            function sair() {
+                localStorage.clear();
+                sessionStorage.clear();
+                window.location.href = "/login.html";
+            }
+        </script>
     </header>
 
     <main>
@@ -79,13 +74,12 @@
             <div class="assentos">
                 <div class="tela">TELA</div>
                 <div class="grid-container">
-
                     <div class="grid" id="assentos-container"></div>
                 </div>
                 <div class="legenda">
                     <span class="disponivel"></span> Disponível
                     <span class="ocupado"></span> Ocupado
-                    <span class="namoradeira"></span> Namoradeira
+                    <span class="namoradeira"><i class="fa-solid fa-heart"></i></span> Namoradeira
                     <span class="cadeirante"><i class="fa-solid fa-wheelchair"></i></span> Cadeira Acessível
                     <span class="selecionado"></span> Selecionado
                 </div>
@@ -95,121 +89,85 @@
                     <h2>Informações do pedido</h2>
                     <img class="img-pedido" src="assets/img/mmfsa.jpeg" alt="Mufasa">
                     <p>PrimeCine Araçatuba</p>
-
                     <div>
                         <p>QUA 19/02 - 21:30</p>
                         <p>Itens: <span id="itens">0</span></p>
                         <p>Total: R$ <span id="total">0,00</span></p>
                     </div>
-
                 </div>
                 <button id="reservar">Reservar</button>
             </div>
         </div>
     </main>
+
     <script>
+document.addEventListener("DOMContentLoaded", () => {
+    const assentosContainer = document.getElementById("assentos-container");
+    const totalItens = document.getElementById("itens");
+    const totalPreco = document.getElementById("total");
+    let selecionados = 0;
+    let precoUnitario = 20.00;
 
-        $("#reservar").on("click", function(){
-                    Swal.fire({
-                        title: "Deu Certo!",
-                        text: "Reserva feita com sucesso!",
-                        icon: "success"
-                    });
-                })
+    let fileiras = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
+    let assentosPorFileira = 10;
 
-        document.addEventListener("DOMContentLoaded", () => {
-            const assentosContainer = document.getElementById("assentos-container");
-            const totalItens = document.getElementById("itens");
-            const totalPreco = document.getElementById("total");
-            let selecionados = 0;
-            let precoUnitario = 20.00;
+    // Criar os assentos
+    fileiras.forEach((letra, index) => {
+        const fileira = document.createElement("div");
+        fileira.classList.add("fileira");
 
-            let fileiras = ["J", "I", "H", "G", "F", "E", "D", "C", "B", "A"];
-            let assentosPorFileira = 10;
+        const numLinha = document.createElement("span");
+        numLinha.classList.add("num-linha");
+        numLinha.textContent = letra;
+        fileira.appendChild(numLinha);
 
-            fileiras.forEach((letra, index) => {
-                const fileira = document.createElement("div");
-                fileira.classList.add("fileira");
+        for (let j = 0; j < assentosPorFileira; j++) {
+            const assento = document.createElement("div");
+            assento.classList.add("assento");
 
-                const numLinha = document.createElement("span");
-                numLinha.classList.add("num-linha");
-                numLinha.textContent = letra;
-                fileira.appendChild(numLinha);
-
-                for (let j = 0; j < assentosPorFileira; j++) {
-                    const assento = document.createElement("div");
-                    assento.classList.add("assento");
-
-                    // Primeira fileira são namoradeiras
-                    if (index === 0) assento.classList.add("namoradeira");
-
-                    // Última fileira só 4 assentos acessíveis
-                    if (index === fileiras.length - 1 && j < 7) {
-                        assento.classList.add("cadeirante");
-                        assento.innerHTML = '<i class="fa-solid fa-wheelchair"></i>';
-
-                    }
-
-                    assento.addEventListener("click", () => {
-                        if (!assento.classList.contains("ocupado")) {
-                            assento.classList.toggle("selecionado");
-                            selecionados = document.querySelectorAll(".assento.selecionado").length;
-                            totalItens.textContent = selecionados;
-                            totalPreco.textContent = (selecionados * precoUnitario).toFixed(2);
-                        }
-                    });
-
-                    document.querySelectorAll(".assento.namoradeira").forEach(assento => {
-                        assento.addEventListener("click", () => {
-                            if (!assento.classList.contains("ocupado")) {
-                                assento.classList.toggle("selecionado");
-
-                                if (assento.classList.contains("selecionado")) {
-                                    assento.classList.remove("namoradeira");
-                                } else {
-                                    assento.classList.add("namoradeira");
-                                }
-
-                                let selecionados = document.querySelectorAll(".assento.selecionado").length;
-                                document.getElementById("totalItens").textContent = selecionados;
-                                document.getElementById("totalPreco").textContent = (selecionados * precoUnitario).toFixed(2);
-                            }
-                        });
-                    });
-                    document.querySelectorAll(".cadeirante").forEach(assento => {
-                        assento.addEventListener("click", () => {
-                            if (!assento.classList.contains("ocupado")) {
-                                assento.classList.toggle("selecionado");
-
-                                if (assento.classList.contains("selecionado")) {
-                                    assento.classList.remove("cadeirante");
-                                } else {
-                                    assento.classList.add("cadeirante");
-                                }
-
-                                let selecionados = document.querySelectorAll(".assento.selecionado").length;
-                                document.getElementById("totalItens").textContent = selecionados;
-                                document.getElementById("totalPreco").textContent = (selecionados * precoUnitario).toFixed(2);
-                            }
-                        });
-                    });
-                    fileira.appendChild(assento);
+            // Cadeiras acessíveis (primeira fileira)
+            if (index === 0) {
+                let padraoAcessiveis = [true, false, true, true, false, true, false, true, true, false];
+                if (padraoAcessiveis[j]) {
+                    assento.classList.add("cadeirante");
+                    assento.innerHTML = '<i class="fa-solid fa-wheelchair"></i>';
                 }
+            }
 
-                assentosContainer.appendChild(fileira);
+            // Namoradeiras (última fileira)
+            if (index === fileiras.length - 1) {
+                assento.classList.add("namoradeira");
+                assento.innerHTML = '<i class="fa-solid fa-heart"></i>';
+            }
+
+            assento.addEventListener("click", () => {
+                if (!assento.classList.contains("ocupado")) {
+                    assento.classList.toggle("selecionado");
+                    selecionados = document.querySelectorAll(".assento.selecionado").length;
+                    totalItens.textContent = selecionados;
+                    totalPreco.textContent = (selecionados * precoUnitario).toFixed(2);
+                }
             });
 
-            // Função para reservar os assentos
-            document.getElementById("reservar").addEventListener("click", () => {
-                document.querySelectorAll(".assento.selecionado").forEach(assento => {
-                    assento.classList.remove("selecionado");
-                    assento.classList.add("ocupado");
-                });
+            fileira.appendChild(assento);
+        }
+        assentosContainer.appendChild(fileira);
+    });
 
-                totalItens.textContent = "0";
-                totalPreco.textContent = "0,00";
-
-            });
+    // Função para reservar os assentos
+    document.getElementById("reservar").addEventListener("click", () => {
+        document.querySelectorAll(".assento.selecionado").forEach(assento => {
+            assento.classList.remove("selecionado");
+            assento.classList.add("ocupado");
+            assento.style.backgroundColor = "gray";
         });
+
+        // Resetar os contadores
+        totalItens.textContent = "0";
+        totalPreco.textContent = "0,00";
+    });
+});
+
     </script>
 </body>
+</html>
