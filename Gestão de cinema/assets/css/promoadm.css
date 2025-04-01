@@ -190,11 +190,11 @@ footer {
 }
 
 /* Barra Vermelha */
-.barra {
-    width: 90%;
+.barra3 {
+    width: 100%;
     left: 5%;
     background-color: darkred;
-    margin-bottom: 85vh;
+    padding: 3px;
 }
 
 .socialicones {
@@ -303,6 +303,14 @@ footer {
 
 .nome-veisitante {
     background-color: #D7D6D6;
+}
+
+.barra1 {
+    width: 100%;
+    height: 4px;
+    background-color: darkred;
+    bottom: 0;
+    left: 0;
 }
 
 
