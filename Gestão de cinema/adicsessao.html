@@ -97,29 +97,19 @@
     <main>
         <h2>Adicionar sessão</h2>
         <form id="form_cadastro">
-            <label for="titulo">Número da sessão</label>
-            <input type="text" id="titulo" name="titulo" required>
+            <label for="horario">Sala:</label>
+            <input type="number" id="id_sala" name="id_sala" required>
 
-            <label for="classificacao">Classificação:</label>
-            <select id="classificacao">
-                <option value="livre">Livre</option>
-                <option value="10">10</option>
-                <option value="12">12</option>
-                <option value="14">14</option>
-                <option value="16">16</option>
-                <option value="18">18</option>
-            </select>
+            <label for="horario">Horário:</label>
+            <input type="time" id="horario" name="horario" required>
 
-            <label for="genero">Gênero:</label>
-            <input type="text" id="genero" name="genero" required>
+            <label for="data_sessao">Data da sessão:</label>
+            <input type="date" id="data_sessao" name="data_sessao" required>
 
-            <label for="sinopse">Sinopse:</label>
-            <textarea id="sinopse" name="sinopse" required></textarea>
+            <label for="id_filme">Id do filme:</label>
+            <input type="number" id="id_filme" name="id_filme" required>
 
-            <label for="imagem">Imagem:</label>
-            <input type="file" id="imagem" name="imagem" accept="image/*">
-
-            <button type="submit">Adicionar Filme</button>
+            <button type="submit">Adicionar Sessão</button>
 
         </form>
     </main>
@@ -130,24 +120,29 @@
 
             var token = localStorage.getItem("token") // pega o token do localStorage
 
-            var form = new FormData(this); //cria um objeto com os dados do formulário
+            var form = new FormData(this)
+
+            var envia = {
+                "id_sala": form.get("id_sala"),
+                "horario": form.get("horario"),
+                "data_sessao": form.get("data_sessao"),
+                "id_filme": form.get("id_filme"),
+
+            }
 
             var settings = {
-                "url": "http://192.168.1.145:5000/filme_imagem", // URL da API para envio dos dados
+                "url": "http://192.168.1.145:5000/sessoes",
                 "method": "POST",
                 "timeout": 0,
                 "headers": {
-                    "Authorization": "Bearer " + token
+                    "Content-Type": "application/json"
                 },
-                "processData": false,
-                "mimeType": "multipart/form-data", // define o tipo de dados sendo enviados
-                "contentType": false,
-                "data": form,
+                "data": JSON.stringify(envia),
                 //  executa quando a requisição é bem-sucedida
                 "success": function (retorno) {
                     Swal.fire({
                         title: "Deu Certo!",
-                        text: response.message,
+                        text: "Sessão cadastrada com sucesso.",
                         icon: "success"
                     })
                 },
@@ -155,7 +150,7 @@
                 "error": function (retorno) {
                     Swal.fire({
                         title: "Erro!",
-                        text: retorno.responseJSON?.error || "Erro ao adicionar filme",
+                        text: retorno.responseJSON?.error || "Erro ao adicionar Sessão",
                         icon: "error"
                     });
                 }

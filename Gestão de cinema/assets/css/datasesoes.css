@@ -162,8 +162,8 @@ nav ul li a:hover {
 
 .movie-container {
     display: flex;
-    padding: 40px 50px;
-    gap: 30px;
+    padding: 60px 50px;
+    gap: 50px;
     text-align: justify;
 }
 

@@ -83,7 +83,7 @@
         <div class="movie-details">
             <h1 class="movie-title" id="titulo">MOANA 2</h1>
             <div class="generoclass">
-                <div class="classification">
+                <div class="classification" id="classification">
                     <div class="age-rating l">L</div>
                     <div class="age-rating ten">10</div>
                     <div class="age-rating twelve">12</div>
@@ -148,12 +148,28 @@
 
         const params = new URLSearchParams(window.location.search);
         const id = params.get('id');
+        var classificacao = params.get("classificacao")
 
         document.getElementById("titulo").innerHTML = params.get("titulo")
         document.getElementById("genero").innerHTML = params.get("genero")
         document.getElementById("sinopse").innerHTML = params.get("sinopse")
         document.getElementById("data").innerHTML = params.get("data")
         document.getElementById("imgfilme").src = "http://192.168.1.145:5000/static/uploads/Filmes/" + id + ".jpeg"
+
+        if(classificacao == "10") {
+            document.getElementById("classification").innerHTML = '<div class="age-rating ten">10</div>'
+        } else if(classificacao == "12") {
+            document.getElementById("classification").innerHTML = '<div class="age-rating twelve">12</div>'
+        } else if(classificacao == "14") {
+            document.getElementById("classification").innerHTML = '<div class="age-rating fourteen">14</div>'
+        }else if(classificacao == "16") {
+            document.getElementById("classification").innerHTML = '<div class="age-rating sixteen">16</div>'
+        }else if(classificacao == "18") {
+            document.getElementById("classification").innerHTML = '<div class="age-rating eighteen">18</div>'
+        }else if(classificacao == "L") {
+            document.getElementById("classification").innerHTML = '<div class="age-rating l">L</div>'
+        }
+
 
         // ======================================================================
         // ======================================================================
