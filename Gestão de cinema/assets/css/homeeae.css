@@ -451,6 +451,7 @@ a:hover {
         flex-direction: column;
         gap: 10px;
         padding: 10px;
+        margin-left: 68vh;
     }
 
    
@@ -492,7 +493,7 @@ a:hover {
     }
 
     .delete{
-        margin-right: 111px;
+                margin-right: 184px;
     }
 }
 
