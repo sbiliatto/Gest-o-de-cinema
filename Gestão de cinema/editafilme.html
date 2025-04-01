@@ -10,53 +10,32 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script src="assets/js/seguranca.js" defer></script>
     <script src="assets/js/seguranca-adm.js" defer></script>
-
 
     <script>
         function toggleMenu() {
-            document.getElementById("menu-dropdown").classList.toggle("menu-active");
+            const menu = document.getElementById("menuPerfil");
+            menu.style.display = (menu.style.display === "block") ? "none" : "block";
         }
 
         // Fecha o menu se o usuário clicar fora
         window.onclick = function (event) {
-            if (!event.target.matches('.menu-button')) {
-                let menu = document.getElementById("menu-dropdown");
-                if (menu.classList.contains("menu-active")) {
-                    menu.classList.remove("menu-active");
-                }
+            const menu = document.getElementById("menuPerfil");
+            const botaoPerfil = document.querySelector('.btn-perfil2');
+
+            if (menu.style.display === "block" && event.target !== menu && event.target !== botaoPerfil) {
+                menu.style.display = "none";
             }
         }
     </script>
 
-
 </head>
-
-<script>
-    function toggleMenu() {
-        const menu = document.getElementById("menuPerfil");
-        menu.style.display = (menu.style.display === "block") ? "none" : "block";
-    }
-
-    window.onclick = function (event) {
-        const menu = document.getElementById("menuPerfil");
-        const botaoPerfil = document.querySelector('.btn-perfil2');
-
-        if (menu.style.display === "block" && event.target !== menu && event.target !== botaoPerfil) {
-            menu.style.display = "none";
-        }
-    }
-</script>
 
 <body>
     <header>
         <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
-
 
         <div class="div-header">
             <div class="btn-group">
@@ -75,7 +54,6 @@
             </div>
 
             <div class="acao">
-
                 <div class="perfil-container">
                     <img onclick="toggleMenu()" class="btn-perfil2" src="assets/img/do-utilizador.png" alt="">
                     <div class="menu-perfil" id="menuPerfil">
@@ -86,16 +64,15 @@
                             <li><a href="#">🚪 Sair da Conta</a></li>
                         </ul>
                     </div>
-
                 </div>
             </div>
-
+        </div> <!-- Fechamento da div header -->
     </header>
 
     <main>
         <h2>Editar Filme</h2>
-        <form action="editar_filme" method="POST" enctype="multipart/form-data">
-            <label for="titulo" >Título do Filme:</label>
+        <form id="form_editar" method="POST" enctype="multipart/form-data">
+            <label for="titulo">Título do Filme:</label>
             <input type="text" id="titulo" name="titulo" required>
 
             <label for="classificacao">Classificação:</label>
@@ -117,8 +94,7 @@
             <label for="imagem">Imagem:</label>
             <input type="file" id="imagem" name="imagem" accept="image/*">
 
-            <button href="homePoslogin.html" type="submit">Salvar alterações</button>
-
+            <button type="submit" class="save-button">Salvar alterações</button>
         </form>
     </main>
 
@@ -126,11 +102,67 @@
         const params = new URLSearchParams(window.location.search);
         const id = params.get('id');
 
-        document.getElementById("titulo").value = params.get("titulo")
-        document.getElementById("classificacao").value = params.get("classificacao")
-        document.getElementById("genero").value = params.get("genero")
-        document.getElementById("sinopse").value = params.get("sinopse")
+        document.getElementById("titulo").value = params.get("titulo");
+        document.getElementById("classificacao").value = params.get("classificacao");
+        document.getElementById("genero").value = params.get("genero");
+        document.getElementById("sinopse").value = params.get("sinopse");
+    
+        $("#form_editar").on("submit", function (e) {
+            e.preventDefault();
 
+            // Criando o FormData com o formulário
+            let dados = new FormData(this);
+
+            // Verifica se a imagem foi escolhida no input
+            const imagem = document.getElementById("imagem").files[0];
+            if (imagem) {
+                dados.append("imagem", imagem); // Adiciona a imagem ao FormData
+            }
+
+            // Cria o objeto que será enviado com os dados do filme
+            let envia = {
+                titulo: dados.get("titulo"),
+                classificacao: dados.get("classificacao"),
+                genero: dados.get("genero"),
+                sinopse: dados.get("sinopse"),
+            };
+
+            // Converte o objeto para JSON e adiciona ao FormData
+            dados.append("filme", JSON.stringify(envia));
+
+            // Envia o FormData via AJAX
+            $.ajax({
+                method: "PUT",
+                url: "http://192.168.1.145:5000/filme_imagem/" + id,
+                data: dados,
+                processData: false, // Não processa os dados
+                contentType: false, // Não define o contentType (o browser vai fazer isso automaticamente)
+                success: function (retorno) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Edição Realizada!",
+                        text: retorno.message,
+                        confirmButtonText: "OK"
+                    }).then(() => {
+                        localStorage.setItem("titulo", dados.get("titulo"));
+                        localStorage.setItem("classificacao", dados.get("classificacao"));
+                        localStorage.setItem("genero", dados.get("genero"));
+                        localStorage.setItem("sinopse", dados.get("sinopse"));
+
+                        window.location.href = "home_adm.html";
+                    });
+                    console.log(retorno);
+                },
+                error: function (retorno) {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Erro!",
+                        text: retorno.responseJSON.error || "Deu errado.",
+                        confirmButtonText: "OK"
+                    });
+                }
+            });
+        });
     </script>
 
 </body>
