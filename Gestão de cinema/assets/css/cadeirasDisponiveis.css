@@ -191,7 +191,11 @@ main {
     cursor: pointer;
     display: inline-block;
     margin: 5px;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
 }
+
 .fileira {
     display: flex;
     justify-content: center;
@@ -199,13 +203,21 @@ main {
     margin-bottom: 5px;
 }
 
+.namoradeira i {
+    color: white; /* Ícone de cadeirante */
+}
+
 .namoradeira {
-    background: pink;
+    background: blue;
 }
 
 
 .cadeirante {
-    background: blue;
+    background: pink;
+}
+
+.cadeirante i{
+    color: red; /* Ícone de coração em vermelho */
 }
 
 .assento.cadeirante i {

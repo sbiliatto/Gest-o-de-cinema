@@ -101,7 +101,7 @@
             <input type="text" id="titulo" name="titulo" required>
 
             <label for="classificacao">Classificação:</label>
-            <select id="classificacao">
+            <select name="classificacao" id="classificacao">
                 <option value="livre">Livre</option>
                 <option value="10">10</option>
                 <option value="12">12</option>
@@ -147,7 +147,7 @@
                 "success": function (retorno) {
                     Swal.fire({
                         title: "Deu Certo!",
-                        text: response.message,
+                        text: "Filme cadastrado com sucesso.",
                         icon: "success"
                     })
                 },

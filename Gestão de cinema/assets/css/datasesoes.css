@@ -157,12 +157,14 @@ nav ul li a:hover {
     position: absolute;
     bottom: 0;
     left: 0;
+    margin-bottom: 5vh;
 }
 
 .movie-container {
     display: flex;
     padding: 40px 50px;
     gap: 30px;
+    text-align: justify;
 }
 
 .movie-poster {
@@ -190,7 +192,6 @@ nav ul li a:hover {
 .classification {
     display: flex;
     gap: 5px;
-    margin-bottom: 20px;
 }
 
 .age-rating {
@@ -226,6 +227,14 @@ nav ul li a:hover {
 
 .eighteen {
     background-color: #000000;
+}
+
+.generoclass{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 .genre {
@@ -326,14 +335,13 @@ footer {
 
 .red-bar {
     background-color: #b90000;
-    padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .red-bar img {
-    height: 40px;
+    height: 90px;
 }
 
 /* Menu suspenso */
@@ -385,6 +393,18 @@ footer {
 }
 
 
+.barra1 {
+    width: 100%;
+    height: 4px;
+    background-color: darkred;
+    bottom: 0;
+    left: 0;
+}
+
+.localimg{
+    width: 10px;
+    height:15px;
+}
 
 
 @media (max-width: 768px) {
