@@ -85,7 +85,7 @@
                 <div class="legenda">
                     <span class="disponivel"></span> Disponível
                     <span class="ocupado"></span> Ocupado
-                    <span class="namoradeira"></span> Namoradeira
+                    <span class="namoradeira"><i class="fa-solid fa-heart"></i></span> Namoradeira
                     <span class="cadeirante"><i class="fa-solid fa-wheelchair"></i></span> Cadeira Acessível
                     <span class="selecionado"></span> Selecionado
                 </div>
@@ -109,107 +109,76 @@
     </main>
     <script>
 
-        $("#reservar").on("click", function(){
-                    Swal.fire({
-                        title: "Deu Certo!",
-                        text: "Reserva feita com sucesso!",
-                        icon: "success"
-                    });
-                })
+    $("#reservar").on("click", function(){
+                        Swal.fire({
+                            title: "Deu Certo!",
+                            text: "Reserva feita com sucesso!",
+                            icon: "success"
+                        });
+                    })
+
 
         document.addEventListener("DOMContentLoaded", () => {
-            const assentosContainer = document.getElementById("assentos-container");
-            const totalItens = document.getElementById("itens");
-            const totalPreco = document.getElementById("total");
-            let selecionados = 0;
-            let precoUnitario = 20.00;
+        const assentosContainer = document.getElementById("assentos-container");
+        const totalItens = document.getElementById("itens");
+        const totalPreco = document.getElementById("total");
+        let selecionados = 0;
+        let precoUnitario = 20.00;
 
-            let fileiras = ["J", "I", "H", "G", "F", "E", "D", "C", "B", "A"];
-            let assentosPorFileira = 10;
+        let fileiras = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
+        let assentosPorFileira = 10;
 
-            fileiras.forEach((letra, index) => {
-                const fileira = document.createElement("div");
-                fileira.classList.add("fileira");
+        fileiras.forEach((letra, index) => {
+            const fileira = document.createElement("div");
+            fileira.classList.add("fileira");
 
-                const numLinha = document.createElement("span");
-                numLinha.classList.add("num-linha");
-                numLinha.textContent = letra;
-                fileira.appendChild(numLinha);
+            const numLinha = document.createElement("span");
+            numLinha.classList.add("num-linha");
+            numLinha.textContent = letra;
+            fileira.appendChild(numLinha);
 
-                for (let j = 0; j < assentosPorFileira; j++) {
-                    const assento = document.createElement("div");
-                    assento.classList.add("assento");
+            for (let j = 0; j < assentosPorFileira; j++) {
+                const assento = document.createElement("div");
+                assento.classList.add("assento");
 
-                    // Primeira fileira são namoradeiras
-                    if (index === 0) assento.classList.add("namoradeira");
-
-                    // Última fileira só 4 assentos acessíveis
-                    if (index === fileiras.length - 1 && j < 7) {
+                // Alternância de cadeiras acessíveis
+                if (index === 0) {
+                    let padraoAcessiveis = [true, false, true, true, false, true, false, true, true, false];
+                    if (padraoAcessiveis[j]) {
                         assento.classList.add("cadeirante");
                         assento.innerHTML = '<i class="fa-solid fa-wheelchair"></i>';
-
                     }
-
-                    assento.addEventListener("click", () => {
-                        if (!assento.classList.contains("ocupado")) {
-                            assento.classList.toggle("selecionado");
-                            selecionados = document.querySelectorAll(".assento.selecionado").length;
-                            totalItens.textContent = selecionados;
-                            totalPreco.textContent = (selecionados * precoUnitario).toFixed(2);
-                        }
-                    });
-
-                    document.querySelectorAll(".assento.namoradeira").forEach(assento => {
-                        assento.addEventListener("click", () => {
-                            if (!assento.classList.contains("ocupado")) {
-                                assento.classList.toggle("selecionado");
-
-                                if (assento.classList.contains("selecionado")) {
-                                    assento.classList.remove("namoradeira");
-                                } else {
-                                    assento.classList.add("namoradeira");
-                                }
-
-                                let selecionados = document.querySelectorAll(".assento.selecionado").length;
-                                document.getElementById("totalItens").textContent = selecionados;
-                                document.getElementById("totalPreco").textContent = (selecionados * precoUnitario).toFixed(2);
-                            }
-                        });
-                    });
-                    document.querySelectorAll(".cadeirante").forEach(assento => {
-                        assento.addEventListener("click", () => {
-                            if (!assento.classList.contains("ocupado")) {
-                                assento.classList.toggle("selecionado");
-
-                                if (assento.classList.contains("selecionado")) {
-                                    assento.classList.remove("cadeirante");
-                                } else {
-                                    assento.classList.add("cadeirante");
-                                }
-
-                                let selecionados = document.querySelectorAll(".assento.selecionado").length;
-                                document.getElementById("totalItens").textContent = selecionados;
-                                document.getElementById("totalPreco").textContent = (selecionados * precoUnitario).toFixed(2);
-                            }
-                        });
-                    });
-                    fileira.appendChild(assento);
                 }
 
-                assentosContainer.appendChild(fileira);
-            });
+                // Última fileira totalmente preenchida com namoradeiras
+                if (index === fileiras.length - 1) {
+                    assento.classList.add("namoradeira");
+                }
 
-            // Função para reservar os assentos
-            document.getElementById("reservar").addEventListener("click", () => {
-                document.querySelectorAll(".assento.selecionado").forEach(assento => {
-                    assento.classList.remove("selecionado");
-                    assento.classList.add("ocupado");
+                assento.addEventListener("click", () => {
+                    if (!assento.classList.contains("ocupado")) {
+                        assento.classList.toggle("selecionado");
+                        selecionados = document.querySelectorAll(".assento.selecionado").length;
+                        totalItens.textContent = selecionados;
+                        totalPreco.textContent = (selecionados * precoUnitario).toFixed(2);
+                    }
                 });
 
-                totalItens.textContent = "0";
-                totalPreco.textContent = "0,00";
-
-            });
+                fileira.appendChild(assento);
+            }
+            assentosContainer.appendChild(fileira);
         });
+
+        // Função para reservar os assentos
+        document.getElementById("reservar").addEventListener("click", () => {
+            document.querySelectorAll(".assento.selecionado").forEach(assento => {
+                assento.classList.remove("selecionado");
+                assento.classList.add("ocupado");
+            });
+
+            totalItens.textContent = "0";
+            totalPreco.textContent = "0,00";
+        });
+    });
     </script>
 </body>
