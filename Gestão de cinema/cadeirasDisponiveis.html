@@ -16,9 +16,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="assets/js/seguranca.js" defer></script>
-    <script src="assets/js/seguranca-adm.js" defer></script>
 
-    <title>PrimeCine</title>
+    <title>Prime Cine</title>
 
 </head>
 
@@ -140,8 +139,6 @@
                         assento.classList.add("cadeirante");
                         assento.innerHTML = '<i class="fa-solid fa-wheelchair"></i>';
 
-
-                        
                     }
 
                     assento.addEventListener("click", () => {
@@ -152,7 +149,41 @@
                             totalPreco.textContent = (selecionados * precoUnitario).toFixed(2);
                         }
                     });
-
+                           
+                    document.querySelectorAll(".assento.namoradeira").forEach(assento => {
+                    assento.addEventListener("click", () => {
+                        if (!assento.classList.contains("ocupado")) {
+                            assento.classList.toggle("selecionado");
+                            
+                            if (assento.classList.contains("selecionado")) {
+                                assento.classList.remove("namoradeira");
+                            } else {
+                                assento.classList.add("namoradeira");
+                            }
+                            
+                            let selecionados = document.querySelectorAll(".assento.selecionado").length;
+                            document.getElementById("totalItens").textContent = selecionados;
+                            document.getElementById("totalPreco").textContent = (selecionados * precoUnitario).toFixed(2);
+                        }
+                    });
+                });        
+                    document.querySelectorAll(".cadeirante").forEach(assento => {
+                    assento.addEventListener("click", () => {
+                        if (!assento.classList.contains("ocupado")) {
+                            assento.classList.toggle("selecionado");
+                            
+                            if (assento.classList.contains("selecionado")) {
+                                assento.classList.remove("cadeirante");
+                            } else {
+                                assento.classList.add("cadeirante");
+                            }
+                            
+                            let selecionados = document.querySelectorAll(".assento.selecionado").length;
+                            document.getElementById("totalItens").textContent = selecionados;
+                            document.getElementById("totalPreco").textContent = (selecionados * precoUnitario).toFixed(2);
+                        }
+                    });
+                });                    
                     fileira.appendChild(assento);
                 }
 
