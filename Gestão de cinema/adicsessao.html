@@ -97,8 +97,12 @@
     <main>
         <h2>Adicionar sessão</h2>
         <form id="form_cadastro">
-            <label for="horario">Sala:</label>
-            <input type="number" id="id_sala" name="id_sala" required>
+            <label for="sala">Sala:</label>
+            <select name="id_sala" id="id_sala" required>
+                <option >1</option>
+                <option >2</option>
+                <option >3</option>
+            </select>
 
             <label for="horario">Horário:</label>
             <input type="time" id="horario" name="horario" required>
@@ -107,7 +111,9 @@
             <input type="date" id="data_sessao" name="data_sessao" required>
 
             <label for="id_filme">Id do filme:</label>
-            <input type="number" id="id_filme" name="id_filme" required>
+            <select name="id_filme" id="id_filme" required>
+                <option selected disabled>Selecione um Filme</option>
+            </select>
 
             <button type="submit">Adicionar Sessão</button>
 
@@ -115,6 +121,35 @@
     </main>
 
     <script>
+
+        function carregaProdutos() {
+            var settings = {
+                "url": "http://192.168.1.145:5000/filmes",
+                "method": "GET",
+                "timeout": 0,
+                "headers": {
+                    "Content-Type": "application/json"
+                }
+            };
+
+            $.ajax(settings).done(function (response) {
+                response.filmes.forEach((item) => {
+                    console.log(item)
+
+                    document.getElementById("id_filme").innerHTML += `
+                        <option value="${item.id_filme}">${item.titulo}</option>
+                    `;
+                })
+
+
+            });
+        }
+
+        carregaProdutos();
+
+
+
+
         $("#form_cadastro").on("submit", function (e) {
             e.preventDefault(); // impede o envio padrão do formulário
 
@@ -127,6 +162,7 @@
                 "horario": form.get("horario"),
                 "data_sessao": form.get("data_sessao"),
                 "id_filme": form.get("id_filme"),
+
 
             }
 
