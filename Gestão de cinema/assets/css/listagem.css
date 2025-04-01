@@ -361,3 +361,170 @@ nav ul li a:hover {
 }
 
 
+
+/* Base responsive settings */
+@media screen and (max-width: 1200px) {
+    header {
+      padding: 15px 30px;
+    }
+    
+    nav ul {
+      gap: 15px;
+      margin-left: 0;
+    }
+    
+    .table-container {
+      padding-top: 5vh;
+    }
+    
+    table {
+      width: 90%;
+    }
+  }
+  
+  @media screen and (max-width: 992px) {
+    .logo {
+      width: 15vh;
+    }
+    
+    .div-header {
+      gap: 10px;
+    }
+    
+    nav ul {
+      gap: 10px;
+    }
+    
+    .table-container {
+      padding-top: 3vh;
+    }
+    
+    td, th {
+      padding: 10px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    header {
+      flex-direction: column;
+      padding: 15px 20px;
+      gap: 15px;
+    }
+    
+    .div-header {
+      justify-content: center;
+      width: 100%;
+    }
+    
+    .table-container {
+      margin: 10px;
+      overflow-x: auto;
+    }
+    
+    table {
+      width: 100%;
+      min-width: 500px;
+    }
+    
+    .rodape {
+      flex-direction: column;
+      padding: 20px 15px;
+      gap: 15px;
+    }
+    
+    .info {
+      text-align: center;
+      margin-right: 0;
+    }
+    
+    .socialicones {
+      justify-content: center;
+      padding-left: 0;
+    }
+    
+    .barraverm img {
+      width: 25vh;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .logo {
+      width: 12vh;
+    }
+    
+    .btn-perfil2 {
+      width: 40px;
+    }
+    
+    .menu-perfil {
+      width: 200px;
+      right: -75px;
+    }
+    
+    td, th {
+      padding: 8px 5px;
+      font-size: 14px;
+    }
+    
+    .botao {
+      padding: 6px 10px;
+      font-size: 12px;
+    }
+    
+    .barraverm img {
+      width: 20vh;
+    }
+    
+    .socialicones img {
+      width: 25px;
+    }
+    
+    .info p {
+      font-size: 14px;
+    }
+  }
+  
+  /* Fix for table overflow on mobile */
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  /* Improve layout for user menu */
+  @media screen and (max-width: 400px) {
+    .menu-perfil {
+      width: 180px;
+      right: -70px;
+      padding: 10px;
+    }
+    
+    .menu-perfil ul li {
+      margin: 8px 0;
+    }
+    
+    .menu-perfil ul li a {
+      font-size: 14px;
+    }
+    
+    .botao {
+      padding: 5px 8px;
+      font-size: 11px;
+    }
+  }
+  
+  /* Fix for elements that may have duplicate rules in the original CSS */
+  @media screen and (max-width: 768px) {
+    header .logo {
+      margin-left: 0;
+    }
+    
+    nav ul {
+      margin-left: 0;
+      justify-content: center;
+    }
+    
+    .barra {
+      margin-bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+  }
