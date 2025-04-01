@@ -180,8 +180,8 @@ img {
 
 .filme img {
     justify-content: center;
-    width: 40vh;
-    height: 400px;
+    width: 100%;
+    height: auto;
     columns: auto;
     border-radius: 5px;
     transition: transform 0.3s;
