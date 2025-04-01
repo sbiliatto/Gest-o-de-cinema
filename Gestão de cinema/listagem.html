@@ -1,80 +1,81 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listagem de Usuários</title>
     <link rel="stylesheet" href="assets/css/listagem.css">
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="assets/js/seguranca.js" defer></script>
 
-    </head>
+</head>
 
-        <script>
-            function toggleMenu() {
-                const menu = document.getElementById("menuPerfil");
-                menu.style.display = (menu.style.display === "block") ? "none" : "block";
-            }
-    
-            window.onclick = function (event) {
-                const menu = document.getElementById("menuPerfil");
-                const botaoPerfil = document.querySelector('.btn-perfil2');
-    
-                if (menu.style.display === "block" && event.target !== menu && event.target !== botaoPerfil) {
-                    menu.style.display = "none";
-                }
-            }
-        </script>
-       
-    <body>
-        <header>
-            <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
-    
-            
-    
-                <div class="div-header">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-secondary dropdown-toggle bg-black border-2" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            MENU
-                        </button>
-                    
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="home_adm.html">HOME</a></li>
-                        <li><a class="dropdown-item" href="promoadm.html">PROMOÇÕES</a></li>
-                        <li><a class="dropdown-item" href="relatorios_adm.html">RELATÓRIO</a></li>
-                        <li><a class="dropdown-item" href="homeeae.html">CONFIG FILMES</a></li>
-                        <li><a class="dropdown-item" href="listagem.html">LISTAGEM</a></li>
-                    </ul>
-                </div>
-    
-                <div class="acao">
-    
-                    <div class="perfil-container">
-                        <img onclick="toggleMenu()" class="btn-perfil2" src="assets/img/do-utilizador.png" alt="">
-                        <div class="menu-perfil" id="menuPerfil">
-                            <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
-                            <ul>
-                                <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
-                                <li><a href="editar.html">✏️ Editar perfil</a></li>
-                                <li><a onclick="sair()" style="cursor: pointer;">🚪 Sair da Conta</a></li>
-                            </ul>
-                        </div>
-        
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById("menuPerfil");
+        menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    }
+
+    window.onclick = function (event) {
+        const menu = document.getElementById("menuPerfil");
+        const botaoPerfil = document.querySelector('.btn-perfil2');
+
+        if (menu.style.display === "block" && event.target !== menu && event.target !== botaoPerfil) {
+            menu.style.display = "none";
+        }
+    }
+</script>
+
+<body>
+    <header>
+        <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
+
+
+
+        <div class="div-header">
+            <div class="btn-group">
+                <button type="button" class="btn btn-secondary dropdown-toggle bg-black border-2"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    MENU
+                </button>
+
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="home_adm.html">HOME</a></li>
+                    <li><a class="dropdown-item" href="promoadm.html">PROMOÇÕES</a></li>
+                    <li><a class="dropdown-item" href="relatorios_adm.html">RELATÓRIO</a></li>
+                    <li><a class="dropdown-item" href="homeeae.html">CONFIG FILMES</a></li>
+                    <li><a class="dropdown-item" href="listagem.html">LISTAGEM</a></li>
+                </ul>
+            </div>
+
+            <div class="acao">
+
+                <div class="perfil-container">
+                    <img onclick="toggleMenu()" class="btn-perfil2" src="assets/img/do-utilizador.png" alt="">
+                    <div class="menu-perfil" id="menuPerfil">
+                        <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
+                        <ul>
+                            <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
+                            <li><a href="editar.html">✏️ Editar perfil</a></li>
+                            <li><a onclick="sair()" style="cursor: pointer;">🚪 Sair da Conta</a></li>
+                        </ul>
                     </div>
-        
-            <script>
-                function sair() {
-                    localStorage.clear() // Se armazenado no LocalStorage
-                    sessionStorage.clear() // Se armazenado no SessionStorage
-        
-                    window.location.href = "/login.html";
-                }
-            </script>
-        </header>
-    
+
+                </div>
+
+                <script>
+                    function sair() {
+                        localStorage.clear() // Se armazenado no LocalStorage
+                        sessionStorage.clear() // Se armazenado no SessionStorage
+
+                        window.location.href = "/login.html";
+                    }
+                </script>
+    </header>
+
     <main>
         <h1>LISTAGEM</h1>
         <div class="table-container">
@@ -89,17 +90,17 @@
                     </tr>
                 </thead>
                 <tbody id="user-list">
-                    
+
                 </tbody>
             </table>
         </div>
     </main>
-    
+
 
     <div class="barra" style="left: 0px;"></div>
 
     <footer class="rodape" style="padding: 20px 0px;">
-            
+
 
         <div class="socialicones">
             <a href="https://www.instagram.com/">
@@ -115,9 +116,9 @@
             </a>
 
             <a href="https://www.facebook.com/?locale=pt_BR">
-            <img src="assets/img/facebook.png" alt="Facebook">
+                <img src="assets/img/facebook.png" alt="Facebook">
             </a>
-            
+
         </div>
         <div class="info">
             <p><strong>ENDEREÇO:</strong> Rua Bragança, Bairro Tilagro, nº 307 - Birigui</p>
@@ -126,14 +127,14 @@
                     style="color: white;">primecine@gmail.com</a></p>
         </div>
     </footer>
-    
+
     <div class="barraverm">
         <img src="assets/img/PRIMECINEll.PNG" alt="Logo Prime Cine">
-    </div> 
+    </div>
 
     <script defer>
 
-        
+
 
         function carregaProdutos() {
             // configura a requisição AJAX para ter os dados dos filmes
@@ -145,18 +146,18 @@
                     "Content-Type": "application/json" // define o tipo de conteúdo 
                 }
             };
-          
-          $.ajax(settings).done(function (response) {
-            let exibe = $("#user-list") // pega o elemento HTML onde os filmes são exibidos
-            exibe.html(" ") // limpa o conteúdo antes de inserir novos dados
-        
-            var html = ""
-        
-            response.usuarios.forEach((item) => {
-                console.log(item)
-        
-                 // adiciona o HTML do filme à variável
-                html += `
+
+            $.ajax(settings).done(function (response) {
+                let exibe = $("#user-list") // pega o elemento HTML onde os filmes são exibidos
+                exibe.html(" ") // limpa o conteúdo antes de inserir novos dados
+
+                var html = ""
+
+                response.usuarios.forEach((item) => {
+                    console.log(item)
+
+                    // adiciona o HTML do filme à variável
+                    html += `
                     <tr>
                         <td>${item.nome}</td>
                         <td>${item.email}</td>
@@ -169,18 +170,19 @@
                         </td>
                     </tr>
                 `;
-        
-                // exibe o conteúdo dos filmes
-                exibe.html(html)
-            })
-        
-        
-          });
+
+                    // exibe o conteúdo dos filmes
+                    exibe.html(html)
+                })
+
+
+            });
         }
-        
+
         carregaProdutos();
-        
+
     </script>
 
 </body>
+
 </html>

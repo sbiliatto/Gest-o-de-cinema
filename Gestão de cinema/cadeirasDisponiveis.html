@@ -149,41 +149,41 @@
                             totalPreco.textContent = (selecionados * precoUnitario).toFixed(2);
                         }
                     });
-                           
+
                     document.querySelectorAll(".assento.namoradeira").forEach(assento => {
-                    assento.addEventListener("click", () => {
-                        if (!assento.classList.contains("ocupado")) {
-                            assento.classList.toggle("selecionado");
-                            
-                            if (assento.classList.contains("selecionado")) {
-                                assento.classList.remove("namoradeira");
-                            } else {
-                                assento.classList.add("namoradeira");
+                        assento.addEventListener("click", () => {
+                            if (!assento.classList.contains("ocupado")) {
+                                assento.classList.toggle("selecionado");
+
+                                if (assento.classList.contains("selecionado")) {
+                                    assento.classList.remove("namoradeira");
+                                } else {
+                                    assento.classList.add("namoradeira");
+                                }
+
+                                let selecionados = document.querySelectorAll(".assento.selecionado").length;
+                                document.getElementById("totalItens").textContent = selecionados;
+                                document.getElementById("totalPreco").textContent = (selecionados * precoUnitario).toFixed(2);
                             }
-                            
-                            let selecionados = document.querySelectorAll(".assento.selecionado").length;
-                            document.getElementById("totalItens").textContent = selecionados;
-                            document.getElementById("totalPreco").textContent = (selecionados * precoUnitario).toFixed(2);
-                        }
+                        });
                     });
-                });        
                     document.querySelectorAll(".cadeirante").forEach(assento => {
-                    assento.addEventListener("click", () => {
-                        if (!assento.classList.contains("ocupado")) {
-                            assento.classList.toggle("selecionado");
-                            
-                            if (assento.classList.contains("selecionado")) {
-                                assento.classList.remove("cadeirante");
-                            } else {
-                                assento.classList.add("cadeirante");
+                        assento.addEventListener("click", () => {
+                            if (!assento.classList.contains("ocupado")) {
+                                assento.classList.toggle("selecionado");
+
+                                if (assento.classList.contains("selecionado")) {
+                                    assento.classList.remove("cadeirante");
+                                } else {
+                                    assento.classList.add("cadeirante");
+                                }
+
+                                let selecionados = document.querySelectorAll(".assento.selecionado").length;
+                                document.getElementById("totalItens").textContent = selecionados;
+                                document.getElementById("totalPreco").textContent = (selecionados * precoUnitario).toFixed(2);
                             }
-                            
-                            let selecionados = document.querySelectorAll(".assento.selecionado").length;
-                            document.getElementById("totalItens").textContent = selecionados;
-                            document.getElementById("totalPreco").textContent = (selecionados * precoUnitario).toFixed(2);
-                        }
+                        });
                     });
-                });                    
                     fileira.appendChild(assento);
                 }
 
