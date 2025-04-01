@@ -59,6 +59,7 @@ nav ul li a:hover {
 }
 
 .acao {
+    margin-right: 160px;
     display: flex;
     align-items: center;
     gap: 15px;

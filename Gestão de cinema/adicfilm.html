@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prime Cine - Add filme</title>
+    <title>Add filme</title>
     <link rel="stylesheet" href="assets/css/adicfil.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -99,7 +99,14 @@
             <input type="text" id="titulo" name="titulo" required>
 
             <label for="classificacao">Classificação:</label>
-            <input type="text" id="classificacao" name="classificacao" required>
+            <select id="classificacao">
+                <option value="livre">Livre</option>
+                <option value="10">10</option>
+                <option value="12">12</option>
+                <option value="14">14</option>
+                <option value="16">16</option>
+                <option value="18">18</option>
+            </select>
 
             <label for="genero">Gênero:</label>
             <input type="text" id="genero" name="genero" required>
