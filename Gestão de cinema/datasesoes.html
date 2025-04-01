@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/relatorios.css">
+    <link rel="stylesheet" href="assets/css/datasesoes.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,11 +17,8 @@
 
 
     <!-- <script src="assets/js/seguranca.js" defer></script> -->
+
     <title>PrimeCine</title>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-
 
 </head>
 
@@ -41,11 +38,9 @@
     }
 </script>
 
-</header>
-
 <body>
     <header>
-        <img class="logo" src="img/logo.png" alt="Logo PrimeCine">
+        <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
         <nav>
             <ul>
                 <li><a href="homePoslogin.html">HOME</a></li>
@@ -53,58 +48,68 @@
                 <li><a href="relatorios.html">RELATÓRIO</a></li>
             </ul>
         </nav>
-        <div style="display: flex; gap: 20px; align-items: center;">
-            <div class="user-icon">
-                <img src="assets/img/do-utilizador.png" alt="Perfil" style="width: 24px; height: 24px;" onclick="toggleMenu()">
-            </div>
-            <div class="search-icon">
-                <i class="fas fa-search"></i>
-            </div>
-        </div>
 
-        <div class="menu-perfil" id="menuPerfil">
-            <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
-            <ul>
-                <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
-                <li><a href="editar.html">✏️ Editar perfil</a></li>
-                <li><a href="#">🚪 Sair da Conta</a></li>
-            </ul>
-        </div>
+
+        <div class="acao">
+
+            <div class="perfil-container">
+                <img onclick="toggleMenu()" class="btn-perfil2" src="assets/img/do-utilizador.png" alt="">
+                <div class="menu-perfil" id="menuPerfil">
+                    <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
+                    <ul>
+                        <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
+                        <li><a href="editar.html">✏️ Editar perfil</a></li>
+                        <li><a onclick="sair()" style="cursor: pointer;" href="login.html">🚪 Sair da Conta</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <script>
+                function sair() {
+                    localStorage.clear() // Se armazenado no LocalStorage
+                    sessionStorage.clear() // Se armazenado no SessionStorage
+
+                    window.location.href = "/login.html";
+                }
+            </script>
     </header>
 
-    <div class="barra"></div>
+    <div class="barra1"></div>
 
     <div class="movie-container">
         <div class="movie-poster">
-            <img src="img/garland_intl_teaser2_poster_brazil_c487c296.jpg" alt="Moana 2 Poster">
+            <img src="assets/img/garland_intl_teaser2_poster_brazil_c487c296.jpeg" alt="Moana 2 Poster" id="imgfilme">
         </div>
         <div class="movie-details">
-            <h1 class="movie-title">MOANA 2</h1>
-            <div class="classification">
-                <div class="age-rating l">L</div>
-                <div class="age-rating ten">10</div>
-                <div class="age-rating twelve">12</div>
-                <div class="age-rating fourteen">14</div>
-                <div class="age-rating sixteen">16</div>
-                <div class="age-rating eighteen">18</div>
+            <h1 class="movie-title" id="titulo">MOANA 2</h1>
+            <div class="generoclass">
+                <div class="classification">
+                    <div class="age-rating l">L</div>
+                    <div class="age-rating ten">10</div>
+                    <div class="age-rating twelve">12</div>
+                    <div class="age-rating fourteen">14</div>
+                    <div class="age-rating sixteen">16</div>
+                    <div class="age-rating eighteen">18</div>
+                </div>
+                <p>|</p>
+                <p id="genero">Animação</p>
             </div>
-            <p class="movie-description">
-                Após receber um chamado inesperado de seus ancestrais, Moana deve viajar pelos 
-                mares distantes da Oceania e entrar em perigosas águas perdidas para viver uma 
+            <p class="movie-description" id="sinopse">
+                Após receber um chamado inesperado de seus ancestrais, Moana deve viajar pelos
+                mares distantes da Oceania e entrar em perigosas águas perdidas para viver uma
                 aventura sem precedentes.
             </p>
             <div class="location">
-                <i class="fas fa-map-marker-alt"></i>
+                <img src="assets/img/iconelocal.png" class="localimg" alt="Local">
                 <span>BIRIGUI</span>
             </div>
-            <div class="session-date">
-                O:</div>
-            <div class="date-selector">
+
+            <div class="date-selector" id="data">
                 Hoje 00/00/0000
                 <i class="fas fa-chevron-down"></i>
             </div>
 
-            <div class="showtime-container">
+            <div class="showtime-container" id="infsessao">
                 <div class="showtime-box">
                     <div class="time">15:30</div>
                     <button class="buy-button">Comprar</button>
@@ -130,15 +135,29 @@
         <div class="footer-info">
             <p><span class="footer-label">ENDEREÇO:</span> Rua Braganço, Bairro tilagro, nº 307 - Birigui</p>
             <p><span class="footer-label">TELEFONE:</span> (00)00000-0000</p>
-            <p><span class="footer-label">EMAIL:</span> <a href="mailto:primecine@gmail.com" class="email-link">primecine@gmail.com</a></p>
+            <p><span class="footer-label">EMAIL:</span> <a href="mailto:primecine@gmail.com"
+                    class="email-link">primecine@gmail.com</a></p>
         </div>
     </footer>
 
     <div class="red-bar">
-        <img src="img/logo.png" alt="Logo Prime Cine">
+        <img src="assets/img/logo.png" alt="Logo Prime Cine">
     </div>
 
     <script>
+
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+
+        document.getElementById("titulo").innerHTML = params.get("titulo")
+        document.getElementById("genero").innerHTML = params.get("genero")
+        document.getElementById("sinopse").innerHTML = params.get("sinopse")
+        document.getElementById("data").innerHTML = params.get("data")
+        document.getElementById("imgfilme").src = "http://192.168.1.145:5000/static/uploads/Filmes/" + id + ".jpeg"
+
+        // ======================================================================
+        // ======================================================================
+
         let indiceAtual = 0;
         const slides = document.querySelector(".slides");
         const indicadores = document.querySelectorAll(".indicador");
