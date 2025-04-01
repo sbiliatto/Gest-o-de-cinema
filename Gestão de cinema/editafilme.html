@@ -20,18 +20,18 @@
 
     <script>
         function toggleMenu() {
-                document.getElementById("menu-dropdown").classList.toggle("menu-active");
-            }
-    
-            // Fecha o menu se o usuário clicar fora
-            window.onclick = function(event) {
-                if (!event.target.matches('.menu-button')) {
-                    let menu = document.getElementById("menu-dropdown");
-                    if (menu.classList.contains("menu-active")) {
-                        menu.classList.remove("menu-active");
-                    }
+            document.getElementById("menu-dropdown").classList.toggle("menu-active");
+        }
+
+        // Fecha o menu se o usuário clicar fora
+        window.onclick = function (event) {
+            if (!event.target.matches('.menu-button')) {
+                let menu = document.getElementById("menu-dropdown");
+                if (menu.classList.contains("menu-active")) {
+                    menu.classList.remove("menu-active");
                 }
             }
+        }
     </script>
 
 
@@ -57,38 +57,38 @@
     <header>
         <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
 
-        
+
         <div class="div-header">
             <div class="btn-group">
-                <button type="button" class="btn btn-secondary dropdown-toggle bg-black border-2" data-bs-toggle="dropdown"
-                    aria-expanded="false">
+                <button type="button" class="btn btn-secondary dropdown-toggle bg-black border-2"
+                    data-bs-toggle="dropdown" aria-expanded="false">
                     MENU
                 </button>
-            
-            <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="home_adm.html">HOME</a></li>
-                <li><a class="dropdown-item" href="promoções.html">PROMOÇÕES</a></li>
-                <li><a class="dropdown-item" href="relatorios_adm.html">RELATÓRIO</a></li>
-                <li><a class="dropdown-item" href="homeeae.html">CONFIG FILMES</a></li>
-                <li><a class="dropdown-item" href="listagem.html">LISTAGEM</a></li>
-            </ul>
-        </div>
 
-        <div class="acao">
-
-            <div class="perfil-container">
-                <img onclick="toggleMenu()" class="btn-perfil2" src="assets/img/do-utilizador.png" alt="">
-                <div class="menu-perfil" id="menuPerfil">
-                    <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
-                    <ul>
-                        <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
-                        <li><a href="editar.html">✏️ Editar perfil</a></li>
-                        <li><a href="#">🚪 Sair da Conta</a></li>
-                    </ul>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="home_adm.html">HOME</a></li>
+                    <li><a class="dropdown-item" href="promoções.html">PROMOÇÕES</a></li>
+                    <li><a class="dropdown-item" href="relatorios_adm.html">RELATÓRIO</a></li>
+                    <li><a class="dropdown-item" href="homeeae.html">CONFIG FILMES</a></li>
+                    <li><a class="dropdown-item" href="listagem.html">LISTAGEM</a></li>
+                </ul>
             </div>
 
-        </div>
-        </div>
+            <div class="acao">
+
+                <div class="perfil-container">
+                    <img onclick="toggleMenu()" class="btn-perfil2" src="assets/img/do-utilizador.png" alt="">
+                    <div class="menu-perfil" id="menuPerfil">
+                        <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
+                        <ul>
+                            <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
+                            <li><a href="editar.html">✏️ Editar perfil</a></li>
+                            <li><a href="#">🚪 Sair da Conta</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
 
     </header>
 
@@ -98,14 +98,14 @@
             <label for="titulo">Título do Filme:</label>
             <input type="text" id="titulo" name="titulo" required>
 
-            
+
             <select id="classificacao">
                 <option value="livre">Livre</option>
-                <option value= "10">10</option>
-                <option value= "12">12</option>
-                <option value= "14">14</option>
-                <option value= "16">16</option>
-                <option value= "18">18</option>
+                <option value="10">10</option>
+                <option value="12">12</option>
+                <option value="14">14</option>
+                <option value="16">16</option>
+                <option value="18">18</option>
             </select>
 
             <label for="genero">Gênero:</label>
@@ -118,7 +118,7 @@
             <input type="file" id="imagem" name="imagem" accept="image/*">
 
             <button href="homePoslogin.html" type="submit">Salvar alterações</button>
-            
+
         </form>
     </main>
 
@@ -127,11 +127,12 @@
         const id = params.get('id');
 
         document.getElementById("titulo").value = params.get("titulo")
-        document.getElementById("classificacao").value = params.get("classificacao") 
-        document.getElementById("genero").value = params.get("genero") 
-        document.getElementById("sinopse").value = params.get("sinopse") 
-        
+        document.getElementById("classificacao").value = params.get("classificacao")
+        document.getElementById("genero").value = params.get("genero")
+        document.getElementById("sinopse").value = params.get("sinopse")
+
     </script>
 
 </body>
-</html> 
+
+</html>

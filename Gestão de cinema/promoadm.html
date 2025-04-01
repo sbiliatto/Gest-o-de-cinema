@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prime Cine - Promoções</title>
     <link rel="stylesheet" href="assets/css/promoadm.css">
 </head>
+
 <body>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -23,21 +25,21 @@
 
     <script>
         function toggleMenu() {
-                document.getElementById("menu-dropdown").classList.toggle("menu-active");
-            }
-    
-            // Fecha o menu se o usuário clicar fora
-            window.onclick = function(event) {
-                if (!event.target.matches('.menu-button')) {
-                    let menu = document.getElementById("menu-dropdown");
-                    if (menu.classList.contains("menu-active")) {
-                        menu.classList.remove("menu-active");
-                    }
+            document.getElementById("menu-dropdown").classList.toggle("menu-active");
+        }
+
+        // Fecha o menu se o usuário clicar fora
+        window.onclick = function (event) {
+            if (!event.target.matches('.menu-button')) {
+                let menu = document.getElementById("menu-dropdown");
+                if (menu.classList.contains("menu-active")) {
+                    menu.classList.remove("menu-active");
                 }
             }
+        }
     </script>
 
-</head>
+    </head>
 
     <script>
         function toggleMenu() {
@@ -54,90 +56,91 @@
             }
         }
     </script>
-    
-<body>
-    <header>
-        <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
 
-        
-        <div class="div-header">
-            <div class="btn-group">
-                <button type="button" class="btn btn-secondary dropdown-toggle bg-black border-2" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    MENU
-                </button>
-            
-            <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="home_adm.html">HOME</a></li>
-                <li><a class="dropdown-item" href="promoadm.html">PROMOÇÕES</a></li>
-                <li><a class="dropdown-item" href="relatorios_adm.html">RELATÓRIO</a></li>
-                <li><a class="dropdown-item" href="homeeae.html">CONFIG FILMES</a></li>
-                <li><a class="dropdown-item" href="listagem.html">LISTAGEM</a></li>
-            </ul>
-        </div>
+    <body>
+        <header>
+            <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
 
-        <div class="acao">
 
-            <div class="perfil-container">
-                <img onclick="toggleMenu()" class="btn-perfil2" src="assets/img/do-utilizador.png" alt="">
-                <div class="menu-perfil" id="menuPerfil">
-                    <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
-                    <ul>
-                        <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
-                        <li><a href="editar.html">✏️ Editar perfil</a></li>
-                        <li><a href="#">🚪 Sair da Conta</a></li>
+            <div class="div-header">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-secondary dropdown-toggle bg-black border-2"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        MENU
+                    </button>
+
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="home_adm.html">HOME</a></li>
+                        <li><a class="dropdown-item" href="promoadm.html">PROMOÇÕES</a></li>
+                        <li><a class="dropdown-item" href="relatorios_adm.html">RELATÓRIO</a></li>
+                        <li><a class="dropdown-item" href="homeeae.html">CONFIG FILMES</a></li>
+                        <li><a class="dropdown-item" href="listagem.html">LISTAGEM</a></li>
                     </ul>
-            </div>
-
-        </div>
-        </div>
-
-    </header>
-
-    <div class="barra"></div>
-
-
-    <main>
-        <section class="promocoes">
-            <div class="filme">
-                <img src="assets/img/anybyoy.webp" alt="Todos Menos Você">
-                <div class="info">
-                    <p><strong>R$15,00</strong> valor unitário</p>
-                    <p>Dia 05 de Março de 2025. 15:45</p>
-                    <p>Sala 02</p>
-                    <p>*Na compra de 2 ingressos</p>
-                    <button>Reservar</button>
                 </div>
-            </div>
-            <div class="filme">
-                <img src="assets/img/Um_Lugar_Silencioso.webp" alt="Um Lugar Silencioso: Dia Um">
-                <div class="info">
-                    <p><strong>R$14,00</strong> valor unitário</p>
-                    <p>Dia 20 de Março de 2025. 21:00</p>
-                    <p>Sala 05</p>
-                    <p>*Na compra de 3 ingressos</p>
-                    <button>Reservar</button>
+
+                <div class="acao">
+
+                    <div class="perfil-container">
+                        <img onclick="toggleMenu()" class="btn-perfil2" src="assets/img/do-utilizador.png" alt="">
+                        <div class="menu-perfil" id="menuPerfil">
+                            <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
+                            <ul>
+                                <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
+                                <li><a href="editar.html">✏️ Editar perfil</a></li>
+                                <li><a href="#">🚪 Sair da Conta</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
                 </div>
-            </div>
-            <div class="filme">
-                <img src="assets/img/sunstanciua.webp" alt="A Substância">
-                <div class="info">
-                    <p><strong>R$15,90</strong> valor unitário</p>
-                    <p>Dia 02 de Abril de 2025. 17:30</p>
-                    <p>Sala 01</p>
-                    <p>*Na compra de 1 ingresso</p>
-                    <button>Reservar</button>
+
+        </header>
+
+        <div class="barra"></div>
+
+
+        <main>
+            <section class="promocoes">
+                <div class="filme">
+                    <img src="assets/img/anybyoy.webp" alt="Todos Menos Você">
+                    <div class="info">
+                        <p><strong>R$15,00</strong> valor unitário</p>
+                        <p>Dia 05 de Março de 2025. 15:45</p>
+                        <p>Sala 02</p>
+                        <p>*Na compra de 2 ingressos</p>
+                        <button>Reservar</button>
+                    </div>
                 </div>
+                <div class="filme">
+                    <img src="assets/img/Um_Lugar_Silencioso.webp" alt="Um Lugar Silencioso: Dia Um">
+                    <div class="info">
+                        <p><strong>R$14,00</strong> valor unitário</p>
+                        <p>Dia 20 de Março de 2025. 21:00</p>
+                        <p>Sala 05</p>
+                        <p>*Na compra de 3 ingressos</p>
+                        <button>Reservar</button>
+                    </div>
+                </div>
+                <div class="filme">
+                    <img src="assets/img/sunstanciua.webp" alt="A Substância">
+                    <div class="info">
+                        <p><strong>R$15,90</strong> valor unitário</p>
+                        <p>Dia 02 de Abril de 2025. 17:30</p>
+                        <p>Sala 01</p>
+                        <p>*Na compra de 1 ingresso</p>
+                        <button>Reservar</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="info">
+                <p><strong>PRIME CINE</strong></p>
+                <p>Endereço: Rua Bragança, Bairro Itágo, nº 307 - Birigui</p>
+                <p>Telefone: (00) 00000-0000</p>
+                <p>Email: primecine@gmail.com</p>
             </div>
-        </section>
-    </main>
-    <footer>
-        <div class="info">
-            <p><strong>PRIME CINE</strong></p>
-            <p>Endereço: Rua Bragança, Bairro Itágo, nº 307 - Birigui</p>
-            <p>Telefone: (00) 00000-0000</p>
-            <p>Email: primecine@gmail.com</p>
-        </div>
-    </footer>
-</body>
+        </footer>
+    </body>
+
 </html>

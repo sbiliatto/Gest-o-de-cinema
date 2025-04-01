@@ -12,7 +12,7 @@
         href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
         rel="stylesheet">
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
@@ -129,7 +129,7 @@
     <div class="barra"></div>
 
     <div class="gradedefilmes" id="exibeFilmes"></div>
-        
+
 
     <div class="barra"></div>
 
@@ -169,7 +169,7 @@
 </body>
 <script defer>
 
-function carregaProdutos() {
+    function carregaProdutos() {
         var settings = {
             "url": "http://192.168.1.145:5000/filmes",
             "method": "GET",
@@ -178,31 +178,31 @@ function carregaProdutos() {
                 "Content-Type": "application/json"
             }
         };
-      
-      $.ajax(settings).done(function (response) {
-        let exibe = $("#exibeFilmes")
-        exibe.html(" ")
-    
-        var html = ""
-    
-        response.filmes.forEach((item) => {
-            console.log(item)
-    
-            html += `
+
+        $.ajax(settings).done(function (response) {
+            let exibe = $("#exibeFilmes")
+            exibe.html(" ")
+
+            var html = ""
+
+            response.filmes.forEach((item) => {
+                console.log(item)
+
+                html += `
             <div class="filme" >
                 <a href="">
                     <img src="http://192.168.1.145:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
                 </a>
                 </div>
             `;
-    
-            exibe.html(html)
-        })
-    
-    
-      });
+
+                exibe.html(html)
+            })
+
+
+        });
     }
-    
+
     carregaProdutos();
 
 </script>

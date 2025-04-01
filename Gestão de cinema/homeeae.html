@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prime Cine - Promoções</title>
     <link rel="stylesheet" href="assets/css/homeeae.css">
 </head>
+
 <body>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -23,204 +25,209 @@
 
     <script>
         function toggleMenu() {
-                document.getElementById("menu-dropdown").classList.toggle("menu-active");
-            }
-    
-            // Fecha o menu se o usuário clicar fora
-            window.onclick = function(event) {
-                if (!event.target.matches('.menu-button')) {
-                    let menu = document.getElementById("menu-dropdown");
-                    if (menu.classList.contains("menu-active")) {
-                        menu.classList.remove("menu-active");
-                    }
+            document.getElementById("menu-dropdown").classList.toggle("menu-active");
+        }
+
+        // Fecha o menu se o usuário clicar fora
+        window.onclick = function (event) {
+            if (!event.target.matches('.menu-button')) {
+                let menu = document.getElementById("menu-dropdown");
+                if (menu.classList.contains("menu-active")) {
+                    menu.classList.remove("menu-active");
                 }
             }
+        }
     </script>
 
-</head>
+    </head>
 
-<script>
-    function toggleMenu() {
-        const menu = document.getElementById("menuPerfil");
-        menu.style.display = (menu.style.display === "block") ? "none" : "block";
-    }
-
-    window.onclick = function (event) {
-        const menu = document.getElementById("menuPerfil");
-        const botaoPerfil = document.querySelector('.btn-perfil2');
-
-        if (menu.style.display === "block" && event.target !== menu && event.target !== botaoPerfil) {
-            menu.style.display = "none";
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("menuPerfil");
+            menu.style.display = (menu.style.display === "block") ? "none" : "block";
         }
-    }
-</script>
 
-<body>
-    <script src="assets/js/homeeae.js"></script>
-    <header>
-        <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
+        window.onclick = function (event) {
+            const menu = document.getElementById("menuPerfil");
+            const botaoPerfil = document.querySelector('.btn-perfil2');
 
-        
+            if (menu.style.display === "block" && event.target !== menu && event.target !== botaoPerfil) {
+                menu.style.display = "none";
+            }
+        }
+    </script>
+
+    <body>
+        <script src="assets/js/homeeae.js"></script>
+        <header>
+            <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
+
+
 
             <div class="div-header">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-secondary dropdown-toggle bg-black border-2" data-bs-toggle="dropdown"
-                        aria-expanded="false">
+                    <button type="button" class="btn btn-secondary dropdown-toggle bg-black border-2"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         MENU
                     </button>
-                
-                <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" href="home_adm.html">HOME</a></li>
-                    <li><a class="dropdown-item" href="promoadm.html">PROMOÇÕES</a></li>
-                    <li><a class="dropdown-item" href="relatorios_adm.html">RELATÓRIO</a></li>
-                    <li><a class="dropdown-item" href="homeeae.html">CONFIG FILMES</a></li>
-                    <li><a class="dropdown-item" href="listagem.html">LISTAGEM</a></li>
-                </ul>
-            </div>
 
-            <div class="acao">
-
-                <div class="perfil-container">
-                    <img onclick="toggleMenu()" class="btn-perfil2" src="assets/img/do-utilizador.png" alt="">
-                    <div class="menu-perfil" id="menuPerfil">
-                        <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
-                        <ul>
-                            <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
-                            <li><a href="editar.html">✏️ Editar perfil</a></li>
-                            <li><a href="#" href="login.html">🚪 Sair da Conta</a></li>
-                        </ul>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="home_adm.html">HOME</a></li>
+                        <li><a class="dropdown-item" href="promoadm.html">PROMOÇÕES</a></li>
+                        <li><a class="dropdown-item" href="relatorios_adm.html">RELATÓRIO</a></li>
+                        <li><a class="dropdown-item" href="homeeae.html">CONFIG FILMES</a></li>
+                        <li><a class="dropdown-item" href="listagem.html">LISTAGEM</a></li>
+                    </ul>
                 </div>
 
-            </div>
-            </div>
+                <div class="acao">
 
-    </header>
+                    <div class="perfil-container">
+                        <img onclick="toggleMenu()" class="btn-perfil2" src="assets/img/do-utilizador.png" alt="">
+                        <div class="menu-perfil" id="menuPerfil">
+                            <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
+                            <ul>
+                                <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
+                                <li><a href="editar.html">✏️ Editar perfil</a></li>
+                                <li><a href="#" href="login.html">🚪 Sair da Conta</a></li>
+                            </ul>
+                        </div>
 
-    <div class="barra"></div>
+                    </div>
+                </div>
 
-    <div class="carrossel-container">
-        <div class="slides">
-            <div class="slide">
-                <img src="assets/img/fundo ainda eaq.png" alt="Imagem 1">
-                <div class="texto">
-                    <h2>Ainda estou <br> AQUI</h2>
-                    <br><br>
-                    <p>No início da década de 1970, o Brasil enfrenta o endurecimento da ditadura militar. No Rio de
-                        Janeiro,
-                        a família Paiva - Rubens, Eunice e seus cinco filhos - vive à beira da praia em uma casa de
-                        portas abertas
-                        para os amigos. Um dia, Rubens Paiva é levado por militares à paisana e desaparece.</p>
+        </header>
+
+        <div class="barra"></div>
+
+        <div class="carrossel-container">
+            <div class="slides">
+                <div class="slide">
+                    <img src="assets/img/fundo ainda eaq.png" alt="Imagem 1">
+                    <div class="texto">
+                        <h2>Ainda estou <br> AQUI</h2>
+                        <br><br>
+                        <p>No início da década de 1970, o Brasil enfrenta o endurecimento da ditadura militar. No Rio de
+                            Janeiro,
+                            a família Paiva - Rubens, Eunice e seus cinco filhos - vive à beira da praia em uma casa de
+                            portas abertas
+                            para os amigos. Um dia, Rubens Paiva é levado por militares à paisana e desaparece.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="assets/img/magic0z.png" alt="Imagem 2">
+                    <div class="texto">
+                        <h2>O Maravilhoso <br> Mágico de Oz</h2>
+                        <br><br>
+                        <p>Levada por um furacão a um mundo mágico e desconhecido, Ellie decide seguir a estrada de
+                            tijolos
+                            amarelos rumo
+                            à Cidade Esmeralda, onde acredita que o poderoso Mágico poderá ajudá-la a voltar para casa.
+                            No
+                            caminho, ela encontra
+                            grandes amigos: o Espantalho, que sonha em ter um cérebro; o Homem de Lata, que deseja um
+                            coração; e o Leão Covarde,
+                            que busca coragem. Juntos, eles enfrentam desafios em uma história encantadora que celebra a
+                            amizade, a coragem e a
+                            força dos sonhos. </p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="assets/img/homemsaco.png" alt="Imagem 3">
+                    <div class="texto">
+                        <h2>O Homem <br> do Saco</h2>
+                        <br><br>
+                        <p>Uma família se vê envolvida em um pesadelo enquanto é caçada por uma criatura mítica e
+                            maligna.
+                            Durante séculos e em
+                            todas as culturas, os pais alertaram os seus filhos sobre o lendário Homem do Saco, que
+                            rapta
+                            crianças inocentes para
+                            nunca mais serem vistas. Patrick McKee (Sam Claflin) escapou por pouco quando menino, o que
+                            o
+                            deixou com cicatrizes
+                            ao longo de sua vida adulta. Agora, o pesadelo da infância de Patrick voltou, ameaçando a
+                            segurança de sua esposa
+                            Karina e de seu filho Jake.</p>
+                    </div>
                 </div>
             </div>
-            <div class="slide">
-                <img src="assets/img/magic0z.png" alt="Imagem 2">
-                <div class="texto">
-                    <h2>O Maravilhoso <br> Mágico de Oz</h2>
-                    <br><br>
-                    <p>Levada por um furacão a um mundo mágico e desconhecido, Ellie decide seguir a estrada de tijolos
-                        amarelos rumo
-                        à Cidade Esmeralda, onde acredita que o poderoso Mágico poderá ajudá-la a voltar para casa. No
-                        caminho, ela encontra
-                        grandes amigos: o Espantalho, que sonha em ter um cérebro; o Homem de Lata, que deseja um
-                        coração; e o Leão Covarde,
-                        que busca coragem. Juntos, eles enfrentam desafios em uma história encantadora que celebra a
-                        amizade, a coragem e a
-                        força dos sonhos. </p>
-                </div>
-            </div>
-            <div class="slide">
-                <img src="assets/img/homemsaco.png" alt="Imagem 3">
-                <div class="texto">
-                    <h2>O Homem <br> do Saco</h2>
-                    <br><br>
-                    <p>Uma família se vê envolvida em um pesadelo enquanto é caçada por uma criatura mítica e maligna.
-                        Durante séculos e em
-                        todas as culturas, os pais alertaram os seus filhos sobre o lendário Homem do Saco, que rapta
-                        crianças inocentes para
-                        nunca mais serem vistas. Patrick McKee (Sam Claflin) escapou por pouco quando menino, o que o
-                        deixou com cicatrizes
-                        ao longo de sua vida adulta. Agora, o pesadelo da infância de Patrick voltou, ameaçando a
-                        segurança de sua esposa
-                        Karina e de seu filho Jake.</p>
-                </div>
+            <div class="indicadores">
+                <span class="indicador ativo" onclick="mudarSlide(0)"></span>
+                <span class="indicador" onclick="mudarSlide(1)"></span>
+                <span class="indicador" onclick="mudarSlide(2)"></span>
             </div>
         </div>
-        <div class="indicadores">
-            <span class="indicador ativo" onclick="mudarSlide(0)"></span>
-            <span class="indicador" onclick="mudarSlide(1)"></span>
-            <span class="indicador" onclick="mudarSlide(2)"></span>
-        </div>
-    </div>
 
-    <script>
-        let indiceAtual = 0;
-        const slides = document.querySelector(".slides");
-        const indicadores = document.querySelectorAll(".indicador");
+        <script>
+            let indiceAtual = 0;
+            const slides = document.querySelector(".slides");
+            const indicadores = document.querySelectorAll(".indicador");
 
-        function mudarSlide(indice) {
-            indiceAtual = indice;
-            let deslocamento = -indice * 100 + "%";
-            slides.style.transform = "translateX(" + deslocamento + ")";
-            indicadores.forEach((ind, i) => {
-                ind.classList.toggle("ativo", i === indice);
-            });
-        }
-
-        setInterval(() => {
-            indiceAtual = (indiceAtual + 1) % 3;
-            mudarSlide(indiceAtual);
-        }, 5000);
-    </script>
-
-    <br><br>
-    <div class="botoes_decima">
-        <a class="e" href="editafilme.html">Editar</a>
-        <a class="x" href="#">Excluir</a>
-    </div>
-
-    <div class="categorias">
-        <a href="#">AVENTURA</a>
-        <a href="#">ROMANCE</a>
-        <a href="#">FANTASIA</a>
-        <a href="#">AÇÃO</a>
-        <a href="#">TERROR</a>
-        <a href="#">COMÉDIA</a>
-    </div>
-
-    
-
-    <div class="barra"></div>
-
-    <div class="gradedefilmes" id="exibeFilmes"></div>
-    
-
-    <div class="barra"></div>
-
-    <script src="assets/js/homeeae.js"></script>
-
-</body>
-<script defer>
-
-    function carregaProdutos() {
-        var settings = {
-            "url": "http://192.168.1.145:5000/filmes",
-            "method": "GET",
-            "timeout": 0,
-            "headers": {
-                "Content-Type": "application/json"
+            function mudarSlide(indice) {
+                indiceAtual = indice;
+                let deslocamento = -indice * 100 + "%";
+                slides.style.transform = "translateX(" + deslocamento + ")";
+                indicadores.forEach((ind, i) => {
+                    ind.classList.toggle("ativo", i === indice);
+                });
             }
-        };
-      
-      $.ajax(settings).done(function (response) {
-        let exibe = $("#exibeFilmes")
-        exibe.html(" ")
-    
-        var html = ""
-    
-        response.filmes.forEach((item) => {
-            console.log(item)
-    
-            html += `
+
+            setInterval(() => {
+                indiceAtual = (indiceAtual + 1) % 3;
+                mudarSlide(indiceAtual);
+            }, 5000);
+        </script>
+
+        <br><br>
+        <div class="botoes_decima">
+            <a class="e" href="editafilme.html">Editar</a>
+            <a class="x" href="#">Excluir</a>
+        </div>
+
+        <div class="categorias">
+            <a href="#">AVENTURA</a>
+            <a href="#">ROMANCE</a>
+            <a href="#">FANTASIA</a>
+            <a href="#">AÇÃO</a>
+            <a href="#">TERROR</a>
+            <a href="#">COMÉDIA</a>
+        </div>
+
+
+
+        <div class="barra"></div>
+
+        <div class="gradedefilmes" id="exibeFilmes"></div>
+
+
+        <div class="barra"></div>
+
+        <script src="assets/js/homeeae.js"></script>
+
+    </body>
+    <script defer>
+
+        function carregaProdutos() {
+            var settings = {
+                "url": "http://192.168.1.145:5000/filmes",
+                "method": "GET",
+                "timeout": 0,
+                "headers": {
+                    "Content-Type": "application/json"
+                }
+            };
+
+            $.ajax(settings).done(function (response) {
+                let exibe = $("#exibeFilmes")
+                exibe.html(" ")
+
+                var html = ""
+
+                response.filmes.forEach((item) => {
+                    console.log(item)
+
+                    html += `
             <div class="filme" >
                 <img src="http://192.168.1.145:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
                 <div class="botoes">
@@ -229,15 +236,16 @@
                 </div>
             </div>
             `;
-    
-            exibe.html(html)
-        })
-    
-    
-      });
-    }
-    
-    carregaProdutos();
-    
-</script>
+
+                    exibe.html(html)
+                })
+
+
+            });
+        }
+
+        carregaProdutos();
+
+    </script>
+
 </html>

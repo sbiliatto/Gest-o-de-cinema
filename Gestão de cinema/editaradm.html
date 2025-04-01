@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,19 +26,19 @@
         <input type="tel" name="telefone" id="telefone" placeholder="Edite o telefone">
         <input type="password" name="senha" id="senha" placeholder="Edite a senha">
 
-        
+
         <label for="tipo">Tipo de Usuário:</label>
         <select id="tipo">
             <option value="usuario">Usuário</option>
             <option value="adm">ADM</option>
         </select>
 
-        
+
         <label for="editar">Editar:</label>
         <select id="editar" name="editar" required>
             <option value="" selected disabled>Selecione uma opção</option>
-            <option value= true >Ativo</option>
-            <option value= false>Inativo</option>
+            <option value=true>Ativo</option>
+            <option value=false>Inativo</option>
         </select>
 
         <button class="save-button">SALVAR</button>
@@ -45,7 +46,7 @@
 
     <script>
         $(document).ready(function () {
-            
+
             const params = new URLSearchParams(window.location.search);
             const id = params.get('id');
             const nome = params.get('nome');
@@ -53,7 +54,7 @@
             const telefone = params.get('telefone');
             const senha = params.get('senha');
             const tipo = params.get('tipo');
-            let editar = params.get('editar'); 
+            let editar = params.get('editar');
 
             if (editar === "ativo") {
                 editar = true
@@ -65,8 +66,8 @@
             $("#email").val(email);
             $("#telefone").val(telefone);
             $("#senha").val(senha);
-            $("#tipo").val(tipo); 
-            $("#editar").val(editar); 
+            $("#tipo").val(tipo);
+            $("#editar").val(editar);
 
             $(".save-button").click(function () {
                 const dados = {
@@ -74,8 +75,8 @@
                     email: $("#email").val(),
                     telefone: $("#telefone").val(),
                     senha: $("#senha").val(),
-                    tipo: $("#tipo").val(), 
-                    ativo: $("#editar").val(), 
+                    tipo: $("#tipo").val(),
+                    ativo: $("#editar").val(),
                 };
 
 
@@ -95,7 +96,7 @@
                             window.location.href = "homePoslogin.html";
                         });
                     },
-                    error: function(xhr, status, error) {
+                    error: function (xhr, status, error) {
                         console.log("Erro ao tentar editar:", xhr.responseJSON, status, error);
                         Swal.fire({
                             title: "Erro!",
@@ -109,7 +110,5 @@
     </script>
 
 </body>
+
 </html>
-
-
-
