@@ -48,15 +48,15 @@
     <header>
         <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
 
+        
 
-
-        <div class="div-header">
-            <div class="btn-group">
-                <button type="button" class="btn btn-secondary dropdown-toggle bg-black border-2"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    MENU
-                </button>
-
+            <div class="div-header">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-secondary dropdown-toggle bg-black border-2" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        MENU
+                    </button>
+                
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li><a class="dropdown-item" href="home_adm.html">HOME</a></li>
                     <li><a class="dropdown-item" href="promoadm.html">PROMOÇÕES</a></li>
@@ -78,17 +78,17 @@
                             <li><a onclick="sair()" style="cursor: pointer;">🚪 Sair da Conta</a></li>
                         </ul>
                     </div>
-
+    
                 </div>
-
-                <script>
-                    function sair() {
-                        localStorage.clear() // Se armazenado no LocalStorage
-                        sessionStorage.clear() // Se armazenado no SessionStorage
-
-                        window.location.href = "/login.html";
-                    }
-                </script>
+    
+        <script>
+            function sair() {
+                localStorage.clear() // Se armazenado no LocalStorage
+                sessionStorage.clear() // Se armazenado no SessionStorage
+    
+                window.location.href = "/login.html";
+            }
+        </script>
     </header>
 
     <div class="barra"></div>
@@ -236,31 +236,31 @@
                 "Content-Type": "application/json"
             }
         };
-
-        $.ajax(settings).done(function (response) {
-            let exibe = $("#exibeFilmes")
-            exibe.html(" ")
-
-            var html = ""
-
-            response.filmes.forEach((item) => {
-                console.log(item)
-
-                html += `
+      
+      $.ajax(settings).done(function (response) {
+        let exibe = $("#exibeFilmes")
+        exibe.html(" ")
+    
+        var html = ""
+    
+        response.filmes.forEach((item) => {
+            console.log(item)
+    
+            html += `
             <div class="filme" >
                 <img src="http://192.168.1.145:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
             </div>
             `;
-
-                exibe.html(html)
-            })
-
-
-        });
+    
+            exibe.html(html)
+        })
+    
+    
+      });
     }
-
+    
     carregaProdutos();
-
+    
 </script>
 
 </html>

@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
+    text-decoration: none;
 
 }
 
@@ -15,7 +16,7 @@ header {
     align-items: center;
     justify-content: space-between;
     background: black;
-    padding: 15px 89px;
+    padding: 15px 50px;
     color: white;  
 }
 
@@ -27,7 +28,7 @@ header {
 
 .logo {
     width: 20vh;
-    margin-left: px;
+    margin-left: 45px;
 }
 
 nav ul {
@@ -384,16 +385,20 @@ img {
     }
     
     .carrossel-container {
-        max-height: 300px;
+        max-height: 100%;
     }
     
     .slide img {
-        height: 300px;
+        max-width: 100%;
+        max-height: 100%;
     }
     
     .texto {
-        left: 5%;
-        font-size: 0.9rem;
+        position: absolute;
+        top: 50%;
+        left: 10%;
+        transform: translateY(-50%);
+        color: white;
     }
 
     .categorias {
@@ -431,8 +436,11 @@ img {
     }
     
     .texto {
-        left: 3%;
-        font-size: 0.8rem;
+        position: absolute;
+        top: 50%;
+        left: 10%;
+        transform: translateY(-50%);
+        color: white;
     }
     
     .categorias a {
@@ -450,11 +458,11 @@ img {
     }
 
     .texto p {
-        font-size: 8px;
-    }
+        font-size: 1rem;
+        max-width: 500px;    }
 
     .texto h2 {
-        font-size: 20px;
+        font-size: 2rem;
         margin-bottom: 10px;
 }
 
