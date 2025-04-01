@@ -7,9 +7,17 @@
     <title>Listagem de Usuários</title>
     <link rel="stylesheet" href="assets/css/listagem.css">
 
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="assets/js/seguranca.js" defer></script>
+    <script src="assets/js/seguranca-adm.js" defer></script>
+
 
 </head>
 
@@ -77,7 +85,6 @@
     </header>
 
     <main>
-        <h1>LISTAGEM</h1>
         <div class="table-container">
             <table>
                 <thead>
@@ -134,8 +141,6 @@
 
     <script defer>
 
-
-
         function carregaProdutos() {
             // configura a requisição AJAX para ter os dados dos filmes
             var settings = {
@@ -165,7 +170,7 @@
                         <td>${item.tipo}</td>
                         <td>
                             <a href="editaradm.html?id=${item.id_usuario}&nome=${item.nome}&email=${item.email}&telefone=${item.telefone}&tipo=${item.tipo}">
-                                <button>EDITAR</button>
+                                <button class="botao">EDITAR</button>
                             </a>
                         </td>
                     </tr>
@@ -175,10 +180,8 @@
                     exibe.html(html)
                 })
 
-
             });
         }
-
         carregaProdutos();
 
     </script>

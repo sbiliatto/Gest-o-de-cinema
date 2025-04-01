@@ -16,7 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
-    <script src="assets/js/seguranca.js" defer></script>
+    <!-- <script src="assets/js/seguranca.js" defer></script> -->
     <title>PrimeCine</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -45,7 +45,7 @@
 
 <body>
     <header>
-        <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
+        <img class="logo" src="img/logo.png" alt="Logo PrimeCine">
         <nav>
             <ul>
                 <li><a href="homePoslogin.html">HOME</a></li>
@@ -53,63 +53,89 @@
                 <li><a href="relatorios.html">RELATÓRIO</a></li>
             </ul>
         </nav>
-
-        <div class="acao">
-
-            <div class="perfil-container">
-                <img onclick="toggleMenu()" class="btn-perfil2" src="assets/img/do-utilizador.png" alt="">
-                <div class="menu-perfil" id="menuPerfil">
-                    <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
-                    <ul>
-                        <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
-                        <li><a href="editar.html">✏️ Editar perfil</a></li>
-                        <li><a href="#">🚪 Sair da Conta</a></li>
-                    </ul>
-                </div>
-
+        <div style="display: flex; gap: 20px; align-items: center;">
+            <div class="user-icon">
+                <img src="assets/img/do-utilizador.png" alt="Perfil" style="width: 24px; height: 24px;" onclick="toggleMenu()">
             </div>
+            <div class="search-icon">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
 
-
+        <div class="menu-perfil" id="menuPerfil">
+            <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
+            <ul>
+                <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
+                <li><a href="editar.html">✏️ Editar perfil</a></li>
+                <li><a href="#">🚪 Sair da Conta</a></li>
+            </ul>
+        </div>
     </header>
 
     <div class="barra"></div>
 
+    <div class="movie-container">
+        <div class="movie-poster">
+            <img src="img/garland_intl_teaser2_poster_brazil_c487c296.jpg" alt="Moana 2 Poster">
+        </div>
+        <div class="movie-details">
+            <h1 class="movie-title">MOANA 2</h1>
+            <div class="classification">
+                <div class="age-rating l">L</div>
+                <div class="age-rating ten">10</div>
+                <div class="age-rating twelve">12</div>
+                <div class="age-rating fourteen">14</div>
+                <div class="age-rating sixteen">16</div>
+                <div class="age-rating eighteen">18</div>
+            </div>
+            <p class="movie-description">
+                Após receber um chamado inesperado de seus ancestrais, Moana deve viajar pelos 
+                mares distantes da Oceania e entrar em perigosas águas perdidas para viver uma 
+                aventura sem precedentes.
+            </p>
+            <div class="location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>BIRIGUI</span>
+            </div>
+            <div class="session-date">
+                O:</div>
+            <div class="date-selector">
+                Hoje 00/00/0000
+                <i class="fas fa-chevron-down"></i>
+            </div>
 
-
+            <div class="showtime-container">
+                <div class="showtime-box">
+                    <div class="time">15:30</div>
+                    <button class="buy-button">Comprar</button>
+                    <div class="room">SALA 1</div>
+                </div>
+                <div class="showtime-box">
+                    <div class="time">15:30</div>
+                    <button class="buy-button">Comprar</button>
+                    <div class="room">SALA 1</div>
+                </div>
+                <div class="showtime-box">
+                    <div class="time">15:30</div>
+                    <button class="buy-button">Comprar</button>
+                    <div class="room">SALA 1</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="barra"></div>
 
-    <footer class="rodape">
-
-
-        <div class="socialicones">
-            <a href="https://www.instagram.com/">
-                <img src="assets/img/instagram.png" alt="Instagram">
-            </a>
-
-            <a href="https://www.whatsapp.com/?lang=pt_BR">
-                <img src="assets/img/whatsapp (1).png" alt="Instagram">
-            </a>
-
-            <a href="https://x.com/?lang=pt">
-                <img src="assets/img/twitter.png" alt="Twitter">
-            </a>
-
-            <a href="https://www.facebook.com/?locale=pt_BR">
-                <img src="assets/img/facebook.png" alt="Facebook">
-            </a>
-
-        </div>
-        <div class="info">
-            <p><strong>ENDEREÇO:</strong> Rua Bragança, Bairro Tilagro, nº 307 - Birigui</p>
-            <p><strong>TELEFONE:</strong> (00) 00000-0000</p>
-            <p><strong>EMAIL:</strong> <a href="mailto:primecine@gmail.com"
-                    style="color: white;">primecine@gmail.com</a></p>
+    <footer>
+        <div class="footer-info">
+            <p><span class="footer-label">ENDEREÇO:</span> Rua Braganço, Bairro tilagro, nº 307 - Birigui</p>
+            <p><span class="footer-label">TELEFONE:</span> (00)00000-0000</p>
+            <p><span class="footer-label">EMAIL:</span> <a href="mailto:primecine@gmail.com" class="email-link">primecine@gmail.com</a></p>
         </div>
     </footer>
 
-    <div class="barraverm">
-        <img src="assets/img/PRIMECINEll.PNG" alt="Logo Prime Cine">
+    <div class="red-bar">
+        <img src="img/logo.png" alt="Logo Prime Cine">
     </div>
 
     <script>
