@@ -189,60 +189,7 @@
 
     <div class="barra"></div>
 
-    
-
-    <div class="gradedefilmes">
-        <div class="filme">
-            <img src="assets/img/anybyoy.webp" alt="Todos Menos Você">
-            <div class="botoes">
-                <a href="editafilme.html" class="edit">Editar</a>
-                <a href="#" class="delete">Excluir</a>
-            </div>
-        </div>
-        <div class="filme">
-            <img src="assets/img/Um_Lugar_Silencioso.webp" alt="Um Lugar Silencioso: Dia Um">
-            <div class="botoes">
-                <a href="editafilme.html" class="edit">Editar</a>
-                <a href="#" class="delete">Excluir</a>
-            </div>
-        </div>
-        <div class="filme">
-            <img src="assets/img/ttqt.webp" alt="Todo Tempo Que Temos">
-            <div class="botoes">
-                <a href="editafilme.html" class="edit">Editar</a>
-                <a href="#" class="delete">Excluir</a>
-            </div>
-        </div>
-    </div>
-    
-    <div class="gradedefilmes">
-        <div class="filme">
-            <img src="assets/img/sunstanciua.webp" alt="A Substância">
-            <div class="botoes">
-                <a href="editafilme.html" class="edit">Editar</a>
-                <a href="#" class="delete">Excluir</a>
-            </div>
-        </div>
-        <div class="filme">
-            <img src="assets/img/garland_intl_teaser2_poster_brazil_c487c296.jpeg" alt="Moana">
-            <div class="botoes">
-                <a href="editafilme.html" class="edit">Editar</a>
-                <a href="#" class="delete">Excluir</a>
-            </div>
-        </div>
-        <div class="filme">
-            <img src="assets/img/mmfsa.jpeg" alt="Mufasa">
-            <div class="botoes">
-                <a href="editafilme.html" class="edit">Editar</a>
-                <a href="#" class="delete">Excluir</a>
-            </div>
-        </div>
-    </div>
-    <div class="filme">
-        <div class="botoes">
-            <a href="adicfilm.html" class="adicionar">Adicionar</a>
-        </div>
-    </div>
+    <div class="gradedefilmes" id="exibeFilmes"></div>
     
 
     <div class="barra"></div>
@@ -250,5 +197,45 @@
     <script src="assets/js/homeeae.js"></script>
 
 </body>
+<script defer>
 
+    function carregaProdutos() {
+        var settings = {
+            "url": "http://192.168.1.145:5000/filmes",
+            "method": "GET",
+            "timeout": 0,
+            "headers": {
+                "Content-Type": "application/json"
+            }
+        };
+      
+      $.ajax(settings).done(function (response) {
+        let exibe = $("#exibeFilmes")
+        exibe.html(" ")
+    
+        var html = ""
+    
+        response.filmes.forEach((item) => {
+            console.log(item)
+    
+            html += `
+            <div class="filme" >
+                <img src="http://192.168.1.145:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
+                <div class="botoes">
+                    <a href="editafilme.html?id=${item.id_filme}&titulo=${item.titulo}&classificacao=${item.classificacao}&genero=${item.genero}&sinopse=${item.sinopse}" class="edit">Editar</a>
+                    <a href="#" class="delete">Excluir</a>
+                </div>
+            </div>
+            `;
+    
+            exibe.html(html)
+        })
+    
+    
+      });
+    }
+    
+    carregaProdutos();
+    
+</script>
 </html>
