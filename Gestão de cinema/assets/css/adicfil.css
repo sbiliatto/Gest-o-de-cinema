@@ -134,10 +134,6 @@ nav ul li a {
     transition: color 0.3s;
 }
 
-.btn-perfil2{
-    margin-right: 43px;
-    
-}
 
 nav ul li a:hover {
     color: red;

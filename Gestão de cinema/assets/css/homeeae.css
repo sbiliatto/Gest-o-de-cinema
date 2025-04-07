@@ -12,6 +12,7 @@ body {
     color: #fff!important;
     margin: 0;
     padding: 0;
+
 }
 
 header {
@@ -136,11 +137,6 @@ nav ul li a {
     transition: color 0.3s;
 }
 
-.btn-perfil2{
-    margin-right: 43px;
-    
-}
-
 nav ul li a:hover {
     color: red;
 }
@@ -154,6 +150,7 @@ nav ul li a:hover {
 
 .btn-perfil2 {
     width: 49px;
+    margin-right: 0px;
 }
 
 .barra {
@@ -279,7 +276,7 @@ img {
 .filme img {
     justify-content: center;
     width: 100%;
-    height: auto;
+    height: 300px;
     columns: auto;
     border-radius: 5px;
     transition: transform 0.3s;
