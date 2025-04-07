@@ -16,6 +16,7 @@ header {
     background: black;
     padding: 15px 50px;
     color: white;
+    gap: 31px;
 }
 
 .logo {
