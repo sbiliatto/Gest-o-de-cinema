@@ -72,7 +72,8 @@ nav ul li a {
 }
 
 .btn-perfil2{
-    margin-right: 43px;
+    margin-right: 0px;
+    width: 100%;
     
 }
 
@@ -245,6 +246,11 @@ img {
     border: none;
     cursor: pointer;
 }
+.div-header{
+    display: flex ;
+    flex-direction: row;
+    gap: 20px;
+}
 
 .socialicones {
     display: flex;
@@ -308,7 +314,9 @@ img {
 .perfil-container {
     cursor: pointer;
     position: relative;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Botão do perfil */
@@ -320,6 +328,7 @@ img {
     cursor: pointer;
     border-radius: 5px;
     font-weight: bold;
+    width: 100%;
 }
 
 .btn-perfil:hover {
@@ -435,4 +444,172 @@ img {
     background-color: #B90000;
     width: 30vh;
     margin-right: 10px;
+}
+
+
+@media (max-width: 992px) {
+    header {
+        flex-direction: row;  
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+    }
+
+    .logo {
+        width: 100px;
+        margin-bottom: 0;
+    }
+
+    .div-header {
+        flex-direction: row;
+        width: auto;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .relatorio {
+        font-size: 24px;
+        padding-top: 30px;
+        text-align: center;
+    }
+
+    .p {
+        font-size: 16px;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .download-container {
+        margin: 10px 0;
+    }
+
+    .download-container a i {
+        font-size: 40px;
+    }
+
+    .gradedefilmes {
+        padding-left: 5%;
+        padding-right: 5%;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 15px;
+    }
+
+    .filme img {
+        width: 100%;
+        height: auto;
+        max-height: 300px;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 10px;
+    }
+    
+    .logo {
+        width: 80px;
+    }
+    
+    .div-header {
+        gap: 10px;
+    }
+    
+    .btn-group {
+        flex-shrink: 0;
+    }
+    
+    .acao {
+        margin-left: 0;
+    }
+    
+    .menu-perfil {
+        right: 0;
+        width: 220px;
+    }
+    
+    .rodape {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .socialicones {
+        margin-left: 0;
+        justify-content: center;
+    }
+    
+    .info {
+        text-align: center;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .logo {
+        width: 70px;
+    }
+    
+    .div-header {
+        width: auto;
+        justify-content: space-between;
+    }
+    
+    .btn-perfil2 {
+        width: 30px;
+        height: auto;
+    }
+    
+    .relatorio {
+        font-size: 20px;
+    }
+    
+    .p {
+        font-size: 14px;
+    }
+    
+    .download-container a i {
+        font-size: 35px;
+    }
+    
+    .gradedefilmes {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 10px;
+    }
+}
+
+@media (max-width: 375px) {
+    header {
+        padding: 8px;
+    }
+    
+    .logo {
+        width: 60px;
+    }
+    
+    .div-header {
+        gap: 5px;
+    }
+    
+    .btn-group button {
+        padding: 4px 8px;
+        font-size: 14px;
+    }
+    
+    .menu-perfil {
+        width: 200px;
+    }
+}
+
+@media (max-width: 320px) {
+    .div-header {
+        gap: 3px;
+    }
+    
+    .logo {
+        width: 50px;
+    }
+    
+    .btn-group button {
+        font-size: 12px;
+    }
 }
