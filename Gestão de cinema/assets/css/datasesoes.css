@@ -155,7 +155,7 @@ nav ul li a:hover {
     height: 4px;
     background-color: darkred;
     position: absolute;
-    bottom: 0;
+    bottom: -64vh;
     left: 0;
     margin-bottom: 5vh;
 }

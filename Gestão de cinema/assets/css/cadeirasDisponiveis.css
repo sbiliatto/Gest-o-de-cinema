@@ -241,7 +241,7 @@ main {
 }
 
 .ocupado {
-    background: gray;
+    background: gray !important;;
 }
 
 .namoradeira {
