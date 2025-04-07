@@ -434,7 +434,7 @@ footer {
 
     .barra{
 
-        margin-bottom: -118vh;
+        display: none;
     }
     
     .logo {

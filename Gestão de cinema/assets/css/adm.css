@@ -338,53 +338,19 @@ img {
     background-color: #D7D6D6;
 }
 
-/* Responsive styles */
-@media screen and (max-width: 1024px) {
-    /* Header adjustments */
-    header {
-        flex-direction: column;
-        padding: 15px 20px;
-    }
-    
-    .logo {
-        width: 150px;
-        margin-left: 0;
-        margin-bottom: 15px;
-    }
-    
-    .div-header {
-        width: 100%;
-        justify-content: space-between;
-    }
-    
-    nav ul {
-        padding-left: 0;
-    }
-    
-    /* Carousel adjustments */
-    .texto h2 {
-        font-size: 1.5rem;
-    }
-    
-    .texto p {
-        font-size: 0.9rem;
-        max-width: 300px;
-    }
-}
 
-@media screen and (max-width: 768px) {
-    /* Header more compact */
-    header {
-        padding: 10px;
+
+@media (max-width: 1024px) {
+    .logo {
+        margin-left: 0;
     }
-    
-    .btn-perfil2 {
-        margin-right: 10px;
+
+    .div-header {
+        margin-right: 0;
     }
-    
-    /* Film grid adjustments */
+
     .gradedefilmes {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, minmax(150px, 1fr));
         padding-left: 5%;
     }
     
@@ -392,43 +358,91 @@ img {
         width: 80%;
     }
     
-    /* Slide content */
+    .texto p {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 15px 20px;
+        gap: 10px;
+    }
+    
+    .logo {
+        width: 120px;
+        margin-left: 0;
+        order: 1;
+    }
+    
+    .div-header {
+        order: 2;
+    }
+    
+    .acao {
+        width: auto;
+        margin-right: 0;
+        order: 3;
+    }
+    
+    .btn-perfil2 {
+        margin-right: 0;
+        width: 40px;
+    }
+    
     .slide img {
-        height: 350px;
+        height: 300px;
     }
     
     .texto {
         left: 5%;
-    }
-    
-    /* Promotions section */
-    .promocoes {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-    
-    .promocoes .filme {
         width: 90%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
     }
     
-    .promocoes .filme img {
-        width: 70%;
+    .texto h2 {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
     }
     
-    .promocoes .info {
+    .texto p {
+        font-size: 0.9rem;
+        max-width: 100%;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+    }
+    
+    .categorias {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        padding: 15px;
         text-align: center;
-        margin-top: 10px;
     }
     
-    /* Footer adjustments */
-    .rodape, footer {
+    .gradedefilmes {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 15px 5%;
+    }
+    
+    .filme img {
+        width: 90%;
+    }
+    
+    .menu-perfil {
+        right: 0;
+        top: 50px;
+        transform: none;
+    }
+    
+    .rodape {
         flex-direction: column;
-        text-align: center;
+        padding: 15px;
         gap: 15px;
     }
     
@@ -442,23 +456,18 @@ img {
         margin-right: 0;
     }
     
-    .barraverm img {
-        width: 20vh;
+    .indicadores {
+        bottom: 5px;
     }
 }
 
-@media screen and (max-width: 480px) {
-    /* Very small screens */
+@media (max-width: 576px) {
+    header {
+        padding: 10px;
+    }
+    
     .logo {
-        width: 120px;
-    }
-    
-    .gradedefilmes {
-        grid-template-columns: 1fr;
-    }
-    
-    .filme img {
-        width: 90%;
+        width: 100px;
     }
     
     .slide img {
@@ -471,26 +480,46 @@ img {
     
     .texto p {
         font-size: 0.8rem;
-        max-width: 250px;
+        -webkit-line-clamp: 4;
+    }
+    
+    .gradedefilmes {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
+    .filme {
+        text-align: center;
+    }
+    
+    .filme img {
+        width: 70%;
+        max-height: none;
     }
     
     .categorias {
-        flex-wrap: wrap;
+        grid-template-columns: repeat(2, 1fr);
     }
     
-    .promocoes .filme img {
-        width: 90%;
+    .barraverm img {
+        width: 120px;
+    }
+}
+
+@media (max-width: 400px) {
+    .texto h2 {
+        font-size: 1rem;
     }
     
-    /* Menu adjustments */
-    .menu-perfil {
-        width: 200px;
-        right: -10px;
+    .texto p {
+        -webkit-line-clamp: 3;
     }
     
-    /* Button adjustments */
-    .cadastro {
-        padding: 8px 15px;
-        font-size: 0.9rem;
+    .categorias {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 5px;
+    }
+    
+    .filme img {
+        width: 85%;
     }
 }
