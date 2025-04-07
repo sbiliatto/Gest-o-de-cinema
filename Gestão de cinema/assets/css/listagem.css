@@ -371,9 +371,9 @@ nav ul li a:hover {
 
   .barra {
     margin-bottom: 74vh;
-  
-  .logo {
-    width: 100px;
+  }
+  tbody, td, tfoot, th, thead, tr{
+    font-size: 10px;
   }
   
   .div-header {
@@ -381,21 +381,7 @@ nav ul li a:hover {
     justify-content: center;
     margin-top: 10px;
   }
-  
-  .table-container {
-    width: 100%;
-    overflow-x: scroll;
-    padding: 10px 5px;
-  }
-  
-  table {
-    min-width: 500px;
-  }
-  
-  td, th {
-    padding: 8px 5px;
-    font-size: 14px;
-  }
+  .th
   
   .botao {
     padding: 5px 8px;
@@ -425,6 +411,7 @@ nav ul li a:hover {
     right: -50px;
     width: 180px;
   }
+}
 }
 
 @media screen and (min-width: 601px) and (max-width: 900px) {
