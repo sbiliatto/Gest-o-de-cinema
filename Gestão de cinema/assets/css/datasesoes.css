@@ -407,6 +407,24 @@ footer {
 }
 
 
+
+@media (max-width: 1024px) {
+    nav ul {
+        margin-left: 0;
+        justify-content: center;
+        padding: 0;
+        gap: 20px;
+    }
+    
+    header {
+        padding: 15px 30px;
+    }
+    
+    .movie-container {
+        padding: 40px 30px;
+    }
+}
+
 @media (max-width: 768px) {
     header {
         flex-direction: column;
@@ -414,27 +432,96 @@ footer {
         gap: 15px;
     }
 
+    .barra{
+
+        margin-bottom: -118vh;
+    }
+    
+    .logo {
+        width: 15vh;
+    }
+    
     nav ul {
-        padding-left: 0;
-    }
-
-    .movie-container {
-        flex-direction: column;
-        padding: 20px;
-    }
-
-    .movie-poster {
-        width: 100%;
-        max-width: 280px;
-        margin: 0 auto;
-    }
-
-    .showtime-container {
+        gap: 15px;
         flex-wrap: wrap;
         justify-content: center;
     }
+    
+    .acao {
+        margin-top: 10px;
+    }
+    
+    .menu-perfil {
+        right: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 55px;
+    }
+    
+    .movie-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 20px;
+        gap: 30px;
+    }
+    
+    .movie-poster {
+        width: 220px;
+    }
+    
+    .movie-title {
+        font-size: 28px;
+        text-align: center;
+    }
+    
+    .generoclass {
+        justify-content: center;
+    }
+    
+    .movie-description {
+        text-align: center;
+    }
+    
+    .location {
+        justify-content: center;
+    }
+    
+    .date-selector {
+        margin: 0 auto 20px;
+    }
+    
+    .showtime-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .showtime-box {
+        width: 80%;
+        max-width: 200px;
+    }
+}
 
+@media (max-width: 480px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .movie-title {
+        font-size: 24px;
+    }
+    
+    .movie-description {
+        font-size: 14px;
+    }
+    
+    .red-bar img {
+        height: 60px;
+    }
+    
     .footer-info {
+        text-align: center;
         align-items: center;
     }
 }
