@@ -53,6 +53,7 @@
             const tipo = params.get('tipo');
             let editar = params.get('editar');
 
+
             if (editar === "ativo") {
                 editar = true
             } else {
@@ -77,10 +78,9 @@
                 };
 
 
-
                 $.ajax({
                     method: "PUT",
-                    url: `http://192.168.1.145:5000/cadastros/${id}`,
+                    url: `http://192.168.1.133:5000/cadastros/${id}`,
                     data: JSON.stringify(dados),
                     contentType: "application/json",
                     success: function () {
