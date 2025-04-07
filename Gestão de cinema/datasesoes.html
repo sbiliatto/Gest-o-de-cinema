@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 <!DOCTYPE html>
 <html lang="en">
 
@@ -111,21 +110,7 @@
             </div>
 
             <div class="showtime-container" id="infsessao">
-                <div class="showtime-box">
-                    <div class="time">15:30</div>
-                    <button class="buy-button">Comprar</button>
-                    <div class="room">SALA 1</div>
-                </div>
-                <div class="showtime-box">
-                    <div class="time">15:30</div>
-                    <button class="buy-button">Comprar</button>
-                    <div class="room">SALA 1</div>
-                </div>
-                <div class="showtime-box">
-                    <div class="time">15:30</div>
-                    <button class="buy-button">Comprar</button>
-                    <div class="room">SALA 1</div>
-                </div>
+                
             </div>
         </div>
     </div>
@@ -172,6 +157,35 @@
         }
 
 
+        var settings = {
+            "url": "http://192.168.1.133:5000/sessoes/" + id,
+            "method": "GET",
+            "timeout": 0,
+            "headers": {
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjo1fQ.0HmIs6nDx3HJK2m407yACClQR8CPGb8CI4IY8r8c2wM"
+            },
+            "success": function(retorno){
+                console.log(retorno)
+                
+                var sessoes = retorno.sessoes
+
+                sessoes.forEach((item) => {
+                    document.getElementById("infsessao").innerHTML = `
+                        <div class="showtime-box">
+                            <div class="time">${item.horario}</div>
+                            <button class="buy-button">Comprar</button>
+                            <div class="room">${item.descricao}</div>
+                        </div>
+                    `
+                })
+            }
+        };
+
+        $.ajax(settings).done(function (response) {
+         console.log(response);
+        });
+
+
         // ======================================================================
         // ======================================================================
 
@@ -200,5 +214,3 @@
 </body>
 
 </html>
-=======
->>>>>>> Stashed changes
