@@ -306,6 +306,10 @@
                     cancelButtonText: "Cancelar"
                 }).then(result => {
                     if (result.isConfirmed) {
+
+                        
+
+
                         selecionados.forEach(assento => {
                             assento.classList.remove("selecionado");
                             assento.classList.add("ocupado");
