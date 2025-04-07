@@ -455,26 +455,144 @@ img {
     background-color: #D7D6D6;
 }
 
-
-
-@media (max-width: 768px) {
-
-   
-header {
-    flex-direction: column;
-    text-align: center;
-    display: flex;
-  
-}
-
-    
-
-    .carrossel-container {
-        max-width: 100%;
+@media (max-width: 1024px) {
+    nav ul {
+    margin-left: 368px;
     }
 
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px 20px;
+        gap: 15px;
+    }
+    
+    .logo {
+        width: 150px;
+        margin: 0 auto;
+    }
+    
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 15px;
+        margin: 15px 0;
+        padding: 0;
+    }
+    
+    .acao {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .btn-perfil2 {
+        width: 40px;
+    }
+    
+    .slide img {
+        height: 300px;
+    }
+    
+    .texto {
+        left: 5%;
+        width: 90%;
+    }
+    
+    .texto h2 {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+    
+    .texto p {
+        font-size: 14px;
+        max-width: 100%;
+    }
+    
+    .categorias {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        padding: 15px;
+        text-align: center;
+    }
+    
+    .categorias a {
+        font-size: 14px;
+        padding: 5px;
+    }
+    
     .gradedefilmes {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .filme img {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+        object-fit: cover;
+    }
+    
+    .rodape {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .socialicones {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .info {
+        text-align: center;
+        margin-right: 0;
+    }
+    
+    .info p {
+        font-size: 14px;
+    }
+    
+    .barraverm {
+        padding: 10px 0;
+    }
+    
+    .barraverm img {
+        width: 120px;
+    }
+    
+    .menu-perfil {
+        width: 200px;
+        right: 50%;
+        transform: translateX(50%);
+    }
+    
+    .barra {
+        margin-bottom: -28px;
+    }
+}
+
+.indicadores {
+    bottom: -9px;
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .slide img {
+        height: 250px;
     }
     
     .texto h2 {
@@ -483,89 +601,17 @@ header {
     
     .texto p {
         font-size: 12px;
-        padding-right: 17px;
-    }
-
-    nav ul {
-        flex-direction: column;
-        padding-top: 10px;
-        padding-left: 0;
     }
     
-    .categorias{
-        gap: 0px;
-        font-size: 7px;
-        padding: 5px 7px; 
-        margin-right: -2px;
+    .gradedefilmes {
+        grid-template-columns: repeat(1, 1fr);
     }
-
-   
-    .acao{
-        gap: 0px;
+    
+    .filme img {
+        max-height: 250px;
     }
-
-    .logo{
-        margin-left: 22px;
-        padding: 0px;
+    
+    .categorias {
+        grid-template-columns: repeat(2, 1fr);
     }
-    .btn-entrar{
-        margin-top: 24px;
-        
-    }
-
-    .cadastro{
-        margin: 10vh 12vh;
-    }
-
-    .gradedefilmes{
-        padding-left: 0;
-        padding: 20px;
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .filme img{
-        width: 80%;
-        height: 109px;
-
-    }
-
-    .info{
-        text-align: center;
-        
-    }
-
-
-    .rodape{
-        flex-direction: column;
-    }
-
-    .slide img{
-        height: 340px;
-    }
-
-
-    .barra{
-        margin-left: 5%;
-        width: 90%;
-    }
-
-.menu-perfil{
-    width: 178px;
-}
-
-.socialicones{
-    width: 98px;
-}
-
-.info p {
-    font-size: 12px;
-}
-
-.barraverm{
-    padding: 0px;
-}
-
-.btn-perfil{
-    margin-left: -17px;
-}
-
 }
