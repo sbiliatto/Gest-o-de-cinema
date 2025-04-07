@@ -53,6 +53,7 @@
             const tipo = params.get('tipo');
             let editar = params.get('editar');
 
+
             if (editar === "ativo") {
                 editar = true
             } else {
@@ -75,7 +76,6 @@
                     tipo: $("#tipo").val(),
                     ativo: $("#editar").val(),
                 };
-
 
 
                 $.ajax({
