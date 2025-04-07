@@ -61,6 +61,11 @@
         </div>
 
         <script>
+
+            var nome = localStorage.getItem("nome")
+            document.getElementById("nome-visitante").innerHTML = nome
+   
+
             function sair() {
                 localStorage.clear();
                 sessionStorage.clear();

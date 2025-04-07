@@ -59,9 +59,10 @@
                     <ul>
                         <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
                         <li><a href="editar.html">✏️ Editar perfil</a></li>
-                        <li><a onclick="sair()" style="cursor: pointer;" href="login.html">🚪 Sair da Conta</a></li>
+                        <li><a href="login.html">🚪 Sair da Conta</a></li>
                     </ul>
                 </div>
+
             </div>
 
             <script>
@@ -136,6 +137,9 @@
         const slides = document.querySelector(".slides");
         const indicadores = document.querySelectorAll(".indicador");
 
+        var nome = localStorage.getItem("nome")
+        document.getElementById("nome-visitante").innerHTML = nome
+
         function mudarSlide(indice) {
             indiceAtual = indice;
             let deslocamento = -indice * 100 + "%";
@@ -203,6 +207,11 @@
 
 </body>
 <script defer>
+
+
+    var nome = localStorage.getItem("nome")
+    document.getElementById("nome-visitante").innerHTML = nome
+   
 
     function carregaProdutos() {
         var settings = {
