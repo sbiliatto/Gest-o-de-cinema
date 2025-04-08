@@ -16,7 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
-    <!-- <script src="assets/js/seguranca.js" defer></script>  -->
+     <script src="assets/js/seguranca.js" defer></script>  
 
     <title>Prime Cine - Escolher sessões</title>
 
@@ -171,11 +171,13 @@
 
                 sessoes.forEach((item) => {
                     document.getElementById("infsessao").innerHTML = `
-                        <div class="showtime-box">
-                            <div class="time">${item.horario}</div>
-                            <button class="buy-button">Comprar</button>
-                            <div class="room">${item.descricao}</div>
-                        </div>
+                        <a href="cadeirasDisponiveis.html?id=${item.id_sessao}">
+                            <div class="showtime-box">
+                                <div class="time">${item.horario}</div>
+                                <button class="buy-button">Comprar</button>
+                                <div class="room">${item.descricao}</div>
+                            </div>
+                        </a>
                     `
                 })
             }
