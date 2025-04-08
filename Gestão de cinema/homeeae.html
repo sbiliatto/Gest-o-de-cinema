@@ -38,6 +38,14 @@
             }
         }
     </script>
+    <script>
+        function sair() {
+            localStorage.clear() // Se armazenado no LocalStorage
+            sessionStorage.clear() // Se armazenado no SessionStorage
+
+            window.location.href = "/login.html";
+        }
+    </script>
 
     </head>
 
@@ -89,7 +97,7 @@
                             <ul>
                                 <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
                                 <li><a href="editar.html">✏️ Editar perfil</a></li>
-                                <li><a href="#" href="login.html">🚪 Sair da Conta</a></li>
+                                <li><a href="#" onclick="sair()">🚪 Sair da Conta</a></li>
                             </ul>
                         </div>
 
