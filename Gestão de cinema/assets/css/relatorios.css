@@ -437,6 +437,11 @@ img {
     margin-right: 10px;
 }
 
+@media (max-width: 427px){
+    .menu-perfil{
+    width: 159px;}
+}
+
 
 @media (max-width: 768px) {
 
@@ -505,6 +510,16 @@ header {
 }
 
 
+}
+
+@media (min-width: 1022px) {
+nav ul {
+    padding-left: 57vh;
+}
+
+    .rodape{
+        margin-right: 56px;
+    }
 
 
 }

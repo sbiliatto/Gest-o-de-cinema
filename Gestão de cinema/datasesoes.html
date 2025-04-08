@@ -104,10 +104,7 @@
                 <span>BIRIGUI</span>
             </div>
 
-            <div class="date-selector" id="data">
-                Hoje 00/00/0000
-                <i class="fas fa-chevron-down"></i>
-            </div>
+          
 
             <div class="showtime-container" id="infsessao">
                 
@@ -139,7 +136,6 @@
         document.getElementById("titulo").innerHTML = params.get("titulo")
         document.getElementById("genero").innerHTML = params.get("genero")
         document.getElementById("sinopse").innerHTML = params.get("sinopse")
-        document.getElementById("data").innerHTML = params.get("data")
         document.getElementById("imgfilme").src = "http://192.168.1.133:5000/static/uploads/Filmes/" + id + ".jpeg"
 
         if(classificacao == "10") {
@@ -178,7 +174,17 @@
                                 <div class="room">${item.descricao}</div>
                             </div>
                         </a>
-                    `
+                    var dataObj = new Date(item.data_sessao);
+                    var dataFormatada = dataObj.toLocaleDateString('pt-BR');
+
+
+                    document.getElementById("infsessao").innerHTML += `
+                        <div class="showtime-box">
+                            <div class="time">${item.horario}</div>
+                            <div class="time">${dataFormatada}</div>
+                            <button class="buy-button">Comprar</button>
+                            <div class="room">${item.descricao}</div>
+                        </div>                    
                 })
             }
         };

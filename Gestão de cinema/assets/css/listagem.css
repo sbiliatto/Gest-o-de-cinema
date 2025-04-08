@@ -373,7 +373,7 @@ nav ul li a:hover {
     margin-bottom: 74vh;
   }
   tbody, td, tfoot, th, thead, tr{
-    font-size: 10px;
+    font-size: 6px;
   }
   
   .div-header {
@@ -412,7 +412,7 @@ nav ul li a:hover {
     width: 180px;
   }
 }
-}
+
 
 @media screen and (min-width: 601px) and (max-width: 900px) {
   header {
@@ -451,4 +451,60 @@ nav ul li a:hover {
     width: 90%;
     max-width: 1200px;
   }
+}
+
+
+@media  (max-width: 320px) {
+    .botao{
+        font-size: 5px;
+        padding: 4px 5px;
+    }
+
+    .table-container{
+        width: 0px;
+    margin-left: 160px;
+    }
+
+    tbody, td, tfoot, th, thead, tr {
+        font-size: 5px;
+}
+
+}
+
+
+@media  (max-width: 375px) {
+    .botao{
+        font-size: 5px;
+        padding: 4px 5px;
+    }
+
+    .table-container{
+        width: 0px;
+    margin-left: 160px;
+    }
+
+    tbody, td, tfoot, th, thead, tr {
+        font-size: 5px;
+}
+
+}
+
+
+
+
+@media  (max-width: 425px) {
+    .botao{
+        font-size: 7px;
+        padding: 4px 5px;
+    }
+
+    .table-container{
+        width: 0px;
+    margin-left: 180px;
+    }
+
+    tbody, td, tfoot, th, thead, tr {
+        font-size: 5px;
+}
+
 }
