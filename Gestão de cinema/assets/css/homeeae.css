@@ -219,6 +219,56 @@ img {
     max-width: 500px;
 }
 
+.classification {
+    display: flex;
+    gap: 5px;
+}
+
+.age-rating {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.l {
+    background-color: #0a9e58;
+}
+
+.ten {
+    background-color: #0b99cb;
+}
+
+.twelve {
+    background-color: #f7c325;
+}
+
+.fourteen {
+    background-color: #e7642c;
+}
+
+.sixteen {
+    background-color: #d20f2e;
+}
+
+.eighteen {
+    background-color: #000000;
+}
+
+.generoclass{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+
 .indicadores {
     text-align: center;
     position: absolute;
