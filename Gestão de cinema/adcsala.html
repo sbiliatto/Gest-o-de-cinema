@@ -177,12 +177,73 @@
             </select>
 
             <button type="submit">Adicionar Sala</button>
-
-            <script>
-                
-            </script>
+            
         </form>
     </main>
+
+    <script>
+        document.getElementById('form_cadastro').addEventListener('submit', function (e) {
+            e.preventDefault();
+    
+            const descricao = document.getElementById('id_sala').value.trim(); // nome da sala
+            const capacidade = document.getElementById('id_filme').value; // capacidade
+    
+            if (!descricao || !capacidade || capacidade === "Informe a Capacidade") {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Preencha todos os campos!',
+                    text: 'Você precisa informar o nome da sala e a capacidade.'
+                });
+                return;
+            }
+    
+            fetch('http://192.168.1.133:5000/salas&#39;, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    descricao: descricao,
+                    capacidade: capacidade
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Erro HTTP: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.error) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Erro!',
+                        text: data.error
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Sala adicionada!',
+                        text: data.message
+                    });
+                    document.getElementById('form_cadastro').reset();
+                }
+            })
+            .catch(error => {
+                console.error('Erro na requisição:', error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro de conexão!',
+                    text: 'Não foi possível conectar ao servidor.'
+                });
+            });
+    </script>
+    
+        
+      
+
+
+
 
 </body>
 
