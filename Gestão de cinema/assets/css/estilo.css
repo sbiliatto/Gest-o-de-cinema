@@ -534,6 +534,7 @@ nav ul li a:hover {
         grid-template-columns: repeat(5, 1fr);
     }
 
+
     .filme img {
         height: auto;
         aspect-ratio: 2/3;
