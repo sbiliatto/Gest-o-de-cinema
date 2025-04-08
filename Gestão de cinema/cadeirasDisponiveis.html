@@ -274,7 +274,6 @@
             const precoUnitario = 20.00;
 
             
-
     
             assentos.forEach(assento => {
                 assento.addEventListener("click", () => {
@@ -289,6 +288,24 @@
                         atualizarTotais();
                     }
                 });
+            });
+
+
+            var settings = {
+                "url": "http://192.168.1.133:5000/assentos_reservados/" + idSessao,
+                "method": "GET",
+                "timeout": 0,
+                "success": function(retorno) {
+                    var reservados = retorno.assentos
+
+                    reservados.forEach((item) => {
+                        document.querySelector(`[data-id="${item.id_assento}"]`).classList.add("ocupado")
+                    })
+                }
+            };
+
+            $.ajax(settings).done(function (response) {
+                console.log(response);
             });
 
 
