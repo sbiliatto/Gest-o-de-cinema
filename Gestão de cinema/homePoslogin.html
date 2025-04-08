@@ -267,6 +267,24 @@
 
     carregaProdutos();
 
+    window.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('.slides').addEventListener('click', () => {
+      const destino = window.innerWidth < 426 ? 900 : 700;
+
+      window.scrollTo({
+        top: destino,
+        behavior: 'smooth'
+      });
+    });
+  });
+
+
+    window.addEventListener('scroll', () => {
+  console.log(`ScrollY: ${window.scrollY}px`);
+});
+
+
+
 </script>
 
 </html>
