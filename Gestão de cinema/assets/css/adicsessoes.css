@@ -7,10 +7,9 @@
     text-decoration: none;
 }
 
-body{
-    background: rgb(139, 137, 137)!important;
+body {
+    background: rgb(139, 137, 137) !important;
 }
-
 
 header {
     display: flex;
@@ -18,11 +17,9 @@ header {
     justify-content: space-between;
     background: black;
     padding: 15px 50px;
-
 }
 
-
-.div-header{
+.div-header {
     display: flex;
     flex-direction: row;
     gap: 20px;
@@ -30,9 +27,7 @@ header {
 
 .logo {
     width: 20vh;
-    margin-left: px;
 }
-
 
 .menu-button {
     background-color: black;
@@ -60,12 +55,10 @@ header {
     cursor: pointer;
     border-radius: 5px;
     font-weight: bold;
-
 }
 
 .btn-perfil:hover {
     background-color: #cc0000;
-
 }
 
 /* Menu suspenso */
@@ -121,10 +114,10 @@ header {
 }
 
 nav ul {
-    padding-left: 100vh;
     list-style: none;
     display: flex;
     gap: 20px;
+    padding-left: 110vh;
 }
 
 nav ul li a {
@@ -134,9 +127,9 @@ nav ul li a {
     transition: color 0.3s;
 }
 
-.btn-perfil2{
+.btn-perfil2 {
+    width: 49px;
     margin-right: 43px;
-    
 }
 
 nav ul li a:hover {
@@ -150,18 +143,6 @@ nav ul li a:hover {
     width: 6vh;
 }
 
-.btn-perfil2 {
-    width: 49px;
-}
-
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    padding-left: 110vh;
-}
-
 nav ul li button {
     color: white;
     text-decoration: none;
@@ -172,7 +153,6 @@ nav ul li button {
 nav ul li button, .nav:hover {
     color: red;
 }
-
 
 main {
     width: 50%;
@@ -225,47 +205,142 @@ button:hover {
     background-color: darkred;
 }
 
-select{
+select {
     word-wrap: normal;
     background-color: #333;
     border-radius: 5px;
     border: none;
+    color: white;
+    padding: 10px;
+    width: 100%;
 }
 
-@media (max-width: 768px) {
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+    nav ul {
+        padding-left: 50vh;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    nav ul {
+        padding-left: 20vh;
+    }
+    
+    .logo {
+        width: 15vh;
+    }
+}
+
+@media screen and (max-width: 768px) {
     header {
         flex-direction: column;
+        padding: 15px 20px;
         align-items: center;
-        text-align: center;
     }
-
-
+    
     .logo {
-        margin-bottom: 10px;
+        margin-bottom: 15px;
+        width: 15vh;
     }
+    
+    .div-header {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    nav ul {
+        padding-left: 0;
+        justify-content: center;
+        margin-top: 15px;
+    }
+    
+    .btn-perfil2 {
+        margin-right: 0;
+    }
+    
+    .acao {
+        width: auto;
+    }
+    
+    main {
+        width: 90%;
+    }
+    
+    .menu-perfil {
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto;
+    }
+}
 
+@media screen and (max-width: 576px) {
+    header {
+        padding: 10px;
+    }
+    
     .div-header {
         flex-direction: column;
         gap: 10px;
+        align-items: center;
     }
-
+    
+    .logo {
+        width: 40%;
+        max-width: 150px;
+    }
+    
+    nav ul {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    
     .btn-group {
         width: 100%;
-        text-align: center;
     }
-
-    .btn-perfil2 {
-        margin-left: 21px;
+    
+    .btn-group button {
+        width: 100%;
+    }
+    
+    .acao {
+        justify-content: center;
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    .menu-perfil {
+        width: 90%;
+        max-width: 280px;
+    }
+    
+    main {
+        width: 95%;
+        padding: 15px;
+        margin: 20px auto;
+    }
+    
+    form {
+        gap: 10px;
     }
 }
 
-@media (max-width: 480px) {
-    .menu-perfil {
-        right: auto;
-        left: 50%;
-        transform: translateX(-50%);
+@media screen and (max-width: 380px) {
+    header {
+        padding: 10px 5px;
     }
-
-  
-
+    
+    .menu-perfil {
+        width: 95%;
+        max-width: 250px;
+    }
+    
+    input, select, textarea {
+        padding: 8px;
+    }
+    
+    button {
+        padding: 8px;
+    }
 }

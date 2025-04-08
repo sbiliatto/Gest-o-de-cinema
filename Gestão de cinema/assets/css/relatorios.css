@@ -88,7 +88,7 @@ nav ul li a:hover {
 }
 
 .barra {
-    margin-top: 10px;
+    margin-top: -7px;
     text-align: center;
     margin-left: 5%;
     width: 90%;
@@ -514,7 +514,7 @@ header {
 
 @media (min-width: 1022px) {
 nav ul {
-    padding-left: 57vh;
+    padding-left: 96vh;
 }
 
     .rodape{
