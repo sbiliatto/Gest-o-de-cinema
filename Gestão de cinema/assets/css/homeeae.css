@@ -491,7 +491,7 @@ a:hover {
     }
 
     .btn-perfil2 {
-        margin-left: 21px;
+        margin-left: 35px;
     }
     nav ul {
         flex-direction: column;
@@ -554,16 +554,24 @@ a:hover {
     }
 
     .menu-perfil{
-        width: 150px;
+        width: 130px;
+        
     }
     
-    .gradedefilmes{
+    .gradedefilmes {
         padding-left: 50%;
         padding-right: 50%;
-    }
+        text-align: center;
+        align-items: center;
+        display: grid;
+}
 
     .delete{
-                margin-right: 184px;
+        margin-right: 148px;
+    }
+
+    .botao{
+        margin-left: 50px;
     }
 }
 
