@@ -262,6 +262,9 @@
     </main>
 
     <script>
+        const params = new URLSearchParams(window.location.search);
+        const idSessao = params.get('id');
+    
         document.addEventListener("DOMContentLoaded", () => {
             const assentos = document.querySelectorAll(".assento");
             const totalItens = document.getElementById("itens");
@@ -307,9 +310,34 @@
                 }).then(result => {
                     if (result.isConfirmed) {
 
-                        
-
-
+                        var token = localStorage.getItem("token")
+    
+                        var settings = {
+                            "url": "http://192.168.1.133:5000/reservas",
+                            "method": "POST",
+                            "timeout": 0,
+                            "headers": {
+                                "Content-Type": "application/json",
+                                "Authorization": "Bearer " + token
+                            },
+                            "data": JSON.stringify({
+                                "id_sessao": idSessao,
+                                "id_assento": ids
+                            }),
+                            "success": function(retorno) {
+                                // Alerta
+                                alert("Sucesso");
+                            },
+                            "error": function(retorno) {
+                                // Alerta
+                                alert("Erro");
+                            }
+                        };
+    
+                        $.ajax(settings).done(function (response) {
+                            console.log(response);
+                        });
+    
                         selecionados.forEach(assento => {
                             assento.classList.remove("selecionado");
                             assento.classList.add("ocupado");
@@ -331,16 +359,17 @@
                 const ids = Array.from(selecionados)
                                  .map(el => el.dataset.id)
                                  .filter(Boolean);
-        
-                totalItens.textContent = qtd;
-                totalPreco.textContent = (qtd * precoUnitario).toFixed(2).replace(".", ",");
-        
+    
+                totalItens.textContent = qtd.toString(); 
+                totalPreco.textContent = (qtd * precoUnitario).toFixed(2).replace(".", ",").toString(); 
+    
                 if (listaSelecionados) {
-                    listaSelecionados.textContent = ids.join(", ");
+                    listaSelecionados.textContent = ids.join(", "); 
                 }
             }
         });
-        </script>
+    </script>
+    
         
 </body>
 
