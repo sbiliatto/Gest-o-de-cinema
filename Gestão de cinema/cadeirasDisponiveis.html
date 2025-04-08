@@ -272,22 +272,34 @@
             const listaSelecionados = document.getElementById("selecionados");
             const botaoReservar = document.getElementById("reservar");
             const precoUnitario = 20.00;
-        
+
+            
+
+    
             assentos.forEach(assento => {
                 assento.addEventListener("click", () => {
-                    if (!assento.classList.contains("ocupado")) {
+                    if (assento.classList.contains("ocupado")) {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Assento ocupado",
+                            text: "Este assento já está reservado. Por favor, escolha outro."
+                        });
+                    } else {
                         assento.classList.toggle("selecionado");
                         atualizarTotais();
                     }
                 });
             });
-        
+
+
+
+    
             botaoReservar.addEventListener("click", () => {
                 const selecionados = document.querySelectorAll(".assento.selecionado");
                 const ids = Array.from(selecionados)
                                  .map(el => el.dataset.id)
                                  .filter(Boolean);
-        
+    
                 if (ids.length === 0) {
                     Swal.fire({
                         icon: "info",
@@ -296,7 +308,7 @@
                     });
                     return;
                 }
-        
+    
                 Swal.fire({
                     title: "Confirmar reserva?",
                     html: `
@@ -309,50 +321,56 @@
                     cancelButtonText: "Cancelar"
                 }).then(result => {
                     if (result.isConfirmed) {
-
-                        var token = localStorage.getItem("token")
     
-                        var settings = {
-                            "url": "http://192.168.1.133:5000/reservas",
-                            "method": "POST",
-                            "timeout": 0,
-                            "headers": {
+                        const token = localStorage.getItem("token");
+    
+                        $.ajax({
+                            url: "http://192.168.1.133:5000/reservas",
+                            method: "POST",
+                            timeout: 0,
+                            headers: {
                                 "Content-Type": "application/json",
                                 "Authorization": "Bearer " + token
                             },
-                            "data": JSON.stringify({
+                            data: JSON.stringify({
                                 "id_sessao": idSessao,
                                 "id_assento": ids
                             }),
-                            "success": function(retorno) {
-                                // Alerta
-                                alert("Sucesso");
+                            success: function(retorno) {
+                                Swal.fire({
+                                    icon: "success",
+                                    title: "Reserva confirmada!",
+                                    text: `Assentos reservados: ${ids.join(", ")}`
+                                });
+    
+                                selecionados.forEach(assento => {
+                                    assento.classList.remove("selecionado");
+                                    assento.classList.add("ocupado");
+                                });
+                                atualizarTotais();
                             },
-                            "error": function(retorno) {
-                                // Alerta
-                                alert("Erro");
+                            error: function(retorno) {
+                                const erro = retorno.responseJSON;
+    
+                                if (erro && erro.mensagem && erro.mensagem.includes("ocupado")) {
+                                    Swal.fire({
+                                        icon: "error",
+                                        title: "Assento já ocupado",
+                                        text: erro.mensagem
+                                    });
+                                } else {
+                                    Swal.fire({
+                                        icon: "error",
+                                        title: "Erro na reserva",
+                                        text: "Ocorreu um erro ao processar sua reserva. Tente novamente."
+                                    });
+                                }
                             }
-                        };
-    
-                        $.ajax(settings).done(function (response) {
-                            console.log(response);
-                        });
-    
-                        selecionados.forEach(assento => {
-                            assento.classList.remove("selecionado");
-                            assento.classList.add("ocupado");
-                        });
-                        atualizarTotais();
-        
-                        Swal.fire({
-                            icon: "success",
-                            title: "Reserva confirmada!",
-                            text: `Assentos reservados: ${ids.join(", ")}`
                         });
                     }
                 });
             });
-        
+    
             function atualizarTotais() {
                 const selecionados = document.querySelectorAll(".assento.selecionado");
                 const qtd = selecionados.length;
