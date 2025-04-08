@@ -90,9 +90,10 @@ nav ul li a:hover {
 /* Barra Vermelha */
 .barra {
     width: 90%;
+    margin-bottom: 50px;
     left: 5%;
     background-color: darkred;
-    margin-bottom: 85vh;
+    margin-bottom: 87vh;
 }
 
 .socialicones {
@@ -230,13 +231,20 @@ img {
 .slide {
     min-width: 100%;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    
 }
 
 .slide img {
-    width: 100%;
+    width: 90%;
     height: 500px;
     object-fit: cover;
     filter: brightness(50%);
+    border-radius: 70px;
+    
 }
 
 .texto {
