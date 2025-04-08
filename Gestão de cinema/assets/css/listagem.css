@@ -363,148 +363,134 @@ nav ul li a:hover {
 
 
 
-@media screen and (max-width: 600px) {
-  header {
-    flex-direction: column;
-    padding: 10px;
-  }
 
-  .barra {
-    margin-bottom: 74vh;
-  }
-  tbody, td, tfoot, th, thead, tr{
-    font-size: 6px;
-  }
-  
-  .div-header {
-    width: 100%;
+
+
+/* Estilos base para a tabela */
+.table-container {
+    padding-top: 7vh;
+    display: flex;
     justify-content: center;
-    margin-top: 10px;
-  }
-  .th
-  
-  .botao {
-    padding: 5px 8px;
-    font-size: 12px;
-  }
-  
-  .rodape {
-    flex-direction: column;
-    text-align: center;
-    padding: 15px;
-  }
-  
-  .info {
-    text-align: center;
-    margin: 10px 0;
-  }
-  
-  .socialicones {
-    justify-content: center;
-  }
-  
-  .barraverm img {
-    width: 150px;
-  }
-  
-  .menu-perfil {
-    right: -50px;
-    width: 180px;
-  }
-}
-
-
-@media screen and (min-width: 601px) and (max-width: 900px) {
-  header {
-    padding: 15px;
-  }
-  
-  .logo {
-    width: 120px;
-  }
-  
-  .table-container {
-    width: 100%;
-    overflow-x: scroll;
-    padding: 15px;
-  }
-  
-  table {
-    min-width: 600px;
-  }
-  
-  .botao {
-    padding: 8px 12px;
-  }
-  
-  .rodape {
-    padding: 15px;
-  }
-}
-
-@media screen and (min-width: 901px) {
-  .table-container {
-    padding: 20px;
-  }
-  
-  table {
+    margin: 20px auto;
     width: 90%;
     max-width: 1200px;
-  }
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    color: black;
+    border-radius: 10px;
+    overflow: hidden;
+}
 
-@media  (max-width: 320px) {
-    .botao{
-        font-size: 5px;
-        padding: 4px 5px;
+/* Adicionar rolagem horizontal para a tabela em telas pequenas */
+.table-container {
+    padding-top: 7vh;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Em telas pequenas, aplicar rolagem horizontal apenas à tabela */
+@media screen and (max-width: 768px) {
+    .table-container {
+        overflow-x: auto; /* Habilita a rolagem horizontal */
+        width: 95%;
+        margin: 10px auto;
+        font-size: 11px;
+        padding-top: 3vh;
+        -webkit-overflow-scrolling: touch; /* Para melhor rolagem em iOS */
     }
-
-    .table-container{
-        width: 0px;
-    margin-left: 160px;
+    
+    table {
+        min-width: 500px; /* Garante uma largura mínima para a tabela */
+        width: 100%;
     }
+}
 
+/* Ajustes específicos para telas menores */
+@media screen and (max-width: 425px) {
+    .table-container {
+        width: 98%;
+        padding-top: 2vh;
+    }
+    
     tbody, td, tfoot, th, thead, tr {
-        font-size: 5px;
+        font-size: 10px;
+        padding: 6px;
+    }
+    
+    .botao {
+        padding: 4px 8px;
+        font-size: 10px;
+    }
 }
 
-}
-
-
-@media  (max-width: 375px) {
-    .botao{
-        font-size: 5px;
-        padding: 4px 5px;
-    }
-
-    .table-container{
-        width: 0px;
-    margin-left: 160px;
-    }
-
+@media screen and (max-width: 375px) {
     tbody, td, tfoot, th, thead, tr {
-        font-size: 5px;
-}
-
-}
-
-
-
-
-@media  (max-width: 425px) {
-    .botao{
-        font-size: 7px;
-        padding: 4px 5px;
+        font-size: 9px;
+        padding: 5px;
+    }
+    
+    .botao {
+        padding: 3px 7px;
+        font-size: 9px;
     }
 
-    .table-container{
-        width: 0px;
-    margin-left: 180px;
-    }
-
-    tbody, td, tfoot, th, thead, tr {
-        font-size: 5px;
+  
 }
 
+@media screen and (max-width: 320px) {
+    .table-container {
+        padding: 5px 0;
+    }
+    
+   tbody, td, tfoot, th, thead, tr {
+        font-size: 9px;
+        padding: 18px;
+    }
+    
+    .botao {
+        padding: 3px 6px;
+        font-size: 8px;
+    }
+
+    
+}
+
+
+
+@media screen and (max-width: 480px) {
+    header {
+        padding: 10px 15px;
+        justify-content: space-between;
+    }
+    
+    .logo {
+        width: 13vh;
+    }
+    
+    .div-header {
+        gap: 10px;
+    }
+    
+    .btn-group .btn {
+        padding: 6px 12px !important;
+        font-size: 12px !important;
+    }
+    
+    .btn-perfil2 {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .menu-perfil {
+        width: 200px;
+        MARGIN-RIGHT: 66PX;
+    }
 }
