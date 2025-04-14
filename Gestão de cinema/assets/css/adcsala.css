@@ -244,6 +244,11 @@ select {
     cursor: pointer;
     border-radius: 4px;
   }
+
+  body {
+    overflow-x: hidden; 
+}
+
   
   
 
