@@ -100,9 +100,8 @@ document.getElementById('form_cadastro').addEventListener('submit', function (e)
             icon: 'warning',
             title: 'Preencha todos os campos!',
             text: 'Você precisa informar o ID da sala e a capacidade.'
-        }).then(() => {
-                        window.location.href = "homeeae.html";
-                    });
+        });
+        return;
     }
 
     // ta enviando os dados para o backend
@@ -134,7 +133,7 @@ document.getElementById('form_cadastro').addEventListener('submit', function (e)
                 icon: 'success',
                 title: 'Sala adicionada!',
                 text: data.message
-            });
+            })
             document.getElementById('form_cadastro').reset();
         }
     })
