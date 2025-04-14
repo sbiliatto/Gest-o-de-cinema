@@ -264,14 +264,18 @@
     <script>
         const params = new URLSearchParams(window.location.search);
         const idSessao = params.get('id');
-    
-        document.addEventListener("DOMContentLoaded", () => {
-            const assentos = document.querySelectorAll(".assento");
-            const totalItens = document.getElementById("itens");
-            const totalPreco = document.getElementById("total");
-            const listaSelecionados = document.getElementById("selecionados");
-            const botaoReservar = document.getElementById("reservar");
-            const precoUnitario = 20.00;
+        const titulo = params.get("titulo");
+        const genero = params.get("genero");
+        const sinopse = params.get("sinopse");
+        const classificacao = params.get("classificacao");
+        const hora = params.get("hora");
+        const data = params.get("data");
+        const filmeid = params.get("filmeid");
+
+        // Atualiza os elementos com info do filme e sessão
+        document.querySelector(".filme-info img").src = `http://10.92.3.172:5000/static/uploads/Filmes/${filmeid}.jpeg`;
+        document.querySelector(".filme-info p").innerText = "PrimeCine Birigui";
+        document.querySelector(".filme-info div p").innerText = `${data} - ${hora}`;
 
             
     
@@ -288,7 +292,6 @@
                         atualizarTotais();
                     }
                 });
-            });
 
 
             var settings = {
