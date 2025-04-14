@@ -59,7 +59,7 @@
                     <ul>
                         <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
                         <li><a href="editar.html">✏️ Editar perfil</a></li>
-                        <li><a onclick="sair()" style="cursor: pointer;" href="login.html">🚪 Sair da Conta</a></li>
+                        <li><a href="login.html" onclick="sair()">🚪 Sair da Conta</a></li>
                     </ul>
                 </div>
             </div>
@@ -171,12 +171,13 @@
 
 
                     document.getElementById("infsessao").innerHTML += `
-                        <div class="showtime-box">
+                         <a class="buy-button" href = "cadeirasDisponiveis.html"><div class="showtime-box">
                             <div class="time">${item.horario}</div>
                             <div class="time">${dataFormatada}</div>
-                            <button class="buy-button">Comprar</button>
+                           Comprar
                             <div class="room">${item.descricao}</div>
                         </div>
+                        <a>
                     `
                 })
             }

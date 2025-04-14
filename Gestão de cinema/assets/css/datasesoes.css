@@ -301,6 +301,7 @@ nav ul li a:hover {
     background: none;
     color: white;
     cursor: pointer;
+    text-decoration: none   ;
     font-weight: bold;
 }
 
