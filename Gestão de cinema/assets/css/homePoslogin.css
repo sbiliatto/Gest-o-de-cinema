@@ -634,12 +634,20 @@ img {
     }
     
     .barra {
-        margin-bottom: -84px;
+        margin-bottom: -131px;
+        
     }
 }
 
 .indicadores {
     bottom: -9px;
+}
+
+@media (min-width: 767px) {
+    .barra {
+        margin-bottom: -95px;
+        
+    }
 }
 
 @media (max-width: 480px) {
@@ -653,12 +661,22 @@ img {
     }
     
     .texto h2 {
-        font-size: 18px;
+        font-size: 14px;
+        margin-left: 34px;
+        
     }
     
     .texto p {
         font-size: 9px;
+        max-width: 203px;
+        margin-left: 47px;
     }
+
+    .generoclass {
+        gap: 0px;
+        margin-left: 20px;
+    }
+    
     
     .gradedefilmes {
         grid-template-columns: repeat(1, 1fr);
@@ -671,8 +689,11 @@ img {
     }
     
     .categorias {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 17px;
         margin-top: 65px;
     }
 }
+
+
+
