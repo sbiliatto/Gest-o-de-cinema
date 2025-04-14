@@ -215,6 +215,38 @@ select {
     width: 100%;
 }
 
+.divum {
+    float: right;
+}
+
+.header-sala {
+    position: relative;
+    display: flex;
+    justify-content: center; /* centraliza o h2 */
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .header-sala h2 {
+    margin: 0;
+    text-align: center;
+    flex-grow: 1;
+  }
+  
+  .btn-visualizar {
+    position: absolute;
+    right: 0;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.9rem;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  
+
 /* Responsive Design */
 @media screen and (max-width: 1200px) {
     nav ul {
