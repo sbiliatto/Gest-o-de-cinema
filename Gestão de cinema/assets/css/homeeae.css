@@ -202,7 +202,6 @@ img {
     width: 90%;
     height: 500px;
     object-fit: cover;
-    filter: brightness(50%);
     border-radius: 70px;
     
 }
@@ -322,6 +321,18 @@ img {
     padding: 20px;
     justify-content: center;
     padding-left: 3%;
+}
+
+.btneditar{
+    background-color: #cf0101;
+    color: #ffffff;
+    font-size: 17px;
+    padding: 7px 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+
 }
 
 .filme {

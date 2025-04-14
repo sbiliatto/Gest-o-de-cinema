@@ -91,7 +91,7 @@ nav ul li a:hover {
 .barra {
     width: 90%;
     margin-bottom: 50px;
-    left: 5%;
+    left: 2.5%;
     background-color: darkred;
     margin-bottom: 87vh;
 }
@@ -243,7 +243,6 @@ img {
     width: 90%;
     height: 500px;
     object-fit: cover;
-    filter: brightness(50%);
     border-radius: 70px;
     
 }
@@ -645,7 +644,8 @@ img {
 
 @media (min-width: 767px) {
     .barra {
-        margin-bottom: -95px;
+        margin-bottom: 629px;
+        width: 95%;
         
     }
 }
