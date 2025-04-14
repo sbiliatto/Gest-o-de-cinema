@@ -94,6 +94,17 @@
 
             <label for="imagem">Imagem:</label>
             <input type="file" id="imagem" name="imagem" accept="image/*">
+           
+            <br>
+
+            <label for="editar">Editar:</label>
+            <select id="editar" name="editar" required="">
+                <option value="" selected="" disabled="">Selecione uma opção</option>
+                <option value="true">Ativo</option>
+                <option value="false">Inativo</option>
+            </select>
+            
+            <br>
 
             <button type="submit" class="save-button">Salvar alterações</button>
         </form>
