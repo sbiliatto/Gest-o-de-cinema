@@ -217,7 +217,7 @@ button {
     text-align: center;
 }
 
-button:hover {
+btn-primeiro:hover {
     background-color: darkred;
 }
 
