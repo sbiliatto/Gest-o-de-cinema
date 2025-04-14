@@ -9,47 +9,44 @@
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <script src="assets/js/seguranca.js" defer></script>
 </head>
 
 <body>
     <header>
-        <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
+        <div class="logo-container">
+            <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
+        </div>
         <nav>
             <ul>
                 <li><a href="homePoslogin.html">HOME</a></li>
                 <li><a href="promoções.html">PROMOÇÕES</a></li>
                 <li><a href="relatorios.html">RELATÓRIO</a></li>
+                <li><a href="#" class="search-icon">&#128269;</a></li>
             </ul>
         </nav>
-        <div class="action">
-            <div class="perfil-logado">
-                <img src="assets/img/user.jpg" alt="Foto de perfil">
-                <span>João Silva</span>
-            </div>
-        </div>
     </header>
     <div class="barra"></div>
 
-    <main class="perfil-container">
-        <section class="perfil-info">
-            <h2>Olá, <span>(Nome do visitante)</span></h2>
-            <p>Este é o seu perfil </p>
-            <button class="btn-pedidos">Meus Pedidos</button>
-            <a href="login.html" class="sair">Sair da Conta</a>
-        </section>
-        <section class="meus-pedidos">
+    <div class="main-container">
+        <!-- Seção lateral com perfil -->
+        <div class="perfil-lateral">
+            <h2>Olá, (Nome do visitante)</h2>
+            <p>Este é o seu perfil :)</p>
+        </div>
+
+        <!-- Seção de pedidos -->
+        <div class="pedidos-area">
             <h2>Meus Pedidos</h2>
-            <p class="nenhum-pedido">Você ainda não tem pedidos</p>
+            <p class="sem-pedidos">Você ainda não tem pedidos</p>
             <button class="btn-encontrar">ENCONTRAR FILMES</button>
-        </section>
-    </main>
+        </div>
+    </div>
 
     <footer>
         <div class="rodape">
             <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo Prime Cine">
-            <p>PRIME CINE</p>
+            
         </div>
     </footer>
 </body>
