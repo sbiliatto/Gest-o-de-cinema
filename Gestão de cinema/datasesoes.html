@@ -136,7 +136,7 @@
         document.getElementById("titulo").innerHTML = params.get("titulo")
         document.getElementById("genero").innerHTML = params.get("genero")
         document.getElementById("sinopse").innerHTML = params.get("sinopse")
-        document.getElementById("imgfilme").src = "http://192.168.1.133:5000/static/uploads/Filmes/" + id + ".jpeg"
+        document.getElementById("imgfilme").src = "http://10.92.3.172:5000/static/uploads/Filmes/" + id + ".jpeg"
 
         if(classificacao == "10") {
             document.getElementById("classification").innerHTML = '<div class="age-rating ten">10</div>'
@@ -154,7 +154,7 @@
 
 
         var settings = {
-            "url": "http://192.168.1.133:5000/sessoes/" + id,
+            "url": "http://10.92.3.172:5000/sessoes/" + id,
             "method": "GET",
             "timeout": 0,
             "headers": {
