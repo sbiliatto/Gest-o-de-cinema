@@ -61,25 +61,13 @@
     <main>
         <h2>Adicionar Sala</h2>
         <form id="form_cadastro">
-            <label for="sala">Sala:</label>
-            <select name="id_sala" id="id_sala" required>
-                <option >1</option>
-                <option >2</option>
-                <option >3</option>
-            </select>
+            <label for="descricao" class="form-label">Nome da Sala:</label>
+            <input type="text" id="descricao" name="descricao" class="form-control" required>
 
-            <label for="horario">Horário:</label>
-            <input type="time" id="horario" name="horario" required>
+            <label for="capacidade" class="form-label">Capacidade:</label>
+            <input type="number" id="capacidade" name="capacidade" min="1" max="100" class="form-control" required>
 
-            <label for="data_sessao">Data da sessão:</label>
-            <input type="date" id="data_sessao" name="data_sessao" required>
-
-            <label for="id_filme">Id do filme:</label>
-            <select name="id_filme" id="id_filme" required>
-                <option selected disabled>Selecione um Filme</option>
-            </select>
-
-            <button type="submit">Adicionar Sessão</button>
+            <button type="submit">Adicionar Sala</button>
 
         </form>
     </main>
@@ -99,6 +87,74 @@
             menu.style.display = "none";
         }
     }
+
+document.getElementById('form_cadastro').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const descricao = document.getElementById('descricao').value.trim();
+    const capacidade = parseInt(document.getElementById('capacidade').value);
+
+    // vendo se os campos estão preenchidos
+    if (!descricao || isNaN(capacidade)) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Preencha todos os campos!',
+            text: 'Você precisa informar o ID da sala e a capacidade.'
+        }).then(() => {
+                        window.location.href = "homeeae.html";
+                    });
+    }
+
+    // ta enviando os dados para o backend
+    fetch('http://10.92.3.172:5000/salas', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            descricao: descricao,
+            capacidade: capacidade
+        })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Erro HTTP: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro!',
+                text: data.error
+            });
+        } else {
+            Swal.fire({
+                icon: 'success',
+                title: 'Sala adicionada!',
+                text: data.message
+            });
+            document.getElementById('form_cadastro').reset();
+        }
+    })
+    .catch(error => {
+        console.error('Erro na requisição:', error);
+        Swal.fire({
+            icon: 'error',
+            title: 'Erro de conexão!',
+            text: 'Não foi possível conectar ao servidor.'
+        });
+    });
+});
+
+
 </script>
+
+
+
+
+
+
 
 </html>
