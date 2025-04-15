@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meus pedidos - Prime Cine</title>
     <link rel="stylesheet" href="assets/css/meusPedidos.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="assets/js/seguranca.js" defer></script>
 </head>
-    <body>
+
+<body>
     <header>
         <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
         <nav>
@@ -22,8 +22,7 @@
             </ul>
         </nav>
 
-
-      <div class="acao">
+        <div class="acao">
             <div class="perfil-container">
                 <img onclick="toggleMenu()" class="btn-perfil2" src="assets/img/do-utilizador.png" alt="">
                 <div class="menu-perfil" id="menuPerfil">
@@ -34,7 +33,7 @@
                         <li><a href="login.html" onclick="sair()">🚪 Sair da Conta</a></li>
                     </ul>
                 </div>
-         </div>
+            </div>
         </div>
     </header>
 
@@ -50,68 +49,31 @@
         <!-- Seção de pedidos -->
         <div class="pedidos-area">
             <h2>Meus Pedidos</h2>
-            <p class="sem-pedidos">Você ainda não tem pedidos</p>
+            <div id="listapedidos"></div>
             <button class="btn-encontrar" onclick="window.location.href='homePoslogin.html'">ENCONTRAR FILMES</button>
         </div>
     </div>
 
-<script>
-        let indiceAtual = 0;
-        const slides = document.querySelector(".slides");
-        const indicadores = document.querySelectorAll(".indicador");
-
-    function mudarSlide(indice) {
-            indiceAtual = indice;
-            let deslocamento = -indice * 100 + "%";
-            if (slides) {
-                slides.style.transform = "translateX(" + deslocamento + ")";
-                indicadores.forEach((ind, i) => {
-                    ind.classList.toggle("ativo", i === indice);
-                });
-            }
-        }
-
-        if (slides && indicadores.length > 0) {
-            setInterval(() => {
-                indiceAtual = (indiceAtual + 1) % 3;
-                mudarSlide(indiceAtual);
-            }, 10000);
-        }
-    </script>
-
-
     <script>
         function toggleMenu() {
             const menu = document.getElementById("menuPerfil");
-            
-            if (menu.style.display === "block") {
-                menu.style.display = "none";
-            } else {
-                menu.style.display = "block";
-            }
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
         }
-        
-        document.addEventListener('click', function(event) {
-            const menu = document.getElementById("menuPerfil");
-            const botaoPerfil = document.querySelector('.btn-perfil2');
-            
-        });
-        
-        document.addEventListener('DOMContentLoaded', function() {
+
+        document.addEventListener('DOMContentLoaded', function () {
             carregarDadosUsuario();
             carregarReservas();
         });
-        
+
         // Função para carregar dados do usuário da API
         function carregarDadosUsuario() {
-            // Pegar token de autenticação do localStorage
             var token = localStorage.getItem("token");
-            
+
             if (!token) {
                 console.error("Token não encontrado. Usuário não está autenticado.");
                 return;
             }
-            
+
             var settings = {
                 "url": "http://10.92.3.172:5000/usuarios/perfil",
                 "method": "GET",
@@ -120,199 +82,66 @@
                     "Authorization": token,
                     "Content-Type": "application/json"
                 },
-                "success": function(response) {
+                "success": function (response) {
                     var nomeUsuario = response.nome || "Visitante";
-                    
+
                     var elementosComNome = document.querySelectorAll(".nome-visitante");
-                    elementosComNome.forEach(function(elemento) {
+                    elementosComNome.forEach(function (elemento) {
                         elemento.textContent = nomeUsuario;
                     });
                 },
-                "error": function(error) {
+                "error": function (error) {
                     console.error("Erro ao carregar dados do usuário:", error);
                     var nomeUsuario = localStorage.getItem("nome") || "Visitante";
-                    
+
                     var elementosComNome = document.querySelectorAll(".nome-visitante");
-                    elementosComNome.forEach(function(elemento) {
+                    elementosComNome.forEach(function (elemento) {
                         elemento.textContent = nomeUsuario;
                     });
                 }
             };
-            
+
             $.ajax(settings);
         }
-        
+
         // Função para carregar reservas do usuário da API
         function carregarReservas() {
-            // Pegar token de autenticação do localStorage
             var token = localStorage.getItem("token");
-            
-            if (!token) {
-                console.error("Token não encontrado. Usuário não está autenticado.");
-                return;
-            }
-            
+
             var settings = {
                 "url": "http://10.92.3.172:5000/reservas",
                 "method": "GET",
                 "timeout": 0,
                 "headers": {
-                    "Authorization": token,
+                    "Authorization": "Bearer " + token,
                     "Content-Type": "application/json"
                 },
-                "success": function(response) {
-                    exibirReservas(response.reservas || []);
+                "success": function (response) {
+                    response.reservas.forEach(function (reserva) {
+                        document.getElementById("listapedidos").innerHTML += `
+                            <div>
+                                <p>Nome do Filme:  ${reserva.titulo_filme}</p>
+                                <p>Horário: ${reserva.horario}</p>
+                                <p>Sala: ${reserva.sala}</p>
+                                <p>Acento: ${reserva.id_reserva}</p>
+                            </div>
+                        `
+                    })
                 },
-                "error": function(error) {
+                "error": function (error) {
                     console.error("Erro ao carregar reservas:", error);
                     var reservas = JSON.parse(localStorage.getItem("reservas")) || [];
                     exibirReservas(reservas);
                 }
             };
-            
-            $.ajax(settings);
-        }
-        
-        function exibirReservas(reservas) {
-            var areaReservas = document.querySelector(".pedidos-area");
-            var mensagemSemReservas = document.querySelector(".sem-pedidos");
-            var botaoEncontrar = document.querySelector(".btn-encontrar");
-            
-            if (reservas.length > 0) {
-                mensagemSemReservas.style.display = "none";
-                
-                var listaAntiga = document.getElementById("lista-reservas");
-                if (listaAntiga) {
-                    listaAntiga.remove();
-                }
-                
-                var listaReservas = document.createElement("div");
-                listaReservas.id = "lista-reservas";
-                listaReservas.className = "lista-pedidos";
-                
-                reservas.forEach(function(reserva) {
-                    var itemReserva = document.createElement("div");
-                    itemReserva.className = "item-pedido";
-                    
-                    var dataFormatada = formatarData(reserva.data_sessao);
 
-                    
-                    listaReservas.appendChild(itemReserva);
-                });
-                
-                areaReservas.insertBefore(listaReservas, botaoEncontrar);
-            } else {
-                mensagemSemReservas.style.display = "block";
-            }
-        }
-        
-        function formatarData(dataString) {
-            if (!dataString) return "Data não informada";
-            
-            try {
-                const data = new Date(dataString);
-                return data.toLocaleDateString('pt-BR');
-            } catch (e) {
-                return dataString;
-            }
-        }
-        
-        // Função para cancelar uma reserva
-        function cancelarReserva(idReserva) {
-            if (!confirm("Tem certeza que deseja cancelar esta reserva?")) {
-                return;
-            }
-            
-            // Pegar token de autenticação do localStorage
-            var token = localStorage.getItem("token");
-            
-            if (!token) {
-                console.error("Token não encontrado. Usuário não está autenticado.");
-                return;
-            }
-            
-            var settings = {
-                "url": `http://10.92.3.172:5000/reservas/${idReserva}`,
-                "method": "DELETE",
-                "timeout": 0,
-                "headers": {
-                    "Authorization": token,
-                    "Content-Type": "application/json"
-                },
-                "success": function(response) {
-                    Swal.fire({
-                        title: "Sucesso!",
-                        text: "Reserva cancelada com sucesso.",
-                        icon: "success"
-                    });
-                    
-                    // Recarregar a lista de reservas após o cancelamento
-                    carregarReservas();
-                },
-                "error": function(error) {
-                    Swal.fire({
-                        title: "Erro!",
-                        text: error.responseJSON?.error || "Erro ao cancelar a reserva.",
-                        icon: "error"
-                    });
-                }
-            };
-            
-            $.ajax(settings);
-        }
-        
-        // Função para adicionar uma nova reserva (pode ser chamada de outras páginas)
-        function adicionarReserva(idSessao) {
-            // Pegar token de autenticação do localStorage
-            var token = localStorage.getItem("token");
-            
-            if (!token) {
-                console.error("Token não encontrado. Usuário não está autenticado.");
-                Swal.fire({
-                    title: "Erro!",
-                    text: "Você precisa estar logado para fazer uma reserva.",
-                    icon: "error"
-                });
-                return;
-            }
-            
-            var settings = {
-                "url": "http://10.92.3.172:5000/reservas",
-                "method": "POST",
-                "timeout": 0,
-                "headers": {
-                    "Authorization": token,
-                    "Content-Type": "application/json"
-                },
-                "data": JSON.stringify({
-                    "id_sessao": idSessao
-                }),
-                "success": function(response) {
-                    Swal.fire({
-                        title: "Sucesso!",
-                        text: "Reserva realizada com sucesso.",
-                        icon: "success"
-                    });
-                    
-                    // Redirecionar para a página de pedidos
-                    window.location.href = "meusPedidos.html";
-                },
-                "error": function(error) {
-                    Swal.fire({
-                        title: "Erro!",
-                        text: error.responseJSON?.error || "Erro ao realizar a reserva.",
-                        icon: "error"
-                    });
-                }
-            };
-            
             $.ajax(settings);
         }
     </script>
 
     <footer>
-        <div class="rodape">            
-        <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo Prime Cine">
+        <div class="rodape">
+            <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo Prime Cine">
         </div>
     </footer>
 </body>
