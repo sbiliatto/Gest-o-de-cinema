@@ -98,11 +98,7 @@
         <h2>Adicionar sessão</h2>
         <form id="form_cadastro">
             <label for="sala">Sala:</label>
-            <select name="id_sala" id="id_sala" required>
-                <option >1</option>
-                <option >2</option>
-                <option >3</option>
-            </select>
+            <select name="id_sala" id="id_salas" required></select>
 
             <label for="horario">Horário:</label>
             <input type="time" id="horario" name="horario" required>
@@ -110,7 +106,7 @@
             <label for="data_sessao">Data da sessão:</label>
             <input type="date" id="data_sessao" name="data_sessao" required>
 
-            <label for="id_filme">Id do filme:</label>
+            <label for="id_filme">Selecione um Filme:</label>
             <select name="id_filme" id="id_filme" required>
                 <option selected disabled>Selecione um Filme</option>
             </select>
@@ -142,6 +138,7 @@
         }
     </script>
 
+
 <script>
 
     function carregaProdutos() {
@@ -166,6 +163,38 @@
     }
 
     carregaProdutos();
+
+
+
+
+
+
+
+
+
+    function carregarSalas() {
+        var settings = {
+            "url": "http://10.92.3.172:5000/salas",
+            "method": "GET",
+            "headers": {
+                "Content-Type": "application/json"
+            }
+        };
+
+        $.ajax(settings).done(function (response) {
+            response.salas.forEach((item) => {
+                console.log(item)
+
+                document.getElementById("id_salas").innerHTML += `
+                    <option value="${item.id_sala}">${item.descricao}</option>
+                `;
+            });
+        });
+    }
+
+    carregarSalas();
+
+
 
     $("#form_cadastro").on("submit", function (e) {
         e.preventDefault(); // impede o envio padrão do formulário
@@ -193,7 +222,7 @@
                 "horario": form.get("horario"),
                 "data_sessao": form.get("data_sessao"),
                 "id_filme": form.get("id_filme"),
-                "valor": valor
+                "valor_unitario": valor
             }),
             "success": function (response) {
                 Swal.fire({
