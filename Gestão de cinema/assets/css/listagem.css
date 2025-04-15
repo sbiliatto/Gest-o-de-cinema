@@ -360,13 +360,6 @@ nav ul li a:hover {
     background-color: darkred;
 }
 
-
-
-
-
-
-
-/* Estilos base para a tabela */
 .table-container {
     padding-top: 7vh;
     display: flex;
@@ -385,7 +378,6 @@ table {
     overflow: hidden;
 }
 
-/* Adicionar rolagem horizontal para a tabela em telas pequenas */
 .table-container {
     padding-top: 7vh;
     display: flex;
@@ -396,25 +388,27 @@ table {
     margin-right: auto;
 }
 
-/* Em telas pequenas, aplicar rolagem horizontal apenas à tabela */
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 767px) {
     .table-container {
-        overflow-x: auto; /* Habilita a rolagem horizontal */
+        overflow-x: auto; 
         width: 95%;
         margin: 10px auto;
         font-size: 11px;
         padding-top: 3vh;
-        -webkit-overflow-scrolling: touch; /* Para melhor rolagem em iOS */
+        -webkit-overflow-scrolling: touch; 
+    }
+
+    .barra {
+        margin-bottom: 87vh;
     }
     
     table {
-        min-width: 500px; /* Garante uma largura mínima para a tabela */
+        min-width: 500px;
         width: 100%;
     }
 }
 
-/* Ajustes específicos para telas menores */
-@media screen and (max-width: 425px) {
+@media screen and (min-width: 424px) {
     .table-container {
         width: 98%;
         padding-top: 2vh;
@@ -428,7 +422,12 @@ table {
     .botao {
         padding: 4px 8px;
         font-size: 10px;
-    }
+   }
+
+   .barra{
+    margin-bottom: 89vh;
+}
+
 }
 
 @media screen and (max-width: 375px) {
@@ -445,7 +444,7 @@ table {
   
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (min-width: 319px) {
     .table-container {
         padding: 5px 0;
     }
@@ -459,6 +458,10 @@ table {
         padding: 3px 6px;
         font-size: 8px;
     }
+
+   .barra{
+    margin-bottom: 88vh;
+   }
 
     
 }
