@@ -136,6 +136,8 @@
         document.getElementById("titulo").innerHTML = params.get("titulo")
         document.getElementById("genero").innerHTML = params.get("genero")
         document.getElementById("sinopse").innerHTML = params.get("sinopse")
+
+
         document.getElementById("imgfilme").src = "http://10.92.3.172:5000/static/uploads/Filmes/" + id + ".jpeg"
 
         if(classificacao == "10") {
@@ -171,7 +173,7 @@
 
 
                     document.getElementById("infsessao").innerHTML += `
-                         <a class="buy-button" href = "cadeirasDisponiveis.html?id=${id}"><div class="showtime-box">
+                         <a class="buy-button" href = "cadeirasDisponiveis.html?id=${id}&titulo=${params.get("titulo")}&datasessao=${item.data_sessao}&horario=${item.horario}&id_sessao=${item.id_sessao}&descricao=${item.descricao}"><div class="showtime-box">
                             <div class="time">${item.horario}</div>
                             <div class="time">${dataFormatada}</div>
                            Comprar
@@ -191,26 +193,6 @@
         // ======================================================================
         // ======================================================================
 
-        let indiceAtual = 0;
-        const slides = document.querySelector(".slides");
-        const indicadores = document.querySelectorAll(".indicador");
-
-        var nome = localStorage.getItem("nome")
-        document.getElementById("nome-visitante").innerHTML = nome
-
-        function mudarSlide(indice) {
-            indiceAtual = indice;
-            let deslocamento = -indice * 100 + "%";
-            slides.style.transform = "translateX(" + deslocamento + ")";
-            indicadores.forEach((ind, i) => {
-                ind.classList.toggle("ativo", i === indice);
-            });
-        }
-
-        setInterval(() => {
-            indiceAtual = (indiceAtual + 1) % 3;
-            mudarSlide(indiceAtual);
-        }, 10000);
     </script>
 
 </body>
