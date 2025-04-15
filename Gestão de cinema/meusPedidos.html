@@ -12,20 +12,59 @@
     <script src="assets/js/seguranca.js" defer></script>
 </head>
 
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById("menuPerfil");
+        menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    }
+
+    window.onclick = function (event) {
+        const menu = document.getElementById("menuPerfil");
+        const botaoPerfil = document.querySelector('.btn-perfil2');
+
+        if (menu.style.display === "block" && event.target !== menu && event.target !== botaoPerfil) {
+            menu.style.display = "none";
+        }
+    }
+</script>
+
 <body>
     <header>
-        <div class="logo-container">
-            <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
-        </div>
+        <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
         <nav>
             <ul>
                 <li><a href="homePoslogin.html">HOME</a></li>
                 <li><a href="promoções.html">PROMOÇÕES</a></li>
                 <li><a href="relatorios.html">RELATÓRIO</a></li>
-                <li><a href="#" class="search-icon">&#128269;</a></li>
             </ul>
         </nav>
+
+
+        <div class="acao">
+
+            <div class="perfil-container">
+                <img onclick="toggleMenu()" class="btn-perfil2" src="assets/img/do-utilizador.png" alt="">
+                <div class="menu-perfil" id="menuPerfil">
+                    <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
+                    <ul>
+                        <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
+                                <li><a href="editar.html">✏️ Editar perfil</a></li>
+                                <li><a href="login.html" onclick="sair()">🚪 Sair da Conta</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <script>
+                function sair() {
+                    localStorage.clear()
+                    sessionStorage.clear() 
+
+                    window.location.href = "login.html";
+                }
+            </script>
     </header>
+
     <div class="barra"></div>
 
     <div class="main-container">
@@ -42,6 +81,31 @@
             <button class="btn-encontrar">ENCONTRAR FILMES</button>
         </div>
     </div>
+
+
+    <script>
+        let indiceAtual = 0;
+        const slides = document.querySelector(".slides");
+        const indicadores = document.querySelectorAll(".indicador");
+
+        var nome = localStorage.getItem("nome")
+        document.getElementById("nome-visitante").innerHTML = nome
+
+        function mudarSlide(indice) {
+            indiceAtual = indice;
+            let deslocamento = -indice * 100 + "%";
+            slides.style.transform = "translateX(" + deslocamento + ")";
+            indicadores.forEach((ind, i) => {
+                ind.classList.toggle("ativo", i === indice);
+            });
+        }
+
+        setInterval(() => {
+            indiceAtual = (indiceAtual + 1) % 3;
+            mudarSlide(indiceAtual);
+        }, 10000);
+    </script>
+
 
     <footer>
         <div class="rodape">
