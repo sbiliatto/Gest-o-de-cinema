@@ -2,301 +2,360 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #000;
+    background-color: #0f0f0f;
     color: #fff;
-    margin: 0;
-    padding: 0;
-}
-
-body{
-    background-color: black;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: black;
+    background: #000;
     padding: 15px 50px;
     color: white;
     position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .logo {
-    width: 20vh;
+    width: 150px;
+    height: auto;
 }
 
 nav ul {
     list-style: none;
     display: flex;
     gap: 30px;
-    margin-left: 620px;
+    justify-content: center;
+    flex: 1;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
     font-size: 16px;
-    transition: color 0.3s;
+    font-weight: 600;
+    transition: all 0.3s;
+    padding: 8px 12px;
+    border-radius: 4px;
 }
 
 nav ul li a:hover {
-    color: red;
+    color: #fff;
+    background-color: #e50914;
 }
 
 .acao {
     display: flex;
     align-items: center;
-    gap: 20px;
 }
 
 .btn-perfil2 {
-    width: 49px;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.btn-perfil2:hover {
+    transform: scale(1.1);
 }
 
 .barra {
-    position: relatiave;
     width: 100%;
     height: 4px;
-    background-color: darkred;
+    background: linear-gradient(90deg, #e50914, #b20710);
     position: absolute;
     bottom: 0;
     left: 0;
 }
 
-/* Perfil logado */
-.perfil-logado {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.perfil-logado img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 2px solid red;
-}
-
-.perfil-logado span {
-    font-size: 16px;
-    font-weight: bold;
-}
-
-/* Barra Vermelha */
-.barra {
-    width: 90%;
-    margin-bottom: 50px;
-    left: 2.5%;
-    background-color: darkred;
-    margin-bottom: 87vh;
-}
-
-.socialicones {
-    display: flex;
-    gap: 10px;
-    padding-left: 5px;
-}
-
-.socialicones img {
-    width: 30px;
-}
-
-.info {
-    text-align: right;
-    margin-right: 10px;
-}
-
-.info p {
-    margin: 5px 0;
-}
-
-.barraverm {
-    background-color: #B90000;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-}
-
-.barraverm img {
-    background-color: #B90000;
-    width: 30vh;
-    margin-right: 10px;
-}
-
-/* Container do perfil */
 .perfil-container {
     position: relative;
     display: inline-block;
-    cursor: pointer;
 }
 
-/* Botão do perfil */
-.btn-perfil {
-    background-color: #ff0000;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-weight: bold;
-
-}
-
-.btn-perfil:hover {
-    background-color: #cc0000;
-
-}
-
-/* Menu suspenso */
 .menu-perfil {
     display: none;
     position: absolute;
-    top: 50px;
+    top: 55px;
     right: 0;
-    background-color: #D7D6D6;
-    color: black;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    background-color: #D7D6D6;  ;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     border-radius: 8px;
     padding: 15px;
     z-index: 100;
     width: 250px;
+    animation: fadeIn 0.3s ease;
 }
 
-/* Estilizar itens do menu */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 .menu-perfil p {
-    font-weight: bold;
-    color: #ff0000;
-    margin-bottom: 10px;
-    background-color: #D7D6D6;
+    font-weight: 600;
+    color: #e50914;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid  #ff0000;;
 }
 
 .menu-perfil ul {
     list-style: none;
     padding: 0;
-    background-color: #D7D6D6;
 }
 
 .menu-perfil ul li {
-    margin: 10px 0;
-    background-color: #D7D6D6;
+    margin: 12px 0;
 }
 
 .menu-perfil ul li a {
     text-decoration: none;
-    color: #333;
+    color: #000000;
     display: flex;
     align-items: center;
     gap: 10px;
-    background-color: #D7D6D6;
+    padding: 8px 10px;
+    border-radius: 4px;
+    transition: background 0.2s;
 }
 
 .menu-perfil ul li a:hover {
-    color: #ff0000;
-    background-color: #D7D6D6;
+    background-color: #333;
+    color: #e50914;
 }
 
-.nome-veisitante {
-    background-color: #D7D6D6;
-}
-
-/* Conteúdo principal */
 .main-container {
     display: flex;
-    height: calc(100vh - 180px);
+    min-height: calc(100vh - 180px);
+    margin-bottom: 70px;
 }
 
-/* Perfil lateral */
 .perfil-lateral {
     width: 300px;
-    padding: 162px 56px;
-    border-right: 1px solid #333;
+    padding: 40px 30px;
+    border-right: 2px solid #333;
+    background-color: #121212;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .perfil-lateral h2 {
     font-size: 24px;
-    margin-bottom: 5px;
+    margin-bottom: 12px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.perfil-lateral h2::before {
+    content: "";
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-image: url('assets/img/do-utilizador.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 10px;
 }
 
 .perfil-lateral p {
-    font-size: 18px;
-    margin-bottom: 40px;
+    font-size: 16px;
+    margin-bottom: 30px;
+    color: #aaa;
 }
 
-.btn-meus-pedidos {
-    display: block;
-    background: none;
-    border: 1px solid red;
-    color: red;
-    padding: 8px 15px;
-    margin-bottom: 15px;
-    width: 150px;
-    text-align: center;
-    cursor: pointer;
-}
-
-.sair {
-    color: red;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-/* Área de pedidos */
 .pedidos-area {
     flex-grow: 1;
-    padding: 20px 40px;
-    margin-left: 56vh;
-    margin-top: 2%;
+    padding: 40px;
+    background-color: #0f0f0f;
+    position: relative;
 }
 
 .pedidos-area h2 {
     font-size: 28px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #e50914;
+    position: relative;
+    padding-bottom: 10px;
 }
 
-.sem-pedidos {
-    color: red;
-    margin-bottom: 20px;
+.pedidos-area h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: #e50914;
 }
 
 .btn-encontrar {
-    background-color: white;
-    color: red;
+    background-color: #e50914;
+    color: white;
     border: none;
-    padding: 12px 20px;
+    padding: 12px 24px;
     font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
+    position: absolute;
+    bottom: 30px;
+    right: 40px;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-/* Rodapé */
+.btn-encontrar:hover {
+    background-color: #b20710;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#listapedidos {
+    width: 100%;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+#listapedidos > div {
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-left: 4px solid #e50914;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#listapedidos > div::before {
+    content: "🎟️";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    opacity: 0.2;
+}
+
+#listapedidos > div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+#listapedidos p {
+    margin: 12px 0;
+    padding: 8px 0;
+    border-bottom: 1px solid #333;
+    font-size: 15px;
+    color: #ddd;
+}
+
+#listapedidos p:last-child {
+    border-bottom: none;
+}
+
+#listapedidos p:first-child {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    padding-bottom: 12px;
+}
+
+#listapedidos p:nth-child(1)::before {
+    content: "🎬 ";
+    margin-right: 5px;
+}
+
+#listapedidos p:nth-child(2)::before {
+    content: "🕒 ";
+    margin-right: 5px;
+}
+
+#listapedidos p:nth-child(3)::before {
+    content: "🏢 ";
+    margin-right: 5px;
+}
+
+#listapedidos p:nth-child(4)::before {
+    content: "💺 ";
+    margin-right: 5px;
+}
+
 footer {
-    background-color: darkred;
-    padding: 9px 0;
+    background: linear-gradient(90deg, #900, #e50914);
     text-align: center;
     width: 100%;
-    position: fixed;
-    bottom: 0;
+    padding: 15px 0;
+    margin-top: auto;
 }
 
 .rodape {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
 }
 
 .rodape .logo {
-    width: 117px;
+    width: 120px;
 }
 
-.rodape p {
-    color: white;
-    margin: 0;
-    font-weight: bold;
+@media screen and (max-width: 1024px) {
+    .main-container {
+        flex-direction: column;
+    }
+    
+    .perfil-lateral {
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid #333;
+        padding: 30px;
+    }
+    
+    nav ul {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+        flex-wrap: wrap;
+    }
+    
+    nav ul {
+        gap: 15px;
+    }
+    
+    #listapedidos {
+        grid-template-columns: 1fr;
+    }
+    
+    .btn-encontrar {
+        position: static;
+        margin-top: 30px;
+        width: 100%;
+    }
+    
+    .pedidos-area {
+        padding: 30px 20px;
+    }
 }

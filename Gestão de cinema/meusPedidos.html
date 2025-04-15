@@ -6,27 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meus pedidos - Prime Cine</title>
     <link rel="stylesheet" href="assets/css/meusPedidos.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="assets/js/seguranca.js" defer></script>
 </head>
-
-<script>
-    function toggleMenu() {
-        const menu = document.getElementById("menuPerfil");
-        menu.style.display = (menu.style.display === "block") ? "none" : "block";
-    }
-
-    window.onclick = function (event) {
-        const menu = document.getElementById("menuPerfil");
-        const botaoPerfil = document.querySelector('.btn-perfil2');
-
-        if (menu.style.display === "block" && event.target !== menu && event.target !== botaoPerfil) {
-            menu.style.display = "none";
-        }
-    }
-</script>
 
 <body>
     <header>
@@ -39,30 +22,19 @@
             </ul>
         </nav>
 
-
         <div class="acao">
-
             <div class="perfil-container">
                 <img onclick="toggleMenu()" class="btn-perfil2" src="assets/img/do-utilizador.png" alt="">
                 <div class="menu-perfil" id="menuPerfil">
-                    <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
+                    <p>Olá, <span class="nome-visitante" id="nome-visitante">(Nome do visitante)</span></p>
                     <ul>
                         <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
-                                <li><a href="editar.html">✏️ Editar perfil</a></li>
-                                <li><a href="login.html" onclick="sair()">🚪 Sair da Conta</a></li>
+                        <li><a href="editar.html">✏️ Editar perfil</a></li>
+                        <li><a href="login.html" onclick="sair()">🚪 Sair da Conta</a></li>
                     </ul>
                 </div>
-
             </div>
-
-            <script>
-                function sair() {
-                    localStorage.clear()
-                    sessionStorage.clear() 
-
-                    window.location.href = "login.html";
-                }
-            </script>
+        </div>
     </header>
 
     <div class="barra"></div>
@@ -70,47 +42,106 @@
     <div class="main-container">
         <!-- Seção lateral com perfil -->
         <div class="perfil-lateral">
-            <h2>Olá, (Nome do visitante)</h2>
+            <h2>Olá, <span class="nome-visitante">(Nome do visitante)</span></h2>
             <p>Este é o seu perfil </p>
         </div>
 
         <!-- Seção de pedidos -->
         <div class="pedidos-area">
             <h2>Meus Pedidos</h2>
-            <p class="sem-pedidos">Você ainda não tem pedidos</p>
-            <button class="btn-encontrar">ENCONTRAR FILMES</button>
+            <div id="listapedidos"></div>
+            <button class="btn-encontrar" onclick="window.location.href='homePoslogin.html'">ENCONTRAR FILMES</button>
         </div>
     </div>
 
-
     <script>
-        let indiceAtual = 0;
-        const slides = document.querySelector(".slides");
-        const indicadores = document.querySelectorAll(".indicador");
-
-        var nome = localStorage.getItem("nome")
-        document.getElementById("nome-visitante").innerHTML = nome
-
-        function mudarSlide(indice) {
-            indiceAtual = indice;
-            let deslocamento = -indice * 100 + "%";
-            slides.style.transform = "translateX(" + deslocamento + ")";
-            indicadores.forEach((ind, i) => {
-                ind.classList.toggle("ativo", i === indice);
-            });
+        function toggleMenu() {
+            const menu = document.getElementById("menuPerfil");
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
         }
 
-        setInterval(() => {
-            indiceAtual = (indiceAtual + 1) % 3;
-            mudarSlide(indiceAtual);
-        }, 10000);
-    </script>
+        document.addEventListener('DOMContentLoaded', function () {
+            carregarDadosUsuario();
+            carregarReservas();
+        });
 
+        // Função para carregar dados do usuário da API
+        function carregarDadosUsuario() {
+            var token = localStorage.getItem("token");
+
+            if (!token) {
+                console.error("Token não encontrado. Usuário não está autenticado.");
+                return;
+            }
+
+            var settings = {
+                "url": "http://10.92.3.172:5000/usuarios/perfil",
+                "method": "GET",
+                "timeout": 0,
+                "headers": {
+                    "Authorization": token,
+                    "Content-Type": "application/json"
+                },
+                "success": function (response) {
+                    var nomeUsuario = response.nome || "Visitante";
+
+                    var elementosComNome = document.querySelectorAll(".nome-visitante");
+                    elementosComNome.forEach(function (elemento) {
+                        elemento.textContent = nomeUsuario;
+                    });
+                },
+                "error": function (error) {
+                    console.error("Erro ao carregar dados do usuário:", error);
+                    var nomeUsuario = localStorage.getItem("nome") || "Visitante";
+
+                    var elementosComNome = document.querySelectorAll(".nome-visitante");
+                    elementosComNome.forEach(function (elemento) {
+                        elemento.textContent = nomeUsuario;
+                    });
+                }
+            };
+
+            $.ajax(settings);
+        }
+
+        // Função para carregar reservas do usuário da API
+        function carregarReservas() {
+            var token = localStorage.getItem("token");
+
+            var settings = {
+                "url": "http://10.92.3.172:5000/reservas",
+                "method": "GET",
+                "timeout": 0,
+                "headers": {
+                    "Authorization": "Bearer " + token,
+                    "Content-Type": "application/json"
+                },
+                "success": function (response) {
+                    response.reservas.forEach(function (reserva) {
+                        document.getElementById("listapedidos").innerHTML += `
+                            <div>
+                                <p>Nome do Filme:  ${reserva.titulo_filme}</p>
+                                <p>Horário: ${reserva.horario}</p>
+                                <p>Sala: ${reserva.sala}</p>
+                                <p>Acento: ${reserva.id_reserva}</p>
+                            </div>
+                        `
+                    })
+                },
+                "error": function (error) {
+                    console.error("Erro ao carregar reservas:", error);
+                    var reservas = JSON.parse(localStorage.getItem("reservas")) || [];
+                    exibirReservas(reservas);
+                }
+            };
+
+            $.ajax(settings);
+        }
+    </script>
 
     <footer>
         <div class="rodape">
             <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo Prime Cine">
-            
         </div>
     </footer>
 </body>
