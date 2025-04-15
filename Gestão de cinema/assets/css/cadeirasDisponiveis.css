@@ -288,3 +288,11 @@ main {
 .pedido button:hover {
     background: darkred;
 }
+
+.label-assento {
+    font-size: 0.6rem;
+    display: block;
+    text-align: center;
+    margin-top: 2px;
+    color: #444;
+}
