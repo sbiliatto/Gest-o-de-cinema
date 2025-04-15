@@ -115,93 +115,111 @@
                 <option selected disabled>Selecione um Filme</option>
             </select>
 
+            <label for="valor" class="form-label">Valor da Sessão:</label>
+            <input type="text" id="valor" name="valor"  required>
+
+
             <button type="submit">Adicionar Sessão</button>
 
         </form>
     </main>
 
     <script>
-
-        function carregaProdutos() {
-            var settings = {
-                "url": "http://10.92.3.172:5000/filmes",
-                "method": "GET",
-                "timeout": 0,
-                "headers": {
-                    "Content-Type": "application/json"
-                }
-            };
-
-            $.ajax(settings).done(function (response) {
-                response.filmes.forEach((item) => {
-                    console.log(item)
-
-                    document.getElementById("id_filme").innerHTML += `
-                        <option value="${item.id_filme}">${item.titulo}</option>
-                    `;
-                })
-
-
-            });
+        const input = document.getElementById('valor');
+    
+        input.addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, ''); // Remove tudo que não for número
+    
+            value = (parseInt(value, 10) / 100).toFixed(2); // Divide por 100 e fixa 2 casas decimais
+            value = value.replace('.', ','); // Troca ponto por vírgula
+            e.target.value = `R$ ${value}`;
+        });
+    
+        // Se quiser pegar o valor limpo depois (por exemplo, no envio do form):
+        function getValorLimpo() {
+            return input.value.replace(/\D/g, '') / 100;
+            // Exemplo: "R$ 12,50" → 12.5
         }
+    </script>
 
-        carregaProdutos();
+<script>
 
+    function carregaProdutos() {
+        var settings = {
+            "url": "http://10.92.3.172:5000/filmes",
+            "method": "GET",
+            "timeout": 0,
+            "headers": {
+                "Content-Type": "application/json"
+            }
+        };
 
+        $.ajax(settings).done(function (response) {
+            response.filmes.forEach((item) => {
+                console.log(item)
 
+                document.getElementById("id_filme").innerHTML += `
+                    <option value="${item.id_filme}">${item.titulo}</option>
+                `;
+            });
+        });
+    }
 
-        $("#form_cadastro").on("submit", function (e) {
-            e.preventDefault(); // impede o envio padrão do formulário
+    carregaProdutos();
 
-            var token = localStorage.getItem("token") // pega o token do localStorage
+    $("#form_cadastro").on("submit", function (e) {
+        e.preventDefault(); // impede o envio padrão do formulário
 
-            var form = new FormData(this)
+        var token = localStorage.getItem("token"); // pega o token do localStorage
+        var form = new FormData(this);
 
-            var envia = {
+        var valor = form.get("valor")
+
+        // Remove "R$ ", troca vírgula por ponto e converte pra número
+        valor = parseFloat(valor.replace("R$", "").replace(",", ".").trim());
+
+        console.log(valor);
+
+        // Verifica se já existe uma sessão com os mesmos dados (mesmo filme, mesma sala, mesmo horário e data)
+        var verificaSessao = {
+            "url": "http://10.92.3.172:5000/sessoes", // Endereço da API para buscar as sessões
+            "method": "POST",
+            "timeout": 0,
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "data": JSON.stringify({
                 "id_sala": form.get("id_sala"),
                 "horario": form.get("horario"),
                 "data_sessao": form.get("data_sessao"),
                 "id_filme": form.get("id_filme"),
-
-
-            }
-
-            var settings = {
-                "url": "http://10.92.3.172:5000/sessoes",
-                "method": "POST",
-                "timeout": 0,
-                "headers": {
-                    "Content-Type": "application/json"
-                },
-                "data": JSON.stringify(envia),
-                //  executa quando a requisição é bem-sucedida
-                "success": function (retorno) {
-                    Swal.fire({
-                        title: "Deu Certo!",
-                        text: "Sessão cadastrada com sucesso.",
-                        icon: "success"
-                    })
-                },
-
-                "error": function (retorno) {
-                    Swal.fire({
-                        title: "Erro!",
-                        text: retorno.responseJSON?.error || "Erro ao adicionar Sessão",
-                        icon: "error"
+                "valor": valor
+            }),
+            "success": function (response) {
+                Swal.fire({
+                    title: "Sucesso!",
+                    text: "Sessão adicionada com sucesso!",
+                    icon: "success"
+                }).then(() => {
+                        window.location.href = "homeeae.html";
                     });
+            },
+            "error": function (calopsita) {
+                Swal.fire({
+                    title: "Erro!",
+                    text: calopsita.responseJSON.error,
+                    icon: "error"
+                });
+            }
+        };
 
-                    window.location.href = "/homeeae.html";
-                }
-            };
-
-            $.ajax(settings).done(function (response) {
-                console.log(response);
-            })
-
-
+        $.ajax(verificaSessao).done(function (response) {
+            console.log(response);
         });
+    });
 
-    </script>
+</script>
+
 </body>
 
 </html>
