@@ -246,10 +246,12 @@
             <div class="pedido">
                 <div class="filme-info">
                     <h2>Informações do pedido</h2>
-                    <img class="img-pedido" src="assets/img/mmfsa.jpeg" alt="Mufasa">
-                    <p>PrimeCine Araçatuba</p>
+                    <img id="imgfilme" class="img-pedido" src="assets/img/mmfsa.jpeg" alt="Mufasa">
                     <div>
-                        <p>QUA 19/02 - 21:30</p>
+                        <p id="titulofilme"></p>
+                        <br>
+                        <p id="dia"></p>
+                        <p id="horario"></p>
                         <p>Itens: <span id="itens">0</span></p>
                         <p>Total: R$ <span id="total">0,00</span></p>
                     </div>
@@ -262,23 +264,43 @@
     </main>
 
     <script>
-        const params = new URLSearchParams(window.location.search);
-        const idSessao = params.get('id');
-        const titulo = params.get("titulo");
-        const genero = params.get("genero");
-        const sinopse = params.get("sinopse");
-        const classificacao = params.get("classificacao");
-        const hora = params.get("hora");
-        const data = params.get("data");
-        const filmeid = params.get("filmeid");
 
-        // Atualiza os elementos com info do filme e sessão
-        document.querySelector(".filme-info img").src = `http://10.92.3.172:5000/static/uploads/Filmes/${filmeid}.jpeg`;
-        document.querySelector(".filme-info p").innerText = "PrimeCine Birigui";
-        document.querySelector(".filme-info div p").innerText = `${data} - ${hora}`;
+
+    const params = new URLSearchParams(window.location.search);
+    const idSessao = params.get('id');
+
+    const id = params.get("id")
+    const titulo = params.get("titulo");
+    const data_sessao = params.get("datasessao");
+    const horario = params.get("horario");
+    const id_sessao = params.get("id_sessao")
+    const descricao = params.get("decricao")
+
+
+    document.getElementById("imgfilme").src = "http://10.92.3.172:5000/static/uploads/Filmes/" + id + ".jpeg"
+
+    document.getElementById("titulofilme").innerHTML = titulo
+    document.getElementById("dia").innerHTML = data_sessao
+    document.getElementById("horario").innerHTML = horario
+
+
+
+    // Atualiza os elementos com info do filme e sessão
+    document.querySelector(".filme-info img").src = "http://10.92.3.172:5000/static/uploads/Filmes/" + id + ".jpeg";
+    document.querySelector(".filme-info p").innerText = "PrimeCine Birigui";
+    document.querySelector(".filme-info div p").innerText = `${data_sessao} - ${horario}`;
+
+    
+        document.addEventListener("DOMContentLoaded", () => {
+            const assentos = document.querySelectorAll(".assento");
+            const totalItens = document.getElementById("itens");
+            const totalPreco = document.getElementById("total");
+            const listaSelecionados = document.getElementById("selecionados");
+            const botaoReservar = document.getElementById("reservar");
+            const precoUnitario = 20.00;
 
             
-    
+
             assentos.forEach(assento => {
                 assento.addEventListener("click", () => {
                     if (assento.classList.contains("ocupado")) {
@@ -292,6 +314,7 @@
                         atualizarTotais();
                     }
                 });
+            });
 
 
             var settings = {
@@ -310,8 +333,6 @@
             $.ajax(settings).done(function (response) {
                 console.log(response);
             });
-
-
 
     
             botaoReservar.addEventListener("click", () => {
