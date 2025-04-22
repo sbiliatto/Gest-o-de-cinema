@@ -262,6 +262,10 @@ select{
         transform: translateX(-50%);
     }
 
+    main {
+        width: 94%;
+    }
+
   
 
 }
