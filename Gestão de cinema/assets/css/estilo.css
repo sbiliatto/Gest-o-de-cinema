@@ -315,7 +315,7 @@ nav ul li a:hover {
 
 
     .slide img {
-        height: 250px;
+        height: 117px;
     }
 
     .categorias {
@@ -333,8 +333,8 @@ nav ul li a:hover {
     }
 
     .filme img {
-        height: auto;
-        aspect-ratio: 3/4;
+        width: 170px;
+        margin-left: 22%;
     }
 
     .rodape {
