@@ -13,10 +13,6 @@ body {
     padding: 0;
 }
 
-body{
-    background-color: black;
-}
-
 header {
     display: flex;
     align-items: center;
@@ -60,13 +56,12 @@ nav ul li a:hover {
 }
 
 .barra {
-    position: relatiave;
-    width: 100%;
+    width: 90%;
     height: 4px;
     background-color: darkred;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    margin-bottom: 50px;
+    left: 5%;
+    position: relative;
 }
 
 /* Perfil logado */
@@ -88,69 +83,11 @@ nav ul li a:hover {
     font-weight: bold;
 }
 
-/* Barra Vermelha */
-.barra {
-    width: 90%;
-    margin-bottom: 50px;
-    left: 2.5%;
-    background-color: darkred;
-    margin-bottom: 87vh;
-}
-
-.socialicones {
-    display: flex;
-    gap: 10px;
-    padding-left: 5px;
-}
-
-.socialicones img {
-    width: 30px;
-}
-
-.info {
-    text-align: right;
-    margin-right: 10px;
-}
-
-.info p {
-    margin: 5px 0;
-}
-
-.barraverm {
-    background-color: #B90000;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-}
-
-.barraverm img {
-    background-color: #B90000;
-    width: 30vh;
-    margin-right: 10px;
-}
-
 /* Container do perfil */
 .perfil-container {
     position: relative;
     display: inline-block;
     cursor: pointer;
-}
-
-/* Botão do perfil */
-.btn-perfil {
-    background-color: #ff0000;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-weight: bold;
-
-}
-
-.btn-perfil:hover {
-    background-color: #cc0000;
-
 }
 
 /* Menu suspenso */
@@ -205,19 +142,6 @@ nav ul li a:hover {
     background-color: #D7D6D6;
 }
 
-
-.film1 {
-    width: 90%;
-    margin-left: 20vh;
-}
-
-
-img {
-    max-width: 100%;
-    max-height: 100%;
-}
-
-
 .carrossel-container {
     position: relative;
     max-width: 100%;
@@ -236,8 +160,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;   
-    
+    margin-top: 50px;
 }
 
 .slide img {
@@ -245,73 +168,6 @@ img {
     height: 500px;
     object-fit: cover;
     border-radius: 70px;
-    
-}
-
-.texto {
-    position: absolute;
-    top: 50%;
-    left: 10%;
-    transform: translateY(-50%);
-    color: white;
-}
-
-.texto h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-.texto p {
-    font-size: 1rem;
-    max-width: 500px;
-}
-
-.classification {
-    display: flex;
-    gap: 5px;
-}
-
-.age-rating {
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-.l {
-    background-color: #0a9e58;
-}
-
-.ten {
-    background-color: #0b99cb;
-}
-
-.twelve {
-    background-color: #f7c325;
-}
-
-.fourteen {
-    background-color: #e7642c;
-}
-
-.sixteen {
-    background-color: #d20f2e;
-}
-
-.eighteen {
-    background-color: #000000;
-}
-
-.generoclass{
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    align-items: center;
-    margin-bottom: 20px;
 }
 
 .indicadores {
@@ -342,7 +198,6 @@ img {
     justify-content: center;
     gap: 20px;
     padding: 20px;
-
 }
 
 .categorias a {
@@ -380,18 +235,6 @@ img {
 
 .filme:hover img {
     transform: scale(1.05);
-}
-
-.comprar {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background: rgba(255, 0, 0, 0.8);
-    color: white;
-    text-align: center;
-    padding: 10px;
-    font-weight: bold;
-    display: none;
 }
 
 .rodape {
@@ -436,86 +279,10 @@ img {
     margin-right: 10px;
 }
 
-/* Container do perfil */
-.perfil-container {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-}
-
-/* Botão do perfil */
-.btn-perfil {
-    background-color: #ff0000;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-weight: bold;
-
-}
-
-.btn-perfil:hover {
-    background-color: #cc0000;
-
-}
-
-/* Menu suspenso */
-.menu-perfil {
-    display: none;
-    position: absolute;
-    top: 50px;
-    right: 0;
-    background-color: #D7D6D6;
-    color: black;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    padding: 15px;
-    z-index: 100;
-    width: 250px;
-}
-
-/* Estilizar itens do menu */
-.menu-perfil p {
-    font-weight: bold;
-    color: #ff0000;
-    margin-bottom: 10px;
-    background-color: #D7D6D6;
-}
-
-.menu-perfil ul {
-    list-style: none;
-    padding: 0;
-    background-color: #D7D6D6;
-}
-
-.menu-perfil ul li {
-    margin: 10px 0;
-    background-color: #D7D6D6;
-}
-
-.menu-perfil ul li a {
-    text-decoration: none;
-    color: #333;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background-color: #D7D6D6;
-}
-
-.menu-perfil ul li a:hover {
-    color: #ff0000;
-    background-color: #D7D6D6;
-}
-
-.nome-veisitante {
-    background-color: #D7D6D6;
-}
-
 @media (max-width: 1024px) {
     nav ul {
-    margin-left: 368px;}
-
+        margin-left: 368px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -525,12 +292,12 @@ img {
         padding: 15px 20px;
         gap: 15px;
     }
-    
+
     .logo {
         width: 150px;
         margin: 0 auto;
     }
-    
+
     nav ul {
         display: flex;
         flex-direction: row;
@@ -539,37 +306,22 @@ img {
         margin: 15px 0;
         padding: 0;
     }
-    
+
     .acao {
         width: 100%;
         display: flex;
         justify-content: center;
         gap: 10px;
     }
-    
+
     .btn-perfil2 {
         width: 40px;
     }
-    
+
     .slide img {
         height: 300px;
     }
-    
-    .texto {
-        left: 5%;
-        width: 90%;
-    }
-    
-    .texto h2 {
-        font-size: 20px;
-        margin-bottom: 5px;
-    }
-    
-    .texto p {
-        font-size: 14px;
-        max-width: 100%;
-    }
-    
+
     .categorias {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -578,64 +330,63 @@ img {
         text-align: center;
         margin-top: 20px;
     }
-    
+
     .categorias a {
         font-size: 14px;
         padding: 5px;
     }
-    
+
     .gradedefilmes {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
         padding: 15px;
     }
-    
+
     .filme img {
         width: 54%;
         height: 300px;
         object-fit: cover;
         margin-left: 22%;
     }
-    
+
     .rodape {
         flex-direction: column;
         padding: 15px;
         gap: 15px;
         text-align: center;
     }
-    
+
     .socialicones {
         display: flex;
         justify-content: center;
         width: 100%;
     }
-    
+
     .info {
         text-align: center;
         margin-right: 0;
     }
-    
+
     .info p {
         font-size: 14px;
     }
-    
+
     .barraverm {
         padding: 10px 0;
     }
-    
+
     .barraverm img {
         width: 120px;
     }
-    
+
     .menu-perfil {
         width: 200px;
         right: 50%;
         transform: translateX(50%);
     }
-    
+
     .barra {
         margin-bottom: 53px;
-        
     }
 }
 
@@ -645,7 +396,7 @@ img {
 
 @media (min-width: 767px) {
     .barra {
-        margin-bottom: 629px;
+        margin-bottom: 87px;
         width: 95%;
     }
 }
@@ -655,45 +406,24 @@ img {
         flex-direction: column;
         gap: 10px;
     }
-    
+
     .slide img {
         height: 108px;
     }
-    
-    .texto h2 {
-        font-size: 14px;
-        margin-left: 34px;
-        
-    }
-    
-    .texto p {
-        font-size: 9px;
-        max-width: 203px;
-        margin-left: 47px;
-    }
 
-    .generoclass {
-        gap: 0px;
-        margin-left: 20px;
-    }
-    
-    
     .gradedefilmes {
         grid-template-columns: repeat(1, 1fr);
     }
-    
+
     .filme img {
         max-height: 250px;
         max-width: 165px;
         margin-left: 25%;
     }
-    
+
     .categorias {
         grid-template-columns: repeat(2, 1fr);
         gap: 17px;
         margin-top: 21px;
     }
-}
-
-
-
+    }

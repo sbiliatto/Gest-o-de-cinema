@@ -17,7 +17,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #000;
+    background: #1a1a1a;
     padding: 15px 50px;
     color: white;
     position: relative;
@@ -88,7 +88,7 @@ nav ul li a:hover {
     position: absolute;
     top: 55px;
     right: 0;
-    background-color: #D7D6D6;  ;
+    background-color: #D7D6D6;
     color: #fff;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     border-radius: 8px;
@@ -108,7 +108,7 @@ nav ul li a:hover {
     color: #e50914;
     margin-bottom: 15px;
     padding-bottom: 10px;
-    border-bottom: 1px solid  #ff0000;;
+    border-bottom: 1px solid  #ff0000;
 }
 
 .menu-perfil ul {
@@ -300,7 +300,7 @@ nav ul li a:hover {
 }
 
 footer {
-    background: linear-gradient(90deg, #900, #e50914);
+    background: linear-gradient(90deg, #e50914, #900);
     text-align: center;
     width: 100%;
     padding: 15px 0;

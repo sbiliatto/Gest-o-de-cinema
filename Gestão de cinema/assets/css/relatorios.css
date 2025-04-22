@@ -5,18 +5,62 @@
     font-family: Arial, sans-serif;
 }
 
-body{
+body {
     background-color: black;
 }
 
+/* Updated header styles from homePoslogin */
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background: black;
-    padding: 15px 89px;
+    padding: 15px 50px;
     color: white;
+    position: relative;
 }
+
+.logo {
+    width: 20vh;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin-left: 620px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: red;
+}
+
+.acao {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn-perfil2 {
+    width: 49px;
+}
+
+.barra {
+    width: 90%;
+    height: 4px;
+    background-color: darkred;
+    margin-bottom: 50px;
+    left: 5%;
+    position: relative;
+}
+/* End of updated header styles */
 
 .download-container {
     display: flex;
@@ -51,62 +95,15 @@ header {
     padding-top: 50px;
 }
 
-.logo {
-    width: 20vh;
-    margin-left: px;
-}
-
-
-nav ul {
-    padding-left: 100vh;
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s;
-}
-
-.btn-perfil2{
-    margin-right: 43px;
-    
-}
-
-nav ul li a:hover {
-    color: red;
-}
-
-.acao {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    width: 6vh;
-}
-
-.barra {
-    margin-top: -7px;
-    text-align: center;
-    margin-left: 5%;
-    width: 90%;
-    height: 4px;
-    background-color: darkred;
-}
-
 .film1 {
     width: 90%;
     margin-left: 20vh;
 }
 
-
 img {
     max-width: 100%;
     max-height: 100%;
 }
-
 
 .carrossel-container {
     position: relative;
@@ -177,7 +174,6 @@ img {
     justify-content: center;
     gap: 20px;
     padding: 20px;
-
 }
 
 .categorias a {
@@ -233,7 +229,6 @@ img {
     background-color: darkred;
     color: white;
 }
-
 
 .cadastro {
     background-color: white;
@@ -297,12 +292,10 @@ img {
     margin-right: 10px;
 }
 
-
 .barraverm img {
     width: 40px;
     margin-right: 10px;
 }
-
 
 /* Container do perfil */
 .perfil-container {
@@ -324,7 +317,6 @@ img {
 
 .btn-perfil:hover {
     background-color: #cc0000;
-
 }
 
 /* Menu suspenso */
@@ -378,7 +370,6 @@ img {
 .nome-veisitante {
     background-color: #D7D6D6;
 }
-
 
 .rodape {
     background-color: black;
@@ -437,89 +428,117 @@ img {
     margin-right: 10px;
 }
 
-@media (max-width: 427px){
-    .menu-perfil{
-    width: 159px;}
+/* Updated media queries for header responsiveness */
+@media (max-width: 427px) {
+    .menu-perfil {
+        width: 159px;
+    }
 }
 
+@media (max-width: 1024px) {
+    nav ul {
+        margin-left: 368px;
+    }
+}
 
 @media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px 20px;
+        gap: 15px;
+    }
 
-nav ul {
-    flex-direction: column;
-    padding-top: 10px;
-    padding-left: 0;
+    .logo {
+        width: 150px;
+        margin: 0 auto;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 15px;
+        margin: 15px 0;
+        padding: 0;
+    }
+
+    .acao {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .btn-perfil2 {
+        width: 40px;
+    }
+
+    .menu-perfil {
+        width: 200px;
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    .barra {
+        margin-bottom: 53px;
+    }
+
+    .perfil {
+        display: none;
+    }
+
+    .perfil-container {
+        position: relative;
+        display: flex;
+        text-align: center;
+        align-items: center;
+        margin-left: -13px;
+    }
+
+    .socialicones {
+        margin-top: 108px;
+    }
+
+    .cadastro {
+        font-size: 10px;
+        margin-left: 90px;
+        margin-top: 25px;
+    }
+
+    .socialicones {
+        margin-left: 77px;
+        padding-bottom: 15px;
+        width: 112px;
+    }
+
+    .info {
+        text-align: left;
+        font-size: 15px;
+        margin-right: 33px;
+    }
 }
 
-header {
-    flex-direction: column;
-    text-align: center;
-    display: flex;
-    gap: 29px;
+@media (min-width: 767px) {
+    .barra {
+        margin-bottom: 87px;
+        width: 95%;
+    }
 }
 
-.perfil{
-    display: none;
-
-}
-
-.perfil-container{
-    position: relative;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    margin-left: -13px;
-}
-
-.logo{
-    width: 20vh;
-    margin-left: 45px;
-    margin-right: 33px;
-}
-
-.relatorio{
-    font-size: 15px;
-}
-
-.p{
-    font-size: 15px;
-}
-    
-.socialicones {
-    margin-top: 108px;
-
-}
-
-.cadastro{
-    font-size: 10px;
-    margin-left: 90px;
-    margin-top: 25px;
-
-}
-
-.socialicones{
-    margin-left: 77px;
-    padding-bottom: 15px;
-    width: 112px;
-}
-
-.info {
-    text-align: left;
-    font-size: 15px;
-    margin-right: 33px
-}
-
-
+@media (max-width: 480px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
 
 @media (min-width: 1022px) {
-nav ul {
-    padding-left: 96vh;
-}
-
-    .rodape{
-        margin-right: 56px;
+    nav ul {
+        margin-left: 620px;
     }
 
-
+    .rodape {
+        margin-right: 56px;
+    }
 }

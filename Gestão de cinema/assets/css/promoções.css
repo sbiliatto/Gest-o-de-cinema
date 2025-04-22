@@ -17,6 +17,7 @@ body{
     background-color: black;
 }
 
+/* Updated header styles from homePoslogin */
 header {
     display: flex;
     align-items: center;
@@ -35,7 +36,7 @@ nav ul {
     list-style: none;
     display: flex;
     gap: 30px;
-    margin-left: 450px;
+    margin-left: 620px;
 }
 
 nav ul li a {
@@ -60,15 +61,14 @@ nav ul li a:hover {
 }
 
 .barra {
-    width: 100%;
+    width: 90%;
     height: 4px;
     background-color: darkred;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    margin-bottom: 50px;
+    left: 5%;
+    position: relative;
 }
-
-
+/* End of header styles from homePoslogin */
 
 .search input {
     padding: 5px;
@@ -138,7 +138,7 @@ footer {
     font-weight: bold;
 }
 
-/* Barra Vermelha */
+/* Barra Vermelha - keeping your existing styling for this */
 .barra {
     width: 90%;
     left: 5%;
@@ -262,14 +262,21 @@ footer {
             width: 78%;
     }
 }
+
+/* Updated media queries for header from homePoslogin */
 @media (max-width: 1024px){
+    nav ul {
+        margin-left: 368px;
+    }
     .filme{
         width: 100%;
     }
 }
+
 @media (max-width: 768px) {
     header {
         flex-direction: column;
+        text-align: center;
         padding: 15px 20px;
         gap: 15px;
     }
@@ -280,18 +287,19 @@ footer {
     }
     
     nav ul {
-        list-style: none;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: center;
         gap: 15px;
-        margin: 10px 0;
+        margin: 15px 0;
         padding: 0;
-        text-align: center;
     }
     
     .acao {
         width: 100%;
+        display: flex;
         justify-content: center;
+        gap: 10px;
     }
     
     .btn-perfil2 {
@@ -346,8 +354,7 @@ footer {
     }
     
     .barra {
-        display: none;
-
+        margin-bottom: 53px;
     }
     
     .barraverm {
@@ -359,7 +366,19 @@ footer {
     }
 }
 
+@media (min-width: 767px) {
+    .barra {
+        margin-bottom: 87px;
+        width: 95%;
+    }
+}
+
 @media (max-width: 480px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
     .logo {
         width: 120px;
     }

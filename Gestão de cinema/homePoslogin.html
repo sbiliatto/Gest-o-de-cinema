@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrimeCine</title>
     <link rel="stylesheet" href="assets/css/homePoslogin.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,28 +16,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
     <script src="assets/js/seguranca.js" defer></script>
-
-    <title>PrimeCine</title>
-
 </head>
-
-<script>
-    function toggleMenu() {
-        const menu = document.getElementById("menuPerfil");
-        menu.style.display = (menu.style.display === "block") ? "none" : "block";
-    }
-
-    window.onclick = function (event) {
-        const menu = document.getElementById("menuPerfil");
-        const botaoPerfil = document.querySelector('.btn-perfil2');
-
-        if (menu.style.display === "block" && event.target !== menu && event.target !== botaoPerfil) {
-            menu.style.display = "none";
-        }
-    }
-</script>
 
 <body>
     <header>
@@ -49,48 +30,35 @@
             </ul>
         </nav>
 
-
         <div class="acao">
-
             <div class="perfil-container">
                 <img onclick="toggleMenu()" class="btn-perfil2" src="assets/img/do-utilizador.png" alt="">
                 <div class="menu-perfil" id="menuPerfil">
                     <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
                     <ul>
                         <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
-                                <li><a href="editar.html">✏️ Editar perfil</a></li>
-                                <li><a href="login.html" onclick="sair()">🚪 Sair da Conta</a></li>
+                        <li><a href="editar.html">✏️ Editar perfil</a></li>
+                        <li><a href="login.html" onclick="sair()">🚪 Sair da Conta</a></li>
                     </ul>
                 </div>
-
             </div>
-
-            <script>
-                function sair() {
-                    localStorage.clear()
-                    sessionStorage.clear() 
-
-                    window.location.href = "login.html";
-                }
-            </script>
+        </div>
     </header>
 
     <div class="barra"></div>
-
 
     <div class="carrossel-container">
         <div class="slides">
             <div class="slide">
                 <img src="assets/img/slide1.png" alt="Imagem 1">
             </div>
-
             <div class="slide">
                 <img src="assets/img/slide2.png" alt="Imagem 2">
             </div>
             <div class="slide">
                 <img src="assets/img/slide3.png" alt="Imagem 3">
             </div>
-    </div>
+        </div>
         <div class="indicadores">
             <span class="indicador ativo" onclick="mudarSlide(0)"></span>
             <span class="indicador" onclick="mudarSlide(1)"></span>
@@ -98,7 +66,69 @@
         </div>
     </div>
 
+    <div class="categorias">
+        <a href="#">AVENTURA</a>
+        <a href="#">ROMANCE</a>
+        <a href="#">FANTASIA</a>
+        <a href="#">AÇÃO</a>
+        <a href="#">TERROR</a>
+        <a href="#">COMÉDIA</a>
+    </div>
+
+    <div class="barra"></div>
+
+    <div class="gradedefilmes" id="exibeFilmes"></div>
+
+    <div class="barra"></div>
+
+    <footer class="rodape">
+        <div class="socialicones">
+            <a href="https://www.instagram.com/">
+                <img src="assets/img/instagram.png" alt="Instagram">
+            </a>
+            <a href="https://www.whatsapp.com/?lang=pt_BR">
+                <img src="assets/img/whatsapp (1).png" alt="WhatsApp">
+            </a>
+            <a href="https://x.com/?lang=pt">
+                <img src="assets/img/twitter.png" alt="Twitter">
+            </a>
+            <a href="https://www.facebook.com/?locale=pt_BR">
+                <img src="assets/img/facebook.png" alt="Facebook">
+            </a>
+        </div>
+        <div class="info">
+            <p><strong>ENDEREÇO:</strong> Rua Bragança, Bairro Tilagro, nº 307 - Birigui</p>
+            <p><strong>TELEFONE:</strong> (00) 00000-0000</p>
+            <p><strong>EMAIL:</strong> <a href="mailto:primecine@gmail.com"
+                    style="color: white;">primecine@gmail.com</a></p>
+        </div>
+    </footer>
+
+    <div class="barraverm">
+        <img src="assets/img/PRIMECINEll.PNG" alt="Logo Prime Cine">
+    </div>
+
     <script>
+        function toggleMenu() {
+            const menu = document.getElementById("menuPerfil");
+            menu.style.display = (menu.style.display === "block") ? "none" : "block";
+        }
+
+        window.onclick = function (event) {
+            const menu = document.getElementById("menuPerfil");
+            const botaoPerfil = document.querySelector('.btn-perfil2');
+
+            if (menu.style.display === "block" && event.target !== menu && event.target !== botaoPerfil) {
+                menu.style.display = "none";
+            }
+        }
+
+        function sair() {
+            localStorage.clear()
+            sessionStorage.clear()
+            window.location.href = "login.html";
+        }
+
         let indiceAtual = 0;
         const slides = document.querySelector(".slides");
         const indicadores = document.querySelectorAll(".indicador");
@@ -119,122 +149,52 @@
             indiceAtual = (indiceAtual + 1) % 3;
             mudarSlide(indiceAtual);
         }, 10000);
-    </script>
 
+        function carregaProdutos() {
+            var settings = {
+                "url": "http://192.168.1.130:5000/filmes",
+                "method": "GET",
+                "timeout": 0,
+                "headers": {
+                    "Content-Type": "application/json"
+                }
+            };
 
+            $.ajax(settings).done(function (response) {
+                let exibe = $("#exibeFilmes")
+                exibe.html(" ")
 
-    <div class="categorias">
-        <a href="#">AVENTURA</a>
-        <a href="#">ROMANCE</a>
-        <a href="#">FANTASIA</a>
-        <a href="#">AÇÃO</a>
-        <a href="#">TERROR</a>
-        <a href="#">COMÉDIA</a>
-    </div>
+                var html = ""
 
-    <div class="barra"></div>
+                response.filmes.forEach((item) => {
+                    console.log(item)
 
-    <div class="gradedefilmes" id="exibeFilmes"></div>
+                    html += `
+                <div class="filme" >
+                    <a href="datasesoes.html?id=${item.id_filme}&titulo=${item.titulo}&classificacao=${item.classificacao}&genero=${item.genero}&sinopse=${item.sinopse}">
+                        <img src="http://192.168.1.130:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
+                    </a>
+                </div>
+                `;
 
-    <div class="barra"></div>
+                    exibe.html(html)
+                })
+            });
+        }
 
+        carregaProdutos();
 
-    <footer class="rodape">
+        window.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.slides').addEventListener('click', () => {
+                const destino = window.innerWidth < 426 ? 900 : 700;
 
-        <div class="socialicones">
-            <a href="https://www.instagram.com/">
-                <img src="assets/img/instagram.png" alt="Instagram">
-            </a>
-
-            <a href="https://www.whatsapp.com/?lang=pt_BR">
-                <img src="assets/img/whatsapp (1).png" alt="Instagram">
-            </a>
-
-            <a href="https://x.com/?lang=pt">
-                <img src="assets/img/twitter.png" alt="Twitter">
-            </a>
-
-            <a href="https://www.facebook.com/?locale=pt_BR">
-                <img src="assets/img/facebook.png" alt="Facebook">
-            </a>
-
-        </div>
-        <div class="info">
-            <p><strong>ENDEREÇO:</strong> Rua Bragança, Bairro Tilagro, nº 307 - Birigui</p>
-            <p><strong>TELEFONE:</strong> (00) 00000-0000</p>
-            <p><strong>EMAIL:</strong> <a href="mailto:primecine@gmail.com"
-                    style="color: white;">primecine@gmail.com</a></p>
-        </div>
-    </footer>
-
-    <div class="barraverm">
-        <img src="assets/img/PRIMECINEll.PNG" alt="Logo Prime Cine">
-    </div>
-
-</body>
-<script defer>
-
-
-    var nome = localStorage.getItem("nome")
-    document.getElementById("nome-visitante").innerHTML = nome
-   
-
-    function carregaProdutos() {
-        var settings = {
-            "url": "http://192.168.1.130:5000/filmes",
-            "method": "GET",
-            "timeout": 0,
-            "headers": {
-                "Content-Type": "application/json"
-            }
-        };
-
-        $.ajax(settings).done(function (response) {
-            let exibe = $("#exibeFilmes")
-            exibe.html(" ")
-
-            var html = ""
-
-            response.filmes.forEach((item) => {
-                console.log(item)
-
-                html += `
-            <div class="filme" >
-                <a href="datasesoes.html?id=${item.id_filme}&titulo=${item.titulo}&classificacao=${item.classificacao}&genero=${item.genero}&sinopse=${item.sinopse}">
-                    <img src="http://192.168.1.130:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
-                </a>
-            </div>
-            `;
-
-                exibe.html(html)
-            })
-
-
+                window.scrollTo({
+                    top: destino,
+                    behavior: 'smooth'
+                });
+            });
         });
-    }
-
-    carregaProdutos();
-
-    window.addEventListener('DOMContentLoaded', () => {
-    document.querySelector('.slides').addEventListener('click', () => {
-      const destino = window.innerWidth < 426 ? 900 : 700;
-
-      window.scrollTo({
-        top: destino,
-        behavior: 'smooth'
-      });
-    });
-  });
-
-
-
-  
-
-
-    window.addEventListener('scroll', () => {
-  console.log(`ScrollY: ${window.scrollY}px`);
-});
-
-</script>
+    </script>
+</body>
 
 </html>
