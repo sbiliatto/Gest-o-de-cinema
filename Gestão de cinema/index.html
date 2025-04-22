@@ -24,15 +24,24 @@
         <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
         <nav>
             <ul>
-                <li><a href="index.html">HOME</a></li>
+                <li><a href="homePoslogin.html">HOME</a></li>
                 <li><a href="promoções.html">PROMOÇÕES</a></li>
                 <li><a href="relatorios.html">RELATÓRIO</a></li>
             </ul>
         </nav>
 
         <div class="acao">
-            <a class="btn-entrar" href="login.html">ENTRAR</a>
-            <i class="fas fa-search"></i>
+            <div class="perfil-container">
+                <a class="btn-entrar" href="login.html">ENTRAR</a>
+                <div class="menu-perfil" id="menuPerfil">
+                    <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
+                    <ul>
+                        <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
+                        <li><a href="editar.html">✏️ Editar perfil</a></li>
+                        <li><a href="login.html" onclick="sair()">🚪 Sair da Conta</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </header>
 
