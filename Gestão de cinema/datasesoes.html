@@ -43,7 +43,7 @@
         <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
         <nav>
             <ul>
-                <li><a href="homePoslogin.html">HOME</a></li>
+                <li><a href="homeeae.html">HOME</a></li>
                 <li><a href="promoções.html">PROMOÇÕES</a></li>
                 <li><a href="relatorios.html">RELATÓRIO</a></li>
             </ul>
@@ -168,8 +168,8 @@
                 var sessoes = retorno.sessoes
 
                 sessoes.forEach((item) => {
-                    var dataObj = new Date(item.data_sessao);
-                    var dataFormatada = dataObj.toLocaleDateString('pt-BR');
+                    var dataObj = item.data_sessao.split("-")
+                    var dataFormatada = dataObj[2] + "/" + dataObj[1] + "/" + dataObj[0]
 
 
                     document.getElementById("infsessao").innerHTML += `
@@ -190,8 +190,6 @@
         });
 
 
-        // ======================================================================
-        // ======================================================================
 
     </script>
 

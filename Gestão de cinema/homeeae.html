@@ -204,7 +204,7 @@
                 response.filmes.forEach((item) => {
                     console.log(item)
 
-                    html += `
+                    html += `     
             <div class="filme" >
                 <a href="datasesoes.html?id=${item.id_filme}&titulo=${item.titulo}&classificacao=${item.classificacao}&genero=${item.genero}&sinopse=${item.sinopse}">
                 <img src="http://192.168.1.130:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
@@ -222,6 +222,7 @@
         }
 
         carregaProdutos();
+
 
     </script>
 

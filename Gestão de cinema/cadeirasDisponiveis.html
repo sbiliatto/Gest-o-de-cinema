@@ -274,7 +274,7 @@
     const data_sessao = params.get("datasessao");
     const horario = params.get("horario");
     const id_sessao = params.get("id_sessao")
-    const descricao = params.get("decricao")
+    const descricao = params.get("descricao")
 
 
     document.getElementById("imgfilme").src = "http://192.168.1.130:5000/static/uploads/Filmes/" + id + ".jpeg"
@@ -338,7 +338,7 @@
             botaoReservar.addEventListener("click", () => {
                 const selecionados = document.querySelectorAll(".assento.selecionado");
                 const ids = Array.from(selecionados)
-                                 .map(el => el.dataset.id)
+                                 .map(el => Number(el.dataset.id))
                                  .filter(Boolean);
     
                 if (ids.length === 0) {
@@ -374,7 +374,7 @@
                                 "Authorization": "Bearer " + token
                             },
                             data: JSON.stringify({
-                                "id_sessao": idSessao,
+                                "id_sessao": Number(idSessao),
                                 "id_assento": ids
                             }),
                             success: function(retorno) {
@@ -420,7 +420,7 @@
                                  .filter(Boolean);
     
                 totalItens.textContent = qtd.toString(); 
-                totalPreco.textContent = (qtd * precoUnitario).toFixed(2).replace(".", ",").toString(); 
+                totalPreco.textContent = (qtd * precoUnitario).toFixed(2).replace(".", ","); 
     
                 if (listaSelecionados) {
                     listaSelecionados.textContent = ids.join(", "); 
