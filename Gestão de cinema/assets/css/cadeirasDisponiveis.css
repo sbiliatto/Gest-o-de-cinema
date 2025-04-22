@@ -288,3 +288,154 @@ main {
 .pedido button:hover {
     background: darkred;
 }
+
+.label-assento {
+    font-size: 0.6rem;
+    display: block;
+    text-align: center;
+    margin-top: 2px;
+    color: #444;
+}
+
+
+
+@media screen and (max-width: 1200px) {
+    nav ul {
+      margin-left: 300px;
+      gap: 20px;
+    }
+  }
+  
+  @media screen and (max-width: 992px) {
+    header {
+      padding: 15px 20px;
+    }
+    
+    nav ul {
+      margin-left: 100px;
+      gap: 15px;
+    }
+    
+    .reserva-container {
+      gap: 50px;
+      padding: 30px 20px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    header {
+      flex-direction: column;
+      padding: 10px;
+    }
+    
+    .logo {
+      width: 15vh;
+      margin-bottom: 10px;
+    }
+    
+    nav ul {
+      margin-left: 0;
+      margin-bottom: 10px;
+    }
+    
+    .reserva-container {
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    .assento {
+      width: 25px;
+      height: 25px;
+      margin: 3px;
+    }
+    
+    .pedido {
+      width: 90%;
+      max-width: 400px;
+    }
+    
+    .filme-info img {
+      max-width: 200px;
+      margin: 0 auto;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    nav ul {
+      flex-direction: column;
+      gap: 5px;
+    }
+    
+    nav ul li a {
+      font-size: 14px;
+    }
+    
+    .grid-container {
+      overflow-x: auto;
+      max-width: 90vw;
+    }
+    
+    .assento {
+      width: 20px;
+      height: 20px;
+      margin: 2px;
+      font-size: 12px;
+    }
+    
+    .assento i {
+      font-size: 0.8em;
+    }
+    
+    .num-linha {
+      font-size: 12px;
+    }
+    
+    .legenda {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .tela {
+      font-size: 16px;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    
+    .pedido button {
+      width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .menu-perfil {
+      right: -100px;
+    }
+    
+    .grid {
+      min-width: 320px;
+    }
+  }
+  
+  @media screen and (max-width: 380px) {
+    .grid-container {
+      transform: scale(0.9);
+      transform-origin: left top;
+    }
+    
+    .legenda {
+      font-size: 12px;
+    }
+    
+    .legenda span {
+      width: 15px;
+      height: 15px;
+    }
+    
+    .filme-info h2 {
+      font-size: 18px;
+    }
+    
+    .filme-info p {
+      font-size: 14px;
+    }
+  }

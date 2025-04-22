@@ -496,10 +496,11 @@ footer {
         flex-direction: column;
         align-items: center;
         gap: 15px;
+        
     }
     
     .showtime-box {
-        width: 80%;
+        width: 100%;
         max-width: 200px;
     }
 }
