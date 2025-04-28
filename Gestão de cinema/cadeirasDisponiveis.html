@@ -318,7 +318,7 @@
 
 
             var settings = {
-                "url": "http://127.0.0.1:5000/assentos_reservados/" + idSessao,
+                "url": "http://192.168.1.137:5000/assentos_reservados/" + idSessao,
                 "method": "GET",
                 "timeout": 0,
                 "success": function(retorno) {
@@ -366,7 +366,7 @@
                         const token = localStorage.getItem("token");
     
                         $.ajax({
-                            url: "http://127.0.0.1:5000/reservas",
+                            url: "http://192.168.1.137:5000/reservas",
                             method: "POST",
                             timeout: 0,
                             headers: {
