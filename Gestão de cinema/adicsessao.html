@@ -143,7 +143,7 @@
 
     function carregaProdutos() {
         var settings = {
-            "url": "http://192.168.1.130:5000/filmes",
+            "url": "http://127.0.0.1:5000/filmes",
             "method": "GET",
             "timeout": 0,
             "headers": {
@@ -167,7 +167,7 @@
 
     function carregarSalas() {
         var settings = {
-            "url": "http://192.168.1.130:5000/salas",
+            "url": "http://127.0.0.1:5000/salas",
             "method": "GET",
             "headers": {
                 "Content-Type": "application/json"
@@ -204,7 +204,7 @@
 
         // Verifica se já existe uma sessão com os mesmos dados (mesmo filme, mesma sala, mesmo horário e data)
         var verificaSessao = {
-            "url": "http://192.168.1.130:5000/sessoes", // Endereço da API para buscar as sessões
+            "url": "http://127.0.0.1:5000/sessoes", // Endereço da API para buscar as sessões
             "method": "POST",
             "timeout": 0,
             "headers": {
