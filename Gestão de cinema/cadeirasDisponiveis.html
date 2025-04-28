@@ -275,6 +275,7 @@
     const horario = params.get("horario");
     const id_sessao = params.get("id_sessao")
     const descricao = params.get("descricao")
+    const precoUnitario = params.get("valor_unitario")
 
 
     document.getElementById("imgfilme").src = "http://192.168.1.130:5000/static/uploads/Filmes/" + id + ".jpeg"
@@ -282,6 +283,7 @@
     document.getElementById("titulofilme").innerHTML = titulo
     document.getElementById("dia").innerHTML = data_sessao
     document.getElementById("horario").innerHTML = horario
+    // document.getElementById("valor_unitario").innerHTML = precoUnitario
 
 
 
@@ -297,8 +299,6 @@
             const totalPreco = document.getElementById("total");
             const listaSelecionados = document.getElementById("selecionados");
             const botaoReservar = document.getElementById("reservar");
-            const precoUnitario = 20.00;
-
             
 
             assentos.forEach(assento => {
