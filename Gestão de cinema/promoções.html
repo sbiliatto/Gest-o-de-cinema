@@ -56,7 +56,7 @@
                     <p>Dia 05 de Março de 2025. 15:45</p>
                     <p>Sala 02</p>
                     <p>*Na compra de 2 ingressos</p>
-                    <button>Reservar</button>
+                    <button onclick="reservar('Todos Menos Você', 15.00, '05 de Março de 2025. 15:45', 'Sala 02')">Reservar</button>
                 </div>
             </div>
             <div class="filme">
@@ -66,7 +66,7 @@
                     <p>Dia 20 de Março de 2025. 21:00</p>
                     <p>Sala 05</p>
                     <p>*Na compra de 3 ingressos</p>
-                    <button>Reservar</button>
+                    <button onclick="reservar('A Substância', 15.90, '02 de Abril de 2025. 17:30', 'Sala 01')">Reservar</button>
                 </div>
             </div>
             <div class="filme">
@@ -76,11 +76,16 @@
                     <p>Dia 02 de Abril de 2025. 17:30</p>
                     <p>Sala 01</p>
                     <p>*Na compra de 1 ingresso</p>
-                    <button>Reservar</button>
+                    <button onclick="reservar('A Substância', 15.90, '02 de Abril de 2025. 17:30', 'Sala 01')">Reservar</button>
                 </div>
             </div>
         </section>
     </main>
+    <script>
+        function reservar(titulo, valorUnitario, dataSessao, sala) {
+            window.location.href = `cadeirasDisponiveis.html?titulo=${encodeURIComponent(titulo)}&valor_unitario=${valorUnitario}&data_sessao=${encodeURIComponent(dataSessao)}&sala=${encodeURIComponent(sala)}`;
+        }
+    </script>
 
     <div class="barra"></div>
 

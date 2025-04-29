@@ -69,7 +69,7 @@
 
         <div class="header-sala">
             <h2>Adicionar Sala</h2>
-            <button class="btn-visualizar" data-bs-toggle="modal" data-bs-target="#layoutModal">Visualizar Layout</button>
+            <button class="btn-visualizar" onclick="verLayout()">Visualizar Layout</button>
           </div>          
     
         <form id="form_cadastro">
@@ -161,6 +161,7 @@ document.getElementById('form_cadastro').addEventListener('submit', function (e)
                 text: data.error
             });
         } else {
+            salaAdicionada = true;
             Swal.fire({
                 icon: 'success',
                 title: 'Sala adicionada!',
@@ -179,6 +180,22 @@ document.getElementById('form_cadastro').addEventListener('submit', function (e)
     });
 });
 
+let salaAdicionada = false;
+
+function verLayout() {
+    if (salaAdicionada) {
+        const modal = new bootstrap.Modal(document.getElementById('layoutModal'));
+        modal.show();
+    } else {
+        Swal.fire({
+            icon: 'info',
+            title: 'Adicione uma sala primeiro!',
+            text: 'Você precisa adicionar a sala antes de visualizar o layout.'
+        });
+    }
+}
+
 
 </script>
+
 </html>
