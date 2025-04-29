@@ -190,56 +190,49 @@
 
 
     $("#form_cadastro").on("submit", function (e) {
-        e.preventDefault(); // impede o envio padrão do formulário
+    e.preventDefault();
 
-        var token = localStorage.getItem("token"); // pega o token do localStorage
-        var form = new FormData(this);
+    var token = localStorage.getItem("token");
+    var form = new FormData(this);
 
-        var valor = form.get("valor")
+    var valor = form.get("valor");
+    valor = parseFloat(valor.replace("R$", "").replace(",", ".").trim());
 
-        // Remove "R$ ", troca vírgula por ponto e converte pra número
-        valor = parseFloat(valor.replace("R$", "").replace(",", ".").trim());
+    var dados = {
+        "id_sala": form.get("id_sala"),
+        "horario": form.get("horario"),
+        "data_sessao": form.get("data_sessao"),
+        "id_filme": form.get("id_filme"),
+        "valor_unitario": valor
+    };
 
-        console.log(valor);
-
-        // Verifica se já existe uma sessão com os mesmos dados (mesmo filme, mesma sala, mesmo horário e data)
-        var verificaSessao = {
-            "url": "http://192.168.1.137:5000/sessoes", // Endereço da API para buscar as sessões
-            "method": "POST",
-            "timeout": 0,
-            "headers": {
-                "Content-Type": "application/json"
-            },
-            "data": JSON.stringify({
-                "id_sala": form.get("id_sala"),
-                "horario": form.get("horario"),
-                "data_sessao": form.get("data_sessao"),
-                "id_filme": form.get("id_filme"),
-                "valor_unitario": valor
-            }),
-            "success": function (response) {
-                Swal.fire({
-                    title: "Sucesso!",
-                    text: "Sessão adicionada com sucesso!",
-                    icon: "success"
-                }).then(() => {
-                        window.location.href = "homeeae.html";
-                    });
-            },
-            "error": function (calopsita) {
-                Swal.fire({
-                    title: "Erro!",
-                    text: calopsita.responseJSON.error,
-                    icon: "error"
-                });
+    $.ajax({
+        url: "http://192.168.1.137:5000/sessoes",
+        method: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(dados),
+        success: function (response) {
+            Swal.fire({
+                title: "Sucesso!",
+                text: response.message,
+                icon: "success"
+            }).then(() => {
+                window.location.href = "homeeae.html";
+            });
+        },
+        error: function (xhr) {
+            let mensagem = "Erro inesperado.";
+            if (xhr.responseJSON && xhr.responseJSON.error) {
+                mensagem = xhr.responseJSON.error;
             }
-        };
-
-        $.ajax(verificaSessao).done(function (response) {
-            console.log(response);
-        });
+            Swal.fire({
+                title: "Erro!",
+                text: mensagem,
+                icon: "error"
+            });
+        }
     });
-
+});
 </script>
 
 </body>
