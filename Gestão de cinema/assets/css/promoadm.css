@@ -298,6 +298,29 @@ footer {
     background-color: #D7D6D6;
 }
 
+.botao-add-filme {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.botao-add-filme a {
+    display: inline-block;
+    background-color: #cf0101;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.botao-add-filme a:hover {
+    background-color: #a90704;
+    transform: scale(1.05);
+}
+
 .menu-perfil ul li a:hover {
     color: #ff0000;
     background-color: #D7D6D6;
