@@ -389,7 +389,6 @@ a:hover {
     }
 
     .categorias {
-        flex-direction: column;
         align-items: center;
     }
 

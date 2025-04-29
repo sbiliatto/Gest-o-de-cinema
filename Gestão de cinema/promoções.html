@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prime Cine - Promoções</title>
+    <title>Promoções- Prime Cine</title>
     <link rel="stylesheet" href="assets/css/promoções.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,32 +55,16 @@
                     <p><strong>R$15,00</strong> valor unitário</p>
                     <p>Dia 05 de Março de 2025. 15:45</p>
                     <p>Sala 02</p>
-                    <p>*Na compra de 2 ingressos</p>
-                    <button>Reservar</button>
-                </div>
-            </div>
-            <div class="filme">
-                <img src="assets/img/Um_Lugar_Silencioso.webp" alt="Um Lugar Silencioso: Dia Um">
-                <div class="info">
-                    <p><strong>R$14,00</strong> valor unitário</p>
-                    <p>Dia 20 de Março de 2025. 21:00</p>
-                    <p>Sala 05</p>
-                    <p>*Na compra de 3 ingressos</p>
-                    <button>Reservar</button>
-                </div>
-            </div>
-            <div class="filme">
-                <img src="assets/img/sunstanciua.webp" alt="A Substância">
-                <div class="info">
-                    <p><strong>R$15,90</strong> valor unitário</p>
-                    <p>Dia 02 de Abril de 2025. 17:30</p>
-                    <p>Sala 01</p>
-                    <p>*Na compra de 1 ingresso</p>
-                    <button>Reservar</button>
+                    <button onclick="reservar('Todos Menos Você', 15.00, '05 de Março de 2025. 15:45', 'Sala 02')">Reservar</button>
                 </div>
             </div>
         </section>
     </main>
+    <script>
+        function reservar(titulo, valorUnitario, dataSessao, sala) {
+            window.location.href = `cadeirasDisponiveis.html?titulo=${encodeURIComponent(titulo)}&valor_unitario=${valorUnitario}&data_sessao=${encodeURIComponent(dataSessao)}&sala=${encodeURIComponent(sala)}`;
+        }
+    </script>
 
     <div class="barra"></div>
 

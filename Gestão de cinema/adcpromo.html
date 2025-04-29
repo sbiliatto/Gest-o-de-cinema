@@ -95,27 +95,22 @@
     </header>
 
     <main>
-        <h2>Adicionar sessão</h2>
+        <h2>Adicionar promoção</h2>
         <form id="form_cadastro">
-            <label for="sala">Sala:</label>
-            <select name="id_sala" id="id_salas" required></select>
-
-            <label for="horario">Horário:</label>
-            <input type="time" id="horario" name="horario" required>
-
-            <label for="data_sessao">Data da sessão:</label>
-            <input type="date" id="data_sessao" name="data_sessao" required>
-
             <label for="id_filme">Selecione um Filme:</label>
             <select name="id_filme" id="id_filme" required>
                 <option selected disabled>Selecione um Filme</option>
             </select>
 
-            <label for="valor" class="form-label">Valor da Sessão:</label>
+            <label for="valor" class="form-label">Valor:</label>
             <input type="text" id="valor" name="valor"  required>
 
+            <label for="id_sessao">Selecione uma sessaõ:</label>
+            <select name="id_sessao" id="id_sessao" required>
+                <option selected disabled>Selecione uma sessão</option>
+            </select>
 
-            <button type="submit">Adicionar Sessão</button>
+            <button type="submit">Finalizar</button>
 
         </form>
     </main>
@@ -199,9 +194,7 @@
     valor = parseFloat(valor.replace("R$", "").replace(",", ".").trim());
 
     var dados = {
-        "id_sala": form.get("id_sala"),
-        "horario": form.get("horario"),
-        "data_sessao": form.get("data_sessao"),
+        "id_sessao": form.get("id_sessao"),
         "id_filme": form.get("id_filme"),
         "valor_unitario": valor
     };
