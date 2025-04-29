@@ -402,6 +402,7 @@ a:hover {
         width: 90%;
         padding: 6px 12px;
         font-size: 14px;
+        margin-right: 24px;
     }
 
     .botao-add-filme a {
@@ -425,13 +426,14 @@ a:hover {
     }
 
     .gradedefilmes {
-        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
         gap: 15px;
         padding: 10px;
+        width: 170px;
+        margin-right: 34%;
     }
 
     .filme img {
-        height: 180px;
+        height: 222px;
     }
 
     .categorias a {

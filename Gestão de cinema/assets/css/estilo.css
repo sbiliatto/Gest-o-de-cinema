@@ -257,7 +257,8 @@ nav ul li a:hover {
 }
 
 .filme img {
-    width: 100%;
+    width: 56%;
+    margin-left: 10vh;
     border-radius: 5px;
     transition: transform 0.3s;
     display: block;
@@ -340,37 +341,27 @@ nav ul li a:hover {
 }
 
 
-@media (max-width: 320px) {
-    .btn-entrar {
-        width: 88px;
-        margin: 5px auto;
-        text-align: center;
-        margin-right: 93px;
-    }
-    }
+/* Responsive Styles - Fixed Version */
 
-
-@media (max-width: 374px) {
+@media (max-width: 767px) {
+    /* General responsive fixes */
     header {
         flex-direction: column;
         padding: 10px;
         gap: 15px;
     }
 
-
-    .indicadores{
-        bottom: -8px;
-    }
-
-    .btn-entrar{
-        bottom: -8px;
+    .logo {
+        width: 150px;
+        margin-bottom: 10px;
     }
 
     nav ul {
         flex-direction: column;
         align-items: center;
+        gap: 12px;
+        margin-left: 0;
         padding: 0;
-        gap: 10px;
     }
 
     .acao {
@@ -379,22 +370,66 @@ nav ul li a:hover {
         justify-content: center;
     }
 
+    .slide img {
+        width: 100%;
+        height: auto;
+        max-height: 300px;
+        border-radius: 20px;
+    }
+
+    .texto {
+        left: 5%;
+        max-width: 90%;
+    }
+
+    .indicadores {
+        bottom: 5px;
+    }
+
+    .filme img {
+        width: 45%;
+        margin-left: 26%;
+    }
+
+    .rodape {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .info {
+        text-align: center;
+    }
+
+    .cadastro {
+        margin: 10px auto;
+        display: block;
+        width: fit-content;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 374px) {
     .texto h2 {
-        font-size: 18px;
+        font-size: 16px;
+        margin-bottom: 5px;
     }
 
     .texto p {
-        font-size: 8px;
-        line-height: 1.3;
+        font-size: 12px;
+        line-height: 1.2;
     }
-
 
     .slide img {
-        height: 117px;
+        height: 180px;
+        border-radius: 15px;
     }
 
-    .categorias {
-        gap: 8px;
+    .btn-entrar {
+        padding: 6px 12px;
+        font-size: 12px;
+        display: inline-block;
+        margin: 0;
     }
 
     .categorias a {
@@ -404,160 +439,71 @@ nav ul li a:hover {
 
     .gradedefilmes {
         grid-template-columns: 1fr;
+        gap: 15px;
         padding: 10px;
     }
 
     .filme img {
-        width: 170px;
-        margin-left: 22%;
-    }
-
-    .rodape {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .info {
-        text-align: center;
-    }
-
-    .cadastro {
-        margin: 10px auto;
-        display: block;
-        width: fit-content;
+        width: 70%;
+        margin-left: 15%;
     }
 }
 
+/* Small Devices */
 @media (min-width: 375px) and (max-width: 424px) {
-    header {
-        flex-direction: column;
-        padding: 10px;
+    .texto h2 {
+        font-size: 18px;
+    }
+
+    .texto p {
+        font-size: 12px;
+    }
+
+    .slide img {
+                height: 177px;
+    }
+
+    .gradedefilmes {
+        grid-template-columns: 1fr;
         gap: 15px;
     }
+}
 
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        padding: 0;
-        gap: 10px;
-    }
-
-    .acao {
-        margin-top: 10px;
-        width: 100%;
-        justify-content: center;
-    }
-
+/* Medium Small Devices */
+@media (min-width: 425px) and (max-width: 767px) {
     .texto h2 {
         font-size: 20px;
     }
 
     .texto p {
-        font-size: 10px;
+        font-size: 14px;
     }
 
     .slide img {
-        height: 280px;
-    }
-
-    .gradedefilmes {
-        grid-template-columns: 1fr;
-    }
-
-    .filme img {
-        height: auto;
-        aspect-ratio: 3/4;
-    }
-
-    .rodape {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .info {
-        text-align: center;
-    }
-
-    .cadastro {
-        margin: 10px auto;
-        display: block;
-        width: fit-content;
-    }
-}
-
-@media (min-width: 425px) and (max-width: 767px) {
-    header {
-        flex-direction: column;
-        padding: 12px;
-        gap: 15px;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        padding: 0;
-        gap: 12px;
-    }
-
-    .acao {
-        margin-top: 10px;
-        width: 100%;
-        justify-content: center;
-    }
-
-    .texto h2 {
-        font-size: 22px;
-    }
-
-    .texto p {
-        font-size: 13px;
-    }
-
-    .slide img {
-        height: 154px;
+        height: 220px;
     }
 
     .gradedefilmes {
         grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
     }
 
     .filme img {
-        height: auto;
-        aspect-ratio: 3/4;
-    }
-
-    .rodape {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .info {
-        text-align: center;
-    }
-
-    .cadastro {
-        margin: 10px auto;
-        display: block;
-        width: fit-content;
-    }
-
-    .indicadores{
-        bottom: -8px;
+        width: 80%;
+        margin-left: 10%;
     }
 }
 
+/* Medium Devices */
 @media (min-width: 768px) and (max-width: 1023px) {
     header {
-        padding: 15px;
+        padding: 15px 20px;
     }
 
     nav ul {
-        padding-left: 0;
+        margin-left: 0;
+        gap: 20px;
         justify-content: center;
-    }
-
-    .acao {
-        margin-right: 0;
     }
 
     .texto h2 {
@@ -571,25 +517,34 @@ nav ul li a:hover {
 
     .slide img {
         height: 380px;
+        width: 90%;
     }
 
     .gradedefilmes {
         grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
     }
 
     .filme img {
-        height: auto;
+        width: 90%;
+        margin-left: 5%;
         aspect-ratio: 2/3;
     }
 }
 
+/* Large Devices */
 @media (min-width: 1024px) and (max-width: 1439px) {
+    header {
+        padding: 15px 40px;
+    }
+
     .logo {
         width: 180px;
     }
 
     nav ul {
-        padding-left: 0;
+        margin-left: 200px;
+        gap: 25px;
     }
 
     .texto h2 {
@@ -598,6 +553,7 @@ nav ul li a:hover {
 
     .texto p {
         font-size: 16px;
+        max-width: 500px;
     }
 
     .slide img {
@@ -606,15 +562,17 @@ nav ul li a:hover {
 
     .gradedefilmes {
         grid-template-columns: repeat(5, 1fr);
+        gap: 20px;
     }
 
-    
     .filme img {
-        height: auto;
+        width: 90%;
+        margin-left: 5%;
         aspect-ratio: 2/3;
     }
 }
 
+/* Extra Large Devices */
 @media (min-width: 1440px) {
     header {
         padding: 20px 60px;
@@ -622,6 +580,11 @@ nav ul li a:hover {
 
     .logo {
         width: 200px;
+    }
+
+    nav ul {
+        margin-left: 300px;
+        gap: 30px;
     }
 
     .texto h2 {
@@ -638,12 +601,14 @@ nav ul li a:hover {
     }
 
     .gradedefilmes {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(5, 1fr);
+        gap: 25px;
         max-width: 1400px;
     }
 
     .filme img {
-        height: auto;
+        width: 90%;
+        margin-left: 5%;
         aspect-ratio: 2/3;
     }
 }

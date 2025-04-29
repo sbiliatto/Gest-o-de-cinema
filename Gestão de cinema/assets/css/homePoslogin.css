@@ -324,30 +324,47 @@ nav ul li a:hover {
     }
 
     .categorias {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 53px;
-        padding: 15px;
-        text-align: center;
-        margin-top: 20px;
-    }
-
-    .categorias a {
-        font-size: 14px;
-        padding: 5px;
-    }
-
-    .gradedefilmes {
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
         gap: 15px;
-        padding: 15px;
+        padding: 20px 10px;
     }
-
+    
+    .categorias a {
+        text-decoration: none;
+        color: white;
+        padding: 5px 10px;
+    }
+    
+    .categorias a:hover {
+        color: darkred;
+    }
+    
+    .gradedefilmes {
+        display: grid;
+        gap: 20px;
+        padding: 20px;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .filme {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }
+    
     .filme img {
-        width: 54%;
-        height: 300px;
-        object-fit: cover;
-        margin-left: 22%;
+        width: 100%;
+        border-radius: 5px;
+        transition: transform 0.3s;
+        display: block;
+    }
+    
+    .filme:hover img {
+        transform: scale(1.05);
     }
 
     .rodape {
