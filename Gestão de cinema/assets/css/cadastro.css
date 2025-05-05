@@ -114,7 +114,6 @@ h2 {
 }
 
 .direita h2,
-.campo input,
 .campo input::placeholder {
     color: rgba(206, 5, 5, 0.86);
 }
