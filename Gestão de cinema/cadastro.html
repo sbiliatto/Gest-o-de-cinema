@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="assets/css/cadastro.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
@@ -16,18 +17,22 @@
             <img src="assets/img/logo.png" alt="Logo Prime Cine" class="logo">
         </div>
         <div class="direita">
-            <h2>Cadastro</h2>
+            <h2>CADASTRO</h2>
             <form id="form_cadastro">
                 <div class="campo">
+                    <i class="fa fa-user"></i>
                     <input type="text" name="nome" id="nome" placeholder="Nome">
                 </div>
                 <div class="campo">
+                    <i class="fa fa-phone"></i>
                     <input type="text" name="tel" id="telefone" placeholder="Telefone" inputmode="numeric">
                 </div>
                 <div class="campo">
+                    <i class="fa fa-envelope"></i>
                     <input type="email" name="email" id="email" placeholder="E-mail">
                 </div>
                 <div class="campo campo-senha">
+                    <i class="fa fa-lock"></i>
                     <input type="password" name="senha" id="senha" placeholder="Senha">
                     <img src="https://cdn-icons-png.flaticon.com/512/2767/2767146.png" alt="Mostrar senha"
                         class="eye-icon" id="toggleSenha">
