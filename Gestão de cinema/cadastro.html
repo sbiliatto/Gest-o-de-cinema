@@ -8,26 +8,32 @@
     <link rel="stylesheet" href="assets/css/cadastro.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
     <div class="container">
         <div class="esquerda">
-            <img src="assets/img/logo.png" alt="Logo Prime Cine" class="logo">
+            <a href="index.html"><img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
+            </a>
         </div>
         <div class="direita">
-            <h2>Cadastro</h2>
+            <h2>CADASTRO</h2>
             <form id="form_cadastro">
                 <div class="campo">
+                    <i class="fa fa-user"></i>
                     <input type="text" name="nome" id="nome" placeholder="Nome">
                 </div>
                 <div class="campo">
+                    <i class="fa fa-phone"></i>
                     <input type="text" name="tel" id="telefone" placeholder="Telefone" inputmode="numeric">
                 </div>
                 <div class="campo">
+                    <i class="fa fa-envelope"></i>
                     <input type="email" name="email" id="email" placeholder="E-mail">
                 </div>
                 <div class="campo campo-senha">
+                    <i class="fa fa-lock"></i>
                     <input type="password" name="senha" id="senha" placeholder="Senha">
                     <img src="https://cdn-icons-png.flaticon.com/512/2767/2767146.png" alt="Mostrar senha"
                         class="eye-icon" id="toggleSenha">
@@ -97,7 +103,7 @@
 
             $.ajax({
                 method: "POST",
-                url: "http://192.168.1.111:5000/cadastros",
+                url: "http://192.168.1.144:5000/cadastros",
                 data: dados, // envia os dados do formulário 
                 contentType: "application/json",
                 success: function (response) {  //caso o cadastro de certo

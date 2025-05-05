@@ -107,7 +107,16 @@ h2 {
     transition: 0.9s;
 }
 
+.campo i {
+    color: rgba(206, 5, 5, 0.86);
+    font-size: 16px;
+    margin-right: 10px;
+}
 
+.direita h2,
+.campo input::placeholder {
+    color: rgba(206, 5, 5, 0.86);
+}
 @media (max-width: 900px) {
     .container {
         flex-direction: column;

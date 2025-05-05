@@ -57,7 +57,8 @@
 
 <body>
     <header>
-        <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
+        <a href="homeeae.html"><img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
+        </a>
 
 
         <div class="div-header">
@@ -138,7 +139,7 @@
 
     function carregaProdutos() {
         var settings = {
-            "url": "http://192.168.1.111:5000/filmes",
+            "url": "http://192.168.1.144:5000/filmes",
             "method": "GET",
             "timeout": 0,
             "headers": {
@@ -162,7 +163,7 @@
 
     function carregarSalas() {
         var settings = {
-            "url": "http://192.168.1.111:5000/salas",
+            "url": "http://192.168.1.144:5000/salas",
             "method": "GET",
             "headers": {
                 "Content-Type": "application/json"
@@ -200,7 +201,7 @@
     };
 
     $.ajax({
-        url: "http://192.168.1.111:5000/sessoes",
+        url: "http://192.168.1.144:5000/sessoes",
         method: "POST",
         contentType: "application/json",
         data: JSON.stringify(dados),

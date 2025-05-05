@@ -14,7 +14,8 @@
 
 <body>
     <div class="sidebar">
-        <img src="assets/img/logo.png" alt="Logo Prime Cine" class="logo-img">
+        <a href="homeeae.html"><img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
+        </a>
     </div>
     <div class="container">
         <h1>EDITAR</h1>
@@ -26,6 +27,7 @@
 
         <label for="tipo">Tipo de Usuário:</label>
         <select id="tipo">
+            <option value="" selected disabled>Selecione uma opção</option>
             <option value="usuario">Usuário</option>
             <option value="adm">ADM</option>
         </select>
@@ -80,7 +82,7 @@
 
                 $.ajax({
                     method: "PUT",
-                    url: `http://192.168.1.111:5000/cadastros/${id}`,
+                    url: `http://192.168.1.144:5000/cadastros/${id}`,
                     data: JSON.stringify(dados),
                     contentType: "application/json",
                     success: function () {
