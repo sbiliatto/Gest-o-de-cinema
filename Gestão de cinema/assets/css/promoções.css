@@ -36,7 +36,7 @@ nav ul {
     list-style: none;
     display: flex;
     gap: 30px;
-    margin-left: 620px;
+    margin-right: auto;
 }
 
 nav ul li a {
@@ -266,7 +266,7 @@ footer {
 /* Updated media queries for header from homePoslogin */
 @media (max-width: 1024px){
     nav ul {
-        margin-left: 368px;
+        margin-left: 100px;
     }
     .filme{
         width: 100%;
@@ -369,7 +369,6 @@ footer {
 @media (min-width: 767px) {
     .barra {
         margin-bottom: 87px;
-        width: 95%;
     }
 }
 
