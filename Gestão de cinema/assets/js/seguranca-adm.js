@@ -1,24 +1,24 @@
-let token = localStorage.getItem("token") // pega o token armazenado no localStorage
-let tipo = localStorage.getItem("tipo")
+let token = localStorage.getItem("token");
+let tipo = localStorage.getItem("tipo");
 
-if(token === undefined || token === null) { //verifica se o token esta ausente, se o usuario não ta autenticado
-    Swal.fire({ //exibe um alerta de que a página é restrita
+if (token === undefined || token === null) {
+    Swal.fire({
         title: "Erro!",
         text: "Essa Página é restrita!",
         icon: "error"
     }).then(() => {
-        window.location.href = "login.html"; //volta para a pagina de login
+        localStorage.clear(); // Limpa tudo
+        window.location.href = "login.html";
     });
 } else {
-
     if (tipo !== "adm") {
-        Swal.fire({ //exibe um alerta de que a página é restrita
+        Swal.fire({
             title: "Erro!",
             text: "Essa Página é restrita ao ADM!",
             icon: "error"
         }).then(() => {
-            window.location.href = "login.html"; //volta para a pagina de login
+            localStorage.clear(); // Limpa tudo
+            window.location.href = "login.html";
         });
     }
-
 }
