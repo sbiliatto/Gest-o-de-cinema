@@ -112,12 +112,11 @@ header {
 }
 
 .menu-perfil ul li a:hover {
-    color: #ff0000;
-    background-color: #D7D6D6;
+    color: #ff0000;;
 }
 
 .nome-veisitante {
-    background-color: #D7D6D6;
+    color: #ff0000;
 }
 
 nav ul {
