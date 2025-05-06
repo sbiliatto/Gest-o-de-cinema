@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parametrizacao do pix</title>
+    <link rel="stylesheet" href="assets/css/parametrizacaopix.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <script src="assets/js/seguranca.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="esquerda">
+            <a href="index.html"><img class="logo-img" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
+            </a>
+        </div>
+        <div class="direita">
+            <h1>EDITAR</h1>
+            <input type="text" name="nome" id="nome" placeholder="Edite o nome">
+            <input type="email" name="email" id="email" placeholder="Edite o email">
+            <input type="tel" name="telefone" id="telefone" placeholder="Edite o telefone">
+            <input type="password" name="senha" id="senha" placeholder="Edite a senha">
+
+
+            <label for="tipo">PERFIL:</label>
+            <select id="tipo">
+                <option value="" selected disabled>Selecione uma opção</option>
+                <option value="usuario">Usuário</option>
+                <option value="adm">Administrador</option>
+            </select>
+
+
+            <label for="editar">FUNCIONALIDADE:</label>
+            <select id="editar" name="editar" required>
+                <option value="" selected disabled>Selecione uma opção</option>
+                <option value=true>Ativo</option>
+                <option value=false>Inativo</option>
+            </select>
+
+            <button class="botao">Salvar</button>
+        </div>
+    </div>
+    <div class="barra"></div>
+    <!-- Rodapé -->
+    <footer class="rodape">
+        <div class="socialicones">
+            <a href="https://www.instagram.com/">
+                <img src="assets/img/instagram.png" alt="Instagram">
+            </a>
+            <a href="https://www.whatsapp.com/?lang=pt_BR">
+                <img src="assets/img/whatsapp (1).png" alt="WhatsApp">
+            </a>
+            <a href="https://x.com/?lang=pt">
+                <img src="assets/img/twitter.png" alt="Twitter">
+            </a>
+            <a href="https://www.facebook.com/?locale=pt_BR">
+                <img src="assets/img/facebook.png" alt="Facebook">
+            </a>
+        </div>
+        <div class="info">
+            <p><strong>ENDEREÇO:</strong> Rua Bragança, Bairro Tilagro, nº 307 - Birigui</p>
+            <p><strong>TELEFONE:</strong> (00) 00000-0000</p>
+            <p><strong>EMAIL:</strong> <a href="mailto:primecine@gmail.com"
+                    style="color: white;">primecine@gmail.com</a></p>
+        </div>
+    </footer>
+
+    <div class="barraverm">
+        <a href="homePoslogin.html"><img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial"></a>
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+            const nome = params.get('nome');
+            const email = params.get('email');
+            const telefone = params.get('telefone');
+            const senha = params.get('senha');
+            const tipo = params.get('tipo');
+            let editar = params.get('editar');
+
+
+            if (editar === "ativo") {
+                editar = true
+            } else {
+                editar = false
+            }
+
+            $("#nome").val(nome);
+            $("#email").val(email);
+            $("#telefone").val(telefone);
+            $("#senha").val(senha);
+            $("#tipo").val(tipo);
+            $("#editar").val(editar);
+
+            $(".save-button").click(function () {
+                const dados = {
+                    nome: $("#nome").val(),
+                    email: $("#email").val(),
+                    telefone: $("#telefone").val(),
+                    senha: $("#senha").val(),
+                    tipo: $("#tipo").val(),
+                    ativo: $("#editar").val(),
+                };
+
+
+                $.ajax({
+                    method: "PUT",
+                    url: `http://192.168.1.144:5000/cadastros/${id}`,
+                    data: JSON.stringify(dados),
+                    contentType: "application/json",
+                    success: function () {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Edição Realizada!",
+                            confirmButtonText: "OK"
+                        }).then(() => {
+                            window.location.href = "homeeae.html";
+                        });
+                    },
+                    error: function (xhr, status, error) {
+                        console.log("Erro ao tentar editar:", xhr.responseJSON, status, error);
+                        Swal.fire({
+                            title: "Erro!",
+                            text: xhr.responseJSON?.error || "Erro ao editar os dados!",
+                            icon: "error"
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
