@@ -177,12 +177,19 @@ nav ul li a:hover {
     width: 280px;
     border-radius: 10px;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .movie-poster img {
-    width: 100%;
-    height: auto;
-    display: block;
+    width: 280px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .movie-details {
@@ -194,6 +201,25 @@ nav ul li a:hover {
     font-weight: bold;
     margin-bottom: 20px;
 }
+
+.trailer{
+  background-color: transparent; /* deixa o fundo transparente */
+  border: 2px solid red;         /* define a borda vermelha */
+  color: red;                    /* cor do texto vermelha */
+  padding: 10px 20px;            /* tamanho interno do botão (ajustável) */
+  border-radius: 5px;            /* bordas arredondadas (opcional) */
+  cursor: pointer;               /* muda o cursor ao passar por cima */             /* deixa o texto em negrito (opcional) */
+  transition: 0.3s;              /* para animações suaves ao passar o mouse */
+  margin-top: 30px;
+  text-decoration: none;
+  
+}
+
+.trailer:hover {
+    background-color: transparent;     /* ao passar o mouse, o fundo fica vermelho */
+    color: white; 
+    border: 2px solid white;               /* e o texto fica branco */
+  }
 
 .classification {
     display: flex;

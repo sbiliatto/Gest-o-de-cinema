@@ -77,6 +77,13 @@ nav ul li a:hover {
     position: relative;
 }
 
+.barra3 {
+    width: 100%;
+    left: 5%;
+    background-color: darkred;
+    padding: 3px;
+}
+
 /* Perfil logado */
 .perfil-logado {
     display: flex;
@@ -301,7 +308,25 @@ nav ul li a:hover {
     color: white;
 }
 
+footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 40px 20px 20px;
+    font-family: Arial, sans-serif;
+}
 
+
+.main_footer_copy {
+    text-align: center;
+    font-size: 0.9em;
+    color: #aaa;
+    border-top: 1px solid #333;
+    padding-top: 15px;
+}
+
+.content{
+    margin-bottom: 50px!important;
+}
 
 .main_footer          { 
     background-color:darkred; 
@@ -322,18 +347,28 @@ nav ul li a:hover {
    .colfooter ul li a i { font-size:0.5em; }
    .colfooter ul li a:hover { text-decoration:underline; }
 
-   .colfooter .titleFooter   { 
-    font-family:'open_sansregular'; 
-    font-size:1.3em; 
-    color:#ffffff; 
-    padding-bottom: 0.5em; 
-    margin-bottom:0.5em; 
-    border-bottom:1px #f2f2f2 solid;
-   }
+   .colfooter h3.titleFooter {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    border-bottom: 2px solid darkred;
+    padding-bottom: 5px;
+    display: inline-block;
+    width: fit-content;
+    white-space: nowrap;
+}
 
    img{
     width: 30px;
    }
+
+   .main_footer_container .content {
+    display: flex
+;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
    
    .colfooter p  { font-family:'open_sanslight'; color:#ffffff; font-size:1em; height:25px; } 
    .botao{
@@ -446,7 +481,8 @@ nav ul li a:hover {
        opacity:1;
        width: 150%;
    }
-   .main_footer_copy { background-color:rgb(129, 2, 2); width:100%; float:left; text-align:center; padding:1.5em 0em; }
+   .main_footer_copy {     background-color: #1a1a1a;
+    ; width:100%; float:left; text-align:center; padding:1.5em 0em; }
    .main_footer_copy p { font-family:'open_sanslight'; font-size:1em; color:#e1e0e0; height:20px; }
    .main_footer_copy .m-b-footer   { margin-bottom:0.5em; }
    .main_footer_copy .by   { font-size:0.96em; }
@@ -638,8 +674,14 @@ nav ul li a:hover {
         margin-bottom: 30px;
     }
     
-    .main_footer .content {
-        padding: 3em 0;
+    .main_footer_container .content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 30;
+        
     }
 }
 
