@@ -18,7 +18,9 @@
             <a href="index.html"><img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial"></a>
         </div>
         <div class="painel-direito">
-            <h2>Recuperar senha</h2>
+            <div id="titulo-recuperacao">
+                <h2>Recuperar senha</h2>
+            </div>
             <form id="esqueci-form">
                 <div class="campo-entrada">
                     <span class="icone"><i class="fas fa-envelope"></i></span>
@@ -46,8 +48,6 @@
                     <button type="submit" class="botao">SALVAR</button>
                 </form>
             </div>
-
-
             <p id="mensagem"></p>
         </div>
     </div>
@@ -81,6 +81,7 @@
 
                     // Oculta o formulário de recuperação de senha
                     document.getElementById('esqueci-form').style.display = 'none';
+                    document.getElementById('titulo-recuperacao').style.display = 'none';
 
                     // Mostra o formulário de redefinição de senha
                     document.getElementById('redefinir-senha').style.display = 'block';
@@ -95,6 +96,41 @@
             }
         });
 
+        // Formulário para redefinir a senha
+        document.getElementById('redefinir-form').addEventListener('submit', async function (e) {
+            e.preventDefault(); // Impede o envio do formulário padrão
+
+            const token = document.getElementById('token').value;
+            const novaSenha = document.getElementById('nova-senha').value;
+
+            // Validação simples
+            if (!token || !novaSenha) {
+                Swal.fire('Erro!', 'Preencha todos os campos.', 'error');
+                return;
+            }
+
+            try {
+                const resposta = await fetch('http://127.0.0.1:5000/redefinir-senha', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ token, nova_senha: novaSenha })
+                });
+
+                const resultado = await resposta.json();
+
+                if (resultado.message) {
+                    Swal.fire('Sucesso!', resultado.message, 'success').then(() => {
+                        // Redireciona para a tela de login, se quiser
+                        window.location.href = 'login.html';
+                    });
+                } else {
+                    Swal.fire('Erro!', resultado.error, 'error');
+                }
+            } catch (error) {
+                console.error('Erro ao tentar redefinir a senha:', error);
+                Swal.fire('Erro!', 'Erro ao redefinir a senha.', 'error');
+            }
+        });
     </script>
 
 </body>
