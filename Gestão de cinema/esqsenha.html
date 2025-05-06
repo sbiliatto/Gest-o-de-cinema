@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esqueci minha senha - Prime Cine</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="conteiner">
+        <div class="painel-esquerdo">
+            <a href="index.html"><img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial"></a>
+        </div>
+        <div class="painel-direito">
+            <h2>Recuperar senha</h2>
+            <form id="esqueci-form">
+                <div class="campo-entrada">
+                    <span class="icone"><i class="fas fa-envelope"></i></span>
+                    <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+                </div>
+                <button type="submit" class="botao" id="btn">ENVIAR</button>
+            </form>
+
+            <!-- Formulário de redefinição de senha, oculto inicialmente -->
+            <div id="redefinir-senha" style="display: none;">
+                <h2>Redefinir senha</h2>
+                <form id="redefinir-form">
+                    <!-- Campo para o token -->
+                    <div class="campo-entrada">
+                        <span class="icone"><i class="fas fa-key"></i></span>
+                        <input type="text" id="token" name="token" placeholder="Digite o token recebido por e-mail" required>
+                    </div>
+
+                    <!-- Campo para a nova senha -->
+                    <div class="campo-entrada">
+                        <span class="icone"><i class="fas fa-lock"></i></span>
+                        <input type="password" id="nova-senha" name="nova-senha" placeholder="Nova senha" required>
+                    </div>
+
+                    <button type="submit" class="botao">SALVAR</button>
+                </form>
+            </div>
+
+
+            <p id="mensagem"></p>
+        </div>
+    </div>
+
+    <script>
+        // Formulário para recuperar a senha
+        document.getElementById('esqueci-form').addEventListener('submit', async function (e) {
+            e.preventDefault();  // Impede o envio do formulário padrão
+
+            const email = document.getElementById('email').value;  // Pega o valor do campo email
+
+            // Verifica se o campo de e-mail não está vazio
+            if (!email) {
+                alert('Por favor, insira um e-mail.');
+                return;
+            }
+
+            try {
+                const resposta = await fetch('http://127.0.0.1:5000/esqueci-minha-senha', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email })
+                });
+
+                const resultado = await resposta.json();
+                document.getElementById('mensagem').innerText = resultado.message || resultado.error;
+
+                if (resultado.message) {
+                    // Exibe uma notificação de sucesso com SweetAlert
+                    Swal.fire('Sucesso!', resultado.message, 'success');
+
+                    // Oculta o formulário de recuperação de senha
+                    document.getElementById('esqueci-form').style.display = 'none';
+
+                    // Mostra o formulário de redefinição de senha
+                    document.getElementById('redefinir-senha').style.display = 'block';
+                } else {
+                    // Exibe uma notificação de erro com SweetAlert
+                    Swal.fire('Erro!', resultado.error, 'error');
+                }
+
+            } catch (error) {
+                console.error('Erro ao tentar recuperar a senha:', error);
+                Swal.fire('Erro!', 'Ocorreu um erro ao tentar recuperar sua senha.', 'error');
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
