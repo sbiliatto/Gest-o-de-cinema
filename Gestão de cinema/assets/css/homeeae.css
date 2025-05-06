@@ -308,6 +308,8 @@ a {
     margin-top: 10px;
     width: 80%;
     margin: 10px auto 0;
+    width: 62px;
+    border-radius: 10px;
 }
 
 a:hover {
