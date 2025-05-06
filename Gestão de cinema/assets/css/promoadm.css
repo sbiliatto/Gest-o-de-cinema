@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif !important;
 }
 
 body {
@@ -161,15 +161,100 @@ button {
     border: none;
     padding: 10px;
     cursor: pointer;
-    margin-left: 120vh;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
     margin-top: 31px;
     border-radius: 6px;
 }
 
+/* FOOTER MODERNO ADAPTADO PARA HTML EXISTENTE */
 footer {
-    background-color: #111;
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 40px 20px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.main_footer_container .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.colfooter {
+    flex: 1 1 250px;
+}
+
+.colfooter h3.titleFooter {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    border-bottom: 2px solid darkred;
+    padding-bottom: 5px;
+    display: inline-block;
+    width: fit-content;
+    white-space: nowrap;
+}
+
+
+.colfooter ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.colfooter ul li {
+    margin-bottom: 10px;
+}
+
+.colfooter ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.colfooter ul li a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.colfooter p {
+    margin: 8px 0;
+    color: #ccc;
+    font-size: 0.95em;
+}
+
+.rss {
+    margin-right: 10px;
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+.rss img {
+    width: 30px;
+    height: 30px;
+    filter: brightness(0) invert(1);
+}
+
+.rss:hover img {
+    transform: scale(1.2);
+}
+
+.main_footer_copy {
+    margin-top: 30px;
     text-align: center;
-    padding: 20px;
+    font-size: 0.9em;
+    color: #aaa;
+    border-top: 1px solid #333;
+    padding-top: 15px;
+}
+
+/* Remove espaço em branco desnecessário */
+.clear {
+    display: none;
 }
 
 /* Perfil logado */

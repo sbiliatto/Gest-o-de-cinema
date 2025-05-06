@@ -26,6 +26,13 @@ header {
     width: 20vh;
 }
 
+.barra {
+    margin: 10px auto 50px;
+    width: 90%;
+    height: 4px;
+    background-color: darkred;
+}
+
 nav ul {
     list-style: none;
     display: flex;
@@ -325,42 +332,6 @@ nav ul li a:hover {
     font-size: 14px;
 }
 
-.main_footer          { 
-    background-color:darkred; 
-    color:#fff; 
-    font-size:0.875em; 
-   }
-   .main_footer .content { float:left; width:90%; margin:0 5%; padding: 5em 0; }
-   .container { float:left; width:100%; }
-   .colfooter { 
-    width:100%; 
-    height:auto; 
-    float:left; 
-    margin-bottom:2em;
-   }
-   .colfooter ul        { width:100%; float:left !important; }
-   .colfooter ul li     { padding:0.2em 0em!important; }
-   .colfooter ul li a   { text-decoration:none; color:#ffffff; font-size:1em; }
-   .colfooter ul li a i { font-size:0.5em; }
-   .colfooter ul li a:hover { text-decoration:underline; }
-
-   .colfooter .titleFooter   { 
-    font-family:'open_sansregular'; 
-    font-size:1.3em; 
-    color:#ffffff; 
-    padding-bottom: 0.5em !important; 
-    margin-bottom:0.5em !important; 
-    border-bottom:1px #f2f2f2 solid !important;
-   }
-
-   img{
-    width: 30px;
-   }
-   
-   .colfooter p  { font-family:'open_sanslight'; 
-    color:#ffffff; 
-    font-size:1em; 
-    height:25px; } 
 
    .botao{
      padding: 10px 12px !important;
@@ -533,6 +504,59 @@ nav ul li a:hover {
     list-style: none;
     padding: 0;}
 
+
+    .rodape {
+        background-color: black;
+        color: white;
+        padding: 40px 40px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;;
+      }
+      
+      .rodape-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+      }
+      
+      .socialicones a img {
+        width: 30px;
+        height: 30px;
+        margin-right: 15px;
+        transition: transform 0.3s;
+      }
+      
+      .socialicones a img:hover {
+        transform: scale(1.1);
+      }
+      .info {
+        text-align: right;
+      line-height: 1.8;
+      }
+      
+      .info a {
+        color: #fff;
+        text-decoration: underline;
+      }
+      
+      .barraverm {
+        background-color: #B90000;
+        display: flex;
+        justify-content: center;
+      }
+      
+      .barraverm img {
+        background-color: #B90000;
+        width: 17vh;    
+        margin-right: 10px;
+      }
+      .info {
+        margin-left: 105px;
+      }
+    
 
 @media (min-width:48em){
    .colfooter  { width:30%; margin-right:5%; margin-bottom:0; }
