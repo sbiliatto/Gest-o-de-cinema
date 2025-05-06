@@ -93,8 +93,12 @@
             <label for="sinopse">Sinopse:</label>
             <textarea id="sinopse" name="sinopse" required></textarea>
 
+            <label for="duracao">Duração:</label>
+            <textarea id="duracao" name="duracao" required></textarea>
+
             <label for="imagem">Imagem:</label>
             <input type="file" id="imagem" name="imagem" accept="image/*">
+            
            
             <br>
 
@@ -149,6 +153,9 @@
         document.getElementById("classificacao").value = params.get("classificacao");
         document.getElementById("genero").value = params.get("genero");
         document.getElementById("sinopse").value = params.get("sinopse");
+        document.getElementById("duracao").value = params.get("duracao");
+        document.getElementById("link").value = params.get("link");
+
     
         $("#form_editar").on("submit", function (e) {
             e.preventDefault();
@@ -168,6 +175,8 @@
                 classificacao: dados.get("classificacao"),
                 genero: dados.get("genero"),
                 sinopse: dados.get("sinopse"),
+                duracao: dados.get("duracao"),
+                link: dados.get("link")
             };
 
             // Converte o objeto para JSON e adiciona ao FormData
@@ -191,6 +200,8 @@
                         localStorage.setItem("classificacao", dados.get("classificacao"));
                         localStorage.setItem("genero", dados.get("genero"));
                         localStorage.setItem("sinopse", dados.get("sinopse"));
+                        localStorage.setItem("duracao", dados.get("duracao"));
+                        localStorage.setItem("link", dados.get("link"));
 
                         window.location.href = "homeeae.html";
                     });
