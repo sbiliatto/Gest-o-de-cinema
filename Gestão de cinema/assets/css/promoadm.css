@@ -252,6 +252,11 @@ footer {
     padding-top: 15px;
 }
 
+.content{
+    display: flex;
+    flex-direction: row ;
+}
+
 /* Remove espaço em branco desnecessário */
 .clear {
     display: none;
