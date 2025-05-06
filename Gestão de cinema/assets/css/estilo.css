@@ -244,6 +244,7 @@ nav ul li a:hover {
 
 .gradedefilmes {
     display: grid;
+    grid-template-columns: repeat(5, 1fr);
     gap: 20px;
     padding: 20px;
     width: 100%;
@@ -258,11 +259,11 @@ nav ul li a:hover {
 }
 
 .filme img {
-    width: 56%;
-    margin-left: 10vh;
+    width: 100%;
     border-radius: 5px;
     transition: transform 0.3s;
     display: block;
+    aspect-ratio: 2/3;
 }
 
 .filme:hover img {
@@ -488,234 +489,9 @@ nav ul li a:hover {
     max-width: 200px;
 }
 
+/* Responsive Styles - Improved Version */
 
-/* Responsive Styles - Fixed Version */
-
-@media (max-width: 767px) {
-    /* General responsive fixes */
-    header {
-        flex-direction: column;
-        padding: 10px;
-        gap: 15px;
-    }
-
-    .logo {
-        width: 150px;
-        margin-bottom: 10px;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-        margin-left: 0;
-        padding: 0;
-    }
-
-    .acao {
-        margin-top: 10px;
-        width: 100%;
-        justify-content: center;
-    }
-
-    .slide img {
-        width: 100%;
-        height: auto;
-        max-height: 300px;
-        border-radius: 20px;
-    }
-
-    .texto {
-        left: 5%;
-        max-width: 90%;
-    }
-
-    .indicadores {
-        bottom: 5px;
-    }
-
-    .filme img {
-        width: 45%;
-        margin-left: 26%;
-    }
-
-    .info {
-        text-align: center;
-        font-size: 12px;
-    }
-
-    .cadastro {
-        margin: 10px auto;
-        display: block;
-        width: fit-content;
-    }
-}
-
-/* Extra Small Devices */
-@media (max-width: 374px) {
-    .texto h2 {
-        font-size: 16px;
-        margin-bottom: 5px;
-    }
-
-    .texto p {
-        font-size: 12px;
-        line-height: 1.2;
-    }
-
-    .slide img {
-        height: 180px;
-        border-radius: 15px;
-    }
-
-    .btn-entrar {
-        padding: 6px 12px;
-        font-size: 12px;
-        display: inline-block;
-        margin: 0;
-    }
-
-    .categorias a {
-        font-size: 12px;
-        padding: 3px 6px;
-    }
-
-    .gradedefilmes {
-        grid-template-columns: 1fr;
-        gap: 15px;
-        padding: 10px;
-    }
-
-    .filme img {
-        width: 70%;
-        margin-left: 15%;
-    }
-}
-
-/* Small Devices */
-@media (min-width: 375px) and (max-width: 424px) {
-    .texto h2 {
-        font-size: 18px;
-    }
-
-    .texto p {
-        font-size: 12px;
-    }
-
-    .slide img {
-                height: 177px;
-    }
-
-    .gradedefilmes {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-}
-
-/* Medium Small Devices */
-@media (min-width: 425px) and (max-width: 767px) {
-    .texto h2 {
-        font-size: 20px;
-    }
-
-    .texto p {
-        font-size: 14px;
-    }
-
-    .slide img {
-        height: 220px;
-    }
-
-    .gradedefilmes {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-    }
-
-    .filme img {
-        width: 80%;
-        margin-left: 10%;
-    }
-}
-
-/* Medium Devices */
-@media (min-width: 768px) and (max-width: 1023px) {
-    header {
-        padding: 15px 20px;
-    }
-
-    nav ul {
-        margin-left: 0;
-        gap: 20px;
-        justify-content: center;
-    }
-
-    .texto h2 {
-        font-size: 24px;
-    }
-
-    .texto p {
-        font-size: 14px;
-        max-width: 400px;
-    }
-
-    .slide img {
-        height: 380px;
-        width: 90%;
-    }
-
-    .gradedefilmes {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-    }
-
-    .filme img {
-        width: 90%;
-        margin-left: 5%;
-        aspect-ratio: 2/3;
-    }
-}
-
-/* Large Devices */
-@media (min-width: 1024px) and (max-width: 1439px) {
-    header {
-        padding: 15px 40px;
-    }
-
-    .logo {
-        width: 180px;
-    }
-
-    nav ul {
-        margin-left: 200px;
-        gap: 25px;
-    }
-
-    .texto h2 {
-        font-size: 28px;
-    }
-
-    .texto p {
-        font-size: 16px;
-        max-width: 500px;
-    }
-
-    .slide img {
-        height: 450px;
-    }
-
-    .gradedefilmes {
-        grid-template-columns: repeat(5, 1fr);
-        gap: 20px;
-    }
-
-    .filme img {
-        width: 90%;
-        margin-left: 5%;
-        aspect-ratio: 2/3;
-    }
-}
-
-/* Extra Large Devices */
+/* Base styles for large screens */
 @media (min-width: 1440px) {
     header {
         padding: 20px 60px;
@@ -748,10 +524,194 @@ nav ul li a:hover {
         gap: 25px;
         max-width: 1400px;
     }
+}
 
-    .filme img {
+/* Large Devices */
+@media (min-width: 1024px) and (max-width: 1439px) {
+    header {
+        padding: 15px 40px;
+    }
+
+    .logo {
+        width: 180px;
+    }
+
+    nav ul {
+        margin-left: 100px;
+        margin-right: 100px;
+        gap: 25px;
+    }
+
+    .slide img {
+        height: 450px;
+    }
+
+    .gradedefilmes {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Medium Devices */
+@media (min-width: 768px) and (max-width: 1023px) {
+    header {
+        padding: 15px 20px;
+    }
+
+    nav ul {
+        margin-left: 0;
+        margin-right: 0;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .slide img {
+        height: 380px;
         width: 90%;
-        margin-left: 5%;
-        aspect-ratio: 2/3;
+    }
+
+    .gradedefilmes {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* All mobile devices */
+@media (max-width: 767px) {
+    header {
+        flex-direction: column;
+        padding: 15px;
+        text-align: center;
+    }
+    
+    .logo {
+        width: 150px;
+        margin: 0 auto 15px;
+    }
+    
+    nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    
+    .acao {
+        margin-top: 15px;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .slide img {
+        width: 95%;
+        height: auto;
+        max-height: 300px;
+        border-radius: 20px;
+    }
+
+    .texto {
+        left: 5%;
+        max-width: 90%;
+    }
+
+    .indicadores {
+        bottom: 5px;
+    }
+
+    .gradedefilmes {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .categorias {
+        gap: 10px;
+    }
+    
+    .categorias a {
+        font-size: 14px;
+        padding: 4px 8px;
+    }
+    
+    .barra {
+        margin-bottom: 30px;
+    }
+    
+    .main_footer .content {
+        padding: 3em 0;
+    }
+}
+
+/* Medium Small Devices */
+@media (min-width: 425px) and (max-width: 767px) {
+    .texto h2 {
+        font-size: 20px;
+    }
+
+    .texto p {
+        font-size: 14px;
+    }
+
+    .slide img {
+        height: 220px;
+    }
+}
+
+/* Small Devices */
+@media (min-width: 375px) and (max-width: 424px) {
+    .texto h2 {
+        font-size: 18px;
+    }
+
+    .texto p {
+        font-size: 12px;
+    }
+
+    .slide img {
+        height: 200px;
+    }
+    
+    .gradedefilmes {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 374px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .texto h2 {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+    
+    .texto p {
+        font-size: 12px;
+        line-height: 1.2;
+    }
+    
+    .slide img {
+        height: 122px;
+        border-radius: 15px;
+    }
+    
+    .btn-entrar {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    .categorias a {
+        font-size: 12px;
+        padding: 3px 6px;
+    }
+    
+    .gradedefilmes {
+        grid-template-columns: 1fr;
+        gap: 15px;
     }
 }
