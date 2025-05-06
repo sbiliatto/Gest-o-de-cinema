@@ -13,13 +13,13 @@
 
 <body>
     <header>
-        <a href="homeeae.html"><img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
+        <a href="#" onclick="voltarprahome()">
+            <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
         </a>
         <nav>
             <ul>
                 <li><a href="homePoslogin.html">HOME</a></li>
                 <li><a href="promoções.html">PROMOÇÕES</a></li>
-                <li><a href="relatorios.html">RELATÓRIO</a></li>
             </ul>
         </nav>
 
@@ -137,6 +137,20 @@
             };
 
             $.ajax(settings);
+        }
+
+        var nome = localStorage.getItem("nome")
+        document.getElementById("nome-visitante").innerHTML = nome
+    </script>
+    <script>
+        function voltarprahome() {
+            const tipoUsuario = localStorage.getItem("tipo"); // ou sessionStorage
+    
+            if (tipoUsuario === "adm") {
+                window.location.href = "homeeae.html";
+            } else {
+                window.location.href = "homePoslogin.html";
+            }
         }
     </script>
 

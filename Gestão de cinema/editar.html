@@ -118,7 +118,7 @@
                     Swal.fire({
                         icon: "success",
                         title: "Edição Realizada!",
-                        text: response.message,
+                        text: retorno.message,
                         confirmButtonText: "OK"
                     }).then(() => {
                         localStorage.setItem("nome", dados.get("nome"))

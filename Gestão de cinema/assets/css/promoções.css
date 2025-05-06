@@ -270,6 +270,83 @@ button {
    .colfooter:nth-of-type(3n+0){ margin-right:0; border-right:0;}
    }
 
+/* Estilos do Rodapé */
+.rodape {
+    background-color: black;
+    color: white;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.socialicones {
+    display: flex;
+    gap: 10px;
+    padding-left: 5px;
+}
+
+.socialicones img {
+    width: 30px;
+}
+
+.info {
+    text-align: right;
+    margin-right: 10px;
+}
+
+.info p {
+    margin: 5px 0;
+}
+
+.barraverm {
+    background-color: #B90000;
+    display: flex;
+    justify-content: center;
+    margin-top: 75px;
+}
+
+.barraverm img {
+    background-color: #B90000;
+    width: 17vh;    
+    margin-right: 10px;
+}
+
+/* Media Queries para o Rodapé */
+@media (max-width: 768px) {
+    .rodape {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .socialicones {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .info {
+        text-align: center;
+        margin-right: 0;
+    }
+
+    .info p {
+        font-size: 14px;
+    }
+
+    .barraverm {
+        padding: 10px 0;
+    }
+
+    .barraverm img {
+        width: 120px;
+    }
+}
+ 
+
 /* Perfil logado */
 .perfil-logado {
     display: flex;
@@ -295,38 +372,6 @@ button {
     left: 5%;
     background-color: darkred;
     margin-bottom: 85vh;
-}
-
-.socialicones {
-    display: flex;
-    gap: 10px;
-    padding-left: 5px;
-}
-
-.socialicones img {
-    width: 30px;
-}
-
-.info {
-    text-align: right;
-    margin-right: 10px;
-}
-
-.info p {
-    margin: 5px 0;
-}
-
-.barraverm {
-    background-color: #B90000;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-}
-
-.barraverm img {
-    background-color: #B90000;
-    width: 30vh;
-    margin-right: 10px;
 }
 
 /* Container do perfil */

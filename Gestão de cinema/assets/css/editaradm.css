@@ -7,73 +7,101 @@
 
 body {
     display: flex;
+    flex-direction: column;
     height: 100vh;
 }
 
-.sidebar {
+.container {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.barra {
+    width: 100%;
+    height: 74px;
+    background-color: darkred;
+    display: block;
+    padding: 3px;
+}
+
+.esquerda {
     width: 40%;
-    background: black;
+    background-color: black;
     color: white;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    align-items: center; 
+    justify-content: center; 
+    padding: 42vh; 
+    height: 100vh;
 }
 
-.logo-img {
-    width: 320px; 
-    margin-bottom: 20px;
-}
-
-.logo {
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.container {
+.direita {
     width: 60%;
+    background-color: white;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    background: white;
+    justify-content: center;
+    padding: 80px;
+    padding-left: 200px;
+
 }
 
+
 h1 {
-    color: red;
+    color: rgba(206, 5, 5, 0.86);
+    font-size: 32px;
+    font-weight: bold;
     margin-bottom: 20px;
-    font-size: 28px;
+    text-align: center;
+}
+
+label{
+    color:rgba(206, 5, 5, 0.86);
+    font-size: 15px;
+    font-weight: bold;
 }
 
 input {
     width: 300px;
     padding: 10px;
     margin: 10px 0;
-    border: 2px solid red;
+    border: 2px solid rgba(206, 5, 5, 0.86);;
     border-radius: 5px;
     outline: none;
 }
 
-.buttons {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-    justify-content: center;
+select {
+    width: 300px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid rgba(235, 22, 22, 0.86);;
+    border-radius: 5px;
+    outline: none;
 }
 
-.buttons button {
-    width: 120px;
-    text-align: center;
-}
-
-button {
-    padding: 10px 20px;
+.botao {
+    background-color: rgba(237, 17, 17, 1);
+    color: white;
+    padding: 12px 24px;
     border: none;
     border-radius: 5px;
-    background: red;
-    color: white;
     cursor: pointer;
-    font-weight: bold;
+    font-size: 18px;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block; 
+}
+
+.botao:hover {
+    background-color: brown;
+    transition: 0.9s;
 }
 
 .inactive {
@@ -86,39 +114,160 @@ button {
     text-align: center;
 }
 
+.logo-img {
+    width: 260px;
+}
+
+.rodape {
+    background-color: black;
+    color: white;
+    padding: 40px 20px;
+  }
+  
+  .rodape-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+  }
+  
+  .socialicones a img {
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+    transition: transform 0.3s;
+  }
+  
+  .socialicones a img:hover {
+    transform: scale(1.1);
+  }
+  .info {
+    text-align: right;
+  line-height: 1.8;
+  }
+  
+  .info a {
+    color: #fff;
+    text-decoration: underline;
+  }
+  
+  .barraverm {
+    background-color: #B90000;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .barraverm img {
+    background-color: #B90000;
+    width: 17vh;    
+    margin-right: 10px;
+  }
+  .info {
+    margin-left: 105px;
+  }
+
+/* Responsividade */
+@media (max-width: 1200px) {
+    .direita {
+        padding: 60px;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .esquerda {
+        width: 100%;
+        height: 30vh;
+        padding: 20px;
+    }
+    
+    .direita {
+        width: 100%;
+        height: 70vh;
+        padding: 40px 20px;
+    }
+}
 
 @media (max-width: 768px) {
     body {
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-    }
-
-    .sidebar {
-        width: 100%;
         height: auto;
-        padding: 15px 0;
-        margin-bottom: 35px;
-    }
-
-    .logo-img {
-        width: 150px;
     }
 
     .container {
-        width: 90%;
-        max-width: 500px;
+        flex-direction: column;
+        height: auto;
     }
+    
+    .esquerda {
+        width: 100%;
+        height: 25vh;
+        padding: 15px;
+    }
+    
+    .direita {
+        width: 100%;
+        padding: 30px 20px;
+        height: auto;
+    }
+    
+    .logo-img {
+        width: 180px;
+    }
+    
+    h1 {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+    
+    input, select {
+        width: 100%;
+        max-width: 280px;
+    }
+}
 
+@media (max-width: 480px) {
+    .esquerda {
+        height: 20vh;
+    }
+    
+    .logo-img {
+        width: 150px;
+    }
+    
     h1 {
         font-size: 22px;
     }
-
-    input {
+    
+    input, select {
         font-size: 14px;
-        width: 227px;
+        max-width: 250px;
     }
-    .save-button {
-        width: 100%;
+    
+    .botao {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+}
+
+@media (max-height: 600px) {
+    .container {
+        height: auto;
+    }
+    
+    .esquerda {
+        height: auto;
+        padding: 15px;
+    }
+    
+    .direita {
+        height: auto;
+        padding: 20px;
     }
 }

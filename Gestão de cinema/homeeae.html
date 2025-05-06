@@ -17,8 +17,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 
-    <script src="assets/js/seguranca.js" defer></script> 
+
     <script src="assets/js/seguranca-adm.js" defer></script> 
+
+
 
 
     <title>PrimeCine</title>
@@ -97,7 +99,7 @@
                             <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
                             <ul>
                                 <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
-                                <li><a href="editar.html">✏️ Editar perfil</a></li>
+                                <li><a href="editaradm.html">✏️ Editar perfil</a></li>
                                 <li><a href="login.html" onclick="sair()">🚪 Sair da Conta</a></li>
                             </ul>
                         </div>
@@ -117,7 +119,7 @@
 
                 <div class="slide">
                     <img src="assets/img/slide2.png" alt="Imagem 2">
-                    
+
                 </div>
                 <div class="slide">
                     <img src="assets/img/slide3.png" alt="Imagem 3">
@@ -166,7 +168,7 @@
                 Adicionar Novo Filme
             </a>
         </div>
-        
+
 
         <div class="barra"></div>
 
@@ -174,6 +176,37 @@
 
 
         <div class="barra"></div>
+
+        <footer class="rodape">
+            <div class="rodape-container">
+                <div class="socialicones">
+                    <a href="https://www.instagram.com/">
+                        <img src="assets/img/instagram.png" alt="Instagram">
+                    </a>
+                    <a href="https://www.whatsapp.com/?lang=pt_BR">
+                        <img src="assets/img/whatsapp (1).png" alt="WhatsApp">
+                    </a>
+                    <a href="https://x.com/?lang=pt">
+                        <img src="assets/img/twitter.png" alt="Twitter">
+                    </a>
+                    <a href="https://www.facebook.com/?locale=pt_BR">
+                        <img src="assets/img/facebook.png" alt="Facebook">
+                    </a>
+                </div>
+                <div class="info">
+                    <p><strong>ENDEREÇO:</strong> Rua Bragança, Bairro Tilagro, nº 307 - Birigui</p>
+                    <p><strong>TELEFONE:</strong> (00) 00000-0000</p>
+                    <p><strong>EMAIL:</strong> <a href="mailto:primecine@gmail.com"
+                            style="color: white;">primecine@gmail.com</a></p>
+                </div>
+            </div>
+        </footer>
+    
+        <div class="barraverm">
+            <a href="homePoslogin.html"><img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
+            </a>
+        </div>
+    
 
         <script src="assets/js/homeeae.js"></script>
 
@@ -183,7 +216,7 @@
 
         var nome = localStorage.getItem("nome")
         document.getElementById("nome-visitante").innerHTML = nome
-   
+
 
         function carregaProdutos() {
             var settings = {
@@ -210,7 +243,7 @@
                 <img src="http://192.168.1.144:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
                 <div class="botoes">
                     <a href="editafilme.html?id=${item.id_filme}&titulo=${item.titulo}&classificacao=${item.classificacao}&genero=${item.genero}&sinopse=${item.sinopse}" class="edit">Editar</a>
-                    <a href="inativafilme.html?id=${item.id_filme}" class="edit">Inativar</a>
+                    <button onclick="alterarstatus(${item.id_filme})" class="edit">Deletar</button>
                     </div>
 
        
@@ -218,7 +251,7 @@
             </div>
             `;
 
-            
+
 
                     exibe.html(html)
                 })
@@ -229,6 +262,45 @@
 
         carregaProdutos();
 
+
+
+        function alterarstatus(id_filme) {
+            var token = localStorage.getItem("token")
+
+            var settings = {
+                "url": "http://192.168.1.144:5000/filmes/" + id_filme + "/inativar",
+                "method": "PUT",
+                "timeout": 0,
+                "headers": {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer " + token
+                },
+                "success": function (response) {
+                    console.log(response);
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Sucesso!',
+                        text: 'Filme inativado com sucesso!',
+                        confirmButtonText: 'OK'
+                    }).then(() => {
+                        window.location.href = "homeeae.html";
+                    });
+                },
+                "error": function (xhr, status, error) {
+                    console.error("Erro ao inativar o filme:", error);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Erro!',
+                        text: 'Não foi possível inativar o filme.',
+                        confirmButtonText: 'OK'
+                    });
+                }
+            };
+
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+            });
+        }
 
     </script>
 
