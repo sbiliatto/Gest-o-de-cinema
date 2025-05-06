@@ -342,6 +342,25 @@ footer {
 }
 
 
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: auto;
+    margin-right: 20px;
+}
+.search-box input {
+    padding: 6px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.search-box img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
 
 @media (max-width: 1024px) {
     nav ul {
