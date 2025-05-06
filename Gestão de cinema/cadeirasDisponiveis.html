@@ -420,7 +420,11 @@
                                     icon: "success",
                                     title: "Reserva confirmada! Verifique seu email de login para ter acesso a mais informações :)",
                                     text: `Assentos reservados: ${ids.join(", ")}`
-                                });
+                                }).then(() => {
+                                     window.location.href = "meusPedidos.html";
+                                    });
+
+
     
                                 selecionados.forEach(assento => {
                                     assento.classList.remove("selecionado");
