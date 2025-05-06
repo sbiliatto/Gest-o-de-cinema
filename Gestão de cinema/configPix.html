@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parametrizacao do pix</title>
-    <link rel="stylesheet" href="assets/css/parametrizacaopix.css">
+    <link rel="stylesheet" href="assets/css/configPix.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
@@ -19,27 +19,12 @@
             </a>
         </div>
         <div class="direita">
-            <h1>EDITAR</h1>
-            <input type="text" name="nome" id="nome" placeholder="Edite o nome">
-            <input type="email" name="email" id="email" placeholder="Edite o email">
-            <input type="tel" name="telefone" id="telefone" placeholder="Edite o telefone">
-            <input type="password" name="senha" id="senha" placeholder="Edite a senha">
+            <h1>EDITAR PIX</h1>
+            <input type="text" name="razao_social" id="razao_social" placeholder="Edite a razão social">
+            <input type="text" name="nome_fantasia" id="nome_fantasia" placeholder="Edite o nome">
+            <input type="text" name="chave_pix" id="chave_pix" placeholder="Edite a chave pix">
+            <input type="text" name="cidade" id="cidade" placeholder="Edite a cidade">
 
-
-            <label for="tipo">PERFIL:</label>
-            <select id="tipo">
-                <option value="" selected disabled>Selecione uma opção</option>
-                <option value="usuario">Usuário</option>
-                <option value="adm">Administrador</option>
-            </select>
-
-
-            <label for="editar">FUNCIONALIDADE:</label>
-            <select id="editar" name="editar" required>
-                <option value="" selected disabled>Selecione uma opção</option>
-                <option value=true>Ativo</option>
-                <option value=false>Inativo</option>
-            </select>
 
             <button class="botao">Salvar</button>
         </div>

@@ -16,20 +16,26 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <!-- <script src="assets/js/seguranca.js" defer></script>  -->
+    <script src="assets/js/seguranca.js" defer></script> 
 </head>
 
 <body>
     <header>
-        <a href="homePoslogin.html"><img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
+        <a href="homePoslogin.html">
+            <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
         </a>
-        <nav>
-            <ul>
-                <li><a href="homePoslogin.html">HOME</a></li>
-                <li><a href="promoções.html">PROMOÇÕES</a></li>
-            </ul>
-        </nav>
-
+    
+        <div class="search-box">
+            <img src="assets/img/lupa.png" alt="Buscar" id="searchIcon" onclick="buscarFilme()">
+            <input type="text" id="searchInput" placeholder="Busque um filme Aqui...">
+            <nav>
+                <ul>
+                    <li><a href="homePoslogin.html">HOME</a></li>
+                    <li><a href="promoções.html">PROMOÇÕES</a></li>
+                </ul>
+            </nav>
+        </div>
+    
         <div class="acao">
             <div class="perfil-container">
                 <img onclick="toggleMenu()" class="btn-perfil2" src="assets/img/do-utilizador.png" alt="">
@@ -44,6 +50,16 @@
             </div>
         </div>
     </header>
+    
+    <script>
+    function buscarFilme() {
+        const filme = document.getElementById('searchInput').value.trim();
+        if (filme) {
+            window.location.href = `buscar.html?filme=${encodeURIComponent(filme)}`;
+        }
+    }
+    </script>
+    
 
     <div class="barra"></div>
 

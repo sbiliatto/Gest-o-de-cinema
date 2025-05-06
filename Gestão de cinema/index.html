@@ -21,16 +21,24 @@
 
 <body>
     <header>
-        <a href="index.html"><img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
+        <a href="indexk.html">
+            <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
         </a>
-        <nav>
-            <ul>
+    
+        <div class="search-box">
+            <div style="display: flex;flex-direction: row;gap: 15px;align-items: center;">
+                <img src="assets/img/lupa.png" alt="Buscar" id="searchIcon" onclick="buscarFilme()">
+                <input type="text" id="searchInput" placeholder="Busque um filme Aqui...">
+            </div>
+            <nav>
+                <ul>
                 <li><a href="homePoslogin.html">HOME</a></li>
                 <li><a href="promoções.html">PROMOÇÕES</a></li>
                 <li><a href="cadastro.html">CADASTRE-SE</a></li>
-            </ul>
-        </nav>
-
+                </ul>
+            </nav>
+        </div>
+    
         <div class="acao">
             <div class="perfil-container">
                 <a class="btn-entrar" href="login.html">ENTRAR</a>
@@ -44,7 +52,17 @@
                 </div>
             </div>
         </div>
+
     </header>
+    
+    <script>
+    function buscarFilme() {
+        const filme = document.getElementById('searchInput').value.trim();
+        if (filme) {
+            window.location.href = `buscar.html?filme=${encodeURIComponent(filme)}`;
+        }
+    }
+    </script>       
 
         <div class="barra"></div>
 
