@@ -43,7 +43,7 @@ nav ul {
     list-style: none;
     display: flex;
     gap: 30px;
-    margin-left: 620px;
+    margin-right: auto;
 }
 
 nav ul li a {
@@ -445,7 +445,7 @@ nav ul li a:hover {
     }
     
     nav ul {
-        margin-left: 0;
+        margin-left: 100px;
     }
 
     .pedidos-area h2 {

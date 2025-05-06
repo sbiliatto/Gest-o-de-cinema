@@ -31,7 +31,7 @@ nav ul {
     list-style: none;
     display: flex;
     gap: 30px;
-    margin-left: 620px;
+    margin-right: auto;
 }
 
 nav ul li a {
@@ -428,7 +428,7 @@ nav ul li a:hover {
 
 @media (max-width: 1024px) {
     nav ul {
-        margin-left: 368px;
+        margin-left: 100px;
     }
 }
 
@@ -563,8 +563,11 @@ nav ul li a:hover {
 
 @media (min-width: 767px) {
     .barra {
+
         margin-bottom: 45px;
         width: 95%;
+
+        margin-bottom: 87px;
     }
 }
 

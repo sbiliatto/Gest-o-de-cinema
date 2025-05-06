@@ -30,7 +30,7 @@ nav ul {
     list-style: none;
     display: flex;
     gap: 30px;
-    margin-left: 620px;
+    margin-right: auto;
 }
 
 nav ul li a {
@@ -301,7 +301,7 @@ main {
 
 @media screen and (max-width: 1200px) {
     nav ul {
-      margin-left: 300px;
+      margin-left: 100px;
       gap: 20px;
     }
   }
