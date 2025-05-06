@@ -163,16 +163,14 @@
         $("#form_editar").on("submit", function (e) {
             e.preventDefault();
 
-            // Criando o FormData com o formulário
             let dados = new FormData(this);
 
-            // Verifica se a imagem foi escolhida no input
+           
             const imagem = document.getElementById("imagem").files[0];
             if (imagem) {
-                dados.append("imagem", imagem); // Adiciona a imagem ao FormData
+                dados.append("imagem", imagem); 
             }
 
-            // Cria o objeto que será enviado com os dados do filme
             let envia = {
                 titulo: dados.get("titulo"),
                 classificacao: dados.get("classificacao"),
@@ -182,16 +180,15 @@
                 link: dados.get("link")
             };
 
-            // Converte o objeto para JSON e adiciona ao FormData
             dados.append("filme", JSON.stringify(envia));
 
-            // Envia o FormData via AJAX
+            
             $.ajax({
                 method: "PUT",
                 url: "http://192.168.1.144:5000/filme_imagem/" + id,
                 data: dados,
-                processData: false, // Não processa os dados
-                contentType: false, // Não define o contentType (o browser vai fazer isso automaticamente)
+                processData: false, 
+                contentType: false, 
                 success: function (retorno) {
                     Swal.fire({
                         icon: "success",
@@ -221,8 +218,6 @@
             });
         });
 
-        var nome = localStorage.getItem("nome")
-        document.getElementById("nome-visitante").innerHTML = nome
     </script>
 
 </body>
