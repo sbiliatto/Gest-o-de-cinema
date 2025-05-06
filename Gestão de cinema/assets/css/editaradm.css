@@ -11,12 +11,12 @@ body {
     height: 100vh;
 }
 
-
 .container {
     display: flex;
     height: 100vh;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
 
 .barra {
@@ -45,7 +45,9 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 80px;
     padding-left: 200px;
+
 }
 
 
@@ -116,6 +118,7 @@ select {
     width: 260px;
 }
 
+<<<<<<< HEAD
 .rodape {
     background-color: black;
     color: white;
@@ -164,39 +167,108 @@ select {
     margin-left: 105px;
   }
 
+/* Responsividade */
+@media (max-width: 1200px) {
+    .direita {
+        padding: 60px;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .esquerda {
+        width: 100%;
+        height: 30vh;
+        padding: 20px;
+    }
+    
+    .direita {
+        width: 100%;
+        height: 70vh;
+        padding: 40px 20px;
+    }
+}
 
 @media (max-width: 768px) {
     body {
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-    }
-
-    .sidebar {
-        width: 100%;
         height: auto;
-        padding: 15px 0;
-        margin-bottom: 35px;
-    }
-
-    .logo-img {
-        width: 150px;
     }
 
     .container {
-        width: 90%;
-        max-width: 500px;
+        flex-direction: column;
+        height: auto;
     }
+    
+    .esquerda {
+        width: 100%;
+        height: 25vh;
+        padding: 15px;
+    }
+    
+    .direita {
+        width: 100%;
+        padding: 30px 20px;
+        height: auto;
+    }
+    
+    .logo-img {
+        width: 180px;
+    }
+    
+    h1 {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+    
+    input, select {
+        width: 100%;
+        max-width: 280px;
+    }
+}
 
+@media (max-width: 480px) {
+    .esquerda {
+        height: 20vh;
+    }
+    
+    .logo-img {
+        width: 150px;
+    }
+    
     h1 {
         font-size: 22px;
     }
-
-    input {
+    
+    input, select {
         font-size: 14px;
-        width: 227px;
+        max-width: 250px;
     }
-    .save-button {
-        width: 100%;
+    
+    .botao {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+}
+
+@media (max-height: 600px) {
+    .container {
+        height: auto;
+    }
+    
+    .esquerda {
+        height: auto;
+        padding: 15px;
+    }
+    
+    .direita {
+        height: auto;
+        padding: 20px;
     }
 }

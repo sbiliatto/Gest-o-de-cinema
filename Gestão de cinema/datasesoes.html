@@ -48,7 +48,6 @@
             <ul>
                 <li><a href="homeeae.html">HOME</a></li>
                 <li><a href="promoções.html">PROMOÇÕES</a></li>
-                <li><a href="relatorios.html">RELATÓRIO</a></li>
             </ul>
         </nav>
 
@@ -107,15 +106,13 @@
                 <span>BIRIGUI</span>
             </div>
 
-          
-
             <div class="showtime-container" id="infsessao">
-                
+                <!-- Aqui serão inseridos os horários em linhas de 4 -->
             </div>
         </div>
     </div>
 
-    <div class="barra"></div>
+    <div class="barra" style="clear: both;"></div>
 
     <footer class="main_footer container">
     
@@ -169,12 +166,10 @@
     </footer>
 
     <div class="red-bar">
-        <a href="homePoslogin.html"><img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
-        </a>
+       
     </div>
 
     <script>
-
         const params = new URLSearchParams(window.location.search);
         const id = params.get('id');
         var classificacao = params.get("classificacao")
@@ -212,22 +207,41 @@
                 console.log(retorno)
                 
                 var sessoes = retorno.sessoes
-
-                sessoes.forEach((item) => {
+                var conteudoHTML = '';
+                var contador = 0;
+                
+                // Iniciar a primeira linha
+                conteudoHTML += '<div class="showtime-row">';
+                
+                sessoes.forEach((item, index) => {
                     var dataObj = item.data_sessao.split("-")
                     var dataFormatada = dataObj[2] + "/" + dataObj[1] + "/" + dataObj[0]
-
-
-                    document.getElementById("infsessao").innerHTML += `
-                         <a class="buy-button" href = "cadeirasDisponiveis.html?id=${id}&valor_unitario=${item.valor_unitario}&titulo=${params.get("titulo")}&datasessao=${item.data_sessao}&horario=${item.horario}&id_sessao=${item.id_sessao}&descricao=${item.descricao}"><div class="showtime-box">
-                            <div class="time">${item.horario}</div>
-                            <div class="time">${dataFormatada}</div>
-                           Comprar
-                            <div class="room">${item.descricao}</div>
-                        </div>
-                        <a>
-                    `
-                })
+                    
+                    // Adicionar o box de horário
+                    conteudoHTML += `
+                        <a class="buy-button" href="cadeirasDisponiveis.html?id=${id}&valor_unitario=${item.valor_unitario}&titulo=${params.get("titulo")}&datasessao=${item.data_sessao}&horario=${item.horario}&id_sessao=${item.id_sessao}&descricao=${item.descricao}">
+                            <div class="showtime-box">
+                                <div class="time">${item.horario}</div>
+                                <div class="time">${dataFormatada}</div>
+                                Comprar
+                                <div class="room">${item.descricao}</div>
+                            </div>
+                        </a>
+                    `;
+                    
+                    contador++;
+                    
+                    // Se chegou a 4 itens, fecha a linha atual e inicia uma nova
+                    if (contador % 4 === 0 && index < sessoes.length - 1) {
+                        conteudoHTML += '</div><div class="showtime-row">';
+                    }
+                });
+                
+                // Fechar a última linha
+                conteudoHTML += '</div>';
+                
+                // Inserir todo o HTML de uma vez
+                document.getElementById("infsessao").innerHTML = conteudoHTML;
             }
         };
 
@@ -235,11 +249,8 @@
          console.log(response);
         });
 
-
-
         var nome = localStorage.getItem("nome")
         document.getElementById("nome-visitante").innerHTML = nome
-
     </script>
     <script>
         function voltarprahome() {
@@ -252,8 +263,5 @@
             }
         }
     </script>
-    
-
 </body>
-
 </html>
