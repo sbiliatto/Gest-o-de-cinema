@@ -23,6 +23,27 @@ header {
     position: relative;
 }
 
+.search-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 440px;
+    margin-right: 20px;
+}
+.search-box input {
+    padding: 6px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.search-box img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+
 .btn-entrar {
     background-color: red;
     color: white;
@@ -43,8 +64,6 @@ nav ul {
     list-style: none;
     display: flex;
     gap: 30px;
-    margin-left: 620px;
-    margin-right: 320px;
 }
 
 nav ul li a {
@@ -538,7 +557,6 @@ footer {
     }
 
     nav ul {
-        margin-left: 300px;
         gap: 30px;
     }
 

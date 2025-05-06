@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/datasessoesadm.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <script src="assets/js/seguranca.js" defer></script>
+
+    <title>Sessões- Prime Cine</title>
+
+</head>
+
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById("menuPerfil");
+        menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    }
+
+    window.onclick = function (event) {
+        const menu = document.getElementById("menuPerfil");
+        const botaoPerfil = document.querySelector('.btn-perfil2');
+
+        if (menu.style.display === "block" && event.target !== menu && event.target !== botaoPerfil) {
+            menu.style.display = "none";
+        }
+    }
+</script>
+
+<body>
+    <header class="header">
+        <a href="homeeae.html"><img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial"></a>
+
+        <div class="div-header">
+            <div class="btn-group">
+                <button type="button" class="btn btn-secondary dropdown-toggle bg-black border-2" data-bs-toggle="dropdown" aria-expanded="false">
+                    MENU
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="promoadm.html">PROMOÇÕES</a></li>
+                    <li><a class="dropdown-item" href="relatorios_adm.html">RELATÓRIO</a></li>
+                    <li><a class="dropdown-item" href="homeeae.html">HOME</a></li>
+                    <li><a class="dropdown-item" href="listagem.html">LISTAGEM</a></li>
+                    <li><a class="dropdown-item" href="adicsessao.html">ADICIONAR SESSÃO</a></li>
+                    <li><a class="dropdown-item" href="adcsala.html">ADICIONAR SALA</a></li>
+                </ul>
+            </div>
+
+            <div class="acao">
+                <div class="perfil-container">
+                    <img onclick="toggleMenu()" class="btn-perfil2" src="assets/img/do-utilizador.png" alt="Perfil">
+                    <div class="menu-perfil" id="menuPerfil">
+                        <p>Olá, <span id="nome-visitante">(Nome do visitante)</span></p>
+                        <ul>
+                            <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
+                            <li><a href="editaradm.html">✏️ Editar perfil</a></li>
+                            <li><a href="login.html" onclick="sair()">🚪 Sair da Conta</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="barra1"></div>
+
+    <div class="movie-container">
+        <div class="movie-poster">
+            <img src="assets/img/garland_intl_teaser2_poster_brazil_c487c296.jpeg" alt="Moana 2 Poster" id="imgfilme">
+            <a href="https://youtu.be/DFnAWpQicqo?si=1Fl2fNJxEFXpH6b8" id="trailer" class="trailer">Ver trailer</a>
+        </div>
+        <div class="movie-details">
+            <h1 class="movie-title" id="titulo"> </h1>
+            <div class="generoclass">
+                <div class="classification" id="classification">
+                    <div class="age-rating l">L</div>
+                    <div class="age-rating ten">10</div>
+                    <div class="age-rating twelve">12</div>
+                    <div class="age-rating fourteen">14</div>
+                    <div class="age-rating sixteen">16</div>
+                    <div class="age-rating eighteen">18</div>
+                </div>
+                <p>|</p>
+                <p id="genero">Animação</p>
+            </div>
+            <p class="movie-description" id="sinopse">
+                Após receber um chamado inesperado de seus ancestrais, Moana deve viajar pelos
+                mares distantes da Oceania e entrar em perigosas águas perdidas para viver uma
+                aventura sem precedentes.
+            </p>
+            <div class="location">
+                <img src="assets/img/iconelocal.png" class="localimg" alt="Local">
+                <span>BIRIGUI</span>
+            </div>
+
+            <div class="showtime-container" id="infsessao">
+                <!-- Aqui serão inseridos os horários em linhas de 4 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="rodape">
+        <div class="socialicones">
+            <a href="https://www.instagram.com/">
+                <img src="assets/img/instagram.png" alt="Instagram">
+            </a>
+            <a href="https://www.whatsapp.com/?lang=pt_BR">
+                <img src="assets/img/whatsapp (1).png" alt="WhatsApp">
+            </a>
+            <a href="https://x.com/?lang=pt">
+                <img src="assets/img/twitter.png" alt="Twitter">
+            </a>
+            <a href="https://www.facebook.com/?locale=pt_BR">
+                <img src="assets/img/facebook.png" alt="Facebook">
+            </a>
+        </div>
+        <div class="info">
+            <p><strong>ENDEREÇO:</strong> Rua Bragança, Bairro Tilagro, nº 307 - Birigui</p>
+            <p><strong>TELEFONE:</strong> (00) 00000-0000</p>
+            <p><strong>EMAIL:</strong> <a href="mailto:primecine@gmail.com"
+                    style="color: white;">primecine@gmail.com</a></p>
+        </div>
+    </footer>
+
+    <div class="barraverm">
+        <a href="homePoslogin.html"><img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial"></a>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+        var classificacao = params.get("classificacao")
+
+        document.getElementById("titulo").innerHTML = params.get("titulo")
+        document.getElementById("genero").innerHTML = params.get("genero")
+        document.getElementById("sinopse").innerHTML = params.get("sinopse")
+        document.getElementById("trailer").href = params.get("trailer")
+
+
+        document.getElementById("imgfilme").src = "http://192.168.1.144:5000/static/uploads/Filmes/" + id + ".jpeg"
+
+        if(classificacao == "10") {
+            document.getElementById("classification").innerHTML = '<div class="age-rating ten">10</div>'
+        } else if(classificacao == "12") {
+            document.getElementById("classification").innerHTML = '<div class="age-rating twelve">12</div>'
+        } else if(classificacao == "14") {
+            document.getElementById("classification").innerHTML = '<div class="age-rating fourteen">14</div>'
+        }else if(classificacao == "16") {
+            document.getElementById("classification").innerHTML = '<div class="age-rating sixteen">16</div>'
+        }else if(classificacao == "18") {
+            document.getElementById("classification").innerHTML = '<div class="age-rating eighteen">18</div>'
+        }else if(classificacao == "L") {
+            document.getElementById("classification").innerHTML = '<div class="age-rating l">L</div>'
+        }
+
+
+        var settings = {
+            "url": "http://192.168.1.144:5000/sessoes/" + id,
+            "method": "GET",
+            "timeout": 0,
+            "headers": {
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjo1fQ.0HmIs6nDx3HJK2m407yACClQR8CPGb8CI4IY8r8c2wM"
+            },
+            "success": function(retorno){
+                console.log(retorno)
+                
+                var sessoes = retorno.sessoes
+                var conteudoHTML = '';
+                var contador = 0;
+                
+                // Iniciar a primeira linha
+                conteudoHTML += '<div class="showtime-row">';
+                
+                sessoes.forEach((item, index) => {
+                    var dataObj = item.data_sessao.split("-")
+                    var dataFormatada = dataObj[2] + "/" + dataObj[1] + "/" + dataObj[0]
+                    
+                    // Adicionar o box de horário
+                    conteudoHTML += `
+                        <a class="buy-button" href="cadeirasDisponiveis.html?id=${id}&valor_unitario=${item.valor_unitario}&titulo=${params.get("titulo")}&datasessao=${item.data_sessao}&horario=${item.horario}&id_sessao=${item.id_sessao}&descricao=${item.descricao}">
+                            <div class="showtime-box">
+                                <div class="time">${item.horario}</div>
+                                <div class="time">${dataFormatada}</div>
+                                Comprar
+                                <div class="room">${item.descricao}</div>
+                            </div>
+                        </a>
+                    `;
+                    
+                    contador++;
+                    
+                    // Se chegou a 4 itens, fecha a linha atual e inicia uma nova
+                    if (contador % 4 === 0 && index < sessoes.length - 1) {
+                        conteudoHTML += '</div><div class="showtime-row">';
+                    }
+                });
+                
+                // Fechar a última linha
+                conteudoHTML += '</div>';
+                
+                // Inserir todo o HTML de uma vez
+                document.getElementById("infsessao").innerHTML = conteudoHTML;
+            }
+        };
+
+        $.ajax(settings).done(function (response) {
+         console.log(response);
+        });
+
+        var nome = localStorage.getItem("nome")
+        document.getElementById("nome-visitante").innerHTML = nome
+    </script>
+    <script>
+        function voltarprahome() {
+            const tipoUsuario = localStorage.getItem("tipo"); // ou sessionStorage
+    
+            if (tipoUsuario === "adm") {
+                window.location.href = "homeeae.html";
+            } else {
+                window.location.href = "homePoslogin.html";
+            }
+        }
+        
+    </script>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("menuPerfil");
+            menu.classList.toggle("show");
+        }
+    </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</body>
+</html>

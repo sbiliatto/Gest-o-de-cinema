@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filmes- Prime Cine</title>
     <link rel="stylesheet" href="assets/css/homeeae.css">
+
+    <script src="assets/js/seguranca-adm.js" defer></script>
 </head>
 
 <body>
@@ -18,9 +20,10 @@
 
 
 
-    <!-- <script src="assets/js/seguranca-adm.js" defer></script>  -->
+    <script src="assets/js/seguranca-adm.js" defer></script>  
 
 
+x
 
 
     <title>PrimeCine</title>
@@ -264,10 +267,11 @@
 
                     html += `     
             <div class="filme" >
-                <a href="datasesoes.html?id=${item.id_filme}&titulo=${item.titulo}&classificacao=${item.classificacao}&genero=${item.genero}&trailer=${item.link}&sinopse=${item.sinopse}">
+
+                <a href="datasessoesadm.html?id=${item.id_filme}&titulo=${item.titulo}&classificacao=${item.classificacao}&genero=${item.genero}&trailer=${item.link}&sinopse=${item.sinopse}">
                 <img src="http://192.168.1.144:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
                 <div class="botoes">
-                    <a href="editafilme.html?id=${item.id_filme}&titulo=${item.titulo}&classificacao=${item.classificacao}&genero=${item.genero}&sinopse=${item.sinopse}" class="edit">Editar</a>
+                    <a href="editafilme.html?id=${item.id_filme}&titulo=${item.titulo}&classificacao=${item.classificacao}&genero=${item.genero}&sinopse=${item.sinopse}&duracao=${item.duracao}&link=${item.link}" class="edit">Editar</a>
                     <button onclick="alterarstatus(${item.id_filme})" class="edit">Deletar</button>
                     </div>
 
