@@ -25,7 +25,7 @@ body {
     display: flex;
     align-items: center; 
     justify-content: center; 
-    padding: 36vh; 
+    padding: 42vh; 
     height: 100vh;
 }
 
@@ -37,6 +37,8 @@ body {
     align-items: center;
     justify-content: center;
     padding: 80px;
+    padding-left: 200px;
+
 }
 
 
