@@ -40,7 +40,10 @@
 
 <body>
     <header>
-        <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
+        <a href="#" onclick="voltarprahome()">
+            <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
+        </a>
+        
         <nav>
             <ul>
                 <li><a href="homeeae.html">HOME</a></li>
@@ -234,7 +237,22 @@
 
 
 
+        var nome = localStorage.getItem("nome")
+        document.getElementById("nome-visitante").innerHTML = nome
+
     </script>
+    <script>
+        function voltarprahome() {
+            const tipoUsuario = localStorage.getItem("tipo"); // ou sessionStorage
+    
+            if (tipoUsuario === "adm") {
+                window.location.href = "homeeae.html";
+            } else {
+                window.location.href = "homePoslogin.html";
+            }
+        }
+    </script>
+    
 
 </body>
 
