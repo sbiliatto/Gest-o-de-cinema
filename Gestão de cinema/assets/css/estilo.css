@@ -44,6 +44,7 @@ nav ul {
     display: flex;
     gap: 30px;
     margin-left: 620px;
+    margin-right: 320px;
 }
 
 nav ul li a {
