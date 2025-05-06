@@ -183,6 +183,45 @@
     carregarSalas();
 
 
+    $("#id_filme").on("change", function () {
+        var id_filme = $(this).val();
+        console.log(id_filme)
+
+        var settings = {
+            "url": "http://192.168.1.144:5000/sessoes/" + id_filme,
+            "method": "GET",
+            "timeout": 0,
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + localStorage.getItem("token")
+            }
+        };
+
+        $.ajax(settings).done(function (response) {
+            response.sessoes.forEach((item) => {
+                console.log(item)
+
+                var dataFormatada = new Date(item.data_sessao).toLocaleDateString('pt-BR', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric'
+                });
+
+                var horario = item.horario; // ex: "12:30:00"
+                var horaFormatada = horario.substring(0, 5); // pega "12:30"
+
+                
+
+                document.getElementById("id_sessao").innerHTML += `
+                    <option value="${item.id_sessao}">${item.descricao} -${horaFormatada} -${dataFormatada} </option>
+                `;
+            });
+        });
+
+    });
+
+
+
 
     $("#form_cadastro").on("submit", function (e) {
     e.preventDefault();
@@ -227,6 +266,9 @@
     });
 });
 </script>
+
+<span id="data-formatada"></span>
+
 
 </body>
 
