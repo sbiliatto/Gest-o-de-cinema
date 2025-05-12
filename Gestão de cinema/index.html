@@ -59,7 +59,7 @@
     function buscarFilme() {
         const filme = document.getElementById('searchInput').value.trim();
         if (filme) {
-            window.location.href = buscar.html?filme=${encodeURIComponent(filme)};
+            window.location.href = `buscar.html?filme=${encodeURIComponent(filme)}`;
         }
     }
     </script>       
