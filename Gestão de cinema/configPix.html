@@ -20,7 +20,7 @@
 <body>
     <div class="container">
         <div class="esquerda">
-            <a href="homePoslogin.html"><img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
+            <a href="homeeae.html"><img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
             </a>
         </div>
         <div class="direita">
@@ -44,45 +44,22 @@
             </form>
         </div>
     </div>
-    <script>
-        const params = new URLSearchParams(window.location.search);
-        const id = params.get('id');
+   <script>
 
-        document.getElementById("razao_social").value = params.get("razao_social");
-        document.getElementById("nome_fantasia").value = params.get("nome_fantasia");
-        document.getElementById("chave_pix").value = params.get("chave_pix");
-        document.getElementById("cidade").value = params.get("cidade");
-
-        $("#form_editar").on("submit", function (e) {
-            e.preventDefault();
-
-            let envia = {
-                razao_social: $("#razao_social").val(),
-                nome_fantasia: $("#nome_fantasia").val(),
-                chave_pix: $("#chave_pix").val(),
-                cidade: $("#cidade").val(),
-            };
+        function buscarDados() {
 
             $.ajax({
-                method: "POST",
+                method: "GET",
                 url: "http://192.168.1.111:5000/configurar-pix",
                 contentType: "application/json",
-                data: JSON.stringify(envia),
                 success: function (retorno) {
-                    Swal.fire({
-                        icon: "success",
-                        title: "Edição Realizada!",
-                        text: retorno.message,
-                        confirmButtonText: "OK"
-                    }).then(() => {
-                        localStorage.setItem("razao_social", envia.razao_social);
-                        localStorage.setItem("nome_fantasia", envia.nome_fantasia);
-                        localStorage.setItem("chave_pix", envia.chave_pix);
-                        localStorage.setItem("cidade", envia.cidade);
-
-                        window.location.href = "homeeae.html";
-                    });
+                    console.log("Dados recebidos:", retorno);
+                    document.getElementById("razao_social").value = retorno.usuarios.razao_social
+                    document.getElementById("nome_fantasia").value = retorno.usuarios.nome_fantasia
+                    document.getElementById("chave_pix").value = retorno.usuarios.chave_pix
+                    document.getElementById("cidade").value = retorno.usuarios.cidade
                 },
+               
                 error: function (retorno) {
                     console.error("Erro completo:", retorno);
                     Swal.fire({
@@ -92,8 +69,51 @@
                         confirmButtonText: "OK"
                     });
                 }
+            });            
+     }
+
+     document.addEventListener("DOMContentLoaded", function () {
+        buscarDados();
+    });
+
+        function validarFormulario(event) {
+            event.preventDefault(); // Evita o recarregamento do formulário
+
+            const dados = {
+                razao_social: document.getElementById("razao_social").value,
+                nome_fantasia: document.getElementById("nome_fantasia").value,
+                chave_pix: document.getElementById("chave_pix").value,
+                cidade: document.getElementById("cidade").value
+            };
+
+            $.ajax({
+                method: "POST",
+                url: "http://192.168.1.111:5000/configurar-pix",
+                contentType: "application/json",
+                data: JSON.stringify(dados),
+                success: function (resposta) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Sucesso!",
+                        text: resposta.mensagem || "Dados atualizados com sucesso.",
+                        confirmButtonText: "OK"
+                    });
+                },
+                error: function (erro) {
+                    console.error("Erro completo:", erro);
+                    Swal.fire({
+                        icon: "error",
+                        title: "Erro!",
+                        text: erro.responseJSON?.erro || "Erro ao salvar os dados.",
+                        confirmButtonText: "OK"
+                    });
+                }
             });
-        });
+        }
+
+
+
+    
     </script>
 </body>
 
