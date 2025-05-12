@@ -19,10 +19,9 @@
 
 </head>
 
-
 <body>
     <header>
-        <a href="index.html">
+        <a href="indexk.html">
             <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
         </a>
     
@@ -56,40 +55,14 @@
 
     </header>
     
-<script>
-function buscarFilme() {
-    const termo = $("#searchInput").val().trim();
-
-    if (!termo) return;
-
-    $.ajax({
-        url: `http://192.168.1.144:5000/buscar-filmes`,
-        method: 'GET',
-        data: { termo },
-        success: function (filmes) {
-            let html = "";
-
-            filmes.forEach(filme => {
-                html += `
-                    <div class="filme">
-                        <a href="#">
-                            <img src="http://192.168.1.144:5000/static/uploads/Filmes/${filme.id}.jpeg" alt="${filme.titulo}">
-                            <p>${filme.titulo}</p>
-                        </a>
-                    </div>
-                `;
-            });
-
-            $("#exibeFilmes").html(html || "<p>Nenhum filme encontrado.</p>");
-        },
-        error: function () {
-            Swal.fire("Erro", "Erro ao buscar filmes. Tente novamente.", "error");
+    <script>
+    function buscarFilme() {
+        const filme = document.getElementById('searchInput').value.trim();
+        if (filme) {
+            window.location.href = buscar.html?filme=${encodeURIComponent(filme)};
         }
-    });
-}
-</script>
-
-
+    }
+    </script>       
 
         <div class="barra"></div>
 
@@ -148,7 +121,7 @@ function buscarFilme() {
 
     <div class="gradedefilmes" id="exibeFilmes"></div>
 
-<!--  -->
+
     <div class="barra3  "></div>
 
     <footer class="main_footer_container">
@@ -218,32 +191,6 @@ function carregaProdutos() {
             "Content-Type": "application/json"
         }
     };
-    function carregaProdutos() {
-        var settings = {
-            "url":"http://192.168.1.111:5000/filmes",
-            "method": "GET",
-            "timeout": 0,
-            "headers": {
-                "Content-Type": "application/json"
-            }
-        };
-    $.ajax(settings).done(function (response) {
-        const exibe = $("#exibeFilmes");
-        exibe.html(""); 
-
-        let html = "";
-
-            var html = ""
-
-            response.filmes.forEach((item) => {
-                console.log(item)
-
-                html += `
-            
-            <div class="filme" >
-                <a href="">
-                    <img src="http://192.168.1.111:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
-                </a>
 
     $.ajax(settings).done(function (response) {
         const exibe = $("#exibeFilmes");
@@ -251,22 +198,12 @@ function carregaProdutos() {
 
         let html = "";
 
->>>>>>> Stashed changes
-=======
-    $.ajax(settings).done(function (response) {
-        const exibe = $("#exibeFilmes");
-        exibe.html(""); 
-
-        let html = "";
-
->>>>>>> Stashed changes
         response.filmes.forEach((item) => {
             html += `
                 <div class="filme">
                     <a href="#">
                         <img src="http://192.168.1.144:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
                     </a>
-
                 </div>
             `;
         });
@@ -277,5 +214,6 @@ function carregaProdutos() {
 
 carregaProdutos();
 </script>
+
 
 </html>
