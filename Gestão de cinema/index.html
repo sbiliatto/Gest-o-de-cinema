@@ -220,6 +220,7 @@ function carregaProdutos() {
     };
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     function carregaProdutos() {
         var settings = {
             "url":"http://192.168.1.111:5000/filmes",
@@ -249,12 +250,23 @@ function carregaProdutos() {
                     <img src="http://192.168.1.111:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
                 </a>
 =======
+=======
+    $.ajax(settings).done(function (response) {
+        const exibe = $("#exibeFilmes");
+        exibe.html(""); 
+
+        let html = "";
+
+>>>>>>> Stashed changes
         response.filmes.forEach((item) => {
             html += `
                 <div class="filme">
                     <a href="#">
                         <img src="http://192.168.1.144:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
                     </a>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                 </div>
             `;
