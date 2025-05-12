@@ -21,6 +21,18 @@ header {
     color: white;
     position: relative;
 }
+.star-rating {
+    font-size: 30px;
+    display: flex;
+    gap: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.star-rating .star {
+    transition: color 0.2s;
+    color: rgb(255, 255, 255);
+}
 
 .logo {
     width: 20vh;
@@ -827,6 +839,146 @@ nav ul li a:hover {
     margin-top: 20px;
     margin-bottom: 50px; 
 }
+
+
+/* Corpo da página */
+body {
+    background-color: #121212; /* Fundo escuro para o corpo */
+    color: #fff; /* Texto em branco */
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #000; /* Fundo escuro */
+    padding: 10px 30px;
+    border-bottom: 4px solid #8B0000; /* Cor da borda */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.logo {
+    height: 60px;
+}
+
+/* Div que contém o menu e o perfil */
+.div-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Estilo do botão no menu */
+.btn-group .btn {
+    color: white;
+    background-color: #333; /* Botão escuro */
+    border-color: #444; /* Borda escura */
+}
+
+/* Estilo do menu de perfil */
+.perfil-container {
+    position: relative;
+}
+
+.btn-perfil2 {
+    width: 35px;
+    cursor: pointer;
+}
+
+.menu-perfil {
+    display: none;
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background-color: #111; /* Fundo escuro */
+    border: 1px solid #8B0000;
+    padding: 10px;
+    border-radius: 8px;
+    width: 180px;
+    z-index: 999;
+}
+
+/* Exibir menu ao clicar */
+.menu-perfil.show {
+    display: block;
+}
+
+/* Estilo da lista no menu de perfil */
+.menu-perfil ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-perfil li {
+    margin: 8px 0;
+}
+
+.menu-perfil a {
+    color: #fff; /* Texto branco */
+    text-decoration: none;
+}
+
+/* Painel principal */
+.painel-container {
+    padding: 40px 60px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    background-color: #1a1a1a; /* Cor de fundo do painel */
+}
+
+/* Cartões dentro do painel */
+.card-painel {
+    background-color: #222; /* Fundo escuro nos cartões */
+    border: 2px solid #8B0000; /* Borda vermelha */
+    border-radius: 12px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+}
+
+/* Títulos dentro dos cartões */
+.card-painel h2 {
+    color: #fff; /* Texto branco */
+    font-size: 20px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #8B0000; /* Linha vermelha embaixo */
+    padding-bottom: 5px;
+}
+
+/* Inputs de data */
+.card-painel input[type="date"] {
+    background-color: #333; /* Fundo escuro para input */
+    color: white; /* Texto branco */
+    border: 1px solid #8B0000; /* Borda vermelha */
+    padding: 5px;
+    margin: 5px 0;
+}
+
+/* Valor total */
+.valor {
+    font-size: 24px;
+    color: #8B0000; /* Cor vermelha */
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Aumentar a legibilidade e ajustar contraste */
+a {
+    color: #8B0000; /* Cor vermelha para links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline; /* Sublinhar no hover */
+}
+
 
 @media (max-width: 768px) {
     .showtime-row {
