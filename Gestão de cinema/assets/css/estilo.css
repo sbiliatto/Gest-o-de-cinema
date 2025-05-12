@@ -508,8 +508,7 @@ footer {
    .main_footer_copy .by a       { color:#fff; text-decoration:none; }
    .main_footer_copy .by a:hover { text-decoration:underline; }
    .main_footer_copy .by i { font-size:0.96em; margin-right:3px; color:#e82626; }
-   /*Responsivo*/
-   /*768PX BREAKPOINT*/
+   
    @media (min-width:48em){
    .colfooter  { width:30%; margin-right:5%; margin-bottom:0; }
    .colfooter:nth-of-type(3n+0){ margin-right:0; border-right:0;}
@@ -544,9 +543,7 @@ footer {
     max-width: 200px;
 }
 
-/* Responsive Styles - Improved Version */
 
-/* Base styles for large screens */
 @media (min-width: 1440px) {
     header {
         padding: 20px 60px;
@@ -580,7 +577,6 @@ footer {
     }
 }
 
-/* Large Devices */
 @media (min-width: 1024px) and (max-width: 1439px) {
     header {
         padding: 15px 40px;
@@ -605,7 +601,6 @@ footer {
     }
 }
 
-/* Medium Devices */
 @media (min-width: 768px) and (max-width: 1023px) {
     header {
         padding: 15px 20px;
@@ -628,7 +623,6 @@ footer {
     }
 }
 
-/* All mobile devices */
 @media (max-width: 767px) {
     header {
         flex-direction: column;
@@ -703,7 +697,6 @@ footer {
     }
 }
 
-/* Medium Small Devices */
 @media (min-width: 425px) and (max-width: 767px) {
     .texto h2 {
         font-size: 20px;
@@ -718,7 +711,6 @@ footer {
     }
 }
 
-/* Small Devices */
 @media (min-width: 375px) and (max-width: 424px) {
     .texto h2 {
         font-size: 18px;
@@ -737,7 +729,6 @@ footer {
     }
 }
 
-/* Extra Small Devices */
 @media (max-width: 374px) {
     nav ul {
         flex-direction: column;
