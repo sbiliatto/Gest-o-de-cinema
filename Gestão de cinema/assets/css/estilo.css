@@ -381,9 +381,7 @@ footer {
    }
 
    .main_footer_container .content {
-    display: flex
-;
-    flex-wrap: wrap;
+    display: flex;
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
