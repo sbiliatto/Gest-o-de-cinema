@@ -19,7 +19,6 @@
 
 </head>
 
-
 <body>
     <header>
         <a href="indexk.html">
@@ -60,7 +59,7 @@
     function buscarFilme() {
         const filme = document.getElementById('searchInput').value.trim();
         if (filme) {
-            window.location.href = `buscar.html?filme=${encodeURIComponent(filme)}`;
+            window.location.href = buscar.html?filme=${encodeURIComponent(filme)};
         }
     }
     </script>       
@@ -122,7 +121,7 @@
 
     <div class="gradedefilmes" id="exibeFilmes"></div>
 
-<!--  -->
+
     <div class="barra3  "></div>
 
     <footer class="main_footer_container">
@@ -183,44 +182,38 @@
 
 </body>
 <script defer>
-    
+function carregaProdutos() {
+    const settings = {
+        url: "http://192.168.1.144:5000/filmes",
+        method: "GET",
+        timeout: 0,
+        headers: {
+            "Content-Type": "application/json"
+        }
+    };
 
-    function carregaProdutos() {
-        var settings = {
-            "url":"http://192.168.1.111:5000/filmes",
-            "method": "GET",
-            "timeout": 0,
-            "headers": {
-                "Content-Type": "application/json"
-            }
-        };
+    $.ajax(settings).done(function (response) {
+        const exibe = $("#exibeFilmes");
+        exibe.html(""); 
 
-        $.ajax(settings).done(function (response) {
-            let exibe = $("#exibeFilmes")
-            exibe.html(" ")
+        let html = "";
 
-            var html = ""
-
-            response.filmes.forEach((item) => {
-                console.log(item)
-
-                html += `
-            <div class="filme" >
-                <a href="">
-                    <img src="http://192.168.1.111:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
-                </a>
+        response.filmes.forEach((item) => {
+            html += `
+                <div class="filme">
+                    <a href="#">
+                        <img src="http://192.168.1.144:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
+                    </a>
                 </div>
             `;
-
-                exibe.html(html)
-            })
-
-
         });
-    }
 
-    carregaProdutos();
+        exibe.html(html); 
+    });
+}
 
+carregaProdutos();
 </script>
+
 
 </html>

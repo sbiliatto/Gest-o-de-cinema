@@ -53,12 +53,37 @@
     
     <script>
     function buscarFilme() {
-        const filme = document.getElementById('searchInput').value.trim();
-        if (filme) {
-            window.location.href = `buscar.html?filme=${encodeURIComponent(filme)}`;
-        }
+        const termo = $("#searchInput").val().trim();
+
+        if (!termo) return;
+
+        $.ajax({
+            url: `http://192.168.1.144:5000/buscar-filmes`,
+            method: 'GET',
+            data: { termo },
+            success: function (filmes) {
+                let html = "";
+
+                filmes.forEach(filme => {
+                    html += `
+                        <div class="filme">
+                            <a href="#">
+                                <img src="http://192.168.1.144:5000/static/uploads/Filmes/${filme.id}.jpeg" alt="${filme.titulo}">
+                                <p>${filme.titulo}</p>
+                            </a>
+                        </div>
+                    `;
+                });
+
+                $("#exibeFilmes").html(html || "<p>Nenhum filme encontrado.</p>");
+            },
+            error: function () {
+                Swal.fire("Erro", "Erro ao buscar filmes. Tente novamente.", "error");
+            }
+        });
     }
     </script>
+
     
 
     <div class="barra"></div>
