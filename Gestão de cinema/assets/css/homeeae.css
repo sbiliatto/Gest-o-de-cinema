@@ -7,6 +7,10 @@
     text-decoration: none !important;
 }
 
+.bg-dark {
+background-color: #000 !important;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #000!important;
@@ -19,7 +23,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: black;
+    background: black !important;
     padding: 15px 5%;
     color: white;
 }
@@ -67,6 +71,8 @@ header {
 .btn-perfil:hover {
     background-color: #cc0000;
 }
+
+
 
 /* Menu suspenso */
 .menu-perfil {
