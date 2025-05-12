@@ -16,15 +16,14 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>PrimeCine</title>
-
 </head>
 
 <body>
     <header>
-        <a href="indexk.html">
+        <a href="index.html">
             <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
         </a>
-    
+
         <div class="search-box">
             <div style="display: flex;flex-direction: row;gap: 15px;align-items: center;">
                 <img src="assets/img/lupa.png" alt="Buscar" id="searchIcon" onclick="buscarFilme()">
@@ -32,13 +31,13 @@
             </div>
             <nav>
                 <ul>
-                <li><a href="homePoslogin.html">HOME</a></li>
-                <li><a href="promoções.html">PROMOÇÕES</a></li>
-                <li><a href="cadastro.html">CADASTRE-SE</a></li>
+                    <li><a href="homePoslogin.html">HOME</a></li>
+                    <li><a href="promoções.html">PROMOÇÕES</a></li>
+                    <li><a href="cadastro.html">CADASTRE-SE</a></li>
                 </ul>
             </nav>
         </div>
-    
+
         <div class="acao">
             <div class="perfil-container">
                 <a class="btn-entrar" href="login.html">ENTRAR</a>
@@ -52,41 +51,152 @@
                 </div>
             </div>
         </div>
-
     </header>
-    
-    <script>
-    function buscarFilme() {
-        const filme = document.getElementById('searchInput').value.trim();
-        if (filme) {
-            window.location.href = buscar.html?filme=${encodeURIComponent(filme)};
-        }
-    }
-    </script>       
 
-        <div class="barra"></div>
+    <div class="barra"></div>
 
-        <div class="carrossel-container">
-            <div class="slides">
-                <div class="slide">
-                    <img src="assets/img/slide1.png" alt="Imagem 1">
-                </div>
-
-                <div class="slide">
-                    <img src="assets/img/slide2.png" alt="Imagem 2">
-                </div>
-                <div class="slide">
-                    <img src="assets/img/slide3.png" alt="Imagem 3">
-                </div>
-        </div>
-            <div class="indicadores">
-                <span class="indicador ativo" onclick="mudarSlide(0)"></span>
-                <span class="indicador" onclick="mudarSlide(1)"></span>
-                <span class="indicador" onclick="mudarSlide(2)"></span>
+    <div class="carrossel-container">
+        <div class="slides">
+            <div class="slide">
+                <img src="assets/img/slide1.png" alt="Imagem 1">
+            </div>
+            <div class="slide">
+                <img src="assets/img/slide2.png" alt="Imagem 2">
+            </div>
+            <div class="slide">
+                <img src="assets/img/slide3.png" alt="Imagem 3">
             </div>
         </div>
+        <div class="indicadores">
+            <span class="indicador ativo" onclick="mudarSlide(0)"></span>
+            <span class="indicador" onclick="mudarSlide(1)"></span>
+            <span class="indicador" onclick="mudarSlide(2)"></span>
+        </div>
+    </div>
+
+    <br><br>
+
+    <div class="categorias">
+        <a href="#">AVENTURA</a>
+        <a href="#">ROMANCE</a>
+        <a href="#">FANTASIA</a>
+        <a href="#">AÇÃO</a>
+        <a href="#">TERROR</a>
+        <a href="#">COMÉDIA</a>
+    </div>
+
+    <div class="barra"></div>
+
+    <div class="gradedefilmes" id="exibeFilmes"></div>
+
+    <div class="barra3"></div>
+
+    <footer class="main_footer_container">
+        <div class="content">
+            <div class="colfooter">
+                <h3 class="titleFooter"> Menu</h3>
+                <ul>
+                    <li><a href="#" title="Página Inícial">Página Inícial</a></li>
+                    <li><a href="promoções.html" title="Promoções">Promoções</a></li>
+                    <li><a href="relatorios.html" title="Relatório">Relatório</a></li>
+                    <li><a href="cadastro.html" title="Cadastro">Cadastro</a></li>
+                </ul>
+            </div>
+            <div class="colfooter">
+                <h3 class="titleFooter"> Contato</h3>
+                <p><i class="icon icon-mail"></i>primecine@gmail.com</p>
+                <p><i class="icon icon-phone"></i> (00) 00000-0000</p>
+                <p><i class="icon icon-whatsapp"></i> (11) 11111-1111</p>
+            </div>
+            <div class="colfooter">
+                <h3 class="titleFooter"> Redes Sociais</h3>
+                <div style="display: flex; flex-direction: row; gap: 15px;">
+                    <a class="rss" href="https://www.instagram.com/">
+                        <img src="assets/img/instagram.png" alt="Instagram">
+                    </a>
+                    <a class="rss" href="https://www.whatsapp.com/?lang=pt_BR">
+                        <img src="assets/img/whatsapp (1).png" alt="WhatsApp">
+                    </a>
+                    <a class="rss" href="https://x.com/?lang=pt">
+                        <img src="assets/img/twitter.png" alt="Twitter">
+                    </a>
+                    <a class="rss" href="https://www.facebook.com/?locale=pt_BR">
+                        <img src="assets/img/facebook.png" alt="Facebook">
+                    </a>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="main_footer_copy">
+            <p class="m-b-footer"> PrimeCine - 2025 © todos os direitos reservados</p>
+        </div>
+    </footer>
 
     <script>
+        function buscarFilme() {
+            const termo = $("#searchInput").val().trim();
+            if (!termo) return;
+
+            $.ajax({
+                url: "http://192.168.1.111:5000/buscar-filmes",
+                method: 'GET',
+                data: { termo },
+                success: function (filmes) {
+                    let html = "";
+                    filmes.forEach(filme => {
+                        html += `
+                            <div class="filme">
+                                <a href="#">
+                                    <img src="http://192.168.1.111:5000/static/uploads/Filmes/${filme.id}.jpeg" alt="${filme.titulo}">
+                                    <p>${filme.titulo}</p>
+                                </a>
+                            </div>
+                        `;
+                    });
+                    $("#exibeFilmes").html(html || "<p>Nenhum filme encontrado.</p>");
+                },
+                error: function () {
+                    Swal.fire("Erro", "Erro ao buscar filmes. Tente novamente.", "error");
+                }
+            });
+        }
+
+        document.getElementById('searchInput').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        buscarFilme();
+    }
+    });
+
+        function carregaProdutos() {
+            const settings = {
+                url: "http://192.168.1.111:5000/filmes",
+                method: "GET",
+                timeout: 0,
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            };
+
+            $.ajax(settings).done(function (response) {
+                const exibe = $("#exibeFilmes");
+                exibe.html("");
+                let html = "";
+                response.filmes.forEach((item) => {
+                    html += `
+                        <div class="filme">
+                            <a href="#">
+                                <img src="http://192.168.1.111:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
+                                <p>${item.titulo}</p>
+                            </a>
+                        </div>
+                    `;
+                });
+                exibe.html(html);
+            });
+        }
+
+        carregaProdutos();
+
         let indiceAtual = 0;
         const slides = document.querySelector(".slides");
         const indicadores = document.querySelectorAll(".indicador");
@@ -105,115 +215,6 @@
             mudarSlide(indiceAtual);
         }, 10000);
     </script>
-
-    <br><br>
-
-    <div class="categorias">
-        <a href="#">AVENTURA</a>
-        <a href="#">ROMANCE</a>
-        <a href="#">FANTASIA</a>
-        <a href="#">AÇÃO</a>
-        <a href="#">TERROR</a>
-        <a href="#">COMÉDIA</a>
-    </div>
-    
-    <div class="barra"></div>
-
-    <div class="gradedefilmes" id="exibeFilmes"></div>
-
-
-    <div class="barra3  "></div>
-
-    <footer class="main_footer_container">
-    
-        <div class="content">
-            <div class="colfooter">
-                
-                <h3 class="titleFooter"> Menu</h3>
-                
-                <ul>
-                
-                  <li><a href="#" title="Página Inícial">Página Inícial</a></li>
-                  <li><a href="promoções.html" title="Promoções">Promoções</a></li>
-                  <li><a href="relatorios.html" title="Relatório">Relatório</a></li>
-                  <li><a href="cadastro.html" title="Cadastro">Cadastro</a></li>
-                
-                </ul>
-            </div><!--Col Footer 1-->        
-            <div class="colfooter">
-               
-               <h3 class="titleFooter"> Contato</h3>
-               <p><i class="icon icon-mail"></i>primecine@gmail.com</p>
-               <p><i class="icon icon-phone"></i> (00) 00000-0000</p>
-               <p><i class="icon icon-whatsapp"></i> (11) 11111-1111</p>
-            </div><!--Col Footer 2-->
-            <div class="colfooter">
-               
-               <h3 class="titleFooter"> Redes Sociais</h3>
-                
-               <div style="display: flex; flex-direction: row; gap: 15px;">
-                    <a class="rss" href="https://www.instagram.com/">
-                    <img src="assets/img/instagram.png" alt="Instagram">
-                    </a>
-                    <a class="rss" href="https://www.whatsapp.com/?lang=pt_BR">
-                        <img src="assets/img/whatsapp (1).png" alt="WhatsApp">
-                    </a>
-                    <a class="rss" href="https://x.com/?lang=pt">
-                        <img src="assets/img/twitter.png" alt="Twitter">
-                    </a>
-                    <a class="rss" href="https://www.facebook.com/?locale=pt_BR">
-                        <img src="assets/img/facebook.png" alt="Facebook">
-                    </a>
-               </div>
-
-            </div><!--Col Footer 3-->
-            <div class="clear"></div>
-        
-        </div><!--Contant-->
-        <div class="main_footer_copy">
-            
-            <p class="m-b-footer"> PrimeCine - 2025 © todos os direitos reservados</p> 
-        
-        </div>
-    </footer>
-
-
-
-
 </body>
-<script defer>
-function carregaProdutos() {
-    const settings = {
-        url: "http://192.168.1.144:5000/filmes",
-        method: "GET",
-        timeout: 0,
-        headers: {
-            "Content-Type": "application/json"
-        }
-    };
-
-    $.ajax(settings).done(function (response) {
-        const exibe = $("#exibeFilmes");
-        exibe.html(""); 
-
-        let html = "";
-
-        response.filmes.forEach((item) => {
-            html += `
-                <div class="filme">
-                    <a href="#">
-                        <img src="http://192.168.1.144:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
-                    </a>
-                </div>
-            `;
-        });
-
-        exibe.html(html); 
-    });
-}
-
-carregaProdutos();
-</script>
-
 
 </html>
