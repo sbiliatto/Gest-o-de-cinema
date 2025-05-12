@@ -507,6 +507,11 @@ footer {
     .logo {
         width: 100px;
     }
+
+    .search-box {
+    display: flex;
+    display: block;
+}
     
     nav ul {
         flex-wrap: wrap;
@@ -580,8 +585,8 @@ footer {
     }
     
     .slide img {
-        height: 140px;
-        width: 95%;
+        height: 128px;
+        width: 99%;
     }
     
     .filme {
