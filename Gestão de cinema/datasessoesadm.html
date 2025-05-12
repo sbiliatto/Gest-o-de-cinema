@@ -17,7 +17,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
-    <script src="assets/js/seguranca.js" defer></script>
+    <script src="assets/js/seguranca-adm.js" defer></script> 
 
     <title>Sessões- Prime Cine</title>
 
@@ -55,6 +55,8 @@
                     <li><a class="dropdown-item" href="listagem.html">LISTAGEM</a></li>
                     <li><a class="dropdown-item" href="adicsessao.html">ADICIONAR SESSÃO</a></li>
                     <li><a class="dropdown-item" href="adcsala.html">ADICIONAR SALA</a></li>
+                    <li><a class="dropdown-item" href="paineladm.html">PAINEL ADMINISTRATIVO</a></li>
+                    <li><a class="dropdown-item" href="configPix.html">CONFIGURAR PIX</a></li>
                 </ul>
             </div>
 
@@ -261,7 +263,7 @@
                 selectedRating = index + 1;
 
                 stars.forEach((s, i) => {
-                    s.style.color = i < selectedRating ? 'gold' : 'black';
+                    s.style.color = i < selectedRating ? 'gold' : 'white';
                 });
             });
         });

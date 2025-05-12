@@ -4,50 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parametrização do Pix</title>
-    <link rel="stylesheet" href="assets/css/configPix.css">
+    <title>Configurar Pix- Prime Cine</title>
+    <link rel="stylesheet" href="assets/css/editar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
     <script src="assets/js/seguranca.js" defer></script>
+
+
 </head>
 
 <body>
     <div class="container">
         <div class="esquerda">
-            <a href="index.html"><img class="logo-img" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial"></a>
+            <a href="homePoslogin.html"><img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
+            </a>
         </div>
         <div class="direita">
-            <h1>EDITAR PIX</h1>
-            <form id="form_editar">
-                <input type="text" name="razao_social" id="razao_social" placeholder="Edite a razão social">
-                <input type="text" name="nome_fantasia" id="nome_fantasia" placeholder="Edite o nome">
-                <input type="text" name="chave_pix" id="chave_pix" placeholder="Edite a chave pix">
-                <input type="text" name="cidade" id="cidade" placeholder="Edite a cidade">
-                <button type="submit" class="botao">Salvar alterações</button>
+            <h2>Configurar Pix:</h2>
+            <form id="form_editar" onsubmit="validarFormulario(event)">
+                <div class="campo">
+                    <input type="text" name="razao_social" id="razao_social" placeholder="Edite a razão social">
+                </div>
+                <div class="campo">
+                   <input type="text" name="nome_fantasia" id="nome_fantasia" placeholder="Edite o nome">
+                </div>
+                <span id="erro-telefone" class="erro"></span>
+                <div class="campo">
+                    <input type="text" name="chave_pix" id="chave_pix" placeholder="Edite a chave pix">
+                </div>
+                <span id="erro-email" class="erro"></span>
+                <div class="campo">
+                    <input type="text" name="cidade" id="cidade" placeholder="Edite a cidade">
+                </div>
+                <button type="submit" class="botao">SALVAR</button>
             </form>
         </div>
     </div>
-
-    <div class="barra"></div>
-
-    <footer class="rodape">
-        <div class="socialicones">
-            <a href="https://www.instagram.com/"><img src="assets/img/instagram.png" alt="Instagram"></a>
-            <a href="https://www.whatsapp.com/?lang=pt_BR"><img src="assets/img/whatsapp (1).png" alt="WhatsApp"></a>
-            <a href="https://x.com/?lang=pt"><img src="assets/img/twitter.png" alt="Twitter"></a>
-            <a href="https://www.facebook.com/?locale=pt_BR"><img src="assets/img/facebook.png" alt="Facebook"></a>
-        </div>
-        <div class="info">
-            <p><strong>ENDEREÇO:</strong> Rua Bragança, Bairro Tilagro, nº 307 - Birigui</p>
-            <p><strong>TELEFONE:</strong> (00) 00000-0000</p>
-            <p><strong>EMAIL:</strong> <a href="mailto:primecine@gmail.com" style="color: white;">primecine@gmail.com</a></p>
-        </div>
-    </footer>
-
-    <div class="barraverm">
-        <a href="homePoslogin.html"><img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial"></a>
-    </div>
-
     <script>
         const params = new URLSearchParams(window.location.search);
         const id = params.get('id');
@@ -97,10 +93,41 @@
                     });
                 }
             });
-        });
+            
+            $.ajax({
+                method: "post",
+                url: "http://192.168.1.111:5000/login",
+                data: dados, // envia os dados do formulário
+                contentType: "application/json",
+                success: function (retorno) { // caso o login de certo
+
+                    document.getElementById("razao_social").value = retorno.usuarios.razao_social
+                    document.getElementById("nome_fantasia").value = retorno.usuarios.nome_fantasia
+                    document.getElementById("chave_pix").value = retorno.usuarios.chave_pix
+                    document.getElementById("cidade").value = retorno.usuarios.cidade
+
+
+                    Swal.fire({
+                        title: "Deu Certo!",
+                        icon: "success"
+                    }).then(() => {
+                        if (retorno.usuarios.tipo === "adm") {
+                            window.location.href = "homeeae.html";
+                        } else {
+                            window.location.href = "homePoslogin.html";
+                        }
+                    });
+                },
+                error: function (retorno) { // caso de erro no login
+                    Swal.fire({
+                        title: "Erro!",
+                        text: retorno.responseJSON?.error || "Erro ao tentar fazer login.",
+                        icon: "error"
+                    });
+                }
+            });
+     });
     </script>
-
-
 </body>
 
 </html>
