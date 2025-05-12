@@ -121,7 +121,7 @@
 
     <div class="gradedefilmes" id="exibeFilmes"></div>
 
-
+<!--  -->
     <div class="barra3  "></div>
 
     <footer class="main_footer_container">
@@ -186,7 +186,7 @@
 
     function carregaProdutos() {
         var settings = {
-            "url": "http://192.168.1.144:5000/filmes",
+            "url":"http://192.168.1.111:5000http://192.168.1.111:5000/filmes",
             "method": "GET",
             "timeout": 0,
             "headers": {
@@ -206,7 +206,7 @@
                 html += `
             <div class="filme" >
                 <a href="">
-                    <img src="http://192.168.1.144:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
+                    <img src="http://192.168.1.111:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
                 </a>
                 </div>
             `;
