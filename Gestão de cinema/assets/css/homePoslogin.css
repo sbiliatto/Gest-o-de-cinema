@@ -361,13 +361,24 @@ footer {
     cursor: pointer;
 }
 
-
+/* RESPONSIVE DESIGN */
+/* Large devices (laptops/desktops, 1024px and below) */
 @media (max-width: 1024px) {
+    header {
+        padding: 15px 30px;
+    }
+    
     nav ul {
-        margin-left: 100px;
+        gap: 20px;
+    }
+    
+    .slide img {
+        height: 400px;
+        border-radius: 50px;
     }
 }
 
+/* Medium devices (tablets, 768px and below) */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
@@ -381,9 +392,19 @@ footer {
         margin: 0 auto;
     }
 
+    .search-box {
+        margin: 10px auto;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .search-box input {
+        width: 80%;
+        max-width: 300px;
+    }
+
     nav ul {
         display: flex;
-        flex-direction: row;
         justify-content: center;
         gap: 15px;
         margin: 15px 0;
@@ -401,136 +422,180 @@ footer {
         width: 40px;
     }
 
+    .slide {
+        margin-top: 20px;
+    }
+    
     .slide img {
-        height: 154px;
-        };
-    }
-
-    .categorias {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 15px;
-        padding: 20px 10px;
-        padding-top: 35px;
-
+        height: 280px;
+        border-radius: 30px;
     }
     
-    .categorias a {
-        text-decoration: none;
-        color: white;
-        padding: 5px 10px;
-    }
-    
-    .categorias a:hover {
-        color: darkred;
+    .barra {
+        margin-bottom: 45px;
     }
     
     .gradedefilmes {
-        display: grid;
-        gap: 20px;
-        padding: 20px;
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-    
-    .filme {
-        position: relative;
-        overflow: hidden;
-        width: 100%;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 20px 10px;
     }
     
     .filme img {
         width: 100%;
-        border-radius: 5px;
-        transition: transform 0.3s;
-        display: block;
+        height: 240px;
     }
     
-    .filme:hover img {
-        transform: scale(1.05);
-    }
-
-    .rodape {
-        flex-direction: column;
-        padding: 15px;
-        gap: 15px;
-        text-align: center;
-    }
-
-    .socialicones {
-        display: flex;
-        justify-content: left;
-        width: 100%;
-        padding-left: 60px;
-    }
-
-    .info {
-        text-align: center;
-        margin-right: 0;
-    }
-
-    .info p {
-        font-size: 14px;
-    }
-
-    .barraverm {
-        padding: 10px 0;
-    }
-
-    .barraverm img {
-        width: 120px;
-    }
-
     .menu-perfil {
-        width: 200px;
+        width: 220px;
         right: 50%;
         transform: translateX(50%);
     }
-
-    .barra {
-        margin-bottom: 53px;
-    }
-
-
-.indicadores {
-    bottom: -9px;
-}
-
-@media (min-width: 767px) {
-    .barra {
-
-        margin-bottom: 45px;
-        width: 95%;
-
-        margin-bottom: 87px;
+    
+    .indicadores {
+        bottom: 0;
     }
 }
 
-@media (max-width: 480px) {
+/* Small devices (mobile landscape, 576px and below) */
+@media (max-width: 576px) {
+    header {
+        padding: 10px;
+    }
+    
+    .logo {
+        width: 120px;
+    }
+    
     nav ul {
-        flex-direction: column;
         gap: 10px;
     }
-
+    
     .slide img {
-        height: 108px;
+        height: 200px;
+        border-radius: 20px;
     }
-
+    
     .gradedefilmes {
-        grid-template-columns: repeat(1, 1fr);
-    }
-
-    .filme img {
-        max-height: 250px;
-        max-width: 165px;
-        margin-left: 25%;
-    }
-
-    .categorias {
         grid-template-columns: repeat(2, 1fr);
-        gap: 17px;
-        margin-top: 21px;
+        gap: 15px;
     }
+    
+    .filme img {
+        height: 200px;
     }
+    
+    .categorias {
+        gap: 10px;
+    }
+    
+    .categorias a {
+        font-size: 14px;
+        padding: 4px 8px;
+    }
+    
+    .indicadores {
+        bottom: -10px;
+    }
+    
+    .barra {
+        margin-bottom: 30px;
+    }
+}
+
+/* Extra small devices (phones, 480px and below) */
+@media (max-width: 480px) {
+    .logo {
+        width: 100px;
+    }
+    
+    nav ul {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    nav ul li a {
+        font-size: 14px;
+    }
+    
+    .slide img {
+        height: 160px;
+        border-radius: 15px;
+    }
+    
+    .gradedefilmes {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .filme img {
+        height: 180px;
+        width: 100%;
+    }
+    
+    .categorias {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        text-align: center;
+        padding-top: 20px;
+    }
+    
+    .colfooter {
+        flex: 1 1 100%;
+        text-align: center;
+    }
+    
+    .colfooter h3.titleFooter {
+        margin: 0 auto 10px;
+    }
+    
+    .main_footer_container .content {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Very small devices (small phones, 375px and below) */
+@media (max-width: 375px) {
+    header {
+        padding: 8px 5px;
+    }
+    
+    .logo {
+        width: 90px;
+    }
+    
+    nav ul li a {
+        font-size: 12px;
+    }
+    
+    .search-box input {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+    
+    .search-box img {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .slide img {
+        height: 140px;
+        width: 95%;
+    }
+    
+    .filme {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .filme img {
+        width: 100%;
+        max-width: 150px;
+        height: 220px;
+    }
+    
+    .barra {
+        margin-bottom: 20px;
+    }
+}
