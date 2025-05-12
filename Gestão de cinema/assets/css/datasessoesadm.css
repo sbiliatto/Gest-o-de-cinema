@@ -21,6 +21,18 @@ header {
     color: white;
     position: relative;
 }
+.star-rating {
+    font-size: 30px;
+    display: flex;
+    gap: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.star-rating .star {
+    transition: color 0.2s;
+    color: rgb(255, 255, 255);
+}
 
 .logo {
     width: 20vh;

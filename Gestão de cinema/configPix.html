@@ -4,53 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parametrizacao do pix</title>
+    <title>Parametrização do Pix</title>
     <link rel="stylesheet" href="assets/css/configPix.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
     <script src="assets/js/seguranca.js" defer></script>
 </head>
 
 <body>
     <div class="container">
         <div class="esquerda">
-            <a href="index.html"><img class="logo-img" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
-            </a>
+            <a href="index.html"><img class="logo-img" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial"></a>
         </div>
         <div class="direita">
             <h1>EDITAR PIX</h1>
-            <input type="text" name="razao_social" id="razao_social" placeholder="Edite a razão social">
-            <input type="text" name="nome_fantasia" id="nome_fantasia" placeholder="Edite o nome">
-            <input type="text" name="chave_pix" id="chave_pix" placeholder="Edite a chave pix">
-            <input type="text" name="cidade" id="cidade" placeholder="Edite a cidade">
-
-
-            <button class="botao">Salvar</button>
+            <form id="form_editar">
+                <input type="text" name="razao_social" id="razao_social" placeholder="Edite a razão social">
+                <input type="text" name="nome_fantasia" id="nome_fantasia" placeholder="Edite o nome">
+                <input type="text" name="chave_pix" id="chave_pix" placeholder="Edite a chave pix">
+                <input type="text" name="cidade" id="cidade" placeholder="Edite a cidade">
+                <button type="submit" class="botao">Salvar alterações</button>
+            </form>
         </div>
     </div>
+
     <div class="barra"></div>
-    <!-- Rodapé -->
+
     <footer class="rodape">
         <div class="socialicones">
-            <a href="https://www.instagram.com/">
-                <img src="assets/img/instagram.png" alt="Instagram">
-            </a>
-            <a href="https://www.whatsapp.com/?lang=pt_BR">
-                <img src="assets/img/whatsapp (1).png" alt="WhatsApp">
-            </a>
-            <a href="https://x.com/?lang=pt">
-                <img src="assets/img/twitter.png" alt="Twitter">
-            </a>
-            <a href="https://www.facebook.com/?locale=pt_BR">
-                <img src="assets/img/facebook.png" alt="Facebook">
-            </a>
+            <a href="https://www.instagram.com/"><img src="assets/img/instagram.png" alt="Instagram"></a>
+            <a href="https://www.whatsapp.com/?lang=pt_BR"><img src="assets/img/whatsapp (1).png" alt="WhatsApp"></a>
+            <a href="https://x.com/?lang=pt"><img src="assets/img/twitter.png" alt="Twitter"></a>
+            <a href="https://www.facebook.com/?locale=pt_BR"><img src="assets/img/facebook.png" alt="Facebook"></a>
         </div>
         <div class="info">
             <p><strong>ENDEREÇO:</strong> Rua Bragança, Bairro Tilagro, nº 307 - Birigui</p>
             <p><strong>TELEFONE:</strong> (00) 00000-0000</p>
-            <p><strong>EMAIL:</strong> <a href="mailto:primecine@gmail.com"
-                    style="color: white;">primecine@gmail.com</a></p>
+            <p><strong>EMAIL:</strong> <a href="mailto:primecine@gmail.com" style="color: white;">primecine@gmail.com</a></p>
         </div>
     </footer>
 
@@ -58,70 +48,58 @@
         <a href="homePoslogin.html"><img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial"></a>
     </div>
 
-
     <script>
-        $(document).ready(function () {
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
 
-            const params = new URLSearchParams(window.location.search);
-            const id = params.get('id');
-            const nome = params.get('nome');
-            const email = params.get('email');
-            const telefone = params.get('telefone');
-            const senha = params.get('senha');
-            const tipo = params.get('tipo');
-            let editar = params.get('editar');
+        document.getElementById("razao_social").value = params.get("razao_social");
+        document.getElementById("nome_fantasia").value = params.get("nome_fantasia");
+        document.getElementById("chave_pix").value = params.get("chave_pix");
+        document.getElementById("cidade").value = params.get("cidade");
 
+        $("#form_editar").on("submit", function (e) {
+            e.preventDefault();
 
-            if (editar === "ativo") {
-                editar = true
-            } else {
-                editar = false
-            }
+            let envia = {
+                razao_social: $("#razao_social").val(),
+                nome_fantasia: $("#nome_fantasia").val(),
+                chave_pix: $("#chave_pix").val(),
+                cidade: $("#cidade").val(),
+            };
 
-            $("#nome").val(nome);
-            $("#email").val(email);
-            $("#telefone").val(telefone);
-            $("#senha").val(senha);
-            $("#tipo").val(tipo);
-            $("#editar").val(editar);
+            $.ajax({
+                method: "POST",
+                url: "http://192.168.1.111:5000/configurar-pix",
+                contentType: "application/json",
+                data: JSON.stringify(envia),
+                success: function (retorno) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Edição Realizada!",
+                        text: retorno.message,
+                        confirmButtonText: "OK"
+                    }).then(() => {
+                        localStorage.setItem("razao_social", envia.razao_social);
+                        localStorage.setItem("nome_fantasia", envia.nome_fantasia);
+                        localStorage.setItem("chave_pix", envia.chave_pix);
+                        localStorage.setItem("cidade", envia.cidade);
 
-            $(".save-button").click(function () {
-                const dados = {
-                    nome: $("#nome").val(),
-                    email: $("#email").val(),
-                    telefone: $("#telefone").val(),
-                    senha: $("#senha").val(),
-                    tipo: $("#tipo").val(),
-                    ativo: $("#editar").val(),
-                };
-
-
-                $.ajax({
-                    method: "PUT",
-                    url: `http://192.168.1.111:5000/cadastros/${id}`,
-                    data: JSON.stringify(dados),
-                    contentType: "application/json",
-                    success: function () {
-                        Swal.fire({
-                            icon: "success",
-                            title: "Edição Realizada!",
-                            confirmButtonText: "OK"
-                        }).then(() => {
-                            window.location.href = "homeeae.html";
-                        });
-                    },
-                    error: function (xhr, status, error) {
-                        console.log("Erro ao tentar editar:", xhr.responseJSON, status, error);
-                        Swal.fire({
-                            title: "Erro!",
-                            text: xhr.responseJSON?.error || "Erro ao editar os dados!",
-                            icon: "error"
-                        });
-                    }
-                });
+                        window.location.href = "homeeae.html";
+                    });
+                },
+                error: function (retorno) {
+                    console.error("Erro completo:", retorno);
+                    Swal.fire({
+                        icon: "error",
+                        title: "Erro!",
+                        text: retorno.responseJSON?.error || "Deu errado.",
+                        confirmButtonText: "OK"
+                    });
+                }
             });
         });
     </script>
+
 
 </body>
 
