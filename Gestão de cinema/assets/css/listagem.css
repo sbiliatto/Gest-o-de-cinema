@@ -416,7 +416,6 @@ footer {
 
 @media screen and (max-width: 375px) {
     .div-header {
-        flex-direction: column;
         align-items: stretch;
         gap: 5px;
     }
@@ -435,7 +434,7 @@ footer {
     }
     
     .menu-perfil {
-        right: -50px;
+        right: 8px;
         width: 180px;
     }
     

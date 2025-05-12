@@ -5,11 +5,21 @@
     font-family: Arial, sans-serif;
 }
 
-.conteiner {
-    display: flex;
-    height: 100vh;
+html, body {
+    height: 100%;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.conteiner {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+}
 
 .painel-esquerdo {
     width: 40%;
@@ -28,7 +38,6 @@
     max-width: 315px;
     margin-bottom: 20px;
 }
-
 
 .painel-direito {
     width: 60%;
@@ -57,6 +66,7 @@ h2 {
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;
+    position: relative;
 }
 
 .campo-entrada input {
@@ -64,26 +74,18 @@ h2 {
     outline: none;
     flex: 1;
     padding-left: 10px;
+    width: 100%;
+    padding-right: 40px;
 }
 
 input::placeholder {
     color: red;
 }
 
-
-.campo-entrada {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.campo-entrada input {
-    width: 100%;
-    padding-right: 40px;
-}
-
 .icone {
     margin-right: 10px;
+    color: rgba(239, 0, 0, 1);
+    font-size: 18px;
 }
 
 .eye-icon {
@@ -92,13 +94,6 @@ input::placeholder {
     cursor: pointer;
     width: 20px;
     height: 20px;
-}
-
-
-
-.icone {
-    color: rgba(239, 0, 0, 1);
-    font-size: 18px;
 }
 
 .botao {
@@ -131,65 +126,312 @@ input::placeholder {
     color: red;
 }
 
-@media (max-width: 1024px) {
-    .conteiner {
-        flex-direction: column;
-    }
+footer {
+    background-color: #000000;
+    color: #fff;
+    padding: 40px 20px 20px;
+    font-family: Arial, sans-serif;
+}
 
-    .painel-esquerdo {
-        width: 100%;
-        height: auto;
-        padding: 20px;
-    }
+.main_footer_container .content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-    .painel-direito {
-        width: 100%;
-        padding: 20px;
-    }
+.colfooter {
+    width: 32%;
+    height: auto;
+    float: left;
+    margin-bottom: 2em;
+}
 
-    h2 {
-        font-size: 28px;
-    }
+.colfooter ul {
+    width: 100%;
+    float: left;
+    list-style: none;
+    padding-left: 0;
+}
 
-    .campo-entrada {
-        width: 80%;
-        max-width: 280px;
-    }
+.colfooter ul li {
+    padding: 0.2em 0em;
+}
 
-    .botao {
-        width: 80%;
-        max-width: 280px;
+.colfooter ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1em;
+}
+
+.colfooter ul li a:hover {
+    text-decoration: underline;
+}
+
+.colfooter h3.titleFooter {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    border-bottom: 2px solid darkred;
+    padding-bottom: 5px;
+    display: inline-block;
+    width: fit-content;
+    white-space: nowrap;
+}
+
+.colfooter p {
+    color: #ffffff;
+    font-size: 1em;
+    height: 25px;
+}
+
+.colfooter img {
+    width: 30px;
+}
+
+.main_footer_copy {
+    background-color: #1a1a1a;
+    width: 100%;
+    float: left;
+    text-align: center;
+    padding: 1.5em 0em;
+    border-top: 1px solid #333;
+    color: #aaa;
+}
+
+.main_footer_copy p {
+    font-size: 1em;
+    color: #e1e0e0;
+    height: 20px;
+}
+
+.clear {
+    clear: both;
+}
+
+/* Responsive Styles Only */
+
+/* Responsive Styles Only - Improved Spacing and Layout */
+
+/* Large screens (above 1200px) */
+@media (min-width: 1200px) {
+    .main_footer_container .content {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 15px;
     }
 }
 
-@media (max-width: 480px) {
+/* Medium-Large screens (992px to 1199px) */
+@media (max-width: 1199px) {
+    .main_footer_container .content {
+        padding: 0 30px;
+    }
+    
+    .colfooter {
+        width: 30%;
+    }
+}
+
+/* Medium screens (768px to 991px) */
+@media (max-width: 991px) {
     .conteiner {
         flex-direction: column;
     }
-
-    .painel-esquerdo {
-        width: 100%;
-        height: auto;
-        padding: 15px;
-    }
-
+    
+    .painel-esquerdo,
     .painel-direito {
         width: 100%;
-        padding: 15px;
     }
+    
+    .painel-esquerdo {
+        min-height: 250px;
+        padding: 50px 30px;
+    }
+    
+    .painel-direito {
+        padding: 60px 20px;
+    }
+    
+    .logo {
+        max-width: 230px;
+        margin-bottom: 0;
+    }
+    
+    /* Footer adjustments */
+    .colfooter {
+        width: 31%;
+        margin-bottom: 30px;
+    }
+    
+    /* Space between sections */
+    .main_footer_container {
+        margin-top: 40px;
+        margin-top: 600px;
+    }
+}
 
+/* Small screens (576px to 767px) */
+@media (max-width: 767px) {
+    .painel-esquerdo {
+        min-height: 220px;
+        padding: 40px 25px;
+    }
+    
+    .logo {
+        max-width: 200px;
+    }
+    
+    .painel-direito {
+        padding: 50px 20px 60px;
+    }
+    
+    h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+    
+    .campo-entrada, 
+    .botao {
+        max-width: 320px;
+    }
+    
+    /* Add more space between form elements */
+    .campo-entrada {
+        margin-bottom: 18px;
+    }
+    
+    .botao {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
+    /* Better spacing for form paragraphs */
+    #form_login p {
+        margin-bottom: 12px;
+    }
+    
+    /* Footer improvements */
+    .main_footer_container .content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        padding: 0 20px;
+    }
+    
+    .colfooter {
+        width: 100%;
+        margin-bottom: 0;
+    }
+    
+    .colfooter:last-child {
+        grid-column: span 2;
+        text-align: center;
+        margin-top: 10px;
+    }
+    
+    .colfooter div[style*="display: flex"] {
+        justify-content: center;
+    }
+}
+
+/* Extra small screens (Up to 575px) */
+@media (max-width: 575px) {
+    .painel-esquerdo {
+        min-height: 180px;
+        padding: 35px 20px;
+    }
+    
+    .logo {
+        max-width: 180px;
+    }
+    
+    .painel-direito {
+        padding: 40px 20px 50px;
+    }
+    
+    h2 {
+        font-size: 26px;
+        margin-bottom: 25px;
+    }
+    
+    .campo-entrada {
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+    
+    /* Footer improvements */
+    .main_footer_container .content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .colfooter {
+        text-align: center;
+    }
+    
+    .colfooter:last-child {
+        grid-column: 1;
+        margin-top: 0;
+    }
+    
+    .colfooter h3.titleFooter {
+        margin: 0 auto 15px;
+    }
+    
+    .colfooter ul {
+        display: inline-block;
+        text-align: left;
+    }
+    
+    /* Footer copy text */
+    .main_footer_copy {
+        padding: 20px 0;
+        margin-top: 10px;
+    }
+    
+    .main_footer_copy p {
+        font-size: 0.9em;
+        height: auto;
+    }
+}
+
+/* Very small screens (Up to 400px) */
+@media (max-width: 400px) {
+    .painel-esquerdo {
+        padding: 30px 15px;
+    }
+    
+    .painel-direito {
+        padding: 35px 15px 45px;
+    }
+    
     h2 {
         font-size: 24px;
+        margin-bottom: 20px;
     }
-
-    .campo-entrada {
-        width: 90%;
-        max-width: 260px;
-    }
-
+    
+    .campo-entrada, 
     .botao {
-        width: 90%;
         max-width: 260px;
     }
-
+    
+    /* Ensure paragraphs have proper spacing */
+    #form_login p {
+        margin: 10px 0;
+        line-height: 1.5;
+    }
+    
+    /* Footer adjustments */
+    footer {
+        padding: 30px 15px 10px;
+    }
+    
+    .colfooter h3.titleFooter {
+        font-size: 1.1em;
+    }
+    
+    .colfooter p {
+        height: auto;
+        margin-bottom: 8px;
+    }
 }
