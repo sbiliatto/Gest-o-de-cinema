@@ -102,7 +102,42 @@
 
         $(document).ready(function () {
             buscarDados();
+
+
+            $.ajax({
+                method: "post",
+                url: "http://192.168.1.111:5000/login",
+                data: dados, // envia os dados do formulário
+                contentType: "application/json",
+                success: function (retorno) { // caso o login de certo
+
+                    document.getElementById("razao_social").value = retorno.usuarios.razao_social
+                    document.getElementById("nome_fantasia").value = retorno.usuarios.nome_fantasia
+                    document.getElementById("chave_pix").value = retorno.usuarios.chave_pix
+                    document.getElementById("cidade").value = retorno.usuarios.cidade
+
+
+                    Swal.fire({
+                        title: "Deu Certo!",
+                        icon: "success"
+                    }).then(() => {
+                        if (retorno.usuarios.tipo === "adm") {
+                            window.location.href = "homeeae.html";
+                        } else {
+                            window.location.href = "homePoslogin.html";
+                        }
+                    });
+                },
+                error: function (retorno) { // caso de erro no login
+                    Swal.fire({
+                        title: "Erro!",
+                        text: retorno.responseJSON?.error || "Erro ao tentar fazer login.",
+                        icon: "error"
+                    });
+                }
+            });
             $("#form_editar").on("submit", validarFormulario);
+
         });
     </script>
 </body>
