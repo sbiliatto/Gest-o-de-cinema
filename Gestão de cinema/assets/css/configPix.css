@@ -3,121 +3,385 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
-}
-
-.erro {
-    color: red;
-    font-size: 14px;
-    margin-top: 5px;
-    display: none;
-}
-
-.container {
-    display: flex;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-}
-
-.esquerda {
-    width: 40%;
-    background-color: black;
     color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    justify-content: center; 
-    padding: 20px; 
-    height: 100vh;
+    text-decoration: none;
 }
 
-.direita {
-    width: 60%;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
+body {
+    background: rgb(139, 137, 137) !important;
 }
 
-h2 {
-    color: rgba(206, 5, 5, 0.86);
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.campo {
-    width: 100%;
-    max-width: 300px;
+header {
     display: flex;
     align-items: center;
-    border: 2px solid rgba(239, 0, 0, 1);
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
+    justify-content: space-between;
+    background: black;
+    padding: 15px 50px;
 }
 
-.campo input {
-    border: none;
-    outline: none;
-    flex: 1;
-    padding-left: 10px;
-}
-
-.botao {
-    background-color: rgba(237, 17, 17, 1);
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    width: 100%;
-    max-width: 197px;
-}
-
-.botao:hover {
-    background-color: brown;
-    transition: 0.9s;
-}
-
-@media (max-width: 900px) {
-    .container {
-        flex-direction: column;
-        height: auto;
-    }
-
-.esquerda {
-    width: 100%;
-    padding: 40px 20px;
-    }
-
-.direita {
-    width: 100%;
-    padding: 40px 20px;
-}
-}
-
-@media (max-width: 600px) {
-    
-h2 {
-    font-size: 28px;
- }
-
-.campo {
-     max-width: 90%;
-}
-
-.botao {
-    max-width: 90%;
-}
+.div-header {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 }
 
 .logo {
-    width: 80%;
-    max-width: 315px;
-    margin-bottom: 20px;
+    width: 20vh;
+}
+
+.barra {
+    margin: 10px auto 50px;
+    width: 90%;
+    height: 4px;
+    background-color: darkred;
+}
+
+.menu-button {
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+/* Container do perfil */
+.perfil-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* Botão do perfil */
+.btn-perfil {
+    background-color: #ff0000;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn-perfil:hover {
+    background-color: #cc0000;
+}
+
+/* Menu suspenso */
+.menu-perfil {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #D7D6D6;
+    color: black;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 15px;
+    z-index: 100;
+    width: 250px;
+}
+
+/* Estilizar itens do menu */
+.menu-perfil p {
+    font-weight: bold;
+    color: #ff0000;
+    margin-bottom: 10px;
+    background-color: #D7D6D6;
+}
+
+.menu-perfil ul {
+    list-style: none;
+    padding: 0;
+    background-color: #D7D6D6;
+}
+
+.menu-perfil ul li {
+    margin: 10px 0;
+    background-color: #D7D6D6;
+}
+
+.menu-perfil ul li a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #D7D6D6;
+}
+
+.menu-perfil ul li a:hover {
+    color: #ff0000;
+}
+
+.nome-veisitante {
+    color: #ff0000;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding-left: 110vh;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.btn-perfil2 {
+    width: 49px;
+}
+
+nav ul li a:hover {
+    color: red;
+}
+
+.acao {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 6vh;
+}
+
+
+
+nav ul li button {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    
+}
+
+nav ul li button, .nav:hover {
+    color: red;
+}
+
+/* Estilo para o container do formulário PIX */
+
+
+.direita {
+    width: 100%;
+}
+
+/* Estilo do título */
+.direita h2 {
+    color: #ffffff !important;
+    font-size: 28;
+    font-weight: 12px;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+
+main{
+    width: 50%;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #222;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.5);
+}
+
+/* Estilo dos campos do formulário */
+.campo input {
+    word-wrap: normal;
+    background-color: #333;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    padding: 10px;
+    width: 100%;
+}
+
+.campo input:focus {
+    outline: none;
+    border-color: #e31e24;
+    background-color: #333;
+    box-shadow: inset 0 1px 3px rgba(227, 30, 36, 0.2);
+}
+
+.campo input::placeholder {
+    color: #aaaaaa;
+}
+
+/* Estilo do botão SALVAR */
+.botao {
+   padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-decoration: none;
+    text-align: center;
+}
+
+.botao:hover {
+    background: linear-gradient(to right, #c41018, #e31e24);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(227, 30, 36, 0.4);
+}
+
+.botao:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(227, 30, 36, 0.4);
+}
+
+/* Mensagens de erro */
+.erro {
+    color: #e31e24;
+    font-size: 14px;
+    margin-top: -15px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+    nav ul {
+        padding-left: 50vh;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    nav ul {
+        padding-left: 20vh;
+    }
+    
+    .logo {
+        width: 15vh;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px 20px;
+        align-items: center;
+    }
+    
+    .logo {
+        margin-bottom: 15px;
+        width: 15vh;
+    }
+    
+    .div-header {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    nav ul {
+        padding-left: 0;
+        justify-content: center;
+        margin-top: 15px;
+    }
+    
+    .btn-perfil2 {
+        margin-right: 0;
+    }
+    
+    .acao {
+        width: auto;
+    }
+    
+    main {
+        width: 90%;
+    }
+    
+    .menu-perfil {
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto;
+    }
+    
+    .container {
+        width: 90%;
+        padding: 25px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    header {
+        padding: 10px;
+    }
+    
+    .div-header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    .logo {
+        width: 100%;
+        max-width: 150px;
+    }
+    
+    nav ul {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    
+    .btn-group {
+        width: 100%;
+    }
+    
+    .btn-group button {
+        width: 100%;
+    }
+    
+    .acao {
+        justify-content: center;
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    .menu-perfil {
+        width: 90%;
+        max-width: 280px;
+    }
+    
+    .container {
+        padding: 20px;
+    }
+    
+    form {
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    header {
+        padding: 10px 5px;
+    }
+    
+    .menu-perfil {
+        width: 95%;
+        max-width: 250px;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+    
+    .campo input, .botao {
+        padding: 12px;
+    }
 }
