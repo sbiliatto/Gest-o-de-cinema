@@ -45,7 +45,6 @@
         </div>
     </div>
    <script>
-
         function buscarDados() {
 
             $.ajax({
@@ -59,7 +58,6 @@
                     document.getElementById("chave_pix").value = retorno.usuarios.chave_pix
                     document.getElementById("cidade").value = retorno.usuarios.cidade
                 },
-               
                 error: function (retorno) {
                     console.error("Erro completo:", retorno);
                     Swal.fire({
