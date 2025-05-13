@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Detalhes da sessão</title>
+  <link rel="stylesheet" href="detalhessessao.html">
+</head>
+<body>
+
+  <!-- Fundo: página embutida -->
+  <iframe src="meusPedidos.html" class="background-iframe"></iframe>
+
+  <!-- Camada sobreposta -->
+  <div class="overlay">
+    <div class="modal-box">
+      <h1>Oi, Vi!</h1>
+      <p>Esta é uma tela sobreposta à outra página.</p>
+      <button class="close-btn" onclick="document.querySelector('.overlay').style.display='none'">Fechar</button>
+    </div>
+  </div>
+
+</body>
+</html>
