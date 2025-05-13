@@ -120,12 +120,14 @@
                 "success": function (response) {
                     response.reservas.forEach(function (reserva) {
                         document.getElementById("listapedidos").innerHTML += `
+                           
                             <div>
                                 <p>Nome do Filme:  ${reserva.titulo_filme}</p>
                                 <p>Horário: ${reserva.horario}</p>
                                 <p>Sala: ${reserva.sala}</p>
                                 <p>Assento: ${reserva.assentos}</p>
                             </div>
+                            
                         `
                     })
                 },
