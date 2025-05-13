@@ -314,6 +314,46 @@ footer {
     border-top: 1px solid #333;
     padding-top: 15px;
 }
+.vendas-retangulo {
+    width: 100%;
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 12px;
+    color: #fff;
+    border: 1px solid #ff0000;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.vendas-retangulo > .sessao {
+    display: flex;
+    justify-content: space-between;
+    background-color: #2b2b2b;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: 500;
+    flex-wrap: wrap; /* permite quebrar conteúdo */
+}
+
+/* Botão PDF */
+.botao-pdf {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+}
+
+.botao-pdf:hover {
+    background-color: #b30000;
+}
+
 
 /* Responsividade */
 @media (max-width: 768px) {
