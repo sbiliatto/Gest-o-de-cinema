@@ -60,7 +60,7 @@ nav ul li a:hover {
     height: 4px;
     background-color: darkred;
     margin-bottom: 50px;
-    left: 5%;
+    left: 3%;
     position: relative;
 }
 
@@ -347,7 +347,7 @@ footer {
     align-items: center;
     gap: 15px;
     margin-left: auto;
-    margin-right: 20px;
+    margin-right: 8vh;
 }
 .search-box input {
     padding: 6px 10px;
