@@ -46,6 +46,99 @@
 
                 </ul>
             </div>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+    <script src="assets/js/seguranca-adm.js" defer></script>  
+
+
+
+
+
+    <title>PrimeCine</title>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("menu-dropdown").classList.toggle("menu-active");
+        }
+
+        // Fecha o menu se o usuário clicar fora
+        window.onclick = function (event) {
+            if (!event.target.matches('.menu-button')) {
+                let menu = document.getElementById("menu-dropdown");
+                if (menu.classList.contains("menu-active")) {
+                    menu.classList.remove("menu-active");
+                }
+            }
+        }
+    </script>
+    <script>
+        function sair() {
+            localStorage.clear() // Se armazenado no LocalStorage
+            sessionStorage.clear() // Se armazenado no SessionStorage
+
+            window.location.href = "/login.html";
+        }
+    </script>
+
+    </head>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("menuPerfil");
+            menu.style.display = (menu.style.display === "block") ? "none" : "block";
+        }
+
+        window.onclick = function (event) {
+            const menu = document.getElementById("menuPerfil");
+            const botaoPerfil = document.querySelector('.btn-perfil2');
+
+            if (menu.style.display === "block" && event.target !== menu && event.target !== botaoPerfil) {
+                menu.style.display = "none";
+            }
+        }
+    </script>
+
+    <body>
+        <script src="assets/js/homeeae.js"></script>
+        <header>
+            <a href="homeeae.html"><img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
+            </a>
+
+
+            <div class="div-header">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-secondary dropdown-toggle bg-black border-2"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        MENU
+                    </button>
+
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="promoadm.html">PROMOÇÕES</a></li>
+                        <li><a class="dropdown-item" href="relatorios_adm.html">RELATÓRIO</a></li>
+                        <li><a class="dropdown-item" href="homeeae.html">HOME</a></li>
+                        <li><a class="dropdown-item" href="listagem.html">LISTAGEM</a></li>
+                        <li><a class="dropdown-item" href="adicsessao.html">ADICIONAR SESSÃO</a></li>
+                        <li><a class="dropdown-item" href="adcsala.html">ADICIONAR SALA</a></li>
+                        <li><a class="dropdown-item" href="paineladm.html">PAINEL ADMINISTRATIVO</a></li>
+                        <li><a class="dropdown-item" href="configPix.html">CONFIGURAR PIX</a></li>
+                    </ul>
+                </div>
+
+                <div class="acao">
+
+                    <div class="perfil-container">
+                        <img onclick="toggleMenu()" class="btn-perfil2" src="assets/img/do-utilizador.png" alt="">
+                        <div class="menu-perfil" id="menuPerfil">
+                            <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
+                            <ul>
+                                <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
+                                <li><a href="editaradm.html">✏️ Editar perfil</a></li>
+                                <li><a href="login.html" onclick="sair()">🚪 Sair da Conta</a></li>
+                            </ul>
+                        </div>
 
             <div class="acao">
                 <div class="perfil-container">
@@ -259,10 +352,10 @@
 
         function carregaProdutos() {
             var settings = {
-                url:"http://192.168.1.111:5000/filmes",
-                method: "GET",
-                timeout: 0,
-                headers: {
+                "url": "http://192.168.1.111:5000/filmes",
+                "method": "GET",
+                "timeout": 0,
+                "headers": {
                     "Content-Type": "application/json"
                 }
             };

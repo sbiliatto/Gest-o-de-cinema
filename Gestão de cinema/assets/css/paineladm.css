@@ -1,7 +1,7 @@
-/* Corpo da página */
+/* Estilos Gerais */
 body {
-    background-color: #121212 !important; /* Fundo escuro para o corpo */
-    color: #fff; /* Texto em branco */
+    background-color: #121212 !important;
+    color: #fff;
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
     padding: 0;
@@ -9,9 +9,9 @@ body {
 
 /* Cabeçalho */
 header {
-    background-color: #000 !important; /* Fundo escuro */
-    padding: 10px 30px;
-    border-bottom: 4px solid #8B0000; /* Cor da borda */
+    background-color: #000 !important;
+    padding: 10px 15px;
+    border-bottom: 4px solid #8B0000;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -19,21 +19,45 @@ header {
 
 /* Logo */
 .logo {
-    height: 60px;
+    height: 50px;
+    transition: transform 0.3s;
+}
+
+.logo:hover {
+    transform: scale(1.05);
 }
 
 /* Div que contém o menu e o perfil */
 .div-header {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
 }
 
 /* Estilo do botão no menu */
 .btn-group .btn {
     color: white;
-    background-color: #333; /* Botão escuro */
-    border-color: #444; /* Borda escura */
+    background-color: #333;
+    border-color: #8B0000;
+    font-weight: bold;
+}
+
+.btn-group .btn:hover {
+    background-color: #8B0000;
+}
+
+.menu-escuro {
+    background-color: #222;
+    border: 1px solid #8B0000;
+}
+
+.menu-escuro .dropdown-item {
+    color: #000000;
+}
+
+.menu-escuro .dropdown-item:hover {
+    background-color: #8B0000;
+    color: #fff;
 }
 
 /* Estilo do menu de perfil */
@@ -42,8 +66,13 @@ header {
 }
 
 .btn-perfil2 {
-    width: 35px;
+    width: 32px;
     cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn-perfil2:hover {
+    transform: scale(1.1);
 }
 
 .menu-perfil {
@@ -51,12 +80,13 @@ header {
     position: absolute;
     top: 45px;
     right: 0;
-    background-color: #111 !important; /* Fundo escuro */
+    background-color: #111;
     border: 1px solid #8B0000;
-    padding: 10px;
+    padding: 12px;
     border-radius: 8px;
-    width: 180px;
+    width: 200px;
     z-index: 999;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 /* Exibir menu ao clicar */
@@ -68,81 +98,155 @@ header {
 .menu-perfil ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 10px 0 0 0;
 }
 
 .menu-perfil li {
-    margin: 8px 0;
+    margin: 12px 0;
 }
 
 .menu-perfil a {
-    color: #fff; /* Texto branco */
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.2s;
+    display: block;
+    padding: 5px 0;
+}
+
+.menu-perfil a:hover {
+    color: #fff;
     text-decoration: none;
 }
 
 /* Painel principal */
 .painel-container {
-    padding: 40px 60px;
+    padding: 30px 15px;
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 25px;
     justify-content: center;
-    background-color: #000000 !; /* Cor de fundo do painel */
+    min-height: calc(100vh - 350px);
 }
 
 /* Cartões dentro do painel */
 .card-painel {
-    background-color: #222; /* Fundo escuro nos cartões */
-    border: 2px solid #8B0000; /* Borda vermelha */
+    background-color: #222;
+    border: 2px solid #8B0000;
     border-radius: 12px;
     padding: 20px;
     color: white;
-    width: 300px;
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+    width: 320px;
+    box-shadow: 0 0 15px rgba(139, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+.card-painel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(139, 0, 0, 0.5);
 }
 
 /* Títulos dentro dos cartões */
 .card-painel h2 {
-    color: #fff; /* Texto branco */
+    color: #fff;
     font-size: 20px;
     margin-bottom: 15px;
-    border-bottom: 1px solid #8B0000; /* Linha vermelha embaixo */
-    padding-bottom: 5px;
+    border-bottom: 1px solid #8B0000;
+    padding-bottom: 8px;
 }
 
 /* Inputs de data */
-.card-painel input[type="date"] {
-    background-color: #333; /* Fundo escuro para input */
-    color: white; /* Texto branco */
-    border: 1px solid #8B0000; /* Borda vermelha */
-    padding: 5px;
-    margin: 5px 0;
+.data-selecao {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.data-input {
+    background-color: #333;
+    color: white;
+    border: 1px solid #8B0000;
+    padding: 5px 8px;
+    border-radius: 4px;
+    flex-grow: 1;
+    min-width: 120px;
+}
+
+.btn-filtrar {
+    background-color: #8B0000;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.btn-filtrar:hover {
+    background-color: #a30000;
 }
 
 /* Valor total */
 .valor {
-    font-size: 24px;
-    color: #8B0000; /* Cor vermelha */
+    font-size: 28px;
+    color: #8B0000;
     font-weight: bold;
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* Estilo para listagem de sessões */
+.sessoes-lista {
     margin-top: 10px;
 }
 
-/* Aumentar a legibilidade e ajustar contraste */
-a {
-    color: #8B0000; /* Cor vermelha para links */
-    text-decoration: none;
+.sessao-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #333;
 }
 
-a:hover {
-    text-decoration: underline; /* Sublinhar no hover */
+.filme-nome {
+    font-weight: bold;
+    color: #ddd;
 }
 
-/* FOOTER MODERNO ADAPTADO PARA HTML EXISTENTE */
+.sessao-hora {
+    color: #aaa;
+}
+
+/* Ranking de filmes */
+.ranking-filmes {
+    margin-top: 10px;
+}
+
+.filme-rank {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #333;
+    align-items: center;
+}
+
+.posicao {
+    font-weight: bold;
+    color: #8B0000;
+    margin-right: 10px;
+}
+
+.bilheteria {
+    color: #8B0000;
+}
+
+/* FOOTER */
 footer {
     background-color: #1a1a1a;
     color: #fff;
-    padding: 40px 20px 20px;
+    padding: 30px 20px 20px;
     font-family: Arial, sans-serif;
+    border-top: 3px solid #8B0000;
 }
 
 .main_footer_container .content {
@@ -151,23 +255,22 @@ footer {
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
-    gap: 30px;
+    gap: 20px;
 }
 
 .colfooter {
-    flex: 1 1 250px;
+    flex: 1 1 200px;
+    margin-bottom: 20px;
 }
 
 .colfooter h3.titleFooter {
     font-size: 1.2em;
     margin-bottom: 15px;
-    border-bottom: 2px solid darkred;
+    border-bottom: 2px solid #8B0000;
     padding-bottom: 5px;
     display: inline-block;
     width: fit-content;
-    white-space: nowrap;
 }
-
 
 .colfooter ul {
     list-style: none;
@@ -196,8 +299,13 @@ footer {
     font-size: 0.95em;
 }
 
+.redes-sociais {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
 .rss {
-    margin-right: 10px;
     display: inline-block;
     transition: transform 0.3s;
     padding: 2px;
@@ -209,12 +317,12 @@ footer {
     filter: brightness(0) invert(1);
 }
 
-.rss:hover img {
+.rss:hover {
     transform: scale(1.2);
 }
 
 .main_footer_copy {
-    margin-top: 30px;
+    margin-top: 20px;
     text-align: center;
     font-size: 0.9em;
     color: #aaa;
@@ -222,11 +330,69 @@ footer {
     padding-top: 15px;
 }
 
-.content{
-    display: flex;
-    flex-direction: row ;
+/* Responsividade */
+@media (max-width: 768px) {
+    header {
+        padding: 10px;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .div-header {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .painel-container {
+        padding: 20px 10px;
+    }
+    
+    .card-painel {
+        width: 100%;
+        max-width: 350px;
+    }
+    
+    .main_footer_container .content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .colfooter {
+        width: 100%;
+    }
+    
+    .titleFooter {
+        margin: 0 auto 15px;
+    }
+    
+    .redes-sociais {
+        justify-content: center;
+    }
 }
 
-
-  
-  
+@media (max-width: 480px) {
+    .logo {
+        height: 40px;
+    }
+    
+    .btn-perfil2 {
+        width: 28px;
+    }
+    
+    .data-selecao {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .sessao-item, .filme-rank {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 0;
+    }
+    
+    .sessao-hora, .bilheteria {
+        margin-top: 5px;
+    }
+}
