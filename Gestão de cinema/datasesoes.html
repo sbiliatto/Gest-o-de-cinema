@@ -80,7 +80,7 @@
         <div class="movie-poster">
             <img src="assets/img/garland_intl_teaser2_poster_brazil_c487c296.jpeg" alt="Moana 2 Poster" id="imgfilme">
             <a href="https://youtu.be/DFnAWpQicqo?si=1Fl2fNJxEFXpH6b8" id="trailer" class="trailer">Ver trailer</a>
-            <div class="star-rating">
+            <div class="star-rating" data-id-usuario="123" data-id-filme="1">
                 <span class="star" data-value="1">★</span>
                 <span class="star" data-value="2">★</span>
                 <span class="star" data-value="3">★</span>
@@ -249,24 +249,70 @@
         }
     </script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-   
+
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const stars = document.querySelectorAll('.star-rating .star');
-        let selectedRating = 0;
+document.addEventListener("DOMContentLoaded", function () {
+    const stars = document.querySelectorAll('.star-rating .star');
+    const params = new URLSearchParams(window.location.search);
+    const id_filme = params.get("id");
 
-        stars.forEach((star, index) => {
-            star.addEventListener('click', () => {
-                selectedRating = index + 1;
+    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjo1fQ.0HmIs6nDx3HJK2m407yACClQR8CPGb8CI4IY8r8c2wM";
+    const payloadBase64 = token.split('.')[1];
+    const payloadJson = atob(payloadBase64);
+    const payload = JSON.parse(payloadJson);
+    const id_usuario = payload.id_usuario;
 
-                stars.forEach((s, i) => {
-                    s.style.color = i < selectedRating ? 'gold' : 'white';
+    let selectedRating = 0;
+
+    stars.forEach((star, index) => {
+        star.addEventListener('click', () => {
+            selectedRating = index + 1;
+
+            stars.forEach((s, i) => {
+                s.style.color = i < selectedRating ? 'gold' : 'white';
+            });
+
+            fetch("http://192.168.1.106:5000/avaliar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    id_usuario: id_usuario,
+                    id_filme: id_filme,
+                    nota: selectedRating
+                })
+            })
+            .then(response => {
+                if (!response.ok) throw response;
+                return response.json();
+            })
+            .then(data => {
+                Swal.fire({
+                    title: "Avaliação registrada!",
+                    icon: "success"
+                });
+            })
+            .catch(async (error) => {
+                let errorMsg = "Erro ao enviar avaliação.";
+                if (error.json) {
+                    const err = await error.json().catch(() => null);
+                    if (err?.error) errorMsg = err.error;
+                }
+
+                Swal.fire({
+                    title: "Erro!",
+                    text: errorMsg,
+                    icon: "error"
                 });
             });
         });
     });
+});
 </script>
+
+
+
 
 </body>
 
