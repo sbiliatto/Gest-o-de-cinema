@@ -340,7 +340,7 @@
     const precoUnitario = params.get("valor_unitario")
 
 
-    document.getElementById("imgfilme").src = "http://192.168.1.111:5000/static/uploads/Filmes/" + id + ".jpeg"
+    document.getElementById("imgfilme").src = "http://192.168.1.106:5000/static/uploads/Filmes/" + id + ".jpeg"
 
     document.getElementById("titulofilme").innerHTML = titulo
     document.getElementById("dia").innerHTML = data_sessao
@@ -350,7 +350,7 @@
 
 
     // Atualiza os elementos com info do filme e sessão
-    document.querySelector(".filme-info img").src = "http://192.168.1.111:5000/static/uploads/Filmes/" + id + ".jpeg";
+    document.querySelector(".filme-info img").src = "http://192.168.1.106:5000/static/uploads/Filmes/" + id + ".jpeg";
     document.querySelector(".filme-info p").innerText = "PrimeCine Birigui";
     document.querySelector(".filme-info div p").innerText = `${data_sessao} - ${horario}`;
 
@@ -380,7 +380,7 @@
 
 
             var settings = {
-                "url": "http://192.168.1.111:5000/assentos_reservados/" + idSessao,
+                "url": "http://192.168.1.106:5000/assentos_reservados/" + idSessao,
                 "method": "GET",
                 "timeout": 0,
                 "success": function(retorno) {
@@ -428,7 +428,7 @@
                         const token = localStorage.getItem("token");
     
                         $.ajax({
-                            url: "http://192.168.1.111:5000/reservas",
+                            url: "http://192.168.1.106:5000/reservas",
                             method: "POST",
                             timeout: 0,
                             headers: {

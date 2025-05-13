@@ -640,6 +640,7 @@ footer {
     .gradedefilmes {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
+        margin-left: 36px;
     }
 }
 
@@ -647,6 +648,7 @@ footer {
 @media (max-width: 480px) {
     header {
         padding: 8px;
+        margin-left: 57px;
     }
     
     .header-wrapper {

@@ -73,6 +73,9 @@
                     <li><a class="dropdown-item" href="homeeae.html">HOME</a></li>
                     <li><a class="dropdown-item" href="listagem.html">LISTAGEM</a></li>
                     <li><a class="dropdown-item" href="adicsessao.html">ADICIONAR SESSÃO</a></li>
+                    <li><a class="dropdown-item" href="adcsala.html">ADICIONAR SALA</a></li>
+                    <li><a class="dropdown-item" href="paineladm.html">PAINEL ADMINISTRATIVO</a></li>
+                    <li><a class="dropdown-item" href="configPix.html">CONFIGURAR PIX</a></li>
                 </ul>
             </div>
 
@@ -144,7 +147,7 @@
 
     function carregaProdutos() {
         var settings = {
-            "url": "http://192.168.1.111:5000/filmes",
+            "url": "http://192.168.1.106:5000/filmes",
             "method": "GET",
             "timeout": 0,
             "headers": {
@@ -168,7 +171,7 @@
 
     function carregarSalas() {
         var settings = {
-            "url": "http://192.168.1.111:5000/salas",
+            "url": "http://192.168.1.106:5000/salas",
             "method": "GET",
             "headers": {
                 "Content-Type": "application/json"
@@ -208,7 +211,7 @@
     };
 
     $.ajax({
-        url: "http://192.168.1.111:5000/sessoes",
+        url: "http://192.168.1.106:5000/sessoes",
         method: "POST",
         contentType: "application/json",
         data: JSON.stringify(dados),

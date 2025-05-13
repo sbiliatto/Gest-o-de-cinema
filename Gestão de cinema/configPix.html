@@ -11,10 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
     <script src="assets/js/seguranca.js" defer></script>
-
-
 </head>
 
 <body>
@@ -30,7 +27,7 @@
                     <input type="text" name="razao_social" id="razao_social" placeholder="Edite a razão social">
                 </div>
                 <div class="campo">
-                   <input type="text" name="nome_fantasia" id="nome_fantasia" placeholder="Edite o nome">
+                    <input type="text" name="nome_fantasia" id="nome_fantasia" placeholder="Edite o nome">
                 </div>
                 <span id="erro-telefone" class="erro"></span>
                 <div class="campo">
@@ -44,89 +41,75 @@
             </form>
         </div>
     </div>
+
     <script>
-        const params = new URLSearchParams(window.location.search);
-        const id = params.get('id');
-
-        document.getElementById("razao_social").value = params.get("razao_social");
-        document.getElementById("nome_fantasia").value = params.get("nome_fantasia");
-        document.getElementById("chave_pix").value = params.get("chave_pix");
-        document.getElementById("cidade").value = params.get("cidade");
-
-        $("#form_editar").on("submit", function (e) {
-            e.preventDefault();
-
-            let envia = {
-                razao_social: $("#razao_social").val(),
-                nome_fantasia: $("#nome_fantasia").val(),
-                chave_pix: $("#chave_pix").val(),
-                cidade: $("#cidade").val(),
-            };
-
+        $(document).ready(function () {
+            // Fazer requisição GET para obter os dados de configuração do Pix
             $.ajax({
-                method: "POST",
-                url: "http://192.168.1.111:5000/configurar-pix",
-                contentType: "application/json",
-                data: JSON.stringify(envia),
+                method: "GET",
+                url: "http://192.168.1.106:5000/configurar-pix",
                 success: function (retorno) {
-                    Swal.fire({
-                        icon: "success",
-                        title: "Edição Realizada!",
-                        text: retorno.message,
-                        confirmButtonText: "OK"
-                    }).then(() => {
-                        localStorage.setItem("razao_social", envia.razao_social);
-                        localStorage.setItem("nome_fantasia", envia.nome_fantasia);
-                        localStorage.setItem("chave_pix", envia.chave_pix);
-                        localStorage.setItem("cidade", envia.cidade);
-
-                        window.location.href = "homeeae.html";
-                    });
+                    // Preencher os campos com os dados recebidos
+                    $("#razao_social").val(retorno.usuarios.razao_social);
+                    $("#nome_fantasia").val(retorno.usuarios.nome_fantasia);
+                    $("#chave_pix").val(retorno.usuarios.chave_pix);
+                    $("#cidade").val(retorno.usuarios.cidade);
                 },
                 error: function (retorno) {
-                    console.error("Erro completo:", retorno);
+                    console.error("Erro ao carregar dados:", retorno);
                     Swal.fire({
                         icon: "error",
                         title: "Erro!",
-                        text: retorno.responseJSON?.error || "Deu errado.",
+                        text: "Erro ao carregar dados de Pix.",
                         confirmButtonText: "OK"
                     });
                 }
             });
-            
-            $.ajax({
-                method: "post",
-                url: "http://192.168.1.111:5000/login",
-                data: dados, // envia os dados do formulário
-                contentType: "application/json",
-                success: function (retorno) { // caso o login de certo
 
-                    document.getElementById("razao_social").value = retorno.usuarios.razao_social
-                    document.getElementById("nome_fantasia").value = retorno.usuarios.nome_fantasia
-                    document.getElementById("chave_pix").value = retorno.usuarios.chave_pix
-                    document.getElementById("cidade").value = retorno.usuarios.cidade
+            // Lógica para enviar os dados via POST
+            $("#form_editar").on("submit", function (e) {
+                e.preventDefault();
 
+                let envia = {
+                    razao_social: $("#razao_social").val(),
+                    nome_fantasia: $("#nome_fantasia").val(),
+                    chave_pix: $("#chave_pix").val(),
+                    cidade: $("#cidade").val(),
+                };
 
-                    Swal.fire({
-                        title: "Deu Certo!",
-                        icon: "success"
-                    }).then(() => {
-                        if (retorno.usuarios.tipo === "adm") {
+                $.ajax({
+                    method: "POST",
+                    url: "http://192.168.1.106:5000/configurar-pix",
+                    contentType: "application/json",
+                    data: JSON.stringify(envia),
+                    success: function (retorno) {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Edição Realizada!",
+                            text: retorno.mensagem,
+                            confirmButtonText: "OK"
+                        }).then(() => {
+                            // Armazenar os dados no localStorage
+                            localStorage.setItem("razao_social", envia.razao_social);
+                            localStorage.setItem("nome_fantasia", envia.nome_fantasia);
+                            localStorage.setItem("chave_pix", envia.chave_pix);
+                            localStorage.setItem("cidade", envia.cidade);
+
                             window.location.href = "homeeae.html";
-                        } else {
-                            window.location.href = "homePoslogin.html";
-                        }
-                    });
-                },
-                error: function (retorno) { // caso de erro no login
-                    Swal.fire({
-                        title: "Erro!",
-                        text: retorno.responseJSON?.error || "Erro ao tentar fazer login.",
-                        icon: "error"
-                    });
-                }
+                        });
+                    },
+                    error: function (retorno) {
+                        console.error("Erro completo:", retorno);
+                        Swal.fire({
+                            icon: "error",
+                            title: "Erro!",
+                            text: retorno.responseJSON?.error || "Deu errado.",
+                            confirmButtonText: "OK"
+                        });
+                    }
+                });
             });
-     });
+        });
     </script>
 </body>
 
