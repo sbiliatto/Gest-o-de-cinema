@@ -514,7 +514,7 @@ footer {
   justify-content: space-between;
   align-items: center;
   gap: 20px; /* Alterado de 440px para 20px */
-  margin-right: 20px;
+  margin-left: 63vh;
 }
 
 /* Improved Header Design */

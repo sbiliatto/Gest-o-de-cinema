@@ -34,13 +34,7 @@ header {
     gap: 15px;
 }
 
-/* Estilo do botão no menu */
-.btn-group .btn {
-    color: white;
-    background-color: #333;
-    border-color: #8B0000;
-    font-weight: bold;
-}
+
 
 .btn-group .btn:hover {
     background-color: #8B0000;
@@ -48,17 +42,12 @@ header {
 
 .menu-escuro {
     background-color: #222;
-    border: 1px solid #8B0000;
 }
 
 .menu-escuro .dropdown-item {
     color: #000000;
 }
 
-.menu-escuro .dropdown-item:hover {
-    background-color: #8B0000;
-    color: #fff;
-}
 
 /* Estilo do menu de perfil */
 .perfil-container {
@@ -80,8 +69,7 @@ header {
     position: absolute;
     top: 45px;
     right: 0;
-    background-color: #111;
-    border: 1px solid #8B0000;
+    background-color: #ffffff;
     padding: 12px;
     border-radius: 8px;
     width: 200px;
@@ -106,17 +94,14 @@ header {
 }
 
 .menu-perfil a {
-    color: #ddd;
+    color: #150e0e;
     text-decoration: none;
     transition: color 0.2s;
     display: block;
     padding: 5px 0;
 }
 
-.menu-perfil a:hover {
-    color: #fff;
-    text-decoration: none;
-}
+
 
 /* Painel principal */
 .painel-container {
@@ -214,7 +199,7 @@ header {
 }
 
 .sessao-hora {
-    color: #aaa;
+    color: #ffffff;
 }
 
 /* Ranking de filmes */
@@ -232,12 +217,12 @@ header {
 
 .posicao {
     font-weight: bold;
-    color: #8B0000;
+    color: #ffffff;
     margin-right: 10px;
 }
 
 .bilheteria {
-    color: #8B0000;
+    color: #fcfafa;
 }
 
 /* FOOTER */
