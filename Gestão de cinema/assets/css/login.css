@@ -208,11 +208,8 @@ footer {
     clear: both;
 }
 
-/* Responsive Styles Only */
 
-/* Responsive Styles Only - Improved Spacing and Layout */
 
-/* Large screens (above 1200px) */
 @media (min-width: 1200px) {
     .main_footer_container .content {
         max-width: 1140px;
@@ -221,7 +218,6 @@ footer {
     }
 }
 
-/* Medium-Large screens (992px to 1199px) */
 @media (max-width: 1199px) {
     .main_footer_container .content {
         padding: 0 30px;
@@ -232,7 +228,6 @@ footer {
     }
 }
 
-/* Medium screens (768px to 991px) */
 @media (max-width: 991px) {
     .conteiner {
         flex-direction: column;
@@ -257,20 +252,17 @@ footer {
         margin-bottom: 0;
     }
     
-    /* Footer adjustments */
     .colfooter {
         width: 31%;
         margin-bottom: 30px;
     }
     
-    /* Space between sections */
     .main_footer_container {
         margin-top: 40px;
         margin-top: 600px;
     }
 }
 
-/* Small screens (576px to 767px) */
 @media (max-width: 767px) {
     .painel-esquerdo {
         min-height: 220px;
@@ -295,7 +287,6 @@ footer {
         max-width: 320px;
     }
     
-    /* Add more space between form elements */
     .campo-entrada {
         margin-bottom: 18px;
     }
@@ -305,12 +296,10 @@ footer {
         margin-bottom: 20px;
     }
     
-    /* Better spacing for form paragraphs */
     #form_login p {
         margin-bottom: 12px;
     }
     
-    /* Footer improvements */
     .main_footer_container .content {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -334,7 +323,6 @@ footer {
     }
 }
 
-/* Extra small screens (Up to 575px) */
 @media (max-width: 575px) {
     .painel-esquerdo {
         min-height: 180px;
@@ -359,7 +347,6 @@ footer {
         margin-bottom: 15px;
     }
     
-    /* Footer improvements */
     .main_footer_container .content {
         grid-template-columns: 1fr;
         gap: 25px;
@@ -382,20 +369,9 @@ footer {
         display: inline-block;
         text-align: left;
     }
-    
-    /* Footer copy text */
-    .main_footer_copy {
-        padding: 20px 0;
-        margin-top: 10px;
-    }
-    
-    .main_footer_copy p {
-        font-size: 0.9em;
-        height: auto;
-    }
+
 }
 
-/* Very small screens (Up to 400px) */
 @media (max-width: 400px) {
     .painel-esquerdo {
         padding: 30px 15px;
@@ -415,23 +391,9 @@ footer {
         max-width: 260px;
     }
     
-    /* Ensure paragraphs have proper spacing */
     #form_login p {
         margin: 10px 0;
         line-height: 1.5;
     }
     
-    /* Footer adjustments */
-    footer {
-        padding: 30px 15px 10px;
-    }
-    
-    .colfooter h3.titleFooter {
-        font-size: 1.1em;
-    }
-    
-    .colfooter p {
-        height: auto;
-        margin-bottom: 8px;
-    }
 }

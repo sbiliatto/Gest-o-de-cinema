@@ -4,25 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Configurar Pix- Prime Cine</title>
+    <title>Configurar Pix - Prime Cine</title>
     <link rel="stylesheet" href="assets/css/editar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <script src="assets/js/seguranca.js" defer></script>
 </head>
 
 <body>
     <div class="container">
         <div class="esquerda">
-            <a href="homePoslogin.html"><img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
+            <a href="homeeae.html">
+                <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
             </a>
         </div>
         <div class="direita">
             <h2>Configurar Pix:</h2>
-            <form id="form_editar" onsubmit="validarFormulario(event)">
+            <form id="form_editar">
                 <div class="campo">
                     <input type="text" name="razao_social" id="razao_social" placeholder="Edite a razão social">
                 </div>
@@ -43,13 +43,13 @@
     </div>
 
     <script>
-        $(document).ready(function () {
-            // Fazer requisição GET para obter os dados de configuração do Pix
+        function buscarDados() {
             $.ajax({
                 method: "GET",
                 url: "http://192.168.1.106:5000/configurar-pix",
+                contentType: "application/json",
                 success: function (retorno) {
-                    // Preencher os campos com os dados recebidos
+                    console.log("Dados recebidos:", retorno);
                     $("#razao_social").val(retorno.usuarios.razao_social);
                     $("#nome_fantasia").val(retorno.usuarios.nome_fantasia);
                     $("#chave_pix").val(retorno.usuarios.chave_pix);
@@ -65,49 +65,48 @@
                     });
                 }
             });
+        }
 
-            // Lógica para enviar os dados via POST
+        function validarFormulario(event) {
+            event.preventDefault();
+
+            const dados = {
+                razao_social: $("#razao_social").val(),
+                nome_fantasia: $("#nome_fantasia").val(),
+                chave_pix: $("#chave_pix").val(),
+                cidade: $("#cidade").val()
+            };
+
+            $.ajax({
+                method: "POST",
+                url: "http://192.168.1.106:5000/configurar-pix",
+                contentType: "application/json",
+                data: JSON.stringify(dados),
+                success: function (resposta) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Sucesso!",
+                        text: resposta.mensagem || "Dados atualizados com sucesso.",
+                        confirmButtonText: "OK"
+                    });
+                },
+                error: function (erro) {
+                    console.error("Erro completo:", erro);
+                    Swal.fire({
+                        icon: "error",
+                        title: "Erro!",
+                        text: erro.responseJSON?.erro || "Erro ao salvar os dados.",
+                        confirmButtonText: "OK"
+                    });
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            buscarDados();
+
             $("#form_editar").on("submit", function (e) {
-                e.preventDefault();
-
-                let envia = {
-                    razao_social: $("#razao_social").val(),
-                    nome_fantasia: $("#nome_fantasia").val(),
-                    chave_pix: $("#chave_pix").val(),
-                    cidade: $("#cidade").val(),
-                };
-
-                $.ajax({
-                    method: "POST",
-                    url: "http://192.168.1.106:5000/configurar-pix",
-                    contentType: "application/json",
-                    data: JSON.stringify(envia),
-                    success: function (retorno) {
-                        Swal.fire({
-                            icon: "success",
-                            title: "Edição Realizada!",
-                            text: retorno.mensagem,
-                            confirmButtonText: "OK"
-                        }).then(() => {
-                            // Armazenar os dados no localStorage
-                            localStorage.setItem("razao_social", envia.razao_social);
-                            localStorage.setItem("nome_fantasia", envia.nome_fantasia);
-                            localStorage.setItem("chave_pix", envia.chave_pix);
-                            localStorage.setItem("cidade", envia.cidade);
-
-                            window.location.href = "homeeae.html";
-                        });
-                    },
-                    error: function (retorno) {
-                        console.error("Erro completo:", retorno);
-                        Swal.fire({
-                            icon: "error",
-                            title: "Erro!",
-                            text: retorno.responseJSON?.error || "Deu errado.",
-                            confirmButtonText: "OK"
-                        });
-                    }
-                });
+                validarFormulario(e);
             });
         });
     </script>
