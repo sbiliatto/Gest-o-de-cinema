@@ -191,7 +191,7 @@ button {
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: red;
+    background-color: darkred;
     color: white;
     font-size: 16px;
     cursor: pointer;
@@ -201,7 +201,7 @@ button {
 }
 
 button:hover {
-    background-color: darkred;
+    background-color: red;
 }
 
 select {

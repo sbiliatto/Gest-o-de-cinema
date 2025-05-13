@@ -207,7 +207,7 @@ button {
 }
 
 button:hover {
-    background-color: darkred;
+    background-color: red;
 }
 
 select {
