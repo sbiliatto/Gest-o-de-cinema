@@ -1,60 +1,97 @@
-body, html {
+/* Remove margem e impede rolagem */
+html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden; /* impede rolagem do iframe */
+  overflow: hidden;
   font-family: Arial, sans-serif;
 }
 
-/* Página de fundo (outra página HTML) */
+/* Iframe ocupa 100% da tela */
 .background-iframe {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   border: none;
-  filter: blur(2px);
   z-index: 0;
+  filter: blur(3px);
 }
 
-/* Sobreposição escura */
+/* Camada escura sobre o fundo */
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* escurece o fundo */
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1;
+  animation: fadeIn 0.4s ease-in-out;
 }
 
-/* Quadrado central */
+/* Caixa central branca */
 .modal-box {
-  background-color: white;
+  background-color: rgb(218, 218, 218);
   padding: 40px;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.3);
-  width: 400px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.4);
+  width: 600px;
   text-align: center;
-  z-index: 2;
+  position: relative;
 }
 
-/* Botão de fechar */
+
+/* Botão de fechar no topo direito */
 .close-btn {
-  margin-top: 20px;
-  padding: 10px 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 12px 16px;
+  background-color: #fa0a0a;
   border: none;
-  background-color: #ff5c5c;
   color: white;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 18px;
+  text-decoration: none;
 }
 
 .close-btn:hover {
-  background-color: #e04848;
+  background-color: #ff5656;
+}
+
+/* Ícone no botão */
+.close-btn i {
+  margin: 0;
+}
+
+/* Layout das duas colunas */
+.modal-box > .details {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+.modal-box > .details > div {
+  flex: 1;
+  min-width: 200px;
+}
+
+/* Animação */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

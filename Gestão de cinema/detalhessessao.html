@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Detalhes da sessão</title>
-  <link rel="stylesheet" href="detalhessessao.html">
+  <link rel="stylesheet" href="assets/css/detalhessessao.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
@@ -13,11 +14,29 @@
   <!-- Camada sobreposta -->
   <div class="overlay">
     <div class="modal-box">
-      <h1>Oi, Vi!</h1>
-      <p>Esta é uma tela sobreposta à outra página.</p>
-      <button class="close-btn" onclick="document.querySelector('.overlay').style.display='none'">Fechar</button>
+      <a href="meusPedidos.html" class="close-btn" title="Fechar">
+        <i class="fa-solid fa-xmark"></i>
+      </a>
+      <h1>DETALHES DO SEU PEDIDO</h1>
+      <div class="details">
+        <div>
+          <p><strong><i class="fa-solid fa-film"></i> Filme:</strong> Moana 2</p>
+          <p><strong><i class="fa-solid fa-calendar-days"></i> Data:</strong> 29 de Maio de 2025</p>
+          <p><strong><i class="fa-solid fa-clock"></i> Horário:</strong> 14:30</p>
+          <p><strong><i class="fa-solid fa-door-open"></i> Sala:</strong> Sala Premium</p>
+          <p><strong><i class="fa-solid fa-chair"></i> Assento:</strong> 19, 20</p>
+          <p><strong><i class="fa-solid fa-dollar-sign"></i> Valor total:</strong> R$40,00</p>
+        </div>
+        <div>
+          <p>Pague agora pelo pix!</p>
+          <p>Leia o QrCode abaixo ou coloque o digite o pix informado.</p>
+          <img src="assets/img/qrcode.png" alt="QR Code" class="qrcode">
+          <p>Pix:18997678789 </p>
+        </div>
+      </div>
     </div>
   </div>
 
 </body>
 </html>
+
