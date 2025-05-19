@@ -351,10 +351,8 @@ footer {
 }
 
 .botao-pdf:hover {
-    background-color: #b30000;
+    background-color: #c60808;
 }
-
-
 /* Responsividade */
 @media (max-width: 768px) {
     header {
