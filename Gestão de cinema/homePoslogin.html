@@ -16,7 +16,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script src="assets/js/seguranca.js" defer></script>  
+     <script src="assets/js/seguranca.js" defer></script> 
 </head>
 
 <body>
@@ -132,42 +132,42 @@
     </footer>
 
     <script>
-    function buscarFilme() {
-      const termo = $("#searchInput").val().trim();
-      if (!termo) return;
+function buscarFilme() {
+        const termo = $("#searchInput").val().trim();
+        if (!termo) return;
 
-      $.ajax({
-        url: "http://192.168.1.139:5000/buscar-filmes",
-        method: 'GET',
-        data: { termo },
-        success: function (filmes) {
-          let html = "";
-          filmes.forEach(filme => {
-            html += `
-              <div class="filme">
-                <a href="#" onclick="carregarSessoes(${filme.id})">
-                  <img src="http://192.168.1.139:5000/static/uploads/Filmes/${filme.id}.jpeg" alt="${filme.titulo}">
-                </a>
-                <button class='botaosess' onclick="carregarSessoes(${filme.id})">Ver Sessões</button>
-                <div id="sessoes-${filme.id}" class="sessao-lista" style="display:none;"></div>
-              </div>
-            `;
-          });
+        $.ajax({
+            url: "http://192.168.1.139:5000/buscar-filmes",
+            method: 'GET',
+            data: { termo },
+            success: function (filmes) {
+            let html = "";
+            filmes.forEach(filme => {
+                html += `
+                <div class="filme">
+                    <a href="datasessoesadm.html?id=${filme.id}&titulo=${encodeURIComponent(filme.titulo)}&classificacao=${filme.classificacao}&genero=${encodeURIComponent(filme.genero)}&trailer=${encodeURIComponent(filme.link || '')}&sinopse=${encodeURIComponent(filme.sinopse)}">
+                    <img src="http://192.168.1.139:5000/static/uploads/Filmes/${filme.id}.jpeg" alt="${filme.titulo}">
+                    </a>
+                    <button class='botaosess' onclick="carregarSessoes(${filme.id})">Ver Sessões</button>
+                    <div id="sessoes-${filme.id}" class="sessao-lista" style="display:none;"></div>
+                </div>
+                `;
+            });
 
-          if (filmes.length > 0) {
-            Swal.fire("Resultado encontrado!", "", "success");
-          } else {
-            html = "<p>Nenhum filme encontrado.</p>";
-            Swal.fire("Nenhum resultado encontrado.", "", "info");
-          }
+            if (filmes.length > 0) {
+                Swal.fire("Resultado encontrado!", "", "success");
+            } else {
+                html = "<p>Nenhum filme encontrado.</p>";
+                Swal.fire("Nenhum resultado encontrado.", "", "info");
+            }
 
-          $("#exibeFilmes").html(html);
-        },
-        error: function () {
-          Swal.fire("Erro", "Erro ao buscar filmes. Tente novamente.", "error");
+            $("#exibeFilmes").html(html);
+            },
+            error: function () {
+            Swal.fire("Erro", "Erro ao buscar filmes. Tente novamente.", "error");
+            }
+        });
         }
-      });
-    }
 
     function carregarSessoes(idFilme) {
       const container = $(`#sessoes-${idFilme}`);
