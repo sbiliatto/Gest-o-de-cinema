@@ -18,7 +18,7 @@
         <i class="fa-solid fa-xmark"></i>
       </a>
       <h1>DETALHES DO SEU PEDIDO</h1>
-      <div class="details">
+      <div class="details" id="details">
         <div>
           <p><strong><i class="fa-solid fa-film"></i> Filme:</strong> Moana 2</p>
           <p><strong><i class="fa-solid fa-calendar-days"></i> Data:</strong> 29 de Maio de 2025</p>
@@ -36,6 +36,88 @@
       </div>
     </div>
   </div>
+
+  <script>
+      function toggleMenu() {
+                const menu = document.getElementById("menuPerfil");
+                menu.style.display = menu.style.display === "block" ? "none" : "block";
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                carregarDadosUsuario();
+                carregarReservas();
+            });
+
+            // Função para carregar dados do usuário da API
+            function carregarDadosUsuario() {
+                var token = localStorage.getItem("token");
+
+                if (!token) {
+                    console.error("Token não encontrado. Usuário não está autenticado.");
+                    return;
+                }
+
+                var settings = {
+                    "url": "http://192.168.1.139:5000/usuarios/perfil",
+                    "method": "GET",
+                    "timeout": 0,
+                    "headers": {
+                        "Authorization": token,
+                        "Content-Type": "application/json"
+                    },
+                    "success": function (response) {
+                        var nomeUsuario = response.nome || "Visitante";
+
+                        var elementosComNome = document.querySelectorAll(".nome-visitante");
+                        elementosComNome.forEach(function (elemento) {
+                            elemento.textContent = nomeUsuario;
+                        });
+                    },
+                    "error": function (error) {
+                        console.error("Erro ao carregar dados do usuário:", error);
+                        var nomeUsuario = localStorage.getItem("nome") || "Visitante";
+
+                        var elementosComNome = document.querySelectorAll(".nome-visitante");
+                        elementosComNome.forEach(function (elemento) {
+                            elemento.textContent = nomeUsuario;
+                        });
+                    }
+                };
+
+                $.ajax(settings);
+            }
+
+            // Função para carregar reservas do usuário da API
+            function carregarReservas() {
+                var token = localStorage.getItem("token");
+
+                var settings = {
+                    "url": "http://192.168.1.139:5000/reservas",
+                    "method": "GET",
+                    "timeout": 0,
+                    "headers": {
+                        "Authorization": "Bearer " + token,
+                        "Content-Type": "application/json"
+                    },
+                "success": function (response) {
+                    response.reservas.forEach(function (reserva) {
+                        document.getElementById("details").innerHTML += `
+                           
+                            <div>
+                                
+                                <p><strong><i class="fa-solid fa-film"></i> Filme: </strong>${reserva.titulo_filme}</p>
+                                <p><strong><i class="fa-solid fa-calendar-days"></i> Data:</strong> 29 de Maio de 2025</p>
+                                <p><strong><i class="fa-solid fa-clock"></i> Horário:</strong> ${reserva.horario}</p>
+                                <p><strong><i class="fa-solid fa-door-open"></i> Sala:</strong> ${reserva.sala}</p>
+                                <p><strong><i class="fa-solid fa-chair"></i> Assento:</strong> ${reserva.assentos}</p>
+                                <p><strong><i class="fa-solid fa-dollar-sign"></i> Valor total:</strong> R$40,00</p>
+                            </div>
+                            
+                        `
+                    })
+                },
+  </script>
+
 
 </body>
 </html>
