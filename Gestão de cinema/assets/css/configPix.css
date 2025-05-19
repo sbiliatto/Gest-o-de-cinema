@@ -157,14 +157,15 @@ nav ul li button {
     transition: color 0.3s;
 }
 
-form{
+form {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    
+
 }
 
-nav ul li button, .nav:hover {
+nav ul li button,
+.nav:hover {
     color: red;
 }
 
@@ -188,7 +189,7 @@ nav ul li button, .nav:hover {
 }
 
 
-main{
+main {
     width: 50%;
     margin: 40px auto;
     padding: 20px;
@@ -221,7 +222,7 @@ main{
 
 /* Estilo do botão SALVAR */
 .botao {
-   padding: 10px;
+    padding: 10px;
     border: none;
     border-radius: 5px;
     background-color: red;
@@ -264,7 +265,7 @@ main{
     nav ul {
         padding-left: 20vh;
     }
-    
+
     .logo {
         width: 15vh;
     }
@@ -276,42 +277,42 @@ main{
         padding: 15px 20px;
         align-items: center;
     }
-    
+
     .logo {
         margin-bottom: 15px;
         width: 15vh;
     }
-    
+
     .div-header {
         width: 100%;
         justify-content: center;
     }
-    
+
     nav ul {
         padding-left: 0;
         justify-content: center;
         margin-top: 15px;
     }
-    
+
     .btn-perfil2 {
         margin-right: 0;
     }
-    
+
     .acao {
         width: auto;
     }
-    
+
     main {
         width: 90%;
     }
-    
+
     .menu-perfil {
         position: fixed;
         left: 50%;
         transform: translateX(-50%);
         right: auto;
     }
-    
+
     .container {
         width: 90%;
         padding: 25px;
@@ -322,46 +323,46 @@ main{
     header {
         padding: 10px;
     }
-    
+
     .div-header {
         flex-direction: column;
         gap: 10px;
         align-items: center;
     }
-    
+
     .logo {
         width: 100%;
         max-width: 150px;
     }
-    
+
     nav ul {
         gap: 10px;
         flex-wrap: wrap;
     }
-    
+
     .btn-group {
         width: 100%;
     }
-    
+
     .btn-group button {
         width: 100%;
     }
-    
+
     .acao {
         justify-content: center;
         width: 100%;
         margin-top: 10px;
     }
-    
+
     .menu-perfil {
         width: 90%;
         max-width: 280px;
     }
-    
+
     .container {
         padding: 20px;
     }
-    
+
     form {
         gap: 10px;
     }
@@ -371,17 +372,18 @@ main{
     header {
         padding: 10px 5px;
     }
-    
+
     .menu-perfil {
         width: 95%;
         max-width: 250px;
     }
-    
+
     .container {
         padding: 15px;
     }
-    
-    .campo input, .botao {
+
+    .campo input,
+    .botao {
         padding: 12px;
     }
 }

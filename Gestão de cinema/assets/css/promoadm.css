@@ -7,8 +7,8 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #000!important;
-    color: #fff!important;
+    background-color: #000 !important;
+    color: #fff !important;
     margin: 0;
     padding: 0;
 }
@@ -21,10 +21,10 @@ header {
     background: black;
     padding: 15px 89px;
     color: white;
-    
+
 }
 
-.div-header{
+.div-header {
     display: flex;
     flex-direction: row;
     gap: 20px;
@@ -46,38 +46,38 @@ header {
     border-radius: 5px;
 }
 
-        /* Estilo do menu suspenso */
-        .menu-dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background-color: white;
-            min-width: 150px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 5px;
-            overflow: hidden;
-            z-index: 1000;
-        }
+/* Estilo do menu suspenso */
+.menu-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    min-width: 150px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 1000;
+}
 
-        /* Estilo dos itens do menu */
-        .menu-item {
-            display: block;
-            padding: 10px;
-            text-decoration: none;
-            color: black;
-            transition: background 0.3s;
-        }
+/* Estilo dos itens do menu */
+.menu-item {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    transition: background 0.3s;
+}
 
-        /* Efeito hover nos itens */
-        .menu-item:hover {
-            background-color: #ddd;
-        }
+/* Efeito hover nos itens */
+.menu-item:hover {
+    background-color: #ddd;
+}
 
-        /* Classe para exibir o menu */
-        .menu-active {
-            display: block;
-        }
+/* Classe para exibir o menu */
+.menu-active {
+    display: block;
+}
 
 nav ul {
     padding-left: 100vh;
@@ -93,9 +93,9 @@ nav ul li a {
     transition: color 0.3s;
 }
 
-.btn-perfil2{
+.btn-perfil2 {
     margin-right: 43px;
-    
+
 }
 
 nav ul li a:hover {
@@ -127,11 +127,11 @@ nav ul li a:hover {
 }
 
 .promocoes {
-    display: flex!important;
-    flex-direction: column!important;
-    align-items: center!important;
-    gap: 20px!important;
-    padding: 20px!important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 20px !important;
+    padding: 20px !important;
 }
 
 .filme {
@@ -252,9 +252,9 @@ footer {
     padding-top: 15px;
 }
 
-.content{
+.content {
     display: flex;
-    flex-direction: row ;
+    flex-direction: row;
 }
 
 /* Remove espaço em branco desnecessário */
@@ -432,247 +432,251 @@ footer {
 
 @media (max-width: 768px) {
 
-   
+
     header {
         flex-direction: column;
         text-align: center;
         display: flex;
         gap: 29px;
     }
-    
-        
-    
-        .carrossel-container {
-            max-width: 100%;
-        }
-    
-        .gradedefilmes {
-            grid-template-columns: repeat(1, 1fr);
-        }
-        
-        .texto h2 {
-            font-size: 18px;
-        }
-        
-        .texto p {
-            font-size: 12px;
-            padding-right: 17px;
-        }
-    
-        nav ul {
-            flex-direction: column;
-            padding-top: 10px;
-            padding-left: 0;
-        }
-        
-        .categorias{
-            gap: 0px;
-            font-size: 8px;
-            padding: 5px 7px; 
-        }
-    
-       
-        .acao{
-            gap: 0px;
-        }
-    
-        .logo{
-            margin-left: 22px;
-            padding: 0px;
-        }
-        .btn-entrar{
-            margin-top: 24px;
-            
-        }
-    
-        .cadastro{
-            margin: 10vh 12vh;
-        }
-    
-        .gradedefilmes{
-            padding-left: 0;
-            padding: 20px;
-            grid-template-columns: repeat(3, 1fr);
-        }
-        .filme img{
-            width: 100%;
-            height: 109px;
-    
-        }
-    
-        .info{
-            text-align: center;
-            
-        }
-    
-    
-        .rodape{
-            flex-direction: column;
-        }
-    
-        .slide img{
-            height: 340px;
-        }
-    
-    
-        .barra{
-            margin-left: 5%;
-            width: 90%;
-        }
-    
-    .menu-perfil{
+
+
+
+    .carrossel-container {
+        max-width: 100%;
+    }
+
+    .gradedefilmes {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .texto h2 {
+        font-size: 18px;
+    }
+
+    .texto p {
+        font-size: 12px;
+        padding-right: 17px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding-top: 10px;
+        padding-left: 0;
+    }
+
+    .categorias {
+        gap: 0px;
+        font-size: 8px;
+        padding: 5px 7px;
+    }
+
+
+    .acao {
+        gap: 0px;
+    }
+
+    .logo {
+        margin-left: 22px;
+        padding: 0px;
+    }
+
+    .btn-entrar {
+        margin-top: 24px;
+
+    }
+
+    .cadastro {
+        margin: 10vh 12vh;
+    }
+
+    .gradedefilmes {
+        padding-left: 0;
+        padding: 20px;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .filme img {
+        width: 100%;
+        height: 109px;
+
+    }
+
+    .info {
+        text-align: center;
+
+    }
+
+
+    .rodape {
+        flex-direction: column;
+    }
+
+    .slide img {
+        height: 340px;
+    }
+
+
+    .barra {
+        margin-left: 5%;
+        width: 90%;
+    }
+
+    .menu-perfil {
         width: 178px;
     }
-    
-    .socialicones{
+
+    .socialicones {
         width: 98px;
     }
-    
+
     .info p {
         font-size: 12px;
     }
-    
-    .barraverm{
+
+    .barraverm {
         padding: 0px;
     }
-    
-    .btn-perfil{
+
+    .btn-perfil {
         margin-left: -17px;
     }
-    
+
+}
+
+@media(max-width:1440px) {
+    .barra {
+        display: none;
     }
 
-    @media(max-width:1440px){
-        .barra{
-            display: none;
-        }
-        .filme{
-                width: 78%;
-        }
+    .filme {
+        width: 78%;
     }
-    @media (max-width: 1024px){
-        .filme{
-            width: 100%;
-        }
+}
+
+@media (max-width: 1024px) {
+    .filme {
+        width: 100%;
     }
-    @media (max-width: 768px) {
-        header {
-            flex-direction: column;
-            padding: 15px 20px;
-            gap: 15px;
-        }
-        
-        .logo {
-            width: 150px;
-            margin: 0 auto;
-        }
-        
-        nav ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin: 10px 0;
-            padding: 0;
-            text-align: center;
-        }
-        
-        .acao {
-            width: 100%;
-            justify-content: center;
-        }
-        
-        .btn-perfil2 {
-            width: 40px;
-        }
-        
-        .promocoes {
-            padding: 10px;
-        }
-        
-        .filme {
-            flex-direction: column;
-            width: 95%;
-            padding: 15px;
-        }
-        
-        .filme img {
-            width: 150px;
-            height: auto;
-            margin: 0 auto;
-            display: block;
-        }
-        
-        .info {
-            text-align: center;
-            margin: 15px 0 0 0;
-        }
-        
-        .info p {
-            font-size: 14px;
-            margin: 5px 0;
-        }
-        
-        button {
-            margin: 15px auto 0;
-            display: block;
-            width: 80%;
-        }
-        
-        .menu-perfil {
-            width: 200px;
-            right: 50%;
-            transform: translateX(50%);
-        }
-        
-        footer {
-            padding: 15px;
-        }
-        
-        .info {
-            text-align: center;
-        }
-        
-        .barra {
-            display: none;
-    
-        }
-        
-        .barraverm {
-            padding: 5px;
-        }
-        
-        .barraverm img {
-            width: 20vh;
-        }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px 20px;
+        gap: 15px;
     }
-    
-    @media (max-width: 480px) {
-        .logo {
-            width: 120px;
-        }
-        
-        .filme {
-            width: 100%;
-            padding: 10px;
-        }
-        
-        .filme img {
-            width: 120px;
-        }
-        
-        .info p {
-            font-size: 12px;
-        }
-        
-        button {
-            width: 90%;
-            padding: 8px;
-            font-size: 14px;
-        }
-        
-        .menu-perfil {
-            width: 180px;
-        }
+
+    .logo {
+        width: 150px;
+        margin: 0 auto;
     }
-    
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin: 10px 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    .acao {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .btn-perfil2 {
+        width: 40px;
+    }
+
+    .promocoes {
+        padding: 10px;
+    }
+
+    .filme {
+        flex-direction: column;
+        width: 95%;
+        padding: 15px;
+    }
+
+    .filme img {
+        width: 150px;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .info {
+        text-align: center;
+        margin: 15px 0 0 0;
+    }
+
+    .info p {
+        font-size: 14px;
+        margin: 5px 0;
+    }
+
+    button {
+        margin: 15px auto 0;
+        display: block;
+        width: 80%;
+    }
+
+    .menu-perfil {
+        width: 200px;
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    footer {
+        padding: 15px;
+    }
+
+    .info {
+        text-align: center;
+    }
+
+    .barra {
+        display: none;
+
+    }
+
+    .barraverm {
+        padding: 5px;
+    }
+
+    .barraverm img {
+        width: 20vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        width: 120px;
+    }
+
+    .filme {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .filme img {
+        width: 120px;
+    }
+
+    .info p {
+        font-size: 12px;
+    }
+
+    button {
+        width: 90%;
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .menu-perfil {
+        width: 180px;
+    }
+}

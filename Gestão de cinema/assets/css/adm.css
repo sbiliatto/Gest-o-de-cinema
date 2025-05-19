@@ -7,8 +7,8 @@
 
 }
 
-body{
-    background-color: black!important;
+body {
+    background-color: black !important;
 }
 
 header {
@@ -17,10 +17,10 @@ header {
     justify-content: space-between;
     background: black;
     padding: 15px 50px;
-    color: white;  
+    color: white;
 }
 
-.div-header{
+.div-header {
     display: flex;
     flex-direction: row;
     gap: 20px;
@@ -348,11 +348,11 @@ img {
         grid-template-columns: repeat(3, minmax(150px, 1fr));
         padding-left: 5%;
     }
-    
+
     .filme img {
         width: 80%;
     }
-    
+
     .texto p {
         max-width: 400px;
     }
@@ -366,42 +366,42 @@ img {
         padding: 15px 20px;
         gap: 10px;
     }
-    
+
     .logo {
         width: 120px;
         margin-left: 0;
         order: 1;
     }
-    
+
     .div-header {
         order: 2;
     }
-    
+
     .acao {
         width: auto;
         margin-right: 0;
         order: 3;
     }
-    
+
     .btn-perfil2 {
         margin-right: 0;
         width: 40px;
     }
-    
+
     .slide img {
         height: 300px;
     }
-    
+
     .texto {
         left: 5%;
         width: 90%;
     }
-    
+
     .texto h2 {
         font-size: 1.5rem;
         margin-bottom: 5px;
     }
-    
+
     .texto p {
         font-size: 0.9rem;
         max-width: 100%;
@@ -410,7 +410,7 @@ img {
         -webkit-line-clamp: 5;
         -webkit-box-orient: vertical;
     }
-    
+
     .categorias {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -418,39 +418,39 @@ img {
         padding: 15px;
         text-align: center;
     }
-    
+
     .gradedefilmes {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
         padding: 15px 5%;
     }
-    
+
     .filme img {
         width: 90%;
     }
-    
+
     .menu-perfil {
         right: 0;
         top: 50px;
         transform: none;
     }
-    
+
     .rodape {
         flex-direction: column;
         padding: 15px;
         gap: 15px;
     }
-    
+
     .socialicones {
         padding-left: 0;
         justify-content: center;
     }
-    
+
     .info {
         text-align: center;
         margin-right: 0;
     }
-    
+
     .indicadores {
         bottom: 5px;
     }
@@ -460,41 +460,41 @@ img {
     header {
         padding: 10px;
     }
-    
+
     .logo {
         width: 100px;
     }
-    
+
     .slide img {
         height: 250px;
     }
-    
+
     .texto h2 {
         font-size: 1.2rem;
     }
-    
+
     .texto p {
         font-size: 0.8rem;
         -webkit-line-clamp: 4;
     }
-    
+
     .gradedefilmes {
         grid-template-columns: repeat(1, 1fr);
     }
-    
+
     .filme {
         text-align: center;
     }
-    
+
     .filme img {
         width: 70%;
         max-height: none;
     }
-    
+
     .categorias {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .barraverm img {
         width: 120px;
     }
@@ -504,16 +504,16 @@ img {
     .texto h2 {
         font-size: 1rem;
     }
-    
+
     .texto p {
         -webkit-line-clamp: 3;
     }
-    
+
     .categorias {
         grid-template-columns: repeat(1, 1fr);
         gap: 5px;
     }
-    
+
     .filme img {
         width: 85%;
     }

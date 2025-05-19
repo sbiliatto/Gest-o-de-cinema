@@ -115,42 +115,42 @@
   </footer>
 
   <script>
-    function buscarFilme() {
-      const termo = $("#searchInput").val().trim();
-      if (!termo) return;
+function buscarFilme() {
+        const termo = $("#searchInput").val().trim();
+        if (!termo) return;
 
-      $.ajax({
-        url: "http://192.168.1.139:5000/buscar-filmes",
-        method: 'GET',
-        data: { termo },
-        success: function (filmes) {
-          let html = "";
-          filmes.forEach(filme => {
-            html += `
-              <div class="filme">
-                <a href="#" onclick="carregarSessoes(${filme.id})">
-                  <img src="http://192.168.1.139:5000/static/uploads/Filmes/${filme.id}.jpeg" alt="${filme.titulo}">
-                </a>
-                <button class='botaosess' onclick="carregarSessoes(${filme.id})">Ver Sessões</button>
-                <div id="sessoes-${filme.id}" class="sessao-lista" style="display:none;"></div>
-              </div>
-            `;
-          });
+        $.ajax({
+            url: "http://192.168.1.139:5000/buscar-filmes",
+            method: 'GET',
+            data: { termo },
+            success: function (filmes) {
+            let html = "";
+            filmes.forEach(filme => {
+                html += `
+                <div class="filme">
+                    <a href="datasessoesadm.html?id=${filme.id}&titulo=${encodeURIComponent(filme.titulo)}&classificacao=${filme.classificacao}&genero=${encodeURIComponent(filme.genero)}&trailer=${encodeURIComponent(filme.link || '')}&sinopse=${encodeURIComponent(filme.sinopse)}">
+                    <img src="http://192.168.1.139:5000/static/uploads/Filmes/${filme.id}.jpeg" alt="${filme.titulo}">
+                    </a>
+                    <button class='botaosess' onclick="carregarSessoes(${filme.id})">Ver Sessões</button>
+                    <div id="sessoes-${filme.id}" class="sessao-lista" style="display:none;"></div>
+                </div>
+                `;
+            });
 
-          if (filmes.length > 0) {
-            Swal.fire("Resultado encontrado!", "", "success");
-          } else {
-            html = "<p>Nenhum filme encontrado.</p>";
-            Swal.fire("Nenhum resultado encontrado.", "", "info");
-          }
+            if (filmes.length > 0) {
+                Swal.fire("Resultado encontrado!", "", "success");
+            } else {
+                html = "<p>Nenhum filme encontrado.</p>";
+                Swal.fire("Nenhum resultado encontrado.", "", "info");
+            }
 
-          $("#exibeFilmes").html(html);
-        },
-        error: function () {
-          Swal.fire("Erro", "Erro ao buscar filmes. Tente novamente.", "error");
+            $("#exibeFilmes").html(html);
+            },
+            error: function () {
+            Swal.fire("Erro", "Erro ao buscar filmes. Tente novamente.", "error");
+            }
+        });
         }
-      });
-    }
 
     function carregarSessoes(idFilme) {
       const container = $(`#sessoes-${idFilme}`);
@@ -193,7 +193,6 @@
       if (e.key === "Enter") buscarFilme();
     });
 
-
         function carregaProdutos() {
             var settings = {
                 url: "http://192.168.1.139:5000/filmes",
@@ -221,6 +220,27 @@
             });
         }
 
+                let indiceAtual = 0;
+        const slides = document.querySelector(".slides");
+        const indicadores = document.querySelectorAll(".indicador");
+
+        var nome = localStorage.getItem("nome")
+        document.getElementById("nome-visitante").innerHTML = nome
+
+        function mudarSlide(indice) {
+            indiceAtual = indice;
+            let deslocamento = -indice * 100 + "%";
+            slides.style.transform = "translateX(" + deslocamento + ")";
+            indicadores.forEach((ind, i) => {
+                ind.classList.toggle("ativo", i === indice);
+            });
+        }
+
+        setInterval(() => {
+            indiceAtual = (indiceAtual + 1) % 3;
+            mudarSlide(indiceAtual);
+        }, 10000);
+
         carregaProdutos();
 
         window.addEventListener('DOMContentLoaded', () => {
@@ -229,7 +249,7 @@
                 window.scrollTo({ top: destino, behavior: 'smooth' });
             });
         });
-    setInterval(() => mudarSlide((indiceAtual + 1) % 3), 10000);
+      
   </script>
 </body>
 

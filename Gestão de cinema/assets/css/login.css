@@ -5,7 +5,8 @@
     font-family: Arial, sans-serif;
 }
 
-html, body {
+html,
+body {
     height: 100%;
 }
 
@@ -222,7 +223,7 @@ footer {
     .main_footer_container .content {
         padding: 0 30px;
     }
-    
+
     .colfooter {
         width: 30%;
     }
@@ -232,31 +233,31 @@ footer {
     .conteiner {
         flex-direction: column;
     }
-    
+
     .painel-esquerdo,
     .painel-direito {
         width: 100%;
     }
-    
+
     .painel-esquerdo {
         min-height: 250px;
         padding: 50px 30px;
     }
-    
+
     .painel-direito {
         padding: 60px 20px;
     }
-    
+
     .logo {
         max-width: 230px;
         margin-bottom: 0;
     }
-    
+
     .colfooter {
         width: 31%;
         margin-bottom: 30px;
     }
-    
+
     .main_footer_container {
         margin-top: 40px;
         margin-top: 600px;
@@ -268,56 +269,56 @@ footer {
         min-height: 220px;
         padding: 40px 25px;
     }
-    
+
     .logo {
         max-width: 200px;
     }
-    
+
     .painel-direito {
         padding: 50px 20px 60px;
     }
-    
+
     h2 {
         font-size: 28px;
         margin-bottom: 30px;
     }
-    
-    .campo-entrada, 
+
+    .campo-entrada,
     .botao {
         max-width: 320px;
     }
-    
+
     .campo-entrada {
         margin-bottom: 18px;
     }
-    
+
     .botao {
         margin-top: 20px;
         margin-bottom: 20px;
     }
-    
+
     #form_login p {
         margin-bottom: 12px;
     }
-    
+
     .main_footer_container .content {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 30px;
         padding: 0 20px;
     }
-    
+
     .colfooter {
         width: 100%;
         margin-bottom: 0;
     }
-    
+
     .colfooter:last-child {
         grid-column: span 2;
         text-align: center;
         margin-top: 10px;
     }
-    
+
     .colfooter div[style*="display: flex"] {
         justify-content: center;
     }
@@ -328,43 +329,43 @@ footer {
         min-height: 180px;
         padding: 35px 20px;
     }
-    
+
     .logo {
         max-width: 180px;
     }
-    
+
     .painel-direito {
         padding: 40px 20px 50px;
     }
-    
+
     h2 {
         font-size: 26px;
         margin-bottom: 25px;
     }
-    
+
     .campo-entrada {
         padding: 10px;
         margin-bottom: 15px;
     }
-    
+
     .main_footer_container .content {
         grid-template-columns: 1fr;
         gap: 25px;
     }
-    
+
     .colfooter {
         text-align: center;
     }
-    
+
     .colfooter:last-child {
         grid-column: 1;
         margin-top: 0;
     }
-    
+
     .colfooter h3.titleFooter {
         margin: 0 auto 15px;
     }
-    
+
     .colfooter ul {
         display: inline-block;
         text-align: left;
@@ -376,24 +377,24 @@ footer {
     .painel-esquerdo {
         padding: 30px 15px;
     }
-    
+
     .painel-direito {
         padding: 35px 15px 45px;
     }
-    
+
     h2 {
         font-size: 24px;
         margin-bottom: 20px;
     }
-    
-    .campo-entrada, 
+
+    .campo-entrada,
     .botao {
         max-width: 260px;
     }
-    
+
     #form_login p {
         margin: 10px 0;
         line-height: 1.5;
     }
-    
+
 }

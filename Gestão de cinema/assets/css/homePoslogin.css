@@ -221,9 +221,12 @@ nav ul li a:hover {
 }
 
 .filme {
+    display: flex;
+    flex-direction: column;
     position: relative;
     overflow: hidden;
 }
+
 
 .filme img {
     justify-content: center;
@@ -240,45 +243,46 @@ nav ul li a:hover {
 
 
 .sessao-lista {
-  background-color: #111;
-  border: 1px solid #444;
-  border-radius: 10px;
-  padding: 10px 15px;
-  margin-top: 10px;
-  color: #fff;
-  font-family: 'Merriweather', serif;
-  font-size: 14.5px;
-  max-width: 300px;
+    background-color: #111;
+    border: 1px solid #444;
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin-top: 10px;
+    color: #fff;
+    font-family: 'Merriweather', serif;
+    font-size: 14.5px;
+    max-width: 300px;
 }
 
 .sessao-lista ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .sessao-lista li {
-  padding: 8px 0;
-  border-bottom: 1px solid #333;
+    padding: 8px 0;
+    border-bottom: 1px solid #333;
 }
 
 .sessao-lista li:last-child {
-  border-bottom: none;
+    border-bottom: none;
 }
 
 .sessao-lista strong {
-  color: darkred;
-  font-weight: bold;
+    color: darkred;
+    font-weight: bold;
 }
 
-.botaosess{
-     padding: 5px 10px;
-     background-color: rgb(58, 58, 58);
-     border-radius: 10px;
-     color: white;
-     text-decoration: none;
-     border: none;
-     
+.botaosess {
+    padding: 5px 10px;
+    background-color: rgb(58, 58, 58);
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .botaosess:hover {
@@ -371,9 +375,9 @@ footer {
     padding-top: 15px;
 }
 
-.content{
+.content {
     display: flex;
-    flex-direction: row ;
+    flex-direction: row;
 }
 
 
@@ -386,7 +390,7 @@ footer {
 
 .barraverm img {
     background-color: #B90000;
-    width: 17vh;    
+    width: 17vh;
     margin-right: 10px;
 }
 
@@ -398,12 +402,14 @@ footer {
     margin-left: auto;
     margin-right: 8vh;
 }
+
 .search-box input {
     padding: 6px 10px;
     font-size: 14px;
     border-radius: 5px;
     border: 1px solid #ccc;
 }
+
 .search-box img {
     width: 24px;
     height: 24px;
@@ -416,11 +422,11 @@ footer {
     header {
         padding: 15px 30px;
     }
-    
+
     nav ul {
         gap: 20px;
     }
-    
+
     .slide img {
         height: 400px;
         border-radius: 50px;
@@ -446,7 +452,7 @@ footer {
         width: 100%;
         justify-content: center;
     }
-    
+
     .search-box input {
         width: 80%;
         max-width: 300px;
@@ -474,32 +480,32 @@ footer {
     .slide {
         margin-top: 20px;
     }
-    
+
     .slide img {
         height: 280px;
         border-radius: 30px;
     }
-    
+
     .barra {
         margin-bottom: 45px;
     }
-    
+
     .gradedefilmes {
         grid-template-columns: repeat(3, 1fr);
         padding: 20px 10px;
     }
-    
+
     .filme img {
         width: 100%;
         height: 240px;
     }
-    
+
     .menu-perfil {
         width: 220px;
         right: 50%;
         transform: translateX(50%);
     }
-    
+
     .indicadores {
         bottom: 0;
     }
@@ -510,42 +516,42 @@ footer {
     header {
         padding: 10px;
     }
-    
+
     .logo {
         width: 120px;
     }
-    
+
     nav ul {
         gap: 10px;
     }
-    
+
     .slide img {
         height: 200px;
         border-radius: 20px;
     }
-    
+
     .gradedefilmes {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
     }
-    
+
     .filme img {
         height: 200px;
     }
-    
+
     .categorias {
         gap: 10px;
     }
-    
+
     .categorias a {
         font-size: 14px;
         padding: 4px 8px;
     }
-    
+
     .indicadores {
         bottom: -10px;
     }
-    
+
     .barra {
         margin-bottom: 30px;
     }
@@ -558,34 +564,34 @@ footer {
     }
 
     .search-box {
-    display: flex;
-    display: block;
-}
-    
+        display: flex;
+        display: block;
+    }
+
     nav ul {
         flex-wrap: wrap;
         gap: 8px;
     }
-    
+
     nav ul li a {
         font-size: 14px;
     }
-    
+
     .slide img {
         height: 160px;
         border-radius: 15px;
     }
-    
+
     .gradedefilmes {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
-    
+
     .filme img {
         height: 180px;
         width: 100%;
     }
-    
+
     .categorias {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -593,16 +599,16 @@ footer {
         text-align: center;
         padding-top: 20px;
     }
-    
+
     .colfooter {
         flex: 1 1 100%;
         text-align: center;
     }
-    
+
     .colfooter h3.titleFooter {
         margin: 0 auto 10px;
     }
-    
+
     .main_footer_container .content {
         flex-direction: column;
         align-items: center;
@@ -614,41 +620,41 @@ footer {
     header {
         padding: 8px 5px;
     }
-    
+
     .logo {
         width: 90px;
     }
-    
+
     nav ul li a {
         font-size: 12px;
     }
-    
+
     .search-box input {
         font-size: 12px;
         padding: 4px 8px;
     }
-    
+
     .search-box img {
         width: 20px;
         height: 20px;
     }
-    
+
     .slide img {
         height: 128px;
         width: 99%;
     }
-    
+
     .filme {
         display: flex;
         justify-content: center;
     }
-    
+
     .filme img {
         width: 100%;
         max-width: 150px;
         height: 220px;
     }
-    
+
     .barra {
         margin-bottom: 20px;
     }

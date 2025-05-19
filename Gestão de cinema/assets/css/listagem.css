@@ -9,7 +9,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: black!important;
+    background-color: black !important;
     color: white;
     text-align: center;
 }
@@ -88,7 +88,11 @@ header {
     width: 250px;
 }
 
-.menu-perfil p, .menu-perfil ul, .menu-perfil li, .menu-perfil a, .nome-veisitante {
+.menu-perfil p,
+.menu-perfil ul,
+.menu-perfil li,
+.menu-perfil a,
+.nome-veisitante {
     background-color: #D7D6D6;
     margin: 0;
     padding: 0;
@@ -126,7 +130,7 @@ header {
 .barra {
     width: 90%;
     height: 4px;
-    background-color: darkred!important;
+    background-color: darkred !important;
     margin: 0 auto;
     position: relative;
 }
@@ -140,14 +144,15 @@ main {
     width: 90%;
     max-width: 1200px;
     margin: 20px auto;
-    overflow-x: auto; /* Rolagem horizontal */
+    overflow-x: auto;
+    /* Rolagem horizontal */
     -webkit-overflow-scrolling: touch;
     border-radius: 10px;
 }
 
 table {
     width: 100%;
-    min-width: 800px; 
+    min-width: 800px;
     border-collapse: collapse;
     background: white;
     color: black;
@@ -273,7 +278,7 @@ footer {
 .clear {
     display: none;
 }
-    
+
 
 .socialicones {
     display: flex;
@@ -313,7 +318,7 @@ footer {
     .table-container {
         width: 95%;
     }
-    
+
     .info {
         font-size: 14px;
     }
@@ -323,28 +328,29 @@ footer {
     header {
         padding: 10px 15px;
     }
-    
+
     .logo {
         width: 120px;
     }
-    
+
     .table-container {
         width: 95%;
     }
-    
+
     table {
         font-size: 14px;
     }
-    
-    th, td {
+
+    th,
+    td {
         padding: 10px;
     }
-    
+
     .botao {
         padding: 6px 12px;
         font-size: 12px;
     }
-    
+
     .info {
         text-align: center;
     }
@@ -355,60 +361,61 @@ footer {
         padding: 10px;
         flex-wrap: wrap;
     }
-    
+
     .logo {
         width: 100px;
         margin-bottom: 10px;
     }
-    
+
     .div-header {
         gap: 10px;
     }
-    
+
     .btn-group .btn {
         padding: 5px 10px !important;
         font-size: 12px !important;
     }
-    
+
     .btn-perfil2 {
         width: 32px;
         height: 32px;
     }
-    
+
     .menu-perfil {
         width: 200px;
         right: -10px;
     }
-    
+
     .table-container {
         width: 100%;
         margin: 10px 0;
         padding: 0 5px;
         box-sizing: border-box;
     }
-    
+
     table {
         font-size: 13px;
     }
-    
-    th, td {
+
+    th,
+    td {
         padding: 8px;
     }
-    
+
     .botao {
         padding: 5px 10px;
         font-size: 11px;
     }
-    
+
     .socialicones img {
         width: 25px;
         height: 25px;
     }
-    
+
     .info p {
         font-size: 12px;
     }
-    
+
     .barraverm img {
         width: 150px;
     }
@@ -419,33 +426,34 @@ footer {
         align-items: stretch;
         gap: 5px;
     }
-    
+
     .btn-group {
         width: 100%;
     }
-    
+
     .btn-group .btn {
         width: 100%;
     }
-    
+
     .acao {
         justify-content: center;
         margin-top: 10px;
     }
-    
+
     .menu-perfil {
         right: 8px;
         width: 180px;
     }
-    
+
     table {
         font-size: 12px;
     }
-    
-    th, td {
+
+    th,
+    td {
         padding: 6px;
     }
-    
+
     .botao {
         padding: 4px 8px;
         font-size: 10px;
