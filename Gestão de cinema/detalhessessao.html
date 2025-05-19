@@ -29,15 +29,33 @@
         </div>
         <div>
           <p>Pague agora pelo pix!</p>
-          <p>Leia o QrCode abaixo ou coloque o digite o pix informado.</p>
-          <img src="assets/img/qrcode.png" alt="QR Code" class="qrcode">
-          <p>Pix:18997678789 </p>
+          <p>Escaneie o qrcode abaixo.</p>
+          <img id="qrcode-pix" src="" alt="QR Code PIX" class="qrcode">
         </div>
       </div>
     </div>
   </div>
 
   <script>
+  // Função para extrair o ID da reserva da URL
+  function getIdReserva() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("id_reserva"); // Ex: ?id_reserva=5
+  }
+
+  // Carrega o QR Code quando a página estiver pronta
+  document.addEventListener("DOMContentLoaded", () => {
+    const idReserva = getIdReserva();
+
+    if (idReserva) {
+      const qrCodeImg = document.getElementById("qrcode-pix");
+      qrCodeImg.src = `http://192.168.1.139:5000/pix_qrcode/${idReserva}`;
+    } else {
+      console.error("Reserva não encontrada.");
+    }
+  });
+</script>
+
       function toggleMenu() {
                 const menu = document.getElementById("menuPerfil");
                 menu.style.display = menu.style.display === "block" ? "none" : "block";
