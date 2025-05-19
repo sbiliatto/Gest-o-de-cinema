@@ -121,7 +121,7 @@
                     response.reservas.forEach(function (reserva) {
                         document.getElementById("listapedidos").innerHTML += `
                            
-                            <div>
+                            <div onclick="window.location.href='detalhessessao.html'" style="cursor: pointer;">
                                 <p>Nome do Filme:  ${reserva.titulo_filme}</p>
                                 <p>Horário: ${reserva.horario}</p>
                                 <p>Sala: ${reserva.sala}</p>
