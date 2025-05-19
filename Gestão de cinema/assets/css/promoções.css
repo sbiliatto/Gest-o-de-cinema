@@ -13,7 +13,7 @@ body {
     padding: 0;
 }
 
-body{
+body {
     background-color: black;
 }
 
@@ -68,6 +68,7 @@ nav ul li a:hover {
     left: 5%;
     position: relative;
 }
+
 /* End of header styles from homePoslogin */
 
 .search input {
@@ -197,9 +198,9 @@ footer {
     padding-top: 15px;
 }
 
-.content{
+.content {
     display: flex;
-    flex-direction: row ;
+    flex-direction: row;
 }
 
 .barraverm {
@@ -211,7 +212,7 @@ footer {
 
 .barraverm img {
     background-color: #B90000;
-    width: 17vh;    
+    width: 17vh;
     margin-right: 10px;
 }
 
@@ -247,7 +248,7 @@ footer {
         width: 120px;
     }
 }
- 
+
 
 /* Perfil logado */
 .perfil-logado {
@@ -352,21 +353,23 @@ footer {
     background-color: #D7D6D6;
 }
 
-@media(max-width:1440px){
-    .barra{
+@media(max-width:1440px) {
+    .barra {
         display: none;
     }
-    .filme{
-            width: 78%;
+
+    .filme {
+        width: 78%;
     }
 }
 
 /* Updated media queries for header from homePoslogin */
-@media (max-width: 1024px){
+@media (max-width: 1024px) {
     nav ul {
         margin-left: 100px;
     }
-    .filme{
+
+    .filme {
         width: 100%;
     }
 }
@@ -378,12 +381,12 @@ footer {
         padding: 15px 20px;
         gap: 15px;
     }
-    
+
     .logo {
         width: 150px;
         margin: 0 auto;
     }
-    
+
     nav ul {
         display: flex;
         flex-direction: row;
@@ -392,73 +395,73 @@ footer {
         margin: 15px 0;
         padding: 0;
     }
-    
+
     .acao {
         width: 100%;
         display: flex;
         justify-content: center;
         gap: 10px;
     }
-    
+
     .btn-perfil2 {
         width: 40px;
     }
-    
+
     .promocoes {
         padding: 10px;
     }
-    
+
     .filme {
         flex-direction: column;
         width: 95%;
         padding: 15px;
     }
-    
+
     .filme img {
         width: 150px;
         height: auto;
         margin: 0 auto;
         display: block;
     }
-    
+
     .info {
         text-align: center;
         margin: 15px 0 0 0;
     }
-    
+
     .info p {
         font-size: 14px;
         margin: 5px 0;
     }
-    
+
     button {
         margin: 15px auto 0;
         display: block;
         width: 80%;
     }
-    
+
     .menu-perfil {
         width: 200px;
         right: 50%;
         transform: translateX(50%);
     }
-    
+
     footer {
         padding: 15px;
     }
-    
+
     .info {
         text-align: center;
     }
-    
+
     .barra {
         margin-bottom: 53px;
     }
-    
+
     .barraverm {
         padding: 5px;
     }
-    
+
     .barraverm img {
         width: 20vh;
     }
@@ -475,30 +478,30 @@ footer {
         flex-direction: column;
         gap: 10px;
     }
-    
+
     .logo {
         width: 120px;
     }
-    
+
     .filme {
         width: 100%;
         padding: 10px;
     }
-    
+
     .filme img {
         width: 120px;
     }
-    
+
     .info p {
         font-size: 12px;
     }
-    
+
     button {
         width: 90%;
         padding: 8px;
         font-size: 14px;
     }
-    
+
     .menu-perfil {
         width: 180px;
     }

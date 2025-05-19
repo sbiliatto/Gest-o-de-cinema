@@ -16,8 +16,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <!-- <script src="assets/js/seguranca.js" defer></script>
-    <script src="assets/js/seguranca.js" defer></script>   -->
+     <script src="assets/js/seguranca.js" defer></script> 
 </head>
 
 <body>
@@ -26,9 +25,12 @@
             <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
         </a>
     
-        <div class="search-box">
-            <img src="assets/img/lupa.png" alt="Buscar" id="searchIcon" onclick="buscarFilme()">
-            <input type="text" id="searchInput" placeholder="Busque um filme Aqui...">
+    <div class="search-box">
+      <div style="display: flex; flex-direction: row; gap: 15px; align-items: center;">
+        <img src="assets/img/lupa.png" alt="Buscar" id="searchIcon" onclick="buscarFilme()">
+        <input type="text" id="searchInput" placeholder="Busque um filme Aqui...">
+
+      </div>
             <nav>
                 <ul>
                     <li><a href="homePoslogin.html">HOME</a></li>
@@ -130,39 +132,106 @@
     </footer>
 
     <script>
-        function buscarFilme() {
-            const termo = $("#searchInput").val().trim();
-            if (!termo) return;
+function buscarFilme() {
+        const termo = $("#searchInput").val().trim();
+        if (!termo) return;
 
-            $.ajax({
-                url: `http://192.168.1.139:5000/buscar-filmes`,
-                method: 'GET',
-                data: { termo },
-                success: function (filmes) {
-                    let html = "";
-                    filmes.forEach(filme => {
-                        html += `
-                            <div class="filme">
-                                <a href="#">
-                                    <img src="http://192.168.1.139:5000/static/uploads/Filmes/${filme.id}.jpeg" alt="${filme.titulo}">
-                                    <p>${filme.titulo}</p>
-                                </a>
-                            </div>
-                        `;
-                    });
-                    $("#exibeFilmes").html(html || "<p>Nenhum filme encontrado.</p>");
-                },
-                error: function () {
-                    Swal.fire("Erro", "Erro ao buscar filmes. Tente novamente.", "error");
-                }
+        $.ajax({
+            url: "http://192.168.1.139:5000/buscar-filmes",
+            method: 'GET',
+            data: { termo },
+            success: function (filmes) {
+            let html = "";
+            filmes.forEach(filme => {
+                html += `
+                <div class="filme">
+                    <a href="datasessoesadm.html?id=${filme.id}&titulo=${encodeURIComponent(filme.titulo)}&classificacao=${filme.classificacao}&genero=${encodeURIComponent(filme.genero)}&trailer=${encodeURIComponent(filme.link || '')}&sinopse=${encodeURIComponent(filme.sinopse)}">
+                    <img src="http://192.168.1.139:5000/static/uploads/Filmes/${filme.id}.jpeg" alt="${filme.titulo}">
+                    </a>
+                    <button class='botaosess' onclick="carregarSessoes(${filme.id})">Ver Sessões</button>
+                    <div id="sessoes-${filme.id}" class="sessao-lista" style="display:none;"></div>
+                </div>
+                `;
             });
+
+            if (filmes.length > 0) {
+                Swal.fire("Resultado encontrado!", "", "success");
+            } else {
+                html = "<p>Nenhum filme encontrado.</p>";
+                Swal.fire("Nenhum resultado encontrado.", "", "info");
+            }
+
+            $("#exibeFilmes").html(html);
+            },
+            error: function () {
+            Swal.fire("Erro", "Erro ao buscar filmes. Tente novamente.", "error");
+            }
+        });
         }
 
-        document.getElementById('searchInput').addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-        buscarFilme();
+    function carregarSessoes(idFilme) {
+      const container = $(`#sessoes-${idFilme}`);
+
+      // Toggle se já carregado
+      if (container.html().trim() !== "") {
+        container.toggle();
+        return;
+      }
+
+      $.ajax({
+        url: `http://192.168.1.139:5000/sessoes/${idFilme}`,
+        method: 'GET',
+        success: function (response) {
+          const sessoes = response.sessoes;
+          let html = "";
+
+          if (sessoes.length === 0) {
+            html = "<p>Sem sessões disponíveis para este filme.</p>";
+          } else {
+            html += `<ul>`;
+            sessoes.forEach(sessao => {
+              html += `
+                <li>
+                  <strong>${sessao.data_sessao}</strong> - ${sessao.horario} | Sala: ${sessao.descricao} | R$ ${sessao.valor_unitario.toFixed(2)}
+                </li>`;
+            });
+            html += `</ul>`;
+          }
+
+          container.html(html).slideDown();
+        },
+        error: function () {
+          Swal.fire("Erro", "Erro ao buscar sessões do filme.", "error");
+        }
+      });
     }
+
+    $("#searchInput").on("keypress", function (e) {
+      if (e.key === "Enter") buscarFilme();
     });
+
+
+    function carregaProdutos() {
+      $.ajax({
+        url: "http://192.168.1.139:5000/filmes",
+        method: "GET",
+        headers: { "Content-Type": "application/json" }
+      }).done(function (response) {
+        const exibe = $("#exibeFilmes");
+        let html = "";
+        response.filmes.forEach(item => {
+          html += `
+            <div class="filme">
+              <a href="#">
+                <img src="http://192.168.1.139:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
+              </a>
+            </div>
+          `;
+        });
+        exibe.html(html);
+      });
+    }
+
 
         function toggleMenu() {
             const menu = document.getElementById("menuPerfil");
