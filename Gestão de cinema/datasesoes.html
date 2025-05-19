@@ -81,6 +81,8 @@
                 <span class="star" data-value="4">★</span>
                 <span class="star" data-value="5">★</span>
             </div>
+            <div class="rating-display">Nota: <span id="rating-value">0</span></div>
+            
         </div>
         <div class="movie-details">
             <h1 class="movie-title" id="titulo"> </h1>
@@ -260,6 +262,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
     const stars = document.querySelectorAll('.star-rating .star');
+    const ratingValue = document.getElementById('rating-value');
     const params = new URLSearchParams(window.location.search);
     const id_filme = params.get("id");
 
@@ -274,6 +277,9 @@ document.addEventListener("DOMContentLoaded", function () {
     stars.forEach((star, index) => {
         star.addEventListener('click', () => {
             selectedRating = index + 1;
+
+            // Atualiza a exibição da nota
+            ratingValue.textContent = selectedRating;
 
             stars.forEach((s, i) => {
                 s.style.color = i < selectedRating ? 'gold' : 'white';
@@ -314,6 +320,32 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             });
         });
+    });
+
+    // Verificar se o usuário já avaliou esse filme e mostrar a nota existente
+    fetch(`http://192.168.1.139:5000/avaliacao/${id_usuario}/${id_filme}`, {
+        method: "GET",
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    })
+    .then(response => {
+        if (response.ok) return response.json();
+        throw new Error("Avaliação não encontrada");
+    })
+    .then(data => {
+        if (data && data.nota) {
+            selectedRating = data.nota;
+            ratingValue.textContent = selectedRating;
+            
+            // Colorir as estrelas conforme a avaliação
+            stars.forEach((s, i) => {
+                s.style.color = i < selectedRating ? 'gold' : 'white';
+            });
+        }
+    })
+    .catch(error => {
+        console.log("Usuário ainda não avaliou este filme");
     });
 });
 </script>
