@@ -60,6 +60,7 @@ nav ul li a:hover {
     left: 5%;
     position: relative;
 }
+
 /* End of updated header styles */
 
 .download-container {
@@ -70,18 +71,21 @@ nav ul li a:hover {
 }
 
 .download-container a i:hover {
-    transform: scale(1.2); /* Aumenta o ícone em 20% */
+    transform: scale(1.2);
+    /* Aumenta o ícone em 20% */
     transition: transform 0.3s ease-in-out;
 }
 
 
 .relatorio i {
-    font-size: 65px; /* Ajuste o tamanho do ícone, se necessário */
+    font-size: 65px;
+    /* Ajuste o tamanho do ícone, se necessário */
     padding-bottom: 50px;
 }
 
 .p {
-    font-size: 20px; /* Ajuste o tamanho do ícone, se necessário */
+    font-size: 20px;
+    /* Ajuste o tamanho do ícone, se necessário */
     padding-bottom: 50px;
     color: white;
     text-align: center;

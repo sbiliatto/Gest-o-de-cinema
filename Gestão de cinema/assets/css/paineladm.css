@@ -314,6 +314,7 @@ footer {
     border-top: 1px solid #333;
     padding-top: 15px;
 }
+
 .vendas-retangulo {
     width: 100%;
     background-color: #1e1e1e;
@@ -327,14 +328,15 @@ footer {
     margin-bottom: 30px;
 }
 
-.vendas-retangulo > .sessao {
+.vendas-retangulo>.sessao {
     display: flex;
     justify-content: space-between;
     background-color: #2b2b2b;
     padding: 10px 15px;
     border-radius: 8px;
     font-weight: 500;
-    flex-wrap: wrap; /* permite quebrar conteúdo */
+    flex-wrap: wrap;
+    /* permite quebrar conteúdo */
 }
 
 /* Botão PDF */
@@ -353,6 +355,7 @@ footer {
 .botao-pdf:hover {
     background-color: #c60808;
 }
+
 /* Responsividade */
 @media (max-width: 768px) {
     header {
@@ -361,35 +364,35 @@ footer {
         gap: 10px;
         text-align: center;
     }
-    
+
     .div-header {
         width: 100%;
         justify-content: center;
     }
-    
+
     .painel-container {
         padding: 20px 10px;
     }
-    
+
     .card-painel {
         width: 100%;
         max-width: 350px;
     }
-    
+
     .main_footer_container .content {
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
-    
+
     .colfooter {
         width: 100%;
     }
-    
+
     .titleFooter {
         margin: 0 auto 15px;
     }
-    
+
     .redes-sociais {
         justify-content: center;
     }
@@ -399,23 +402,25 @@ footer {
     .logo {
         height: 40px;
     }
-    
+
     .btn-perfil2 {
         width: 28px;
     }
-    
+
     .data-selecao {
         flex-direction: column;
         align-items: stretch;
     }
-    
-    .sessao-item, .filme-rank {
+
+    .sessao-item,
+    .filme-rank {
         flex-direction: column;
         align-items: flex-start;
         padding: 12px 0;
     }
-    
-    .sessao-hora, .bilheteria {
+
+    .sessao-hora,
+    .bilheteria {
         margin-top: 5px;
     }
 }

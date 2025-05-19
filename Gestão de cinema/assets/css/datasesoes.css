@@ -193,12 +193,29 @@
             font-size: 14px;
         }
 
-        .l { background-color: #0a9e58; }
-        .ten { background-color: #0b99cb; }
-        .twelve { background-color: #f7c325; }
-        .fourteen { background-color: #e7642c; }
-        .sixteen { background-color: #d20f2e; }
-        .eighteen { background-color: #000000; }
+        .l {
+            background-color: #0a9e58;
+        }
+
+        .ten {
+            background-color: #0b99cb;
+        }
+
+        .twelve {
+            background-color: #f7c325;
+        }
+
+        .fourteen {
+            background-color: #e7642c;
+        }
+
+        .sixteen {
+            background-color: #d20f2e;
+        }
+
+        .eighteen {
+            background-color: #000000;
+        }
 
         .generoclass {
             display: flex;
@@ -384,7 +401,7 @@
             clear: both;
         }
 
-       
+
         @media (max-width: 992px) {
             header {
                 padding: 15px 20px;
