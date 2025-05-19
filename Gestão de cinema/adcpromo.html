@@ -186,7 +186,7 @@
 
     function carregaProdutos() {
         var settings = {
-            "url": "http://192.168.1.106:5000",
+            "url": "http://192.168.1.139:5000",
             "method": "GET",
             "timeout": 0,
             "headers": {
@@ -210,7 +210,7 @@
 
     function carregarSalas() {
         var settings = {
-            "url": "http://192.168.1.106:5000/salas",
+            "url": "http://192.168.1.139:5000/salas",
             "method": "GET",
             "headers": {
                 "Content-Type": "application/json"
@@ -236,7 +236,7 @@
         console.log(id_filme)
 
         var settings = {
-            "url": "http://192.168.1.106:5000/sessoes/" + id_filme,
+            "url": "http://192.168.1.139:5000/sessoes/" + id_filme,
             "method": "GET",
             "timeout": 0,
             "headers": {
@@ -287,7 +287,7 @@
     };
 
     $.ajax({
-        url: "http://192.168.1.106:5000/sessoes",
+        url: "http://192.168.1.139:5000/sessoes",
         method: "POST",
         contentType: "application/json",
         data: JSON.stringify(dados),

@@ -126,7 +126,7 @@
       if (!termo && !sessao) return;
 
       $.ajax({
-        url: "http://192.168.1.106:5000/buscar-filmes",
+        url: "http://192.168.1.139:5000/buscar-filmes",
         method: 'GET',
         data: { termo, sessao },
         success: function (filmes) {
@@ -135,7 +135,7 @@
             html += `
               <div class="filme">
                 <a href="#">
-                  <img src="http://192.168.1.106:5000/static/uploads/Filmes/${filme.id}.jpeg" alt="${filme.titulo}">
+                  <img src="http://192.168.1.139:5000/static/uploads/Filmes/${filme.id}.jpeg" alt="${filme.titulo}">
                   <p>${filme.titulo}</p>
                 </a>
               </div>
@@ -157,7 +157,7 @@
 
     function carregaProdutos() {
       $.ajax({
-        url: "http://192.168.1.106:5000/filmes",
+        url: "http://192.168.1.139:5000/filmes",
         method: "GET",
         headers: { "Content-Type": "application/json" }
       }).done(function (response) {
@@ -167,7 +167,7 @@
           html += `
             <div class="filme">
               <a href="#">
-                <img src="http://192.168.1.106:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
+                <img src="http://192.168.1.139:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
                 <p>${item.titulo}</p>
               </a>
             </div>

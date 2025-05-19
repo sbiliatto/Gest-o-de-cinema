@@ -197,7 +197,7 @@
     <script>
         function carregaProdutos() {
             var settings = {
-                "url": "http://192.168.1.106:5000/filmes",
+                "url": "http://192.168.1.139:5000/filmes",
                 "method": "GET",
                 "timeout": 0,
                 "headers": {
@@ -216,7 +216,7 @@
                     html += `     
                         <div class="filme">
                             <a href="datasessoesadm.html?id=${item.id_filme}&titulo=${item.titulo}&classificacao=${item.classificacao}&genero=${item.genero}&trailer=${item.link}&sinopse=${item.sinopse}">
-                                <img src="http://192.168.1.106:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
+                                <img src="http://192.168.1.139:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
                                 <div class="botoes">
                                     <a href="editafilme.html?id=${item.id_filme}&titulo=${item.titulo}&classificacao=${item.classificacao}&genero=${item.genero}&sinopse=${item.sinopse}&duracao=${item.duracao}&link=${item.link}" class="edit">Editar</a>
                                     <button onclick="alterarstatus(${item.id_filme})" class="edit">Deletar</button>
@@ -234,7 +234,7 @@
             var token = localStorage.getItem("token");
 
             var settings = {
-                "url": "http://192.168.1.106:5000/filmes/" + id_filme + "/inativar",
+                "url": "http://192.168.1.139:5000/filmes/" + id_filme + "/inativar",
                 "method": "PUT",
                 "timeout": 0,
                 "headers": {
