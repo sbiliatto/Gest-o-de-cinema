@@ -67,7 +67,7 @@
                 method: "post",
                 url: "http://192.168.1.139:5000/login",
                 contentType: "application/json",
-                data: dados, // ✅ ESSENCIAL: você esqueceu isso!
+                data: dados, 
                 success: function (retorno) {
                     localStorage.setItem("token", retorno.usuarios.token)
                     localStorage.setItem("nome", retorno.usuarios.nome)

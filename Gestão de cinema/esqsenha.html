@@ -36,13 +36,16 @@
                     <!-- Campo para o token -->
                     <div class="campo-entrada">
                         <span class="icone"><i class="fas fa-key"></i></span>
-                        <input type="text" id="token" name="token" placeholder="Digite o token recebido por e-mail" required>
+                        <input type="text" id="token" name="token" placeholder="Digite o código recebido por e-mail" required>
                     </div>
 
-                    <!-- Campo para a nova senha -->
+                    <!-- Campo para a nova senha com botão para mostrar/esconder -->
                     <div class="campo-entrada">
                         <span class="icone"><i class="fas fa-lock"></i></span>
                         <input type="password" id="nova-senha" name="nova-senha" placeholder="Nova senha" required>
+                        <span class="toggle-password" onclick="togglePasswordVisibility('nova-senha')">
+                            <i class="fas fa-eye"></i>
+                        </span>
                     </div>
 
                     <button type="submit" class="botao">SALVAR</button>
@@ -53,15 +56,32 @@
     </div>
 
     <script>
-        // Formulário para recuperar a senha
+        let emailGlobal = '';
+
+        // Função para alternar a visibilidade da senha
+        function togglePasswordVisibility(inputId) {
+            const passwordInput = document.getElementById(inputId);
+            const toggleIcon = document.querySelector(`#${inputId}`).nextElementSibling.querySelector('i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            }
+        }
+
         document.getElementById('esqueci-form').addEventListener('submit', async function (e) {
-            e.preventDefault();  // Impede o envio do formulário padrão
+            e.preventDefault();
 
-            const email = document.getElementById('email').value;  // Pega o valor do campo email
+            const email = document.getElementById('email').value;
+            emailGlobal = email;
 
-            // Verifica se o campo de e-mail não está vazio
             if (!email) {
-                alert('Por favor, insira um e-mail.');
+                Swal.fire('Erro!', 'Por favor, insira um e-mail.', 'error');
                 return;
             }
 
@@ -76,58 +96,61 @@
                 document.getElementById('mensagem').innerText = resultado.message || resultado.error;
 
                 if (resultado.message) {
-                    // Exibe uma notificação de sucesso com SweetAlert
                     Swal.fire('Sucesso!', resultado.message, 'success');
-
-                    // Oculta o formulário de recuperação de senha
                     document.getElementById('esqueci-form').style.display = 'none';
                     document.getElementById('titulo-recuperacao').style.display = 'none';
-
-                    // Mostra o formulário de redefinição de senha
                     document.getElementById('redefinir-senha').style.display = 'block';
                 } else {
-                    // Exibe uma notificação de erro com SweetAlert
                     Swal.fire('Erro!', resultado.error, 'error');
                 }
 
             } catch (error) {
-                console.error('Erro ao tentar recuperar a senha:', error);
                 Swal.fire('Erro!', 'Ocorreu um erro ao tentar recuperar sua senha.', 'error');
             }
         });
 
-        // Formulário para redefinir a senha
         document.getElementById('redefinir-form').addEventListener('submit', async function (e) {
-            e.preventDefault(); // Impede o envio do formulário padrão
+            e.preventDefault();
 
             const token = document.getElementById('token').value;
             const novaSenha = document.getElementById('nova-senha').value;
 
-            // Validação simples
             if (!token || !novaSenha) {
                 Swal.fire('Erro!', 'Preencha todos os campos.', 'error');
                 return;
             }
 
             try {
+                const validacao = await fetch('http://192.168.1.139:5000/verificar-codigo', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: emailGlobal, codigo: token })
+                });
+
+                const resultadoValidacao = await validacao.json();
+
+                if (!resultadoValidacao.message) {
+                    Swal.fire('Erro!', resultadoValidacao.error, 'error');
+                    return;
+                }
+
                 const resposta = await fetch('http://192.168.1.139:5000/redefinir-senha', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ token, nova_senha: novaSenha })
+                    body: JSON.stringify({ email: emailGlobal, nova_senha: novaSenha })
                 });
 
                 const resultado = await resposta.json();
 
                 if (resultado.message) {
                     Swal.fire('Sucesso!', resultado.message, 'success').then(() => {
-                        // Redireciona para a tela de login, se quiser
                         window.location.href = 'login.html';
                     });
                 } else {
                     Swal.fire('Erro!', resultado.error, 'error');
                 }
+
             } catch (error) {
-                console.error('Erro ao tentar redefinir a senha:', error);
                 Swal.fire('Erro!', 'Erro ao redefinir a senha.', 'error');
             }
         });

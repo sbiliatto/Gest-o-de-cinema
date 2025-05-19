@@ -53,37 +53,118 @@
         </div>
     </header>
 
-    <main class="painel-container">
-        <section class="card-painel">
-            <h2>Valor total arrecadado</h2>
-            <div class="data-selecao">
-                <input type="date" class="data-input" /> até <input type="date" class="data-input" />
-                <button class="btn-filtrar">Filtrar</button>
-            </div>
-            <div class="valor" id="valor-arrecadado"></div>
-        </section>
+    <main class="dashboard-container">
+        <h1 class="tt">Painel Administrativo</h1>
 
-        <section class="card-painel">
-            <h2>Ingressos vendidos</h2>
-            <div class="sessoes-lista">
-                <div class="sessao-item">
-                    <span class="filme-nome">Total de ingressos:</span>
-                    <span class="sessao-hora" id="ingressos-vendidos"></span>
+        <section class="cards">
+            <div class="card">
+                <div class="card-content">
+                    <h2 id="valor-arrecadado">R$ 45.320,00</h2>
+                    <p>Valor Arrecadado</p>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalFiltrarData">
+                        Filtrar por data
+                    </button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h2 id="ingressos-vendidos">1.230</h2>
+                    <p>Ingressos Vendidos</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h2>Top Bilheteria</h2>
+                    <ul id="ranking-filmes">
+                        <li>1. Filme A – R$ 12.000</li>
+                        <li>2. Filme B – R$ 9.800</li>
+                        <li>3. Filme C – R$ 7.500</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <section class="card-painel">
-            <h2>Filmes com maior bilheteria</h2>
-            <div class="ranking-filmes" id="ranking-filmes"></div>
-        </section>
-
-        <section class="card-painel vendas-retangulo">
-            <h2>Vendas por sessão</h2>
-            <div class="sessoes-lista" id="vendas-sessoes"></div>
-            <button class="botao-pdf:hover botaoo">📄 Baixar PDF com todas as sessões</button>
+        <section class="tabela-sessoes">
+            <div class="tabela-header">
+                <h2>Vendas por Sessão</h2>
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modalVerTodas">
+                    Ver todas
+                </button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Horário</th>
+                        <th>Filme</th>
+                        <th>Ingressos</th>
+                    </tr>
+                </thead>
+                <tbody id="vendas-sessoes">
+                    <tr>
+                        <td>14h</td>
+                        <td>Filme A</td>
+                        <td>150</td>
+                    </tr>
+                    <tr>
+                        <td>17h</td>
+                        <td>Filme B</td>
+                        <td>230</td>
+                    </tr>
+                    <tr>
+                        <td>20h</td>
+                        <td>Filme C</td>
+                        <td>310</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
     </main>
+
+    <div class="modal fade" id="modalFiltrarData" tabindex="-1" aria-labelledby="modalFiltrarDataLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalFiltrarDataLabel">Filtrar por Data</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formFiltrarData">
+                        <div class="mb-3">
+                            <label for="dataInicio" class="form-label">Data Início</label>
+                            <input type="date" class="form-control" id="dataInicio" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="dataFim" class="form-label">Data Fim</label>
+                            <input type="date" class="form-control" id="dataFim" required />
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" form="formFiltrarData" class="btn btn-danger">Aplicar Filtro</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Ver todas -->
+    <div class="modal fade" id="modalVerTodas" tabindex="-1" aria-labelledby="modalVerTodasLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalVerTodasLabel">Todas as Vendas</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Aqui você pode ver todas as vendas registradas.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="btnBaixarPDF">Baixar PDF</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer class="main_footer_container">
         <div class="content">
@@ -111,142 +192,121 @@
                     <a class="rss" href="https://www.whatsapp.com/?lang=pt_BR">
                         <img src="assets/img/whatsapp (1).png" alt="WhatsApp" />
                     </a>
-                    <a class="rss" href="https://x.com/?lang=pt">
-                        <img src="assets/img/twitter.png" alt="Twitter" />
-                    </a>
-                    <a class="rss" href="https://www.facebook.com/?locale=pt_BR">
+                    <a class="rss" href="https://www.facebook.com/">
                         <img src="assets/img/facebook.png" alt="Facebook" />
                     </a>
                 </div>
             </div>
         </div>
-        <div class="main_footer_copy">
-            <p class="m-b-footer">PrimeCine - 2025 © todos os direitos reservados</p>
-        </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        function toggleMenu() {
-            const menu = document.getElementById("menuPerfil");
-            menu.classList.toggle("show");
-        }
 
-        function sair() {
-            Swal.fire({
-                title: "Tem certeza que deseja sair?",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#d33",
-                cancelButtonColor: "#3085d6",
-                confirmButtonText: "Sim, sair",
-                cancelButtonText: "Cancelar",
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    localStorage.removeItem("token");
-                    localStorage.removeItem("nome");
-                    Swal.fire({
-                        title: "Sessão finalizada!",
-                        icon: "success",
-                        showConfirmButton: false,
-                        timer: 1500,
-                    }).then(() => {
-                        window.location.href = "login.html";
-                    });
-                }
-            });
-        }
+function formatarMoedaBR(valor) {
+    return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+}
 
-        document.addEventListener("click", function (event) {
-            const botaoPerfil = document.querySelector(".perfil-container");
-            const menu = document.getElementById("menuPerfil");
 
-            if (!botaoPerfil.contains(event.target) && !menu.contains(event.target)) {
-                menu.classList.remove("show");
-            }
+async function buscarDadosDoBackend(data_inicial, data_final) {
+    try {
+        const response = await fetch('http://10.92.3.154:5000/painel-admin', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ data_inicial, data_final }),
         });
 
-        var nome = localStorage.getItem("nome");
-        if (nome) {
-            document.getElementById("nome-visitante").textContent = nome;
+        if (!response.ok) {
+            throw new Error('Erro ao buscar dados do backend');
         }
 
-        async function buscarDadosDoBackend() {
-       
-            const url = "/api/painel-dados"; 
-
-            try {
-                const resposta = await fetch(url);
-                if (!resposta.ok) throw new Error("Erro ao carregar dados");
-                const dados = await resposta.json();
-                return dados;
-            } catch (erro) {
-                console.error(erro);
-                return null;
-            }
-        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error(error);
+        Swal.fire('Erro', 'Não foi possível buscar os dados.', 'error');
+        return null;
+    }
+}
 
 
-        function atualizarDadosPainel(dados) {
-            if (!dados) return;
+function atualizarDashboard(dados) {
+    if (!dados) return;
 
-         
-            const valor = dados.totalArrecadado;
-            document.getElementById("valor-arrecadado").textContent = valor
-                ? valor.toLocaleString("pt-BR", {
-                      style: "currency",
-                      currency: "BRL",
-                  })
-                : "";
 
-        
-            document.getElementById("ingressos-vendidos").textContent = dados.ingressosVendidos ?? "";
+    const valorArrecadadoElem = document.getElementById('valor-arrecadado');
+    valorArrecadadoElem.textContent = formatarMoedaBR(dados.total_arrecadado || 0);
 
-         
-            const ranking = document.getElementById("ranking-filmes");
-            ranking.innerHTML = ""; 
 
-            if (Array.isArray(dados.filmes)) {
-                dados.filmes.forEach((filme, i) => {
-                    const div = document.createElement("div");
-                    div.classList.add("filme-rank");
-                    div.innerHTML = `
-                        <span class="posicao">${i + 1}º</span>
-                        <span class="filme-nome">${filme.nome}</span>
-                        <span class="bilheteria">${filme.bilheteria.toLocaleString("pt-BR", {
-                            style: "currency",
-                            currency: "BRL",
-                        })}</span>
-                    `;
-                    ranking.appendChild(div);
-                });
-            }
+    const ingressosVendidosElem = document.getElementById('ingressos-vendidos');
+    ingressosVendidosElem.textContent = dados.ingressos_vendidos ?? 0;
 
   
-            const vendasSessoes = document.getElementById("vendas-sessoes");
-            vendasSessoes.innerHTML = ""; 
-
-            if (Array.isArray(dados.vendasSessoes)) {
-                dados.vendasSessoes.forEach((sessao) => {
-                    const div = document.createElement("div");
-                    div.classList.add("sessao-item");
-                    div.innerHTML = `
-                        <span class="filme-nome">${sessao.nomeFilme}</span>
-                        <span class="sessao-hora">${sessao.sessao}: ${sessao.ingressos} ingressos</span>
-                    `;
-                    vendasSessoes.appendChild(div);
-                });
-            }
-        }
+    const rankingFilmesElem = document.getElementById('ranking-filmes');
+    rankingFilmesElem.innerHTML = ''; 
+    dados.filmes_mais_bilheteira.forEach((filme, index) => {
+        const li = document.createElement('li');
+        li.textContent = `${index + 1}. ${filme.titulo} – ${formatarMoedaBR(filme.bilheteira_total)}`;
+        rankingFilmesElem.appendChild(li);
+    });
 
    
-        window.addEventListener("DOMContentLoaded", async () => {
-            const dados = await buscarDadosDoBackend();
-            atualizarDadosPainel(dados);
-        });
+    const vendasSessoesBody = document.getElementById('vendas-sessoes');
+    vendasSessoesBody.innerHTML = ''; 
+    dados.vendas_por_sessao.forEach(sessao => {
+        const tr = document.createElement('tr');
+
+ 
+        const tdHorario = document.createElement('td');
+        tdHorario.textContent = sessao.horario;
+        tr.appendChild(tdHorario);
+
+   
+        const tdFilme = document.createElement('td');
+        tdFilme.textContent = sessao.nome;
+        tr.appendChild(tdFilme);
+
+
+        const tdIngressos = document.createElement('td');
+        tdIngressos.textContent = sessao.ingressos;
+        tr.appendChild(tdIngressos);
+
+        vendasSessoesBody.appendChild(tr);
+    });
+}
+
+
+document.getElementById('formFiltrarData').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data_inicial = document.getElementById('dataInicio').value;
+    const data_final = document.getElementById('dataFim').value;
+
+    if (!data_inicial || !data_final) {
+        Swal.fire('Aviso', 'Por favor, preencha as duas datas.', 'warning');
+        return;
+    }
+
+    const dados = await buscarDadosDoBackend(data_inicial, data_final);
+    atualizarDashboard(dados);
+
+    const modalElement = document.getElementById('modalFiltrarData');
+    const modal = bootstrap.Modal.getInstance(modalElement);
+    modal.hide();
+});
+
+
+window.addEventListener('load', async () => {
+    const dados = await buscarDadosDoBackend(null, null);
+    atualizarDashboard(dados);
+});
+
     </script>
 </body>
 </html>
+
+
 
             
 

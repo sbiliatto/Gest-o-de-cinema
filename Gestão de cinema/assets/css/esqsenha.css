@@ -10,7 +10,6 @@
     height: 100vh;
 }
 
-
 .painel-esquerdo {
     width: 40%;
     background-color: black;
@@ -28,7 +27,6 @@
     max-width: 315px;
     margin-bottom: 20px;
 }
-
 
 .painel-direito {
     width: 60%;
@@ -57,6 +55,7 @@ h2 {
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;
+    position: relative;
 }
 
 .campo-entrada input {
@@ -64,41 +63,30 @@ h2 {
     outline: none;
     flex: 1;
     padding-left: 10px;
+    padding-right: 40px;
+    width: 100%;
 }
 
 input::placeholder {
     color: red;
 }
 
-
-.campo-entrada {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.campo-entrada input {
-    width: 100%;
-    padding-right: 40px;
-}
-
 .icone {
     margin-right: 10px;
+    color: rgba(239, 0, 0, 1);
+    font-size: 18px;
 }
 
-.eye-icon {
+/* Estilo para o botão de mostrar/esconder senha */
+.toggle-password {
     position: absolute;
     right: 10px;
     cursor: pointer;
-    width: 20px;
-    height: 20px;
+    color: rgba(239, 0, 0, 1);
 }
 
-
-
-.icone {
-    color: rgba(239, 0, 0, 1);
-    font-size: 18px;
+.toggle-password:hover {
+    color: brown;
 }
 
 .botao {
@@ -191,5 +179,4 @@ input::placeholder {
         width: 90%;
         max-width: 260px;
     }
-
 }

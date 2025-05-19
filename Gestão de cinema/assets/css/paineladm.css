@@ -102,128 +102,155 @@ header {
 }
 
 
-
-/* Painel principal */
-.painel-container {
-    padding: 30px 15px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-    justify-content: center;
-    min-height: calc(100vh - 350px);
-}
-
-/* Cartões dentro do painel */
-.card-painel {
-    background-color: #222;
-    border: 2px solid #8B0000;
-    border-radius: 12px;
-    padding: 20px;
+.tt {
     color: white;
-    width: 320px;
-    box-shadow: 0 0 15px rgba(139, 0, 0, 0.3);
-    transition: transform 0.3s;
 }
 
-.card-painel:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 20px rgba(139, 0, 0, 0.5);
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #000;
+  color: #fff;
 }
 
-/* Títulos dentro dos cartões */
-.card-painel h2 {
-    color: #fff;
-    font-size: 20px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid #8B0000;
-    padding-bottom: 8px;
+.dashboard-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
 }
 
-/* Inputs de data */
-.data-selecao {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 5px;
-    margin-bottom: 15px;
+h1 {
+  color: red;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
 }
 
-.data-input {
-    background-color: #333;
-    color: white;
-    border: 1px solid #8B0000;
-    padding: 5px 8px;
-    border-radius: 4px;
-    flex-grow: 1;
-    min-width: 120px;
+.cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
 }
 
-.btn-filtrar {
-    background-color: #8B0000;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 5px;
+.card {
+  flex: 1;
+  min-width: 250px;
+  background-color: #fff;
+  color: #000;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.btn-filtrar:hover {
-    background-color: #a30000;
+.card-content {
+  text-align: center;
 }
 
-/* Valor total */
-.valor {
-    font-size: 28px;
-    color: #8B0000;
-    font-weight: bold;
-    margin-top: 15px;
-    text-align: center;
+.card-content h2 {
+  font-size: 2rem;
+  margin: 0;
+  color: red;
 }
 
-/* Estilo para listagem de sessões */
-.sessoes-lista {
-    margin-top: 10px;
+.card-content p {
+  font-weight: bold;
 }
 
-.sessao-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 0;
-    border-bottom: 1px solid #333;
+.card-content ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+  text-align: left;
 }
 
-.filme-nome {
-    font-weight: bold;
-    color: #ddd;
+.card-content li {
+  font-size: 0.95rem;
+  margin-bottom: 4px;
 }
 
-.sessao-hora {
-    color: #ffffff;
+.card-content button {
+  margin-top: 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-/* Ranking de filmes */
-.ranking-filmes {
-    margin-top: 10px;
+.card-content button:hover {
+  background-color: #c20000;
 }
 
-.filme-rank {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 0;
-    border-bottom: 1px solid #333;
-    align-items: center;
+/* Tabela de Sessões */
+.tabela-sessoes {
+  background-color: #111;
+  border-radius: 12px;
+  padding: 20px;
 }
 
-.posicao {
-    font-weight: bold;
-    color: #ffffff;
-    margin-right: 10px;
+.tabela-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
 }
 
-.bilheteria {
-    color: #fcfafa;
+.tabela-header h2 {
+  color: red;
 }
+
+.tabela-header button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #333;
+  text-align: left;
+}
+
+th {
+  background-color: #222;
+  color: white;
+}
+
+td {
+  color: #ccc;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  color: #000;
+
 
 /* FOOTER */
 footer {
