@@ -16,7 +16,7 @@ html, body {
   height: 100vh;
   border: none;
   z-index: 0;
-  filter: blur(3px);
+  filter: blur(2px);
 }
 
 /* Camada escura sobre o fundo */
