@@ -200,15 +200,17 @@
                 // Iniciar a primeira linha
                 conteudoHTML += '<div class="showtime-row">';
                 
-                sessoes.forEach((item, index) => {
+                sessoes.forEach((item, index, datasessoesadm) => {
                     var dataObj = item.data_sessao.split("-")
                     var dataFormatada = dataObj[2] + "/" + dataObj[1] + "/" + dataObj[0]
+
+                const horaFormatada = item.horario.slice(0, 5);
                     
                     // Adicionar o box de horário
                     conteudoHTML += `
                         <a class="buy-button" href="cadeirasDisponiveis.html?id=${id}&valor_unitario=${item.valor_unitario}&titulo=${params.get("titulo")}&datasessao=${item.data_sessao}&horario=${item.horario}&id_sessao=${item.id_sessao}&descricao=${item.descricao}">
                             <div class="showtime-box">
-                                <div class="time">${item.horario}</div>
+                                <div class="time">${horaFormatada}</div>
                                 <div class="time">${dataFormatada}</div>
                                 Comprar
                                 <div class="room">${item.descricao}</div>
@@ -238,8 +240,7 @@
 
         var nome = localStorage.getItem("nome")
         document.getElementById("nome-visitante").innerHTML = nome
-    </script>
-    <script>
+
         function voltarprahome() {
             const tipoUsuario = localStorage.getItem("tipo"); // ou sessionStorage
     
@@ -250,16 +251,13 @@
             }
         }
         
-    </script>
-    <script>
+
         function toggleMenu() {
             const menu = document.getElementById("menuPerfil");
             menu.classList.toggle("show");
         }
-    </script>
 
 
-<script>
 document.addEventListener("DOMContentLoaded", function () {
     const stars = document.querySelectorAll('.star-rating .star');
     const params = new URLSearchParams(window.location.search);
@@ -319,9 +317,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 </script>
-
-
-
 
 </body>
 
