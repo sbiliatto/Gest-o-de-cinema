@@ -121,7 +121,7 @@
                     response.reservas.forEach(function (reserva) {
                         document.getElementById("listapedidos").innerHTML += `
                            
-                            <div onclick="window.location.href='detalhessessao.html'" style="cursor: pointer;">
+                            <div onclick="window.location.href='detalhessessao.html?id=${item.id_reserva}&titulo_filme=${item.titulo_filme}&data_sessao=${item.data_sessao}&horario=${item.horario}&sala=${item.sala}&assentos=${item.assentos}&valor_total=${item.valor_total}'" style="cursor: pointer;">
                                 <p>Nome do Filme:  ${reserva.titulo_filme}</p>
                                 <p>Horário: ${reserva.horario}</p>
                                 <p>Sala: ${reserva.sala}</p>

@@ -20,123 +20,112 @@
       <h1>DETALHES DO SEU PEDIDO</h1>
       <div class="details" id="details">
         <div>
-          <p><strong><i class="fa-solid fa-film"></i> Filme:</strong> Moana 2</p>
-          <p><strong><i class="fa-solid fa-calendar-days"></i> Data:</strong> 29 de Maio de 2025</p>
-          <p><strong><i class="fa-solid fa-clock"></i> Horário:</strong> 14:30</p>
-          <p><strong><i class="fa-solid fa-door-open"></i> Sala:</strong> Sala Premium</p>
-          <p><strong><i class="fa-solid fa-chair"></i> Assento:</strong> 19, 20</p>
-          <p><strong><i class="fa-solid fa-dollar-sign"></i> Valor total:</strong> R$40,00</p>
+          <p><strong><i class="fa-solid fa-film"></i> Filme:</strong> <span id="titulo_filme"></span></p>
+          <p><strong><i class="fa-solid fa-calendar-days"></i> Data:</strong> <span id="data_sessao"></span></p>
+          <p><strong><i class="fa-solid fa-clock"></i> Horário:</strong> <span id="horario"></span></p>
+          <p><strong><i class="fa-solid fa-door-open"></i> Sala:</strong> <span id="sala"></span></p>
+          <p><strong><i class="fa-solid fa-chair"></i> Assento:</strong> <span id="assentos"></span></p>
+          <p><strong><i class="fa-solid fa-dollar-sign"></i> Valor total:</strong> <span id="valor_total"></span></p>
         </div>
         <div>
           <p>Pague agora pelo pix!</p>
-          <p>Escaneie o qrcode abaixo.</p>
-          <img id="qrcode-pix" src="" alt="QR Code PIX" class="qrcode">
+          <p>Escaneie o QrCode abaixo ou digite o pix informado.</p>
+          <img src="assets/img/qrcode.png" alt="QR Code" class="qrcode" id="qrcode-pix">
+          <p>Pix: 18997678789</p>
         </div>
       </div>
     </div>
   </div>
 
   <script>
-  // Função para extrair o ID da reserva da URL
-  function getIdReserva() {
-    const params = new URLSearchParams(window.location.search);
-    return params.get("id_reserva"); // Ex: ?id_reserva=5
-  }
-
-  // Carrega o QR Code quando a página estiver pronta
-  document.addEventListener("DOMContentLoaded", () => {
-    const idReserva = getIdReserva();
-
-    if (idReserva) {
-      const qrCodeImg = document.getElementById("qrcode-pix");
-      qrCodeImg.src = `http://192.168.1.139:5000/pix_qrcode/${idReserva}`;
-    } else {
-      console.error("Reserva não encontrada.");
+    // Função para extrair parâmetros da URL
+    function getParameterByName(name) {
+      const params = new URLSearchParams(window.location.search);
+      return params.get(name);
     }
-  });
-</script>
 
-      function toggleMenu() {
-                const menu = document.getElementById("menuPerfil");
-                menu.style.display = menu.style.display === "block" ? "none" : "block";
-            }
+    // Função para carregar os detalhes do pedido
+    function carregarDetalhesPedido() {
+      // Obter ID da reserva
+      const idReserva = getParameterByName("id_reserva");
+      
+      if (!idReserva) {
+        console.error("ID da reserva não encontrado na URL");
+        return;
+      }
+      
+      // Carregar detalhes de duas formas possíveis:
+      
+      // 1. Se os parâmetros estiverem na URL (forma direta)
+      if (getParameterByName("titulo_filme")) {
+        document.getElementById("titulo_filme").textContent = getParameterByName("titulo_filme");
+        document.getElementById("data_sessao").textContent = getParameterByName("data_sessao"); 
+        document.getElementById("horario").textContent = getParameterByName("horario");
+        document.getElementById("sala").textContent = getParameterByName("sala");
+        document.getElementById("assentos").textContent = getParameterByName("assentos");
+        document.getElementById("valor_total").textContent = getParameterByName("valor_total");
+      } 
+      // 2. Se não houver parâmetros, buscar via API (usando a rota /reservas)
+      else {
+        // Buscar token do armazenamento local (assumindo que você tem um sistema de login)
+        const token = localStorage.getItem('token');
+        
+        if (!token) {
+          console.error("Token de autenticação não encontrado");
+          return;
+        }
 
-            document.addEventListener('DOMContentLoaded', function () {
-                carregarDadosUsuario();
-                carregarReservas();
-            });
-
-            // Função para carregar dados do usuário da API
-            function carregarDadosUsuario() {
-                var token = localStorage.getItem("token");
-
-                if (!token) {
-                    console.error("Token não encontrado. Usuário não está autenticado.");
-                    return;
-                }
-
-                var settings = {
-                    "url": "http://192.168.1.139:5000/usuarios/perfil",
-                    "method": "GET",
-                    "timeout": 0,
-                    "headers": {
-                        "Authorization": token,
-                        "Content-Type": "application/json"
-                    },
-                    "success": function (response) {
-                        var nomeUsuario = response.nome || "Visitante";
-
-                        var elementosComNome = document.querySelectorAll(".nome-visitante");
-                        elementosComNome.forEach(function (elemento) {
-                            elemento.textContent = nomeUsuario;
-                        });
-                    },
-                    "error": function (error) {
-                        console.error("Erro ao carregar dados do usuário:", error);
-                        var nomeUsuario = localStorage.getItem("nome") || "Visitante";
-
-                        var elementosComNome = document.querySelectorAll(".nome-visitante");
-                        elementosComNome.forEach(function (elemento) {
-                            elemento.textContent = nomeUsuario;
-                        });
-                    }
-                };
-
-                $.ajax(settings);
-            }
-
-            // Função para carregar reservas do usuário da API
-            function carregarReservas() {
-                var token = localStorage.getItem("token");
-
-                var settings = {
-                    "url": "http://192.168.1.139:5000/reservas",
-                    "method": "GET",
-                    "timeout": 0,
-                    "headers": {
-                        "Authorization": "Bearer " + token,
-                        "Content-Type": "application/json"
-                    },
-                "success": function (response) {
-                    response.reservas.forEach(function (reserva) {
-                        document.getElementById("details").innerHTML += `
-                           
-                            <div>
-                                
-                                <p><strong><i class="fa-solid fa-film"></i> Filme: </strong>${reserva.titulo_filme}</p>
-                                <p><strong><i class="fa-solid fa-calendar-days"></i> Data:</strong> 29 de Maio de 2025</p>
-                                <p><strong><i class="fa-solid fa-clock"></i> Horário:</strong> ${reserva.horario}</p>
-                                <p><strong><i class="fa-solid fa-door-open"></i> Sala:</strong> ${reserva.sala}</p>
-                                <p><strong><i class="fa-solid fa-chair"></i> Assento:</strong> ${reserva.assentos}</p>
-                                <p><strong><i class="fa-solid fa-dollar-sign"></i> Valor total:</strong> R$40,00</p>
-                            </div>
-                            
-                        `
-                    })
-                },
+        // Fazer requisição para a API
+        fetch('/reservas', {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Erro ao buscar reservas');
+          }
+          return response.json();
+        })
+        .then(data => {
+          // Encontrar a reserva específica pelo ID
+          const reserva = data.reservas.find(r => r.id_reserva === parseInt(idReserva));
+          
+          if (reserva) {
+            // Preencher os detalhes na página
+            document.getElementById("titulo_filme").textContent = reserva.titulo_filme;
+            document.getElementById("data_sessao").textContent = reserva.data_sessao;
+            document.getElementById("horario").textContent = reserva.horario;
+            document.getElementById("sala").textContent = reserva.sala;
+            document.getElementById("assentos").textContent = reserva.assentos.join(', ');
+            document.getElementById("valor_total").textContent = `R$ ${reserva.valor_total.toFixed(2)}`;
+          } else {
+            console.error("Reserva não encontrada");
+          }
+        })
+        .catch(error => {
+          console.error("Erro:", error);
+        });
+      }
+      
+      // Carregar QR Code - isso funciona independentemente de como os outros dados são carregados
+      const qrCodeImg = document.getElementById("qrcode-pix");
+      // Usar a rota do Python para gerar o QR code
+      qrCodeImg.src = `/pix_qrcode/${idReserva}`;
+    }
+    
+    // Função para alternar o menu (mantida do código original)
+    function toggleMenu() {
+      const menu = document.getElementById("menuPerfil");
+      if (menu) {
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
+      }
+    }
+    
+    // Carregar os detalhes quando a página estiver pronta
+    document.addEventListener("DOMContentLoaded", carregarDetalhesPedido);
   </script>
-
-
 </body>
 </html>
-
