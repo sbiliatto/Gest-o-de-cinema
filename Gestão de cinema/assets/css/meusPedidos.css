@@ -449,8 +449,9 @@ footer {
 
     nav ul {
         flex-direction: column;
-        gap: 5px;
+        gap: 22px;
         align-items: center;
+        margin-left: -1vh;
     }
 
     .acao {
