@@ -76,6 +76,7 @@ input, select {
     outline: none;
 }
 
+/* Estilo para o container da senha com o olhinho */
 .password-container {
     position: relative;
     width: 100%;
@@ -125,10 +126,11 @@ input, select {
     width: 260px;
 
     max-width: 100%;
-    height: auto;
+    height: auto; /* Importante para manter a proporção */
     background-color: black;
 }
 
+/* Footer styles */
 .main_footer_container {
     background: black;
     width: 100%;
@@ -210,6 +212,7 @@ input, select {
     padding: 0 15px;
 }
 
+/* Responsive design - melhorado */
 @media (max-width: 992px) {
     .container {
         flex-direction: column;
