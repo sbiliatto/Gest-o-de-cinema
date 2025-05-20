@@ -230,7 +230,7 @@
         async function buscarDadosDoBackend(data_inicial, data_final) {
             try {
                 const response = await fetch('http://192.168.1.139:5000/painel-admin', {
-                    method: 'POST',
+                    method: 'POST', 
                     headers: {
                         'Content-Type': 'application/json'
                     },
@@ -250,43 +250,61 @@
             }
         }
 
-        function atualizarDashboard(dados) {
-            if (!dados) return;
+function atualizarDashboard(dados) {
+    if (!dados) return;
 
-            const valorArrecadadoElem = document.getElementById('valor-arrecadado');
-            valorArrecadadoElem.textContent = formatarMoedaBR(dados.total_arrecadado || 0);
+    const valorArrecadadoElem = document.getElementById('valor-arrecadado');
+    valorArrecadadoElem.textContent = formatarMoedaBR(dados.total_arrecadado || 0);
 
-            const ingressosVendidosElem = document.getElementById('ingressos-vendidos');
-            ingressosVendidosElem.textContent = dados.ingressos_vendidos ?? 0;
+    const ingressosVendidosElem = document.getElementById('ingressos-vendidos');
+    ingressosVendidosElem.textContent = dados.ingressos_vendidos ?? 0;
 
-            const rankingFilmesElem = document.getElementById('ranking-filmes');
-            rankingFilmesElem.innerHTML = '';
-            dados.filmes_mais_bilheteira.forEach((filme, index) => {
-                const li = document.createElement('li');
-                li.textContent = `${index + 1}. ${filme.titulo} – ${formatarMoedaBR(filme.bilheteira_total)}`;
-                rankingFilmesElem.appendChild(li);
-            });
+    const rankingFilmesElem = document.getElementById('ranking-filmes');
+    rankingFilmesElem.innerHTML = '';
 
-            const vendasSessoesBody = document.getElementById('vendas-sessoes');
-            vendasSessoesBody.innerHTML = '';
-            dados.vendas_por_sessao.forEach(sessao => {
-                const tr = document.createElement('tr');
+    if (dados.filmes_mais_bilheteira && dados.filmes_mais_bilheteira.length > 0) {
+        dados.filmes_mais_bilheteira.forEach((filme, index) => {
+            const li = document.createElement('li');
+            li.textContent = `${index + 1}. ${filme.titulo} – ${formatarMoedaBR(filme.bilheteira_total)}`;
+            rankingFilmesElem.appendChild(li);
+        });
+    } else {
+        const li = document.createElement('li');
+        li.textContent = 'Nenhum filme registrado (R$ 0)';
+        rankingFilmesElem.appendChild(li);
+    }
 
-                const tdHorario = document.createElement('td');
-                tdHorario.textContent = sessao.horario;
-                tr.appendChild(tdHorario);
+    const vendasSessoesBody = document.getElementById('vendas-sessoes');
+    vendasSessoesBody.innerHTML = '';
 
-                const tdFilme = document.createElement('td');
-                tdFilme.textContent = sessao.nome;
-                tr.appendChild(tdFilme);
+    if (dados.vendas_por_sessao && dados.vendas_por_sessao.length > 0) {
+        dados.vendas_por_sessao.forEach(sessao => {
+            const tr = document.createElement('tr');
 
-                const tdIngressos = document.createElement('td');
-                tdIngressos.textContent = sessao.ingressos;
-                tr.appendChild(tdIngressos);
+            const tdHorario = document.createElement('td');
+            tdHorario.textContent = sessao.horario;
+            tr.appendChild(tdHorario);
 
-                vendasSessoesBody.appendChild(tr);
-            });
-        }
+            const tdFilme = document.createElement('td');
+            tdFilme.textContent = sessao.nome;
+            tr.appendChild(tdFilme);
+
+            const tdIngressos = document.createElement('td');
+            tdIngressos.textContent = sessao.ingressos;
+            tr.appendChild(tdIngressos);
+
+            vendasSessoesBody.appendChild(tr);
+        });
+    } else {
+        const tr = document.createElement('tr');
+        const td = document.createElement('td');
+        td.colSpan = 3;
+        td.classList.add('text-center');
+        td.textContent = 'Nenhuma sessão registrada (0)';
+        tr.appendChild(td);
+        vendasSessoesBody.appendChild(tr);
+    }
+}
 
         document.getElementById('formFiltrarData').addEventListener('submit', async (e) => {
             e.preventDefault();
