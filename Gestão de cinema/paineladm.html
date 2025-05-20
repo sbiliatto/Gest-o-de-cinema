@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,11 +8,12 @@
     <link rel="stylesheet" href="assets/css/paineladm.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="assets/js/seguranca-adm.js" defer></script>
+    <!-- <script src="assets/js/seguranca-adm.js" defer></script> -->
 </head>
+
 <body>
     <header class="header">
         <a href="homeeae.html" class="logo-link">
@@ -20,12 +22,8 @@
 
         <div class="div-header">
             <div class="btn-group">
-                <button
-                    type="button"
-                    class="btn btn-secondary dropdown-toggle bg-black border-2"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                >
+                <button type="button" class="btn btn-secondary dropdown-toggle bg-black border-2"
+                    data-bs-toggle="dropdown" aria-expanded="false">
                     MENU
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end menu-escuro">
@@ -56,7 +54,7 @@
         </div>
     </header>
 
-        <div class="barra"></div>
+    <div class="barra"></div>
 
 
     <main class="dashboard-container">
@@ -67,7 +65,8 @@
                 <div class="card-content">
                     <h2 id="valor-arrecadado">R$ 45.320,00</h2>
                     <p>Valor Arrecadado</p>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalFiltrarData">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#modalFiltrarData">
                         Filtrar por data
                     </button>
                 </div>
@@ -128,7 +127,8 @@
         </section>
     </main>
 
-    <div class="modal fade" id="modalFiltrarData" tabindex="-1" aria-labelledby="modalFiltrarDataLabel" aria-hidden="true">
+    <div class="modal fade" id="modalFiltrarData" tabindex="-1" aria-labelledby="modalFiltrarDataLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -213,118 +213,104 @@
             <div class="clear"></div>
         </div>
         <div class="main_footer_copy">
-            <p class="m-b-footer"> PrimeCine - 2025 © todos os direitos reservados</p> 
+            <p class="m-b-footer"> PrimeCine - 2025 © todos os direitos reservados</p>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
 
-function formatarMoedaBR(valor) {
-    return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-}
-
-
-async function buscarDadosDoBackend(data_inicial, data_final) {
-    try {
-        const response = await fetch('http://10.92.3.154:5000/painel-admin', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ data_inicial, data_final }),
-        });
-
-        if (!response.ok) {
-            throw new Error('Erro ao buscar dados do backend');
+        function formatarMoedaBR(valor) {
+            return valor.toLocaleString('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+            });
         }
 
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error(error);
-        Swal.fire('Erro', 'Não foi possível buscar os dados.', 'error');
-        return null;
-    }
-}
+        async function buscarDadosDoBackend(data_inicial, data_final) {
+            try {
+                const response = await fetch('http://192.168.1.139:5000/painel-admin', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ data_inicial, data_final })
+                });
 
+                if (!response.ok) {
+                    throw new Error('Erro ao buscar dados do backend');
+                }
 
-function atualizarDashboard(dados) {
-    if (!dados) return;
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error(error);
+                Swal.fire('Erro', 'Não foi possível buscar os dados.', 'error');
+                return null;
+            }
+        }
 
+        function atualizarDashboard(dados) {
+            if (!dados) return;
 
-    const valorArrecadadoElem = document.getElementById('valor-arrecadado');
-    valorArrecadadoElem.textContent = formatarMoedaBR(dados.total_arrecadado || 0);
+            const valorArrecadadoElem = document.getElementById('valor-arrecadado');
+            valorArrecadadoElem.textContent = formatarMoedaBR(dados.total_arrecadado || 0);
 
+            const ingressosVendidosElem = document.getElementById('ingressos-vendidos');
+            ingressosVendidosElem.textContent = dados.ingressos_vendidos ?? 0;
 
-    const ingressosVendidosElem = document.getElementById('ingressos-vendidos');
-    ingressosVendidosElem.textContent = dados.ingressos_vendidos ?? 0;
+            const rankingFilmesElem = document.getElementById('ranking-filmes');
+            rankingFilmesElem.innerHTML = '';
+            dados.filmes_mais_bilheteira.forEach((filme, index) => {
+                const li = document.createElement('li');
+                li.textContent = `${index + 1}. ${filme.titulo} – ${formatarMoedaBR(filme.bilheteira_total)}`;
+                rankingFilmesElem.appendChild(li);
+            });
 
-  
-    const rankingFilmesElem = document.getElementById('ranking-filmes');
-    rankingFilmesElem.innerHTML = ''; 
-    dados.filmes_mais_bilheteira.forEach((filme, index) => {
-        const li = document.createElement('li');
-        li.textContent = `${index + 1}. ${filme.titulo} – ${formatarMoedaBR(filme.bilheteira_total)}`;
-        rankingFilmesElem.appendChild(li);
-    });
+            const vendasSessoesBody = document.getElementById('vendas-sessoes');
+            vendasSessoesBody.innerHTML = '';
+            dados.vendas_por_sessao.forEach(sessao => {
+                const tr = document.createElement('tr');
 
-   
-    const vendasSessoesBody = document.getElementById('vendas-sessoes');
-    vendasSessoesBody.innerHTML = ''; 
-    dados.vendas_por_sessao.forEach(sessao => {
-        const tr = document.createElement('tr');
+                const tdHorario = document.createElement('td');
+                tdHorario.textContent = sessao.horario;
+                tr.appendChild(tdHorario);
 
- 
-        const tdHorario = document.createElement('td');
-        tdHorario.textContent = sessao.horario;
-        tr.appendChild(tdHorario);
+                const tdFilme = document.createElement('td');
+                tdFilme.textContent = sessao.nome;
+                tr.appendChild(tdFilme);
 
-   
-        const tdFilme = document.createElement('td');
-        tdFilme.textContent = sessao.nome;
-        tr.appendChild(tdFilme);
+                const tdIngressos = document.createElement('td');
+                tdIngressos.textContent = sessao.ingressos;
+                tr.appendChild(tdIngressos);
 
+                vendasSessoesBody.appendChild(tr);
+            });
+        }
 
-        const tdIngressos = document.createElement('td');
-        tdIngressos.textContent = sessao.ingressos;
-        tr.appendChild(tdIngressos);
+        document.getElementById('formFiltrarData').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const data_inicial = document.getElementById('dataInicio').value;
+            const data_final = document.getElementById('dataFim').value;
 
-        vendasSessoesBody.appendChild(tr);
-    });
-}
+            if (!data_inicial || !data_final) {
+                Swal.fire('Aviso', 'Por favor, preencha as duas datas.', 'warning');
+                return;
+            }
 
+            const dados = await buscarDadosDoBackend(data_inicial, data_final);
+            atualizarDashboard(dados);
 
-document.getElementById('formFiltrarData').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const data_inicial = document.getElementById('dataInicio').value;
-    const data_final = document.getElementById('dataFim').value;
+            const modalElement = document.getElementById('modalFiltrarData');
+            const modal = bootstrap.Modal.getInstance(modalElement);
+            modal.hide();
+        });
 
-    if (!data_inicial || !data_final) {
-        Swal.fire('Aviso', 'Por favor, preencha as duas datas.', 'warning');
-        return;
-    }
-
-    const dados = await buscarDadosDoBackend(data_inicial, data_final);
-    atualizarDashboard(dados);
-
-    const modalElement = document.getElementById('modalFiltrarData');
-    const modal = bootstrap.Modal.getInstance(modalElement);
-    modal.hide();
-});
-
-
-window.addEventListener('load', async () => {
-    const dados = await buscarDadosDoBackend(null, null);
-    atualizarDashboard(dados);
-});
-
+        window.addEventListener('load', async () => {
+            const dados = await buscarDadosDoBackend(null, null);
+            atualizarDashboard(dados);
+        });
     </script>
 </body>
+
 </html>
-
-
-
-            
-
-
