@@ -11,7 +11,6 @@ body {
 header {
     background-color: #000 !important;
     padding: 10px 15px;
-    border-bottom: 4px solid #8B0000;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -250,15 +249,24 @@ td {
 .modal-content {
   background-color: #fff;
   color: #000;
+}
 
 
-/* FOOTER */
+.barra {
+    width: 95%;
+    height: 4px;
+    background-color: darkred;
+    margin-bottom: 50px;
+    left: 3%;
+    position: relative;
+}   
+
+
 footer {
     background-color: #1a1a1a;
     color: #fff;
-    padding: 30px 20px 20px;
+    padding: 40px 20px 20px;
     font-family: Arial, sans-serif;
-    border-top: 3px solid #8B0000;
 }
 
 .main_footer_container .content {
@@ -267,22 +275,23 @@ footer {
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
-    gap: 20px;
+    gap: 30px;
 }
 
 .colfooter {
-    flex: 1 1 200px;
-    margin-bottom: 20px;
+    flex: 1 1 250px;
 }
 
 .colfooter h3.titleFooter {
     font-size: 1.2em;
     margin-bottom: 15px;
-    border-bottom: 2px solid #8B0000;
+    border-bottom: 2px solid darkred;
     padding-bottom: 5px;
     display: inline-block;
     width: fit-content;
+    white-space: nowrap;
 }
+
 
 .colfooter ul {
     list-style: none;
@@ -311,13 +320,8 @@ footer {
     font-size: 0.95em;
 }
 
-.redes-sociais {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
 .rss {
+    margin-right: 10px;
     display: inline-block;
     transition: transform 0.3s;
     padding: 2px;
@@ -329,17 +333,36 @@ footer {
     filter: brightness(0) invert(1);
 }
 
-.rss:hover {
+.rss:hover img {
     transform: scale(1.2);
 }
 
 .main_footer_copy {
-    margin-top: 20px;
+    margin-top: 30px;
     text-align: center;
     font-size: 0.9em;
     color: #aaa;
     border-top: 1px solid #333;
     padding-top: 15px;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.barraverm {
+    background-color: #B90000;
+    display: flex;
+    justify-content: center;
+    margin-top: 75px;
+}
+
+.barraverm img {
+    background-color: #B90000;
+    width: 17vh;
+    margin-right: 10px;
 }
 
 .vendas-retangulo {
