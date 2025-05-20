@@ -771,7 +771,7 @@ img {
     }
 
     .gradedefilmes {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
         gap: 15px;
         margin-left: 36px;
     }
@@ -781,7 +781,7 @@ img {
 @media (max-width: 480px) {
     header {
         padding: 8px;
-        margin-left: 57px;
+        margin-left: -1px;
     }
 
     .header-wrapper {
@@ -801,6 +801,12 @@ img {
         order: 2;
     }
 
+
+    .main_footer_container .content {
+         max-width: 139px;
+         display:block
+
+    }
     .search-box {
         order: 3;
         width: 100%;
@@ -842,7 +848,6 @@ img {
     nav ul li a {
         font-size: 13px;
         padding: 4px 8px;
-        background-color: rgba(255, 0, 0, 0.1);
         border-radius: 15px;
         transition: all 0.3s;
     }
@@ -911,7 +916,7 @@ img {
     }
 
     .slide img {
-        height: 130px;
+        height: 128px;
         border-radius: 10px;
     }
 }

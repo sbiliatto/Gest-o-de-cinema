@@ -631,6 +631,13 @@ img {
         flex-wrap: wrap;
     }
 
+
+div:where(.swal2-container).swal2-center>.swal2-popup {
+  
+    width: 248px;
+    margin-right: 130px;}
+
+
     .btn-group {
         width: 100%;
     }
