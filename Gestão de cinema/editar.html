@@ -4,17 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar perfil- Prime Cine</title>
+    <title>Editar perfil - Prime Cine</title>
+
     <link rel="stylesheet" href="assets/css/editar.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-
-     <script src="assets/js/seguranca.js" defer></script>
-
-
+    <script src="assets/js/seguranca.js" defer></script>
 
     <script>
         function validarFormulario(event) {
@@ -56,15 +54,14 @@
             }
         }
     </script>
-
-
-
 </head>
 
 <body>
     <div class="container">
         <div class="esquerda">
-            <a href="homePoslogin.html"><img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
+            <!-- Link da logo que será alterado dinamicamente -->
+            <a id="logo-link" href="#">
+                <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
             </a>
         </div>
         <div class="direita">
@@ -89,27 +86,27 @@
             </form>
         </div>
     </div>
+
     <script>
+        // Envio do formulário com AJAX
         $("#form_editar").on("submit", function (e) {
+            e.preventDefault();
 
-            e.preventDefault()
-            let dados = new FormData(this)
-
-            var id = localStorage.getItem("id_cadastro")
+            let dados = new FormData(this);
+            var id = localStorage.getItem("id_cadastro");
 
             let envia = {
                 nome: dados.get("nome"),
                 email: dados.get("email"),
                 telefone: dados.get("tel"),
                 senha: dados.get("senha"),
-                tipo: "cliente"
-            }
+                tipo: localStorage.getItem("tipo") || "cliente" // garante que o tipo seja mantido
+            };
 
-            envia = JSON.stringify(envia)
+            envia = JSON.stringify(envia);
 
             $.ajax({
                 method: "PUT",
-
                 url: "http://192.168.1.139:5000/cadastros/" + id,
                 data: envia,
                 contentType: "application/json",
@@ -121,14 +118,11 @@
                         text: retorno.message,
                         confirmButtonText: "OK"
                     }).then(() => {
-                        localStorage.setItem("nome", dados.get("nome"))
-                        localStorage.setItem("email", dados.get("email"))
-                        localStorage.setItem("tel", dados.get("tel"))
-
-
-                        window.location.href = "homePoslogin.html";
+                        localStorage.setItem("nome", dados.get("nome"));
+                        localStorage.setItem("email", dados.get("email"));
+                        localStorage.setItem("tel", dados.get("tel"));
+                        window.location.href = "homePoslogin.html"; // ou ajuste conforme o tipo, se quiser
                     });
-                    console.log(retorno);
                 },
                 error: function (retorno) {
                     Swal.fire({
@@ -138,15 +132,25 @@
                         confirmButtonText: "OK"
                     });
                 }
-            })
-        })
+            });
+        });
 
+        // Preenche os campos com dados do localStorage e define o link da logo
         document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("nome").value = localStorage.getItem("nome") || "";
             document.getElementById("email").value = localStorage.getItem("email") || "";
             document.getElementById("telefone").value = localStorage.getItem("telefone") || "";
-        });
 
+            // Redirecionamento dinâmico da logo
+            const tipo = localStorage.getItem("tipo");
+            const logoLink = document.getElementById("logo-link");
+
+            if (tipo === "adm") {
+                logoLink.href = "homeeae.html";
+            } else {
+                logoLink.href = "homePoslogin.html";
+            }
+        });
     </script>
 </body>
 

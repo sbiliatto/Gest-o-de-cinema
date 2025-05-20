@@ -125,8 +125,10 @@ input, select {
 
 .logo-img {
     width: 260px;
+
     max-width: 100%;
     height: auto; /* Importante para manter a proporção */
+    background-color: black;
 }
 
 /* Footer styles */
