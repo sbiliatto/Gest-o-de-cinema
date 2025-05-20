@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="assets/css/editaradm.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-         <script src="assets/js/seguranca.js" defer></script>
-
+    <script src="assets/js/seguranca.js" defer></script>
+    <!-- Adicionando Font Awesome para o ícone do olho -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     
 </head>
 
@@ -25,8 +25,14 @@
             <input type="text" name="nome" id="nome" placeholder="Edite o nome">
             <input type="email" name="email" id="email" placeholder="Edite o email">
             <input type="tel" name="telefone" id="telefone" placeholder="Edite o telefone">
-            <input type="password" name="senha" id="senha" placeholder="Edite a senha">
-
+            
+            <!-- Campo de senha com o ícone de olho -->
+            <div class="password-container">
+                <input type="password" name="senha" id="senha" placeholder="Edite a senha">
+                <span class="toggle-password">
+                    <i class="fas fa-eye" id="togglePassword"></i>
+                </span>
+            </div>
 
             <label for="tipo">PERFIL:</label>
             <select id="tipo">
@@ -68,6 +74,8 @@
                 
                 </ul>
             </div><!--Col Footer 1-->        
+
+            
             <div class="colfooter">
                
                <h3 class="titleFooter"> Contato</h3>
@@ -109,68 +117,118 @@
 
 
     <script>
-        $(document).ready(function () {
+    $(document).ready(function () {
+        console.log("Documento pronto");
 
-            const params = new URLSearchParams(window.location.search);
-            const id = params.get('id');
-            const nome = params.get('nome');
-            const email = params.get('email');
-            const telefone = params.get('telefone');
-            const senha = params.get('senha');
-            const tipo = params.get('tipo');
-            let editar = params.get('editar');
+        // Extrair parâmetros da URL
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+        const nome = params.get('nome');
+        const email = params.get('email');
+        const telefone = params.get('telefone');
+        const senha = params.get('senha');
+        const tipo = params.get('tipo');
+        let editar = params.get('editar');
 
+        console.log("Parâmetros recebidos:", { id, nome, email, telefone, tipo, editar });
+        
+        if (!id) {
+            console.error("ID não fornecido na URL");
+            Swal.fire({
+                icon: "error",
+                title: "Erro",
+                text: "ID do usuário não fornecido!"
+            }).then(() => {
+                window.location.href = "listagem.html";
+            });
+            return;
+        }
 
-            if (editar === "ativo") {
-                editar = true
+        if (editar === "ativo") {
+            editar = true;
+        } else {
+            editar = false;
+        }
+
+        $("#nome").val(nome);
+        $("#email").val(email);
+        $("#telefone").val(telefone);
+        $("#senha").val(senha);
+        $("#tipo").val(tipo);
+        $("#editar").val(editar);
+
+        $("#togglePassword").click(function() {
+            const senhaInput = $("#senha");
+            const tipo = senhaInput.attr("type");
+            
+            if (tipo === "password") {
+                senhaInput.attr("type", "text");
+                $(this).removeClass("fa-eye").addClass("fa-eye-slash");
             } else {
-                editar = false
+                senhaInput.attr("type", "password");
+                $(this).removeClass("fa-eye-slash").addClass("fa-eye");
             }
+        });
 
-            $("#nome").val(nome);
-            $("#email").val(email);
-            $("#telefone").val(telefone);
-            $("#senha").val(senha);
-            $("#tipo").val(tipo);
-            $("#editar").val(editar);
-
-            $(".save-button").click(function () {
-                const dados = {
-                    nome: $("#nome").val(),
-                    email: $("#email").val(),
-                    telefone: $("#telefone").val(),
-                    senha: $("#senha").val(),
-                    tipo: $("#tipo").val(),
-                    ativo: $("#editar").val(),
-                };
-
-
-                $.ajax({
-                    method: "PUT",
-                    url: `http://192.168.1.139:5000/cadastros/${id}`,
-                    data: JSON.stringify(dados),
-                    contentType: "application/json",
-                    success: function () {
-                        Swal.fire({
-                            icon: "success",
-                            title: "Edição Realizada!",
-                            confirmButtonText: "OK"
-                        }).then(() => {
-                            window.location.href = "homeeae.html";
-                        });
-                    },
-                    error: function (xhr, status, error) {
-                        console.log("Erro ao tentar editar:", xhr.responseJSON, status, error);
-                        Swal.fire({
-                            title: "Erro!",
-                            text: xhr.responseJSON?.error || "Erro ao editar os dados!",
-                            icon: "error"
-                        });
-                    }
+        $(".botao").click(function () {
+            console.log("Botão salvar clicado");
+            
+            const nome = $("#nome").val();
+            const email = $("#email").val();
+            const telefone = $("#telefone").val();
+            const senha = $("#senha").val();
+            const tipo = $("#tipo").val();
+            const ativo = $("#editar").val() === "true"; // CORREÇÃO AQUI
+            
+            if (!nome || !email || !telefone || !senha || !tipo || ativo === "") {
+                Swal.fire({
+                    icon: "warning",
+                    title: "Atenção",
+                    text: "Por favor, preencha todos os campos obrigatórios!"
                 });
+                return;
+            }
+            
+            const dados = {
+                nome: nome,
+                email: email,
+                telefone: telefone,
+                senha: senha,
+                tipo: tipo,
+                ativo: ativo
+            };
+            
+            console.log("Enviando dados:", dados);
+            console.log("URL da requisição:", `http://192.168.1.139:5000/cadastros/${id}`);
+
+            $.ajax({
+                method: "PUT",
+                url: `http://192.168.1.139:5000/cadastros/${id}`,
+                data: JSON.stringify(dados),
+                contentType: "application/json",
+                success: function (response) {
+                    console.log("Sucesso:", response);
+                    Swal.fire({
+                        icon: "success",
+                        title: "Edição Realizada!",
+                        confirmButtonText: "OK"
+                    }).then(() => {
+                        window.location.href = "homeeae.html";
+                    });
+                },
+                error: function (xhr, status, error) {
+                    console.log("Erro ao tentar editar:", xhr.responseJSON, status, error);
+                    Swal.fire({
+                        title: "Erro!",
+                        text: xhr.responseJSON?.error || "Erro ao editar os dados!",
+                        icon: "error"
+                    });
+                }
             });
         });
-    </script>
+    });
+</script>
+
 
 </body>
 

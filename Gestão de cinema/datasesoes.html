@@ -13,7 +13,8 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="assets/js/seguranca-adm.js" defer></script> 
+
+    <script src="assets/js/seguranca.js" defer></script>
 
 
     <title>Sessões - Prime Cine</title>
@@ -54,6 +55,8 @@
         <div class="movie-poster">
             <img src="assets/img/garland_intl_teaser2_poster_brazil_c487c296.jpeg" alt="Moana 2 Poster" id="imgfilme">
             <a href="#" id="trailer" class="trailer">Ver trailer</a>
+            <div class="nota" id="nota-avaliacao" style="margin-top: 10px;">Nota geral dos usuários:</div>
+            <div style="margin-top: 10px; font-weight: bold;">Avalie o filme:</div>
             <div class="star-rating" data-id-usuario="123" data-id-filme="1">
                 <span class="star" data-value="1">★</span>
                 <span class="star" data-value="2">★</span>
@@ -182,6 +185,46 @@
 
         const nome = localStorage.getItem("nome") || "Visitante";
         document.getElementById("nome-visitante").innerText = nome;
+
+
+
+        document.querySelectorAll(".star-rating .star").forEach(function (star) {
+        star.addEventListener("click", function () {
+            const nota = this.getAttribute("data-value");
+            document.getElementById("nota-avaliacao").innerText = "Nota geral dos usuários: " + nota;
+
+            // Destacar as estrelas selecionadas
+            document.querySelectorAll(".star-rating .star").forEach(function (s) {
+                s.classList.remove("selected");
+            });
+
+            for (let i = 0; i < nota; i++) {
+                document.querySelectorAll(".star-rating .star")[i].classList.add("selected");
+            }
+        });
+    });
+
+    // Buscar e exibir a nota média do filme
+    $.ajax({
+        url: "http://192.168.1.139:5000/avaliacoes/media",
+        method: "GET",
+        success: function (avaliacoes) {
+            const filmeAvaliado = avaliacoes.find(f => f.id_filme == id);
+            if (filmeAvaliado) {
+                document.getElementById("nota-avaliacao").innerText = "Nota geral dos usuários: " + filmeAvaliado.media_avaliacoes.toFixed(1);
+            } else {
+                document.getElementById("nota-avaliacao").innerText = "Nota geral dos usuários: Sem avaliações ainda";
+            }
+        },
+        error: function () {
+            document.getElementById("nota-avaliacao").innerText = "Erro ao carregar a média de avaliação.";
+        }
+    });
+
+
+</script>
+
+
     </script>
 </body>
 </html>
