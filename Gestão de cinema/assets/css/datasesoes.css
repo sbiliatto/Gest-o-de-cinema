@@ -504,6 +504,10 @@
                 align-items: center;
             }
 
+            .nota{
+                padding: 10px 7px;
+            }
+
             .movie-poster {
                 width: 220px;
             }
