@@ -365,6 +365,10 @@ footer {
     flex-direction: row;
 }
 
+.perfil-lateral{
+    margin-left: 8vh;
+}
+
 
 @media screen and (max-width: 1024px) {
     .main-container {

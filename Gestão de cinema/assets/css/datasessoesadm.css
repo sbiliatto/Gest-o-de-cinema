@@ -13,13 +13,95 @@ body {
 }
 
 header {
+    background-color: #000 !important;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.logo {
+    height: 50px;
+    transition: transform 0.3s;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+/* Div que contém o menu e o perfil */
+.div-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    background: black;
-    padding: 15px 50px;
-    color: white;
+    gap: 15px;
+}
+
+
+
+.btn-group .btn:hover {
+    background-color: #8B0000;
+}
+
+.menu-escuro {
+    background-color: #222;
+}
+
+.menu-escuro .dropdown-item {
+    color: #000000;
+}
+
+
+/* Estilo do menu de perfil */
+.perfil-container {
     position: relative;
+}
+
+.btn-perfil2 {
+    width: 32px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn-perfil2:hover {
+    transform: scale(1.1);
+}
+
+.menu-perfil {
+    display: none;
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background-color: #D7D6D6 !important;
+    padding: 12px;
+    border-radius: 8px;
+    width: 200px;
+    z-index: 999;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Exibir menu ao clicar */
+.menu-perfil.show {
+    display: block;
+}
+
+/* Estilo da lista no menu de perfil */
+.menu-perfil ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+.menu-perfil li {
+    margin: 12px 0;
+}
+
+.menu-perfil a {
+    color: #150e0e ;
+    text-decoration: none;
+    transition: color 0.2s;
+    display: block;
+    padding: 5px 0;
 }
 
 .star-rating {

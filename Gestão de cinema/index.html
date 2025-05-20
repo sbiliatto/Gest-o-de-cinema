@@ -128,7 +128,7 @@ function buscarFilme() {
             filmes.forEach(filme => {
                 html += `
                 <div class="filme">
-                    <a href="datasessoesadm.html?id=${filme.id}&titulo=${encodeURIComponent(filme.titulo)}&classificacao=${filme.classificacao}&genero=${encodeURIComponent(filme.genero)}&trailer=${encodeURIComponent(filme.link || '')}&sinopse=${encodeURIComponent(filme.sinopse)}">
+                    <a href="datasesoes.html?id=${filme.id}&titulo=${encodeURIComponent(filme.titulo)}&classificacao=${filme.classificacao}&genero=${encodeURIComponent(filme.genero)}&trailer=${encodeURIComponent(filme.link || '')}&sinopse=${encodeURIComponent(filme.sinopse)}">
                     <img src="http://192.168.1.139:5000/static/uploads/Filmes/${filme.id}.jpeg" alt="${filme.titulo}">
                     </a>
                     <button class='botaosess' onclick="carregarSessoes(${filme.id})">Ver Sessões</button>
