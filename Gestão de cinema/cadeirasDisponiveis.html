@@ -338,13 +338,15 @@
     const id_sessao = params.get("id_sessao")
     const descricao = params.get("descricao")
     const precoUnitario = params.get("valor_unitario")
-
+    
+    const dataFormatada = new Date(params.get("data_sessao")).toLocaleDateString('pt-BR');
+    const horaFormatada = params.get("horario").slice(0, 5);
 
     document.getElementById("imgfilme").src = "http://192.168.1.139:5000/static/uploads/Filmes/" + id + ".jpeg"
 
     document.getElementById("titulofilme").innerHTML = titulo
-    document.getElementById("dia").innerHTML = data_sessao
-    document.getElementById("horario").innerHTML = horario
+    document.getElementById("dia").innerHTML = dataFormatada
+    document.getElementById("horario").innerHTML = horaFormatada
     // document.getElementById("valor_unitario").innerHTML = precoUnitario
 
 
@@ -352,7 +354,7 @@
     // Atualiza os elementos com info do filme e sessão
     document.querySelector(".filme-info img").src = "http://192.168.1.139:5000/static/uploads/Filmes/" + id + ".jpeg";
     document.querySelector(".filme-info p").innerText = "PrimeCine Birigui";
-    document.querySelector(".filme-info div p").innerText = `${data_sessao} - ${horario}`;
+    document.querySelector(".filme-info div p").innerText = `${dataFormatada} - ${horaFormatada}`;
 
     
         document.addEventListener("DOMContentLoaded", () => {

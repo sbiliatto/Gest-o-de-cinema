@@ -190,7 +190,7 @@
         document.querySelectorAll(".star-rating .star").forEach(function (star) {
         star.addEventListener("click", function () {
             const nota = this.getAttribute("data-value");
-            document.getElementById("nota-avaliacao").innerText = "Nota geral dos usuários: " + nota;
+            
 
             // Destacar as estrelas selecionadas
             document.querySelectorAll(".star-rating .star").forEach(function (s) {
@@ -219,11 +219,15 @@
             document.getElementById("nota-avaliacao").innerText = "Erro ao carregar a média de avaliação.";
         }
     });
+        
 
 
+    function salva(){
+        
+    }
 </script>
 
 
-    </script>
+
 </body>
 </html>
