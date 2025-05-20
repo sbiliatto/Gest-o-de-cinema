@@ -62,6 +62,11 @@ body {
   text-decoration: none;
 }
 
+.qrcode{
+  height: 200px;
+  width: 200px;
+}
+
 .close-btn:hover {
   background-color: #ff5656;
 }
