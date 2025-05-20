@@ -149,8 +149,7 @@ nav ul li a:hover {
 }
 
 .btn-perfil2 {
-    width: 40px;
-    height: 40px;
+    width: 43px;
 }
 
 .barra {
@@ -503,11 +502,16 @@ footer {
     margin-left: 105px;
 }
 
+img, svg {
+    vertical-align: middle;
+    width: 27px;
+}
+
 
 .search-box {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 26px;
     margin-left: auto;
     margin-right: 8vh;
 }
@@ -519,11 +523,6 @@ footer {
     border: 1px solid #ccc;
 }
 
-.search-box img {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-}
 
 /* Media Queries */
 @media (max-width: 768px) {
