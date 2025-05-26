@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <title>Detalhes da sessão</title>
   <link rel="stylesheet" href="assets/css/detalhessessao.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body>
 
   <!-- Fundo: página embutida -->
@@ -41,31 +43,33 @@
 
   <script>
 
-     const params = new URLSearchParams(window.location.search);
-     const id = params.get('id');
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
 
-      document.getElementById("qrcode-pix").src = `http://192.168.1.139:5000/static/upload/qrcodes/pix_reserva_${id}.png`;
-     
-</script>
-<script>
+    document.getElementById("qrcode-pix").src = `http://192.168.1.139:5000/static/upload/qrcodes/pix_reserva_${id}.png`;
 
- 
-      function toggleMenu() {
-                const menu = document.getElementById("menuPerfil");
-                menu.style.display = menu.style.display === "block" ? "none" : "block";
-            }
 
-            const dataFormatada = new Date(params.get("data_sessao")).toLocaleDateString('pt-BR');
-            const horaFormatada = params.get("horario").slice(0, 5);
-     document.getElementById("titulo_filme").innerHTML = params.get("titulo_filme")
-     document.getElementById("data_sessao").innerHTML = dataFormatada
-     document.getElementById("horario").innerHTML = horaFormatada
-     document.getElementById("sala").innerHTML = params.get("sala")
-     document.getElementById("assentos").innerHTML = params.get("assentos")
-     document.getElementById("valor_total").innerHTML = params.get("valor_total")
-     
-            
+  </script>
+  <script>
+
+
+    function toggleMenu() {
+      const menu = document.getElementById("menuPerfil");
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
+    }
+
+    const dataFormatada = new Date(params.get("data_sessao")).toLocaleDateString('pt-BR');
+    const horaFormatada = params.get("horario").slice(0, 5);
+    document.getElementById("titulo_filme").innerHTML = params.get("titulo_filme")
+    document.getElementById("data_sessao").innerHTML = dataFormatada
+    document.getElementById("horario").innerHTML = horaFormatada
+    document.getElementById("sala").innerHTML = params.get("sala")
+    document.getElementById("assentos").innerHTML = params.get("assentos")
+    document.getElementById("valor_total").innerHTML = params.get("valor_total")
+
+
 
   </script>
 </body>
+
 </html>
