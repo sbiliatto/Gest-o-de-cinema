@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Detalhes da sessão</title>
+  <link rel="stylesheet" href="assets/css/detalhessessao.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Fundo: página embutida -->
+  <iframe src="meusPedidos.html" class="background-iframe"></iframe>
+
+  <!-- Camada sobreposta -->
+  <div class="overlay">
+    <div class="modal-box">
+      <a href="meusPedidos.html" class="close-btn" title="Fechar">
+        <i class="fa-solid fa-xmark"></i>
+      </a>
+      <h1>DETALHES DO SEU PEDIDO</h1>
+      <div class="details" id="details">
+        <div>
+          <p><strong><i class="fa-solid fa-film"></i> Filme: </strong><span id="titulo_filme"></span></p>
+          <p><strong><i class="fa-solid fa-calendar-days"></i> Data: </strong><span id="data_sessao"></span></p>
+          <p><strong><i class="fa-solid fa-clock"></i> Horário: </strong><span id="horario"></span></p>
+          <p><strong><i class="fa-solid fa-door-open"></i> Sala: </strong><span id="sala"></span></p>
+          <p><strong><i class="fa-solid fa-chair"></i> Assento: </strong><span id="assentos"></span></p>
+          <p><strong><i class="fa-solid fa-dollar-sign"></i> Valor total: </strong>R$<span id="valor_total"></span></p>
+        </div>
+        <div>
+          <p>Pague agora pelo pix!</p>
+          <p>Escaneie o QrCode abaixo ou digite o pix informado.</p>
+          <img src="" alt="QR Code" class="qrcode" id="qrcode-pix">
+          <p>Pix:18997678789 </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+
+     const params = new URLSearchParams(window.location.search);
+     const id = params.get('id');
+
+      document.getElementById("qrcode-pix").src = `http://192.168.1.139:5000/static/upload/qrcodes/pix_reserva_${id}.png`;
+     
+</script>
+<script>
+
+ 
+      function toggleMenu() {
+                const menu = document.getElementById("menuPerfil");
+                menu.style.display = menu.style.display === "block" ? "none" : "block";
+            }
+
+            const dataFormatada = new Date(params.get("data_sessao")).toLocaleDateString('pt-BR');
+            const horaFormatada = params.get("horario").slice(0, 5);
+     document.getElementById("titulo_filme").innerHTML = params.get("titulo_filme")
+     document.getElementById("data_sessao").innerHTML = dataFormatada
+     document.getElementById("horario").innerHTML = horaFormatada
+     document.getElementById("sala").innerHTML = params.get("sala")
+     document.getElementById("assentos").innerHTML = params.get("assentos")
+     document.getElementById("valor_total").innerHTML = params.get("valor_total")
+     
+            
+
+  </script>
+</body>
+</html>

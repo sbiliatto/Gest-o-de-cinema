@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login- Prime Cine</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="conteiner">
+        <div class="painel-esquerdo">
+            <a href="index.html"><img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial"></a>
+        </div>
+        <div class="painel-direito">
+            <h2>LOGIN</h2>
+            <form id="form_login">
+                <div class="campo-entrada">
+                    <span class="icone"><i class="fas fa-envelope"></i></span>
+                    <input type="email" name="email" placeholder="E-mail" required>
+                </div>
+                <div class="campo-entrada">
+                    <span class="icone"><i class="fas fa-lock"></i></span>
+                    <input type="password" name="senha" id="senha" placeholder="Senha" required>
+                    <img src="https://cdn-icons-png.flaticon.com/512/2767/2767146.png" alt="Mostrar senha"
+                        class="eye-icon" id="toggleSenha">
+                </div>
+                <button type="submit" class="botao" id="btn">ENTRAR</button>
+                <p>Ainda não tem uma conta? <a class="oi" href="cadastro.html">Cadastre-se</a></p>
+                <p>Esqueceu sua senha? <a class="esqueci" href="esqsenha.html">Recuperar Senha</a> </p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        $("#toggleSenha").on("click", function () {
+            let senhaInput = $("#senha");
+            let icone = $("#toggleSenha");
+            if (senhaInput.attr("type") === "password") {
+                senhaInput.attr("type", "text");
+                icone.attr("src", "https://cdn-icons-png.flaticon.com/512/2767/2767149.png");
+            } else {
+                senhaInput.attr("type", "password");
+                icone.attr("src", "https://cdn-icons-png.flaticon.com/512/2767/2767146.png");
+            }
+        });
+
+        $("#form_login").on("submit", function (e) {
+            e.preventDefault();
+            let email = $("input[name='email']").val().trim();
+            let senha = $("input[name='senha']").val().trim();
+            if (email === "" || senha === "") {
+                Swal.fire({
+                    title: "Erro!",
+                    text: "Por favor, preencha todos os campos!",
+                    icon: "error"
+                });
+                return;
+            }
+            let dados = JSON.stringify({ email, senha });
+            $.ajax({
+                method: "post",
+                url: "http://192.168.1.139:5000/login",
+                contentType: "application/json",
+                data: dados, 
+                success: function (retorno) {
+                    localStorage.setItem("token", retorno.usuarios.token)
+                    localStorage.setItem("nome", retorno.usuarios.nome)
+                    localStorage.setItem("email", retorno.usuarios.email)
+                    localStorage.setItem("telefone", retorno.usuarios.telefone)
+                    localStorage.setItem("id_cadastro", retorno.usuarios.id_cadastro)
+                    localStorage.setItem("tipo", retorno.usuarios.tipo)
+                    Swal.fire({
+                        title: "Deu Certo!",
+                        icon: "success"
+                    }).then(() => {
+                        if (retorno.usuarios.tipo === "adm") {
+                            window.location.href = "homeeae.html";
+                        } else {
+                            window.location.href = "homePoslogin.html";
+                        }
+                    });
+                },
+                error: function (retorno) {
+                    Swal.fire({
+                        title: "Erro!",
+                        text: retorno.responseJSON?.error || "Erro ao tentar fazer login.",
+                        icon: "error"
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

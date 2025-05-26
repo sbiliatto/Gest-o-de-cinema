@@ -1,0 +1,545 @@
+* {
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #1a1a1a !important;
+  color: white !important;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: black;
+  padding: 15px 50px;
+  color: white;
+  position: relative;
+}
+
+.logo {
+  width: 20vh;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin-right: auto;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: red;
+}
+
+.acao {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.btn-perfil2 {
+  width: 49px;
+}
+
+/* Perfil logado */
+.perfil-logado {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.perfil-logado img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid red;
+}
+
+.perfil-logado span {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Container do perfil */
+.perfil-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Botão do perfil */
+.btn-perfil {
+  background-color: #ff0000;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.btn-perfil:hover {
+  background-color: #cc0000;
+}
+
+/* Menu suspenso */
+.menu-perfil {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: #D7D6D6;
+  color: black;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 15px;
+  z-index: 100;
+  width: 250px;
+}
+
+/* Estilizar itens do menu */
+.menu-perfil p {
+  font-weight: bold;
+  color: #ff0000;
+  margin-bottom: 10px;
+  background-color: #D7D6D6;
+}
+
+.menu-perfil ul {
+  list-style: none;
+  padding: 0;
+  background-color: #D7D6D6;
+}
+
+.menu-perfil ul li {
+  margin: 10px 0;
+  background-color: #D7D6D6;
+}
+
+.menu-perfil ul li a {
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #D7D6D6;
+}
+
+.menu-perfil ul li a:hover {
+  color: #ff0000;
+  background-color: #D7D6D6;
+}
+
+.nome-veisitante {
+  background-color: #D7D6D6;
+}
+
+.barra {
+  width: 100%;
+  height: 4px;
+  background-color: darkred;
+  position: absolute;
+}
+
+.tela {
+  background-color: #2a2a2a;
+  text-align: center;
+  font-size: 20px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.reserva-container {
+  display: flex;
+  align-items: center;
+  gap: 300px;
+  padding-top: 50px;
+}
+
+.assentos-container {
+  flex: 2;
+}
+
+.assento {
+  width: 30px;
+  height: 30px;
+  background: red;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  font-size: 18px;
+}
+
+.fileira {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.namoradeira,
+.cadeirante {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.namoradeira i {
+  color: rgb(255, 255, 255);
+}
+
+.namoradeira {
+  background: blue;
+}
+
+.assento.cadeirante i {
+  color: white;
+}
+
+.legenda {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.legenda span {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+.assento i {
+  font-size: 1em;
+  color: #ffffff;
+}
+
+.disponivel {
+  background: red;
+}
+
+.ocupado {
+  background: gray !important;
+  ;
+}
+
+.namoradeira {
+  background: red;
+}
+
+.cadeirante {
+  background: blue;
+}
+
+.selecionado {
+  background: rgb(26, 226, 26);
+}
+
+.pedido {
+  background: #2a2a2a;
+  padding: 20px;
+  border-radius: 5px;
+  flex: 1;
+}
+
+.filme-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.filme-info img {
+  border-radius: 5px;
+  max-width: 300px;
+}
+
+.pedido button {
+  background: red;
+  color: white;
+  border: none;
+  width: 270px;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.pedido button:hover {
+  background: darkred;
+}
+
+.label-assento {
+  font-size: 0.6rem;
+  display: block;
+  text-align: center;
+  margin-top: 2px;
+  color: #444;
+}
+
+/* FOOTER MODERNO ADAPTADO PARA HTML EXISTENTE */
+footer {
+  background-color: #1a1a1a;
+  color: #fff;
+  padding: 40px 20px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.main_footer_container .content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 30px;
+}
+
+.colfooter {
+  flex: 1 1 250px;
+}
+
+.colfooter h3.titleFooter {
+  font-size: 1.2em;
+  margin-bottom: 15px;
+  border-bottom: 2px solid darkred;
+  padding-bottom: 5px;
+  display: inline-block;
+  width: fit-content;
+  white-space: nowrap;
+}
+
+
+.colfooter ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.colfooter ul li {
+  margin-bottom: 10px;
+}
+
+.colfooter ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.colfooter ul li a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.colfooter p {
+  margin: 8px 0;
+  color: #ccc;
+  font-size: 0.95em;
+}
+
+.rss {
+  margin-right: 10px;
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+.rss img {
+  width: 30px;
+  height: 30px;
+  filter: brightness(0) invert(1);
+}
+
+.rss:hover img {
+  transform: scale(1.2);
+}
+
+.main_footer_copy {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 0.9em;
+  color: #aaa;
+  border-top: 1px solid #333;
+  padding-top: 15px;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.barraverm {
+  background-color: #B90000;
+  display: flex;
+  justify-content: center;
+}
+
+.barraverm img {
+  background-color: #B90000;
+  width: 17vh;
+  margin-right: 10px;
+}
+
+.info {
+  margin-left: 105px;
+}
+
+
+@media screen and (max-width: 1200px) {
+  nav ul {
+    margin-left: 100px;
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  header {
+    padding: 15px 20px;
+  }
+
+  nav ul {
+    margin-left: 100px;
+    gap: 15px;
+  }
+
+  .reserva-container {
+    gap: 50px;
+    padding: 30px 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .logo {
+    width: 15vh;
+    margin-bottom: 10px;
+  }
+
+  nav ul {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  .reserva-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .assento {
+    width: 25px;
+    height: 25px;
+    margin: 3px;
+  }
+
+  .pedido {
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .filme-info img {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  nav ul {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  nav ul li a {
+    font-size: 14px;
+  }
+
+  .grid-container {
+    overflow-x: auto;
+    max-width: 90vw;
+  }
+
+  .assento {
+    width: 20px;
+    height: 20px;
+    margin: 2px;
+    font-size: 12px;
+  }
+
+  .assento i {
+    font-size: 0.8em;
+  }
+
+  .num-linha {
+    font-size: 12px;
+  }
+
+  .legenda {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .tela {
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .pedido button {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .menu-perfil {
+    right: -100px;
+  }
+
+  .grid {
+    min-width: 320px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .grid-container {
+    transform: scale(0.9);
+    transform-origin: left top;
+  }
+
+  .legenda {
+    font-size: 12px;
+  }
+
+  .legenda span {
+    width: 15px;
+    height: 15px;
+  }
+
+  .filme-info h2 {
+    font-size: 18px;
+  }
+
+  .filme-info p {
+    font-size: 14px;
+  }
+}

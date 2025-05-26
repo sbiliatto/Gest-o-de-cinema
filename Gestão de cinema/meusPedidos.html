@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus pedidos- Prime Cine</title>
+    <link rel="stylesheet" href="assets/css/meusPedidos.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="assets/js/seguranca.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <a href="#" onclick="voltarprahome()">
+            <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="homePoslogin.html">HOME</a></li>
+                <li><a href="promoções.html">PROMOÇÕES</a></li>
+            </ul>
+        </nav>
+
+        <div class="acao">
+            <div class="perfil-container">
+                <img onclick="toggleMenu()" class="btn-perfil2" src="assets/img/do-utilizador.png" alt="">
+                <div class="menu-perfil" id="menuPerfil">
+                    <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
+                    <ul>
+                        <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
+                        <li><a href="editar.html">✏️ Editar perfil</a></li>
+                        <li><a href="login.html" onclick="sair()">🚪 Sair da Conta</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="barra"></div>
+
+    <div class="main-container">
+        <!-- Seção lateral com perfil -->
+        <div class="perfil-lateral">
+            <h2>Olá, <span class="nome-visitante">(Nome do visitante)</span></h2>
+            <p>Este é o seu perfil </p>
+        </div>
+
+        <!-- Seção de pedidos -->
+        <div class="pedidos-area">
+            <h2>Meus Pedidos</h2>
+            <div id="listapedidos"></div>
+            <button class="btn-encontrar" onclick="window.location.href='homePoslogin.html'">ENCONTRAR FILMES</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("menuPerfil");
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            carregarDadosUsuario();
+            carregarReservas();
+        });
+
+        // Função para carregar dados do usuário da API
+        function carregarDadosUsuario() {
+            var token = localStorage.getItem("token");
+
+            if (!token) {
+                console.error("Token não encontrado. Usuário não está autenticado.");
+                return;
+            }
+
+            var settings = {
+                "url": "http://192.168.1.139:5000/usuarios/perfil",
+                "method": "GET",
+                "timeout": 0,
+                "headers": {
+                    "Authorization": token,
+                    "Content-Type": "application/json"
+                },
+                "success": function (response) {
+                    var nomeUsuario = response.nome || "Visitante";
+
+                    var elementosComNome = document.querySelectorAll(".nome-visitante");
+                    elementosComNome.forEach(function (elemento) {
+                        elemento.textContent = nomeUsuario;
+                    });
+                },
+                "error": function (error) {
+                    console.error("Erro ao carregar dados do usuário:", error);
+                    var nomeUsuario = localStorage.getItem("nome") || "Visitante";
+
+                    var elementosComNome = document.querySelectorAll(".nome-visitante");
+                    elementosComNome.forEach(function (elemento) {
+                        elemento.textContent = nomeUsuario;
+                    });
+                }
+            };
+
+            $.ajax(settings);
+        }
+
+        // Função para carregar reservas do usuário da API
+        function carregarReservas() {
+            var token = localStorage.getItem("token");
+
+            var settings = {
+                "url": "http://192.168.1.139:5000/reservas",
+                "method": "GET",
+                "timeout": 0,
+                "headers": {
+                    "Authorization": "Bearer " + token,
+                    "Content-Type": "application/json"
+                },
+
+                
+                "success": function (response) {
+                    response.reservas.forEach(function (reserva) {
+                        const horaFormatada = reserva.horario.slice(0, 5);
+                        document.getElementById("listapedidos").innerHTML += `
+                           
+                            <div onclick="window.location.href='detalhessessao.html?id=${reserva.id_reserva}&titulo_filme=${reserva.titulo_filme}&data_sessao=${reserva.data_sessao}&horario=${reserva.horario}&sala=${reserva.sala}&assentos=${reserva.assentos}&valor_total=${reserva.valor_total}'" style="cursor: pointer;">
+                                <p>Nome do Filme:  ${reserva.titulo_filme}</p>
+                                <p>Horário: ${horaFormatada}</p>
+                                <p>Sala: ${reserva.sala}</p>
+                                <p>Assento: ${reserva.assentos}</p>
+                            </div>
+                            
+                        `
+                    })
+                },
+                "error": function (error) {
+                    console.error("Erro ao carregar reservas:", error);
+                    var reservas = JSON.parse(localStorage.getItem("reservas")) || [];
+                    exibirReservas(reservas);
+                }
+            };
+
+            $.ajax(settings);
+        }
+
+        var nome = localStorage.getItem("nome")
+        document.getElementById("nome-visitante").innerHTML = nome
+    </script>
+    <script>
+        function voltarprahome() {
+            const tipoUsuario = localStorage.getItem("tipo"); // ou sessionStorage
+    
+            if (tipoUsuario === "adm") {
+                window.location.href = "homeeae.html";
+            } else {
+                window.location.href = "homePoslogin.html";
+            }
+        }
+    </script>
+
+<footer class="main_footer_container">
+    
+    <div class="content">
+        <div class="colfooter">
+            
+            <h3 class="titleFooter"> Menu</h3>
+            
+            <ul>
+            
+              <li><a href="#" title="Página Inícial">Página Inícial</a></li>
+              <li><a href="promoções.html" title="Promoções">Promoções</a></li>
+              <li><a href="relatorios.html" title="Relatório">Relatório</a></li>
+              <li><a href="cadastro.html" title="Cadastro">Cadastro</a></li>
+            
+            </ul>
+        </div><!--Col Footer 1-->        
+        <div class="colfooter">
+           
+           <h3 class="titleFooter"> Contato</h3>
+           <p><i class="icon icon-mail"></i>primecine@gmail.com</p>
+           <p><i class="icon icon-phone"></i> (00) 00000-0000</p>
+           <p><i class="icon icon-whatsapp"></i> (11) 11111-1111</p>
+        </div><!--Col Footer 2-->
+        <div class="colfooter">
+           
+           <h3 class="titleFooter"> Redes Sociais</h3>
+            
+           <div>
+                <a class="rss" href="https://www.instagram.com/">
+                <img src="assets/img/instagram.png" alt="Instagram">
+                </a>
+                <a class="rss" href="https://www.whatsapp.com/?lang=pt_BR">
+                    <img src="assets/img/whatsapp (1).png" alt="WhatsApp">
+                </a>
+                <a class="rss" href="https://x.com/?lang=pt">
+                    <img src="assets/img/twitter.png" alt="Twitter">
+                </a>
+                <a class="rss" href="https://www.facebook.com/?locale=pt_BR">
+                    <img src="assets/img/facebook.png" alt="Facebook">
+                </a>
+           </div>
+
+        </div><!--Col Footer 3-->
+        <div class="clear"></div>
+    
+    </div><!--Contant-->
+    <div class="main_footer_copy">
+        
+        <p class="m-b-footer"> PrimeCine - 2025 © todos os direitos reservados</p> 
+    
+    </div>
+</footer>
+
+
+</body>
+
+</html>

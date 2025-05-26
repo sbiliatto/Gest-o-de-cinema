@@ -1,0 +1,261 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.erro {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.esquerda {
+    width: 40%;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    height: 100vh;
+}
+
+.direita {
+    width: 60%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+h2 {
+    color: rgba(206, 5, 5, 0.86);
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.campo {
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    align-items: center;
+    border: 2px solid rgba(239, 0, 0, 1);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.campo input {
+    border: none;
+    outline: none;
+    flex: 1;
+    padding-left: 10px;
+}
+
+.botao {
+    background-color: rgba(237, 17, 17, 1);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 197px;
+}
+
+.botao:hover {
+    background-color: brown;
+    transition: 0.9s;
+}
+
+
+footer {
+    background-color: #1a1a1a !important;
+    color: #fff;
+    padding: 40px 20px 20px;
+    font-family: Arial, sans-serif;
+}
+
+
+.main_footer_copy {
+    text-align: center;
+    font-size: 0.9em;
+    color: #aaa;
+    border-top: 1px solid #333 !important;
+    padding-top: 15px;
+}
+
+.content {
+    margin-bottom: 50px !important;
+}
+
+.main_footer {
+    background-color: darkred;
+    color: #fff;
+    font-size: 0.875em;
+}
+
+.main_footer .content {
+    float: left;
+    width: 90%;
+    margin: 0 5%;
+    padding: 5em 0;
+}
+
+.container {
+    float: left;
+    width: 100%;
+}
+
+.colfooter {
+    width: 100%;
+    height: auto;
+    float: left;
+    margin-bottom: 2em;
+}
+
+.colfooter ul {
+    width: 100%;
+    float: left;
+}
+
+.colfooter ul li {
+    padding: 0.2em 0em;
+}
+
+.colfooter ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1em;
+}
+
+.colfooter ul li a i {
+    font-size: 0.5em;
+}
+
+.colfooter ul li a:hover {
+    text-decoration: underline;
+}
+
+.colfooter h3.titleFooter {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    border-bottom: 2px solid darkred;
+    padding-bottom: 5px;
+    display: inline-block;
+    width: fit-content;
+    white-space: nowrap;
+}
+
+img {
+    width: 30px;
+}
+
+.main_footer_container .content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.colfooter p {
+    font-family: 'open_sanslight';
+    color: #ffffff;
+    font-size: 1em;
+    height: 25px;
+}
+
+
+.main_footer_copy {
+    background-color: #1a1a1a !important;
+    ;
+    width: 100%;
+    float: left;
+    text-align: center;
+    padding: 1.5em 0em;
+}
+
+.main_footer_copy p {
+    font-family: 'open_sanslight';
+    font-size: 1em;
+    color: #e1e0e0;
+    height: 20px;
+}
+
+.main_footer_copy .m-b-footer {
+    margin-bottom: 0.5em;
+}
+
+.main_footer_copy .by {
+    font-size: 0.96em;
+}
+
+.main_footer_copy .by a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.main_footer_copy .by a:hover {
+    text-decoration: underline;
+}
+
+.main_footer_copy .by i {
+    font-size: 0.96em;
+    margin-right: 3px;
+    color: #e82626;
+}
+
+
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .esquerda {
+        width: 100%;
+        padding: 40px 20px;
+    }
+
+    .direita {
+        width: 100%;
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    h2 {
+        font-size: 28px;
+    }
+
+    .campo {
+        max-width: 90%;
+    }
+
+    .botao {
+        max-width: 90%;
+    }
+}
+
+.logo {
+    width: 80%;
+    max-width: 315px;
+    margin-bottom: 20px;
+}

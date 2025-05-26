@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/cadeirasDisponiveis.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="assets/js/seguranca.js" defer></script> 
+
+    <title>Reservas- Prime Cine</title>
+</head>
+
+<script>
+    function reservar(titulo, valorUnitario, dataSessao, sala) {
+        window.location.href = `cadeirasDisponiveis.html?titulo=${encodeURIComponent(titulo)}&valor_unitario=${valorUnitario}&data_sessao=${encodeURIComponent(dataSessao)}&sala=${encodeURIComponent(sala)}`;
+    }
+</script>
+
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById("menuPerfil");
+        menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    }
+
+    window.onclick = function (event) {
+        const menu = document.getElementById("menuPerfil");
+        const botaoPerfil = document.querySelector('.btn-perfil2');
+
+        if (menu.style.display === "block" && event.target !== menu && event.target !== botaoPerfil) {
+            menu.style.display = "none";
+        }
+    }
+</script>
+
+<body>
+    <header>
+        <a href="homePoslogin.html"><img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="homePoslogin.html">HOME</a></li>
+                <li><a href="promoções.html">PROMOÇÕES</a></li>
+            </ul>
+        </nav>
+
+        <div class="acao">
+            <div class="perfil-container">
+                <img onclick="toggleMenu()" class="btn-perfil2" src="assets/img/do-utilizador.png" alt="">
+                <div class="menu-perfil" id="menuPerfil">
+                    <p>Olá, <span class="nome-veisitante" id="nome-visitante">(Nome do visitante)</span></p>
+                    <ul>
+                        <li><a href="meusPedidos.html">📦 Meus Pedidos</a></li>
+                        <li><a href="editar.html">✏️ Editar perfil</a></li>
+                        <li><a href="login.html" onclick="sair()">🚪 Sair da Conta</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <script>
+
+            var nome = localStorage.getItem("nome")
+            document.getElementById("nome-visitante").innerHTML = nome
+
+
+            function sair() {
+                localStorage.clear();
+                sessionStorage.clear();
+                window.location.href = "/login.html";
+            }
+        </script>
+    </header>
+
+    <main>
+        <div class="reserva-container">
+            <div class="assentos">
+                <div class="tela">TELA</div>
+                <div class="grid-container">
+                    <div class="grid" id="assentos-container">
+                        <div class="grid" id="assentos-container">
+
+
+                            <div class="fileira">
+                                <span class="num-linha">A</span>
+
+                                <div class="assento cadeirante" data-id="1">
+                                    <i class="fa-solid fa-wheelchair"></i>
+                                </div>
+
+                                <div class="assento" data-id="2"></div>
+
+                                <div class="assento cadeirante" data-id="3">
+                                    <i class="fa-solid fa-wheelchair"></i>
+                                </div>
+
+                                <div class="assento cadeirante" data-id="4">
+                                    <i class="fa-solid fa-wheelchair"></i>
+                                </div>
+
+                                <div class="assento" data-id="5"></div>
+
+                                <div class="assento cadeirante" data-id="6">
+                                    <i class="fa-solid fa-wheelchair"></i>
+                                </div>
+
+                                <div class="assento" data-id="7"></div>
+
+                                <div class="assento cadeirante" data-id="8">
+                                    <i class="fa-solid fa-wheelchair"></i>
+                                </div>
+
+                                <div class="assento cadeirante" data-id="9">
+                                    <i class="fa-solid fa-wheelchair"></i>
+                                </div>
+
+                                <div class="assento" data-id="10"></div>
+                            </div>
+
+
+                            <div class="fileira"><span class="num-linha">B</span>
+                                <div class="assento" data-id="11"></div>
+                                <div class="assento" data-id="12"></div>
+                                <div class="assento" data-id="13"></div>
+                                <div class="assento" data-id="14"></div>
+                                <div class="assento" data-id="15"></div>
+                                <div class="assento" data-id="16"></div>
+                                <div class="assento" data-id="17"></div>
+                                <div class="assento" data-id="18"></div>
+                                <div class="assento" data-id="19"></div>
+                                <div class="assento" data-id="20"></div>
+                            </div>
+                            <div class="fileira"><span class="num-linha">C</span>
+                                <div class="assento" data-id="21"></div>
+                                <div class="assento" data-id="22"></div>
+                                <div class="assento" data-id="23"></div>
+                                <div class="assento" data-id="24"></div>
+                                <div class="assento" data-id="25"></div>
+                                <div class="assento" data-id="26"></div>
+                                <div class="assento" data-id="27"></div>
+                                <div class="assento" data-id="28"></div>
+                                <div class="assento" data-id="29"></div>
+                                <div class="assento" data-id="30"></div>
+                              </div>
+                              <div class="fileira"><span class="num-linha">D</span>
+                                <div class="assento" data-id="31"></div>
+                                <div class="assento" data-id="32"></div>
+                                <div class="assento" data-id="33"></div>
+                                <div class="assento" data-id="34"></div>
+                                <div class="assento" data-id="35"></div>
+                                <div class="assento" data-id="36"></div>
+                                <div class="assento" data-id="37"></div>
+                                <div class="assento" data-id="38"></div>
+                                <div class="assento" data-id="39"></div>
+                                <div class="assento" data-id="40"></div>
+                              </div>
+                              <div class="fileira"><span class="num-linha">E</span>
+                                <div class="assento" data-id="41"></div>
+                                <div class="assento" data-id="42"></div>
+                                <div class="assento" data-id="43"></div>
+                                <div class="assento" data-id="44"></div>
+                                <div class="assento" data-id="45"></div>
+                                <div class="assento" data-id="46"></div>
+                                <div class="assento" data-id="47"></div>
+                                <div class="assento" data-id="48"></div>
+                                <div class="assento" data-id="49"></div>
+                                <div class="assento" data-id="50"></div>
+                              </div>
+                              <div class="fileira"><span class="num-linha">F</span>
+                                <div class="assento" data-id="51"></div>
+                                <div class="assento" data-id="52"></div>
+                                <div class="assento" data-id="53"></div>
+                                <div class="assento" data-id="54"></div>
+                                <div class="assento" data-id="55"></div>
+                                <div class="assento" data-id="56"></div>
+                                <div class="assento" data-id="57"></div>
+                                <div class="assento" data-id="58"></div>
+                                <div class="assento" data-id="59"></div>
+                                <div class="assento" data-id="60"></div>
+                              </div>
+                              <div class="fileira"><span class="num-linha">G</span>
+                                <div class="assento" data-id="61"></div>
+                                <div class="assento" data-id="62"></div>
+                                <div class="assento" data-id="63"></div>
+                                <div class="assento" data-id="64"></div>
+                                <div class="assento" data-id="65"></div>
+                                <div class="assento" data-id="66"></div>
+                                <div class="assento" data-id="67"></div>
+                                <div class="assento" data-id="68"></div>
+                                <div class="assento" data-id="69"></div>
+                                <div class="assento" data-id="70"></div>
+                              </div>
+                              <div class="fileira"><span class="num-linha">H</span>
+                                <div class="assento" data-id="71"></div>
+                                <div class="assento" data-id="72"></div>
+                                <div class="assento" data-id="73"></div>
+                                <div class="assento" data-id="74"></div>
+                                <div class="assento" data-id="75"></div>
+                                <div class="assento" data-id="76"></div>
+                                <div class="assento" data-id="77"></div>
+                                <div class="assento" data-id="78"></div>
+                                <div class="assento" data-id="79"></div>
+                                <div class="assento" data-id="80"></div>
+                              </div>
+                              <div class="fileira"><span class="num-linha">I</span>
+                                <div class="assento" data-id="81"></div>
+                                <div class="assento" data-id="82"></div>
+                                <div class="assento" data-id="83"></div>
+                                <div class="assento" data-id="84"></div>
+                                <div class="assento" data-id="85"></div>
+                                <div class="assento" data-id="86"></div>
+                                <div class="assento" data-id="87"></div>
+                                <div class="assento" data-id="88"></div>
+                                <div class="assento" data-id="89"></div>
+                                <div class="assento" data-id="90"></div>
+                              </div>
+                              <div class="fileira"><span class="num-linha">J</span>
+                                <div class="assento namoradeira" data-id="91"><i class="fa-solid fa-heart"></i></div>
+                                <div class="assento namoradeira" data-id="92"><i class="fa-solid fa-heart"></i></div>
+                                <div class="assento namoradeira" data-id="93"><i class="fa-solid fa-heart"></i></div>
+                                <div class="assento namoradeira" data-id="94"><i class="fa-solid fa-heart"></i></div>
+                                <div class="assento namoradeira" data-id="95"><i class="fa-solid fa-heart"></i></div>
+                                <div class="assento namoradeira" data-id="96"><i class="fa-solid fa-heart"></i></div>
+                                <div class="assento namoradeira" data-id="97"><i class="fa-solid fa-heart"></i></div>
+                                <div class="assento namoradeira" data-id="98"><i class="fa-solid fa-heart"></i></div>
+                                <div class="assento namoradeira" data-id="99"><i class="fa-solid fa-heart"></i></div>
+                                <div class="assento namoradeira" data-id="100"><i class="fa-solid fa-heart"></i></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="legenda">
+                    <span class="disponivel"></span> Disponível
+                    <span class="ocupado"></span> Ocupado
+                    <span class="namoradeira"><i class="fa-solid fa-heart"></i></span> Namoradeira
+                    <span class="cadeirante"><i class="fa-solid fa-wheelchair"></i></span> Cadeira Acessível
+                    <span class="selecionado"></span> Selecionado
+                </div>
+            </div>
+            <div class="pedido">
+                <div class="filme-info">
+                    <h2>Informações do pedido</h2>
+                    <img id="imgfilme" class="img-pedido" src="assets/img/mmfsa.jpeg" alt="Mufasa">
+                    <div>
+                        <p id="titulofilme"></p>
+                        <br>
+                        <p id="dia"></p>
+                        <p id="horario"></p>
+                        <p>Itens: <span id="itens">0</span></p>
+                        <p>Total: R$ <span id="total">0,00</span></p>
+                    </div>
+                </div>
+                <button id="reservar">Reservar</button>
+            </div>
+        </div>
+
+
+    </main>
+
+    <div class="barra"></div>
+
+    <footer class="main_footer_container">
+    
+        <div class="content">
+            <div class="colfooter">
+                
+                <h3 class="titleFooter"> Menu</h3>
+                
+                <ul>
+                
+                  <li><a href="#" title="Página Inícial">Página Inícial</a></li>
+                  <li><a href="promoções.html" title="Promoções">Promoções</a></li>
+                  <li><a href="relatorios.html" title="Relatório">Relatório</a></li>
+                  <li><a href="cadastro.html" title="Cadastro">Cadastro</a></li>
+                
+                </ul>
+            </div><!--Col Footer 1-->        
+            <div class="colfooter">
+               
+               <h3 class="titleFooter"> Contato</h3>
+               <p><i class="icon icon-mail"></i>primecine@gmail.com</p>
+               <p><i class="icon icon-phone"></i> (00) 00000-0000</p>
+               <p><i class="icon icon-whatsapp"></i> (11) 11111-1111</p>
+            </div><!--Col Footer 2-->
+            <div class="colfooter">
+               
+               <h3 class="titleFooter"> Redes Sociais</h3>
+                
+               <div>
+                    <a class="rss" href="https://www.instagram.com/">
+                    <img src="assets/img/instagram.png" alt="Instagram">
+                    </a>
+                    <a class="rss" href="https://www.whatsapp.com/?lang=pt_BR">
+                        <img src="assets/img/whatsapp (1).png" alt="WhatsApp">
+                    </a>
+                    <a class="rss" href="https://x.com/?lang=pt">
+                        <img src="assets/img/twitter.png" alt="Twitter">
+                    </a>
+                    <a class="rss" href="https://www.facebook.com/?locale=pt_BR">
+                        <img src="assets/img/facebook.png" alt="Facebook">
+                    </a>
+               </div>
+
+            </div><!--Col Footer 3-->
+            <div class="clear"></div>
+        
+        </div><!--Contant-->
+        <div class="main_footer_copy">
+            
+            <p class="m-b-footer"> PrimeCine - 2025 © todos os direitos reservados</p> 
+        
+        </div>
+    </footer>
+
+
+    <script>
+
+
+    const params = new URLSearchParams(window.location.search);
+    const idSessao = params.get('id_sessao');
+
+    const id = params.get("id")
+    const titulo = params.get("titulo");
+    const data_sessao = params.get("datasessao");
+    const horario = params.get("horario");
+    const id_sessao = params.get("id_sessao")
+    const descricao = params.get("descricao")
+    const precoUnitario = params.get("valor_unitario")
+    
+    const dataFormatada = new Date(params.get("data_sessao")).toLocaleDateString('pt-BR');
+    const horaFormatada = params.get("horario").slice(0, 5);
+
+    document.getElementById("imgfilme").src = "http://192.168.1.139:5000/static/uploads/Filmes/" + id + ".jpeg"
+
+    document.getElementById("titulofilme").innerHTML = titulo
+    document.getElementById("dia").innerHTML = dataFormatada
+    document.getElementById("horario").innerHTML = horaFormatada
+    // document.getElementById("valor_unitario").innerHTML = precoUnitario
+
+
+
+    // Atualiza os elementos com info do filme e sessão
+    document.querySelector(".filme-info img").src = "http://192.168.1.139:5000/static/uploads/Filmes/" + id + ".jpeg";
+    document.querySelector(".filme-info p").innerText = "PrimeCine Birigui";
+    document.querySelector(".filme-info div p").innerText = `${dataFormatada} - ${horaFormatada}`;
+
+    
+        document.addEventListener("DOMContentLoaded", () => {
+            const assentos = document.querySelectorAll(".assento");
+            const totalItens = document.getElementById("itens");
+            const totalPreco = document.getElementById("total");
+            const listaSelecionados = document.getElementById("selecionados");
+            const botaoReservar = document.getElementById("reservar");
+            
+
+            assentos.forEach(assento => {
+                assento.addEventListener("click", () => {
+                    if (assento.classList.contains("ocupado")) {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Assento ocupado",
+                            text: "Este assento já está reservado. Por favor, escolha outro."
+                        });
+                    } else {
+                        assento.classList.toggle("selecionado");
+                        atualizarTotais();
+                    }
+                });
+            });
+
+
+            var settings = {
+                "url": "http://192.168.1.139:5000/assentos_reservados/" + idSessao,
+                "method": "GET",
+                "timeout": 0,
+                "success": function(retorno) {
+                    var reservados = retorno.assentos
+
+                    reservados.forEach((item) => {
+                        document.querySelector(`[data-id="${item.id_assento}"]`).classList.add("ocupado")
+                    })
+                }
+            };
+
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+            });
+
+    
+            botaoReservar.addEventListener("click", () => {
+                const selecionados = document.querySelectorAll(".assento.selecionado");
+                const ids = Array.from(selecionados)
+                                 .map(el => Number(el.dataset.id))
+                                 .filter(Boolean);
+    
+                if (ids.length === 0) {
+                    Swal.fire({
+                        icon: "info",
+                        title: "Nenhum assento selecionado",
+                        text: "Selecione pelo menos um assento para reservar."
+                    });
+                    return;
+                }
+    
+                Swal.fire({
+                    title: "Confirmar reserva?",
+                    html: `
+                        <p>Assentos: <strong>${ids.join(", ")}</strong></p>
+                        <p>Total: <strong>R$ ${(ids.length * precoUnitario).toFixed(2).replace(".", ",")}</strong></p>
+                    `,
+                    icon: "question",
+                    showCancelButton: true,
+                    confirmButtonText: "Confirmar",
+                    cancelButtonText: "Cancelar"
+                }).then(result => {
+                    if (result.isConfirmed) {
+    
+                        const token = localStorage.getItem("token");
+    
+                        $.ajax({
+                            url: "http://192.168.1.139:5000/reservas",
+                            method: "POST",
+                            timeout: 0,
+                            headers: {
+                                "Content-Type": "application/json",
+                                "Authorization": "Bearer " + token
+                            },
+                            data: JSON.stringify({
+                                "id_sessao": Number(idSessao),
+                                "id_assento": ids
+                            }),
+                            success: function(retorno) {
+                                Swal.fire({
+                                    icon: "success",
+                                    title: "Reserva confirmada! Verifique seu email de login para ter acesso a mais informações :)",
+                                    text: `Assentos reservados: ${ids.join(", ")}`
+                                }).then(() => {
+                                     window.location.href = "detalhessessao.html";
+                                    });
+
+
+    
+                                selecionados.forEach(assento => {
+                                    assento.classList.remove("selecionado");
+                                    assento.classList.add("ocupado");
+                                });
+                                atualizarTotais();
+                            },
+                            error: function(retorno) {
+                                const erro = retorno.responseJSON;
+    
+                                if (erro && erro.mensagem && erro.mensagem.includes("ocupado")) {
+                                    Swal.fire({
+                                        icon: "error",
+                                        title: "Assento já ocupado",
+                                        text: erro.mensagem
+                                    });
+                                } else {
+                                    Swal.fire({
+                                        icon: "error",
+                                        title: "Erro na reserva",
+                                        text: "Ocorreu um erro ao processar sua reserva. Tente novamente."
+                                    });
+                                }
+                            }
+                        });
+                    }
+                });
+            });
+    
+            function atualizarTotais() {
+                const selecionados = document.querySelectorAll(".assento.selecionado");
+                const qtd = selecionados.length;
+                const ids = Array.from(selecionados)
+                                 .map(el => el.dataset.id)
+                                 .filter(Boolean);
+    
+                totalItens.textContent = qtd.toString(); 
+                totalPreco.textContent = (qtd * precoUnitario).toFixed(2).replace(".", ","); 
+    
+                if (listaSelecionados) {
+                    listaSelecionados.textContent = ids.join(", "); 
+                }
+            }
+        });
+    </script>
+    
+        
+</body>
+
+</html>      

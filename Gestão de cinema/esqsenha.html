@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esqueci minha senha - Prime Cine</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="conteiner">
+        <div class="painel-esquerdo">
+            <a href="index.html"><img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial"></a>
+        </div>
+        <div class="painel-direito">
+            <div id="titulo-recuperacao">
+                <h2>Recuperar senha</h2>
+            </div>
+            <form id="esqueci-form">
+                <div class="campo-entrada">
+                    <span class="icone"><i class="fas fa-envelope"></i></span>
+                    <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+                </div>
+                <button type="submit" class="botao" id="btn">ENVIAR</button>
+            </form>
+
+            <!-- Formulário de redefinição de senha, oculto inicialmente -->
+            <div id="redefinir-senha" style="display: none;">
+                <h2>Redefinir senha</h2>
+                <form id="redefinir-form">
+                    <!-- Campo para o token -->
+                    <div class="campo-entrada">
+                        <span class="icone"><i class="fas fa-key"></i></span>
+                        <input type="text" id="token" name="token" placeholder="Digite o código recebido por e-mail" required>
+                    </div>
+
+                    <!-- Campo para a nova senha com botão para mostrar/esconder -->
+                    <div class="campo-entrada">
+                        <span class="icone"><i class="fas fa-lock"></i></span>
+                        <input type="password" id="nova-senha" name="nova-senha" placeholder="Nova senha" required>
+                        <span class="toggle-password" onclick="togglePasswordVisibility('nova-senha')">
+                            <i class="fas fa-eye"></i>
+                        </span>
+                    </div>
+
+                    <button type="submit" class="botao">SALVAR</button>
+                </form>
+            </div>
+            <p id="mensagem"></p>
+        </div>
+    </div>
+
+    <script>
+        let emailGlobal = '';
+
+        // Função para alternar a visibilidade da senha
+        function togglePasswordVisibility(inputId) {
+            const passwordInput = document.getElementById(inputId);
+            const toggleIcon = document.querySelector(`#${inputId}`).nextElementSibling.querySelector('i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            }
+        }
+
+        document.getElementById('esqueci-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+            emailGlobal = email;
+
+            if (!email) {
+                Swal.fire('Erro!', 'Por favor, insira um e-mail.', 'error');
+                return;
+            }
+
+            try {
+                const resposta = await fetch('http://192.168.1.139:5000/esqueci-minha-senha', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email })
+                });
+
+                const resultado = await resposta.json();
+                document.getElementById('mensagem').innerText = resultado.message || resultado.error;
+
+                if (resultado.message) {
+                    Swal.fire('Sucesso!', resultado.message, 'success');
+                    document.getElementById('esqueci-form').style.display = 'none';
+                    document.getElementById('titulo-recuperacao').style.display = 'none';
+                    document.getElementById('redefinir-senha').style.display = 'block';
+                } else {
+                    Swal.fire('Erro!', resultado.error, 'error');
+                }
+
+            } catch (error) {
+                Swal.fire('Erro!', 'Ocorreu um erro ao tentar recuperar sua senha.', 'error');
+            }
+        });
+
+        document.getElementById('redefinir-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const token = document.getElementById('token').value;
+            const novaSenha = document.getElementById('nova-senha').value;
+
+            if (!token || !novaSenha) {
+                Swal.fire('Erro!', 'Preencha todos os campos.', 'error');
+                return;
+            }
+
+            try {
+                const validacao = await fetch('http://192.168.1.139:5000/verificar-codigo', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: emailGlobal, codigo: token })
+                });
+
+                const resultadoValidacao = await validacao.json();
+
+                if (!resultadoValidacao.message) {
+                    Swal.fire('Erro!', resultadoValidacao.error, 'error');
+                    return;
+                }
+
+                const resposta = await fetch('http://192.168.1.139:5000/redefinir-senha', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: emailGlobal, nova_senha: novaSenha })
+                });
+
+                const resultado = await resposta.json();
+
+                if (resultado.message) {
+                    Swal.fire('Sucesso!', resultado.message, 'success').then(() => {
+                        window.location.href = 'login.html';
+                    });
+                } else {
+                    Swal.fire('Erro!', resultado.error, 'error');
+                }
+
+            } catch (error) {
+                Swal.fire('Erro!', 'Erro ao redefinir a senha.', 'error');
+            }
+        });
+    </script>
+
+</body>
+
+</html>

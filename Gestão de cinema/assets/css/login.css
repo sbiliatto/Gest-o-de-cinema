@@ -1,0 +1,400 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.conteiner {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+}
+
+.painel-esquerdo {
+    width: 40%;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.logo {
+    width: 80%;
+    max-width: 315px;
+    margin-bottom: 20px;
+}
+
+.painel-direito {
+    width: 60%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+h2 {
+    color: rgba(206, 5, 5, 0.86);
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.campo-entrada {
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    align-items: center;
+    border: 2px solid rgba(239, 0, 0, 1);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.campo-entrada input {
+    border: none;
+    outline: none;
+    flex: 1;
+    padding-left: 10px;
+    width: 100%;
+    padding-right: 40px;
+}
+
+input::placeholder {
+    color: red;
+}
+
+.icone {
+    margin-right: 10px;
+    color: rgba(239, 0, 0, 1);
+    font-size: 18px;
+}
+
+.eye-icon {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.botao {
+    background-color: rgba(237, 17, 17, 1);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.botao:hover {
+    background-color: brown;
+    transition: 0.9s;
+}
+
+.oi {
+    color: red;
+}
+
+.esqueci {
+    color: red;
+}
+
+footer {
+    background-color: #000000;
+    color: #fff;
+    padding: 40px 20px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.main_footer_container .content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.colfooter {
+    width: 32%;
+    height: auto;
+    float: left;
+    margin-bottom: 2em;
+}
+
+.colfooter ul {
+    width: 100%;
+    float: left;
+    list-style: none;
+    padding-left: 0;
+}
+
+.colfooter ul li {
+    padding: 0.2em 0em;
+}
+
+.colfooter ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1em;
+}
+
+.colfooter ul li a:hover {
+    text-decoration: underline;
+}
+
+.colfooter h3.titleFooter {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    border-bottom: 2px solid darkred;
+    padding-bottom: 5px;
+    display: inline-block;
+    width: fit-content;
+    white-space: nowrap;
+}
+
+.colfooter p {
+    color: #ffffff;
+    font-size: 1em;
+    height: 25px;
+}
+
+.colfooter img {
+    width: 30px;
+}
+
+.main_footer_copy {
+    background-color: #1a1a1a;
+    width: 100%;
+    float: left;
+    text-align: center;
+    padding: 1.5em 0em;
+    border-top: 1px solid #333;
+    color: #aaa;
+}
+
+.main_footer_copy p {
+    font-size: 1em;
+    color: #e1e0e0;
+    height: 20px;
+}
+
+.clear {
+    clear: both;
+}
+
+
+
+@media (min-width: 1200px) {
+    .main_footer_container .content {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .main_footer_container .content {
+        padding: 0 30px;
+    }
+
+    .colfooter {
+        width: 30%;
+    }
+}
+
+@media (max-width: 991px) {
+    .conteiner {
+        flex-direction: column;
+    }
+
+    .painel-esquerdo,
+    .painel-direito {
+        width: 100%;
+    }
+
+    .painel-esquerdo {
+        min-height: 250px;
+        padding: 50px 30px;
+    }
+
+    .painel-direito {
+        padding: 60px 20px;
+    }
+
+    .logo {
+        max-width: 230px;
+        margin-bottom: 0;
+    }
+
+    .colfooter {
+        width: 31%;
+        margin-bottom: 30px;
+    }
+
+    .main_footer_container {
+        margin-top: 40px;
+        margin-top: 600px;
+    }
+}
+
+@media (max-width: 767px) {
+    .painel-esquerdo {
+        min-height: 220px;
+        padding: 40px 25px;
+    }
+
+    .logo {
+        max-width: 200px;
+    }
+
+    .painel-direito {
+        padding: 50px 20px 60px;
+    }
+
+    h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    .campo-entrada,
+    .botao {
+        max-width: 320px;
+    }
+
+    .campo-entrada {
+        margin-bottom: 18px;
+    }
+
+    .botao {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    #form_login p {
+        margin-bottom: 12px;
+    }
+
+    .main_footer_container .content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        padding: 0 20px;
+    }
+
+    .colfooter {
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .colfooter:last-child {
+        grid-column: span 2;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .colfooter div[style*="display: flex"] {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 575px) {
+    .painel-esquerdo {
+        min-height: 180px;
+        padding: 35px 20px;
+    }
+
+    .logo {
+        max-width: 180px;
+    }
+
+    .painel-direito {
+        padding: 40px 20px 50px;
+    }
+
+    h2 {
+        font-size: 26px;
+        margin-bottom: 25px;
+    }
+
+    .campo-entrada {
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+
+    .main_footer_container .content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .colfooter {
+        text-align: center;
+    }
+
+    .colfooter:last-child {
+        grid-column: 1;
+        margin-top: 0;
+    }
+
+    .colfooter h3.titleFooter {
+        margin: 0 auto 15px;
+    }
+
+    .colfooter ul {
+        display: inline-block;
+        text-align: left;
+    }
+
+}
+
+@media (max-width: 400px) {
+    .painel-esquerdo {
+        padding: 30px 15px;
+    }
+
+    .painel-direito {
+        padding: 35px 15px 45px;
+    }
+
+    h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .campo-entrada,
+    .botao {
+        max-width: 260px;
+    }
+
+    #form_login p {
+        margin: 10px 0;
+        line-height: 1.5;
+    }
+
+}

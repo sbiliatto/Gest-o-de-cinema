@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar perfil - Prime Cine</title>
+
+    <link rel="stylesheet" href="assets/css/editar.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="assets/js/seguranca.js" defer></script>
+
+    <script>
+        function validarFormulario(event) {
+            event.preventDefault();
+
+            const telefone = document.getElementById('telefone');
+            const email = document.getElementById('email');
+            const senha = document.getElementById('senha');
+            const erroTelefone = document.getElementById('erro-telefone');
+            const erroEmail = document.getElementById('erro-email');
+            const erroSenha = document.getElementById('erro-senha');
+            let valido = true;
+
+            const telefoneValido = /^[0-9]+$/;
+            const emailValido = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+            const senhaValida = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}":;'?/>,.<]).{8,}$/;
+
+            erroTelefone.textContent = "";
+            erroEmail.textContent = "";
+            erroSenha.textContent = "";
+
+            if (!telefoneValido.test(telefone.value)) {
+                erroTelefone.textContent = 'O telefone deve conter apenas números!';
+                valido = false;
+            }
+
+            if (!emailValido.test(email.value)) {
+                erroEmail.textContent = 'Digite um e-mail válido do Gmail!';
+                valido = false;
+            }
+
+            if (!senhaValida.test(senha.value)) {
+                erroSenha.textContent = 'A senha deve ter 8 caracteres, 1 letra maiúscula e 1 símbolo!';
+                valido = false;
+            }
+
+            if (valido) {
+                document.getElementById('form-editar').submit();
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="esquerda">
+            <!-- Link da logo que será alterado dinamicamente -->
+            <a id="logo-link" href="#">
+                <img class="logo" src="assets/img/PRIME CINE logo.png" alt="Logo empresarial">
+            </a>
+        </div>
+        <div class="direita">
+            <h2>Editar Perfil</h2>
+            <form id="form_editar" onsubmit="validarFormulario(event)">
+                <div class="campo">
+                    <input type="text" name="nome" id="nome" placeholder="Editar nome">
+                </div>
+                <div class="campo">
+                    <input type="text" name="tel" id="telefone" placeholder="Editar telefone" inputmode="numeric">
+                </div>
+                <span id="erro-telefone" class="erro"></span>
+                <div class="campo">
+                    <input type="email" name="email" id="email" placeholder="Editar e-mail">
+                </div>
+                <span id="erro-email" class="erro"></span>
+                <div class="campo">
+                    <input type="password" name="senha" id="senha" placeholder="Editar senha">
+                </div>
+                <span id="erro-senha" class="erro"></span>
+                <button type="submit" class="botao">SALVAR</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Envio do formulário com AJAX
+        $("#form_editar").on("submit", function (e) {
+            e.preventDefault();
+
+            let dados = new FormData(this);
+            var id = localStorage.getItem("id_cadastro");
+
+            let envia = {
+                nome: dados.get("nome"),
+                email: dados.get("email"),
+                telefone: dados.get("tel"),
+                senha: dados.get("senha"),
+                tipo: localStorage.getItem("tipo") || "cliente" // garante que o tipo seja mantido
+            };
+
+            envia = JSON.stringify(envia);
+
+            $.ajax({
+                method: "PUT",
+                url: "http://192.168.1.139:5000/cadastros/" + id,
+                data: envia,
+                contentType: "application/json",
+
+                success: function (retorno) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Edição Realizada!",
+                        text: retorno.message,
+                        confirmButtonText: "OK"
+                    }).then(() => {
+                        localStorage.setItem("nome", dados.get("nome"));
+                        localStorage.setItem("email", dados.get("email"));
+                        localStorage.setItem("tel", dados.get("tel"));
+                        window.location.href = "homePoslogin.html"; // ou ajuste conforme o tipo, se quiser
+                    });
+                },
+                error: function (retorno) {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Erro!",
+                        text: retorno.responseJSON.error || "Esse e-mail já existe.",
+                        confirmButtonText: "OK"
+                    });
+                }
+            });
+        });
+
+        // Preenche os campos com dados do localStorage e define o link da logo
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("nome").value = localStorage.getItem("nome") || "";
+            document.getElementById("email").value = localStorage.getItem("email") || "";
+            document.getElementById("telefone").value = localStorage.getItem("telefone") || "";
+
+            // Redirecionamento dinâmico da logo
+            const tipo = localStorage.getItem("tipo");
+            const logoLink = document.getElementById("logo-link");
+
+            if (tipo === "adm") {
+                logoLink.href = "homeeae.html";
+            } else {
+                logoLink.href = "homePoslogin.html";
+            }
+        });
+    </script>
+
+    
+</body>
+
+</html>

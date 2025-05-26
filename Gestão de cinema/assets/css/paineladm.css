@@ -1,0 +1,709 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #121212 !important;
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #000 !important;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.logo {
+    height: 50px;
+    transition: transform 0.3s;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+/* Div que contém o menu e o perfil */
+.div-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+
+.btn-group .btn:hover {
+    background-color: #8B0000;
+}
+
+.menu-escuro {
+    background-color: #222;
+}
+
+.menu-escuro .dropdown-item {
+    color: #000000;
+}
+
+
+/* Estilo do menu de perfil */
+.perfil-container {
+    position: relative;
+}
+
+.btn-perfil2 {
+    width: 32px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn-perfil2:hover {
+    transform: scale(1.1);
+}
+
+.menu-perfil {
+    display: none;
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background-color: #ffffff;
+    padding: 12px;
+    border-radius: 8px;
+    width: 200px;
+    z-index: 999;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Exibir menu ao clicar */
+.menu-perfil.show {
+    display: block;
+}
+
+/* Estilo da lista no menu de perfil */
+.menu-perfil ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+.menu-perfil li {
+    margin: 12px 0;
+}
+
+.menu-perfil a {
+    color: #150e0e;
+    text-decoration: none;
+    transition: color 0.2s;
+    display: block;
+    padding: 5px 0;
+}
+
+
+.tt {
+    color: white;
+}
+
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #000;
+  color: #fff;
+}
+
+.dashboard-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+h1 {
+  color: red;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.card {
+  flex: 1;
+  min-width: 250px;
+  background-color: #fff;
+  color: #000;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-content {
+  text-align: center;
+}
+
+.card-content h2 {
+  font-size: 2rem;
+  margin: 0;
+  color: red;
+}
+
+.card-content p {
+  font-weight: bold;
+}
+
+.card-content ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.card-content li {
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+.card-content button {
+  margin-top: 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.card-content button:hover {
+  background-color: #c20000;
+}
+
+/* Tabela de Sessões */
+.tabela-sessoes {
+  background-color: #111;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.tabela-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.tabela-header h2 {
+  color: red;
+}
+
+.tabela-header button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #333;
+  text-align: left;
+}
+
+th {
+  background-color: #222;
+  color: white;
+}
+
+td {
+  color: #ccc;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  color: #000;
+}
+
+
+.barra {
+    width: 95%;
+    height: 4px;
+    background-color: darkred;
+    margin-bottom: 50px;
+    left: 3%;
+    position: relative;
+}   
+
+
+footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 40px 20px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.main_footer_container .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.colfooter {
+    flex: 1 1 250px;
+}
+
+.colfooter h3.titleFooter {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    border-bottom: 2px solid darkred;
+    padding-bottom: 5px;
+    display: inline-block;
+    width: fit-content;
+    white-space: nowrap;
+}
+
+
+.colfooter ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.colfooter ul li {
+    margin-bottom: 10px;
+}
+
+.colfooter ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.colfooter ul li a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.colfooter p {
+    margin: 8px 0;
+    color: #ccc;
+    font-size: 0.95em;
+}
+
+.rss {
+    margin-right: 10px;
+    display: inline-block;
+    transition: transform 0.3s;
+    padding: 2px;
+}
+
+.rss img {
+    width: 30px;
+    height: 30px;
+    filter: brightness(0) invert(1);
+}
+
+.rss:hover img {
+    transform: scale(1.2);
+}
+
+.main_footer_copy {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #aaa;
+    border-top: 1px solid #333;
+    padding-top: 15px;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.barraverm {
+    background-color: #B90000;
+    display: flex;
+    justify-content: center;
+    margin-top: 75px;
+}
+
+.barraverm img {
+    background-color: #B90000;
+    width: 17vh;
+    margin-right: 10px;
+}
+
+.vendas-retangulo {
+    width: 100%;
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 12px;
+    color: #fff;
+    border: 1px solid #ff0000;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.vendas-retangulo>.sessao {
+    display: flex;
+    justify-content: space-between;
+    background-color: #2b2b2b;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: 500;
+    flex-wrap: wrap;
+    /* permite quebrar conteúdo */
+}
+
+/* Botão PDF */
+.botao-pdf {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+}
+
+.botao-pdf:hover {
+    background-color: #c60808;
+}
+
+@media (max-width: 1200px) {
+    .dashboard-container {
+        max-width: 95%;
+        padding: 0 15px;
+    }
+}
+
+/* Tablets e Dispositivos Médios */
+@media (max-width: 992px) {
+    .dashboard-container {
+        margin: 25px auto;
+    }
+    
+    h1.tt {
+        font-size: 2.2rem;
+        text-align: center;
+    }
+    
+    .cards {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .card {
+        width: 100%;
+        min-height: 150px;
+    }
+}
+
+/* Tablets Pequenos e Dispositivos Móveis Grandes */
+@media (max-width: 768px) {
+    /* Header Responsivo */
+    header {
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 10px;
+        justify-content: center;
+    }
+    
+    .logo-link {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+    .div-header {
+        width: 100%;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+    
+    /* Dashboard */
+    h1.tt {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+    
+    .cards .card {
+        padding: 15px;
+    }
+    
+    .card-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .tabela-sessoes {
+        padding: 15px;
+        overflow-x: auto; /* Permitir rolagem horizontal para tabelas */
+    }
+    
+    table {
+        min-width: 500px; /* Garante largura mínima da tabela */
+    }
+    
+    th, td {
+        padding: 10px 12px;
+    }
+    
+    /* Footer Responsivo */
+    .main_footer_container .content {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .colfooter {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .colfooter h3.titleFooter {
+        margin: 0 auto 10px;
+    }
+    
+    .main_footer_copy {
+        margin-top: 20px;
+    }
+}
+
+/* Dispositivos Móveis */
+@media (max-width: 576px) {
+    .dashboard-container {
+        margin: 15px auto;
+    }
+    
+    h1.tt {
+        font-size: 1.5rem;
+    }
+    
+    .card-content h2 {
+        font-size: 1.3rem;
+    }
+    
+    .card-content p {
+        font-size: 0.9rem;
+    }
+    
+    .card-content li {
+        font-size: 0.85rem;
+    }
+    
+    .tabela-header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+    
+    .tabela-header button {
+        width: 100%;
+    }
+    
+    /* Modais responsivos */
+    .modal-dialog {
+        margin: 10px;
+    }
+    
+    .modal-body {
+        padding: 10px;
+    }
+    
+    /* Melhorar visualização dos filtros em tela pequena */
+    #formFiltrarData .mb-3 {
+        margin-bottom: 10px;
+    }
+    
+    /* Footer ainda mais compacto */
+    .colfooter ul li {
+        margin-bottom: 5px;
+    }
+}
+
+/* Dispositivos Muito Pequenos */
+@media (max-width: 375px) {
+    h1.tt {
+        font-size: 1.3rem;
+    }
+    
+    .card-content h2 {
+        font-size: 1.1rem;
+    }
+    
+    .card-content button {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
+    
+    th, td {
+        padding: 8px 6px;
+        font-size: 0.8rem;
+    }
+    
+    .menu-perfil {
+        width: 180px;
+        right: -70px; /* Ajustar posição para não sair da tela */
+    }
+    
+    .menu-perfil:after {
+        right: 85px; /* Ajustar a posição da seta */
+    }
+}
+
+/* Aprimoramentos de UX */
+
+/* Melhoria do menu perfil no mobile */
+@media (max-width: 768px) {
+    .menu-perfil {
+        position: fixed;
+        top: auto;
+        bottom: 15px;
+        right: 15px;
+        width: 220px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+    }
+    
+    /* Fundo escuro quando menu aberto */
+    .menu-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: none;
+        z-index: 998;
+    }
+    
+    .menu-backdrop.show {
+        display: block;
+    }
+}
+
+/* Melhoria das transições */
+.card, .tabela-sessoes, .btn, .dropdown-menu {
+    transition: all 0.3s ease;
+}
+
+/* Ajustes da tabela em scroll */
+.tabela-sessoes {
+    position: relative;
+}
+
+.tabela-sessoes::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 70px;
+    bottom: 15px;
+    width: 15px;
+    background: linear-gradient(to right, transparent, #111);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+/* Quando tem scroll horizontal */
+@media (max-width: 768px) {
+    .tabela-sessoes.has-scroll::after {
+        opacity: 1;
+    }
+}
+
+/* Melhorias nos modais */
+.modal-content {
+    border-radius: 12px;
+    border: none;
+    background-color: #232323;
+    color: #fff;
+}
+
+.modal-header {
+    border-bottom: 1px solid #333;
+}
+
+.modal-footer {
+    border-top: 1px solid #333;
+}
+
+.btn-close {
+    filter: invert(1);
+}
+
+/* Formulários em modais */
+.form-control {
+    background-color: #333;
+    border: 1px solid #444;
+    color: #fff;
+}
+
+.form-control:focus {
+    background-color: #444;
+    border-color: red;
+    box-shadow: 0 0 0 0.25rem rgba(255, 0, 0, 0.25);
+    color: #fff;
+}
+
+/* Melhorias para interatividade das sessões na tabela */
+#vendas-sessoes tr:hover {
+    background-color: #222;
+    cursor: pointer;
+}
+
+/* Estilo para scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: red;
+}

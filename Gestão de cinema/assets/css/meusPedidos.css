@@ -1,0 +1,549 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif !important;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: black;
+    padding: 15px 50px;
+    color: white;
+    position: relative;
+}
+
+.btn-entrar {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.logo {
+    width: 20vh;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin-right: auto;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: red;
+}
+
+.acao {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn-perfil2 {
+    width: 49px;
+}
+
+.barra {
+    width: 95%;
+    height: 4px;
+    background-color: darkred;
+    margin-bottom: 50px;
+    left: 5%;
+    position: relative;
+}
+
+/* Perfil logado */
+.perfil-logado {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.perfil-logado img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid red;
+}
+
+.perfil-logado span {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Container do perfil */
+.perfil-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* Menu suspenso */
+.menu-perfil {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #D7D6D6;
+    color: black;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 15px;
+    z-index: 100;
+    width: 250px;
+}
+
+/* Estilizar itens do menu */
+.menu-perfil p {
+    font-weight: bold;
+    color: #ff0000;
+    margin-bottom: 10px;
+    background-color: #D7D6D6;
+}
+
+.menu-perfil ul {
+    list-style: none;
+    padding: 0;
+    background-color: #D7D6D6;
+}
+
+.menu-perfil ul li {
+    margin: 10px 0;
+    background-color: #D7D6D6;
+}
+
+.menu-perfil ul li a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #D7D6D6;
+}
+
+.menu-perfil ul li a:hover {
+    color: #ff0000;
+    background-color: #D7D6D6;
+}
+
+.nome-veisitante {
+    background-color: #D7D6D6;
+}
+
+.pedidos-area {
+    flex-grow: 1;
+    padding: 40px;
+    background-color: #0f0f0f;
+    position: relative;
+}
+
+.pedidos-area h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #e50914;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.pedidos-area h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: #e50914;
+}
+
+.btn-encontrar {
+    background-color: #e50914;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    right: 40px;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-encontrar:hover {
+    background-color: #b20710;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#listapedidos {
+    width: 100%;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+#listapedidos>div {
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-left: 4px solid #e50914;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#listapedidos>div::before {
+    content: "🎟️";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    opacity: 0.2;
+}
+
+#listapedidos>div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+#listapedidos p {
+    margin: 12px 0;
+    padding: 8px 0;
+    border-bottom: 1px solid #333;
+    font-size: 15px;
+    color: #ddd;
+}
+
+#listapedidos p:last-child {
+    border-bottom: none;
+}
+
+#listapedidos p:first-child {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    padding-bottom: 12px;
+}
+
+#listapedidos p:nth-child(1)::before {
+    content: "🎬 ";
+    margin-right: 5px;
+}
+
+#listapedidos p:nth-child(2)::before {
+    content: "🕒 ";
+    margin-right: 5px;
+}
+
+#listapedidos p:nth-child(3)::before {
+    content: "🏢 ";
+    margin-right: 5px;
+}
+
+#listapedidos p:nth-child(4)::before {
+    content: "💺 ";
+    margin-right: 5px;
+}
+
+/* FOOTER MODERNO ADAPTADO PARA HTML EXISTENTE */
+footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 40px 20px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.main_footer_container .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.colfooter {
+    flex: 1 1 250px;
+}
+
+.colfooter h3.titleFooter {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    border-bottom: 2px solid darkred;
+    padding-bottom: 5px;
+    display: inline-block;
+    width: fit-content;
+    white-space: nowrap;
+}
+
+
+.colfooter ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.colfooter ul li {
+    margin-bottom: 10px;
+}
+
+.colfooter ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.colfooter ul li a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.colfooter p {
+    margin: 8px 0;
+    color: #ccc;
+    font-size: 0.95em;
+}
+
+.rss {
+    margin-right: 10px;
+    display: inline-block;
+    transition: transform 0.3s;
+    padding: 2px;
+}
+
+.rss img {
+    width: 30px;
+    height: 30px;
+    filter: brightness(0) invert(1);
+}
+
+.rss:hover img {
+    transform: scale(1.2);
+}
+
+.main_footer_copy {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #aaa;
+    border-top: 1px solid #333;
+    padding-top: 15px;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+}
+
+.perfil-lateral{
+    margin-left: 8vh;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .main-container {
+        flex-direction: column;
+    }
+
+    .perfil-lateral {
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid #333;
+        padding: 30px;
+    }
+
+    nav ul {
+        margin-left: 100px;
+    }
+
+    .pedidos-area h2 {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .logo {
+        width: 120px;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    nav ul {
+        gap: 10px;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+        padding: 6px 8px;
+    }
+
+    #listapedidos {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-encontrar {
+        position: static;
+        margin-top: 30px;
+        width: 100%;
+    }
+
+    .pedidos-area {
+        padding: 30px 20px;
+    }
+
+    .perfil-lateral h2 {
+        font-size: 20px;
+    }
+
+    .perfil-lateral p {
+        font-size: 14px;
+    }
+
+    .menu-perfil {
+        width: 200px;
+        right: -70px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header {
+        padding: 10px 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 22px;
+        align-items: center;
+        margin-left: -1vh;
+    }
+
+    .acao {
+        margin-top: 10px;
+    }
+
+    .pedidos-area h2 {
+        font-size: 20px;
+    }
+
+    #listapedidos>div {
+        padding: 15px;
+    }
+
+    #listapedidos p {
+        font-size: 14px;
+    }
+
+    #listapedidos p:first-child {
+        font-size: 16px;
+    }
+
+    .btn-encontrar {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    .menu-perfil {
+        width: 180px;
+        right: -50px;
+    }
+
+    .menu-perfil ul li a {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .logo {
+        width: 100px;
+    }
+
+    .pedidos-area {
+        padding: 20px 15px;
+    }
+
+    .perfil-lateral {
+        padding: 20px 15px;
+    }
+
+    #listapedidos>div {
+        padding: 12px;
+    }
+
+    .menu-perfil {
+        width: 160px;
+        font-size: 13px;
+    }
+}
+
+@media (hover: none) {
+
+    .btn-encontrar:hover,
+    #listapedidos>div:hover,
+    nav ul li a:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    #listapedidos>div:active {
+        background-color: #222;
+    }
+
+    .btn-encontrar:active {
+        background-color: #b20710;
+    }
+}
+
+@media screen and (max-height: 700px) {
+    .main-container {
+        min-height: auto;
+    }
+
+    .perfil-lateral {
+        padding: 20px;
+    }
+
+    .pedidos-area {
+        padding: 20px;
+    }
+}
