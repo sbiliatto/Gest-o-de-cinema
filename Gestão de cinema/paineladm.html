@@ -332,12 +332,12 @@ function atualizarDashboard(dados) {
     <script>
         document.getElementById('btnBaixarPDF').addEventListener('click', async () => {
     try {
-        const response = await fetch('http://192.168.1.141:5000/gerar_pdf_painel', {
+        const response = await fetch('http://192.168.1.139:5000/gerar_pdf_painel', {
             method: 'GET', // ou 'POST' se for necessário
             headers: {
                 'Content-Type': 'application/pdf', // pode ser opcional aqui
             }
-            // Se for POST e precisar de body, adicione aqui
+
         });
 
         if (!response.ok) {
