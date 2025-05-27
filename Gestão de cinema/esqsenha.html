@@ -86,7 +86,7 @@
             }
 
             try {
-                const resposta = await fetch('http://192.168.1.139:5000/esqueci-minha-senha', {
+                const resposta = await fetch('http://192.168.1.103:5000/esqueci-minha-senha', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email })
@@ -121,7 +121,7 @@
             }
 
             try {
-                const validacao = await fetch('http://192.168.1.139:5000/verificar-codigo', {
+                const validacao = await fetch('http://192.168.1.103:5000/verificar-codigo', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email: emailGlobal, codigo: token })
@@ -134,7 +134,7 @@
                     return;
                 }
 
-                const resposta = await fetch('http://192.168.1.139:5000/redefinir-senha', {
+                const resposta = await fetch('http://192.168.1.103:5000/redefinir-senha', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email: emailGlobal, nova_senha: novaSenha })
