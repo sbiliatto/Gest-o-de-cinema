@@ -42,14 +42,17 @@
 
 
   <script>
+  const params = new URLSearchParams(window.location.search);
+  const id_reserva = params.get('id_reserva');
 
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get('id');
+  if (id_reserva) {
+    document.getElementById("qrcode-pix").src = `http://192.168.1.103:5000/static/upload/qrcodes/pix_reserva_${id_reserva}.png`;
+  } else {
+    document.getElementById("qrcode-pix").alt = "QR code indisponível";
+  }
+  
+</script>
 
-    document.getElementById("qrcode-pix").src = `http://192.168.1.103:5000/static/upload/qrcodes/pix_reserva_${id}.png`;
-
-
-  </script>
   <script>
 
 
@@ -59,8 +62,10 @@
     }
 
     const dataFormatada = new Date(params.get("data_sessao")).toLocaleDateString('pt-BR');
-    const horaFormatada = params.get("horario").slice(0, 5);
-    document.getElementById("titulo_filme").innerHTML = params.get("titulo_filme")
+    const horario = params.get("horario");
+    const horaFormatada = horario ? horario.slice(0, 5) : "N/A";
+
+    document.getElementById("titulo_filme").textContent = params.get("titulo_filme");
     document.getElementById("data_sessao").innerHTML = dataFormatada
     document.getElementById("horario").innerHTML = horaFormatada
     document.getElementById("sala").innerHTML = params.get("sala")
