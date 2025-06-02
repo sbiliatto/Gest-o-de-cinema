@@ -224,7 +224,7 @@
             });
 
             if (filmes.length > 0) {
-                Swal.fire("Resultado encontrado!", "", "success");
+                Swal.fire("Resultado encontrado!!", "", "success");
             } else {
                 html = "<p>Nenhum filme encontrado.</p>";
                 Swal.fire("Nenhum resultado encontrado.", "", "info");
@@ -255,7 +255,7 @@
           let html = "";
 
           if (sessoes.length === 0) {
-            html = "<p>Sem sessões disponíveis para este filme.</p>";
+            html = "<p>Sem sessões disponíveis para este filme no momento.</p>";
           } else {
             html += `<ul>`;
             sessoes.forEach(sessao => {
