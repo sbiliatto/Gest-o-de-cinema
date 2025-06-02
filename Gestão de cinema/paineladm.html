@@ -229,7 +229,7 @@
 
         async function buscarDadosDoBackend(data_inicial, data_final) {
             try {
-                const response = await fetch('http://192.168.1.103:5000/painel-admin', {
+                const response = await fetch('http://127.0.0.1:5000/painel-admin', {
                     method: 'POST', 
                     headers: {
                         'Content-Type': 'application/json'
@@ -332,7 +332,7 @@ function atualizarDashboard(dados) {
     <script>
         document.getElementById('btnBaixarPDF').addEventListener('click', async () => {
     try {
-        const response = await fetch('http://192.168.1.103:5000/gerar_pdf_painel', {
+        const response = await fetch('http://127.0.0.1:5000/gerar_pdf_painel', {
             method: 'GET', // ou 'POST' se for necessário
             headers: {
                 'Content-Type': 'application/pdf', // pode ser opcional aqui

@@ -65,7 +65,7 @@
             let dados = JSON.stringify({ email, senha });
             $.ajax({
                 method: "post",
-                url: "http://192.168.1.103:5000/login",
+                url: "http://127.0.0.1:5000/login",
                 contentType: "application/json",
                 data: dados, 
                 success: function (retorno) {

@@ -130,7 +130,7 @@
         document.getElementById("genero").innerHTML = params.get("genero") || '';
         document.getElementById("sinopse").innerHTML = params.get("sinopse") || '';
         document.getElementById("trailer").href = params.get("trailer") || '#';
-        document.getElementById("imgfilme").src = `http://192.168.1.103:5000/static/uploads/Filmes/${id}.jpeg`;
+        document.getElementById("imgfilme").src = `http://127.0.0.1:5000/static/uploads/Filmes/${id}.jpeg`;
 
         const ratings = {
             "10": "ten",
@@ -146,7 +146,7 @@
         }
 
         $.ajax({
-            url: `http://192.168.1.103:5000/sessoes/${id}`,
+            url: `http://127.0.0.1:5000/sessoes/${id}`,
             method: "GET",
             headers: {
                 "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjo1fQ.0HmIs6nDx3HJK2m407yACClQR8CPGb8CI4IY8r8c2wM"
@@ -206,7 +206,7 @@
 
     // Buscar e exibir a nota média do filme
     $.ajax({
-        url: "http://192.168.1.103:5000/avaliacoes/media",
+        url: "http://127.0.0.1:5000/avaliacoes/media",
         method: "GET",
         success: function (avaliacoes) {
             const filmeAvaliado = avaliacoes.find(f => f.id_filme == id);

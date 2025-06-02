@@ -46,7 +46,7 @@
   const id_reserva = params.get('id_reserva');
 
   if (id_reserva) {
-    document.getElementById("qrcode-pix").src = `http://192.168.1.103:5000/static/upload/qrcodes/pix_reserva_${id_reserva}.png`;
+    document.getElementById("qrcode-pix").src = `http://127.0.0.1:5000/static/upload/qrcodes/pix_reserva_${id_reserva}.png`;
   } else {
     document.getElementById("qrcode-pix").alt = "QR code indisponível";
   }

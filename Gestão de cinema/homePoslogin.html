@@ -137,7 +137,7 @@ function buscarFilme() {
         if (!termo) return;
 
         $.ajax({
-            url: "http://192.168.1.103:5000/buscar-filmes",
+            url: "http://127.0.0.1:5000/buscar-filmes",
             method: 'GET',
             data: { termo },
             success: function (filmes) {
@@ -146,7 +146,7 @@ function buscarFilme() {
                 html += `
                 <div class="filme">
                     <a href="datasesoes.html?id=${filme.id}&titulo=${encodeURIComponent(filme.titulo)}&classificacao=${filme.classificacao}&genero=${encodeURIComponent(filme.genero)}&trailer=${encodeURIComponent(filme.link || '')}&sinopse=${encodeURIComponent(filme.sinopse)}">
-                    <img src="http://192.168.1.103:5000/static/uploads/Filmes/${filme.id}.jpeg" alt="${filme.titulo}">
+                    <img src="http://127.0.0.1:5000/static/uploads/Filmes/${filme.id}.jpeg" alt="${filme.titulo}">
                     </a>
                     <button class='botaosess' onclick="carregarSessoes(${filme.id})">Ver Sessões</button>
                     <div id="sessoes-${filme.id}" class="sessao-lista" style="display:none;"></div>
@@ -179,7 +179,7 @@ function buscarFilme() {
       }
 
       $.ajax({
-        url: `http://192.168.1.103:5000/sessoes/${idFilme}`,
+        url: `http://127.0.0.1:5000/sessoes/${idFilme}`,
         method: 'GET',
         success: function (response) {
           const sessoes = response.sessoes;
@@ -213,7 +213,7 @@ function buscarFilme() {
 
     function carregaProdutos() {
       $.ajax({
-        url: "http://192.168.1.103:5000/filmes",
+        url: "http://127.0.0.1:5000/filmes",
         method: "GET",
         headers: { "Content-Type": "application/json" }
       }).done(function (response) {
@@ -223,7 +223,7 @@ function buscarFilme() {
           html += `
             <div class="filme">
               <a href="#">
-                <img src="http://192.168.1.103:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
+                <img src="http://127.0.0.1:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
               </a>
             </div>
           `;
@@ -275,7 +275,7 @@ function buscarFilme() {
 
         function carregaProdutos() {
             var settings = {
-                url: "http://192.168.1.103:5000/filmes",
+                url: "http://127.0.0.1:5000/filmes",
                 method: "GET",
                 timeout: 0,
                 headers: {
@@ -291,7 +291,7 @@ function buscarFilme() {
                     html += `
                         <div class="filme">
                             <a href="datasesoes.html?id=${item.id_filme}&titulo=${item.titulo}&classificacao=${item.classificacao}&genero=${item.genero}&trailer=${item.link}&sinopse=${item.sinopse}&nota=${item.nota}">
-                                <img src="http://192.168.1.103:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
+                                <img src="http://127.0.0.1:5000/static/uploads/Filmes/${item.id_filme}.jpeg" alt="${item.titulo}">
                             </a>
                         </div>
                     `;

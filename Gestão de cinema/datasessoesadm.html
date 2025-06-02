@@ -182,7 +182,7 @@
         document.getElementById("trailer").href = params.get("trailer")
 
 
-        document.getElementById("imgfilme").src = "http://192.168.1.103:5000/static/uploads/Filmes/" + id + ".jpeg"
+        document.getElementById("imgfilme").src = "http://127.0.0.1:5000/static/uploads/Filmes/" + id + ".jpeg"
 
         if(classificacao == "10") {
             document.getElementById("classification").innerHTML = '<div class="age-rating ten">10</div>'
@@ -200,7 +200,7 @@
 
 
         var settings = {
-            "url": "http://192.168.1.103:5000/sessoes/" + id,
+            "url": "http://127.0.0.1:5000/sessoes/" + id,
             "method": "GET",
             "timeout": 0,
             "headers": {
@@ -299,7 +299,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 s.style.color = i < selectedRating ? 'gold' : 'white';
             });
 
-            fetch("http://192.168.1.103:5000/avaliar", {
+            fetch("http://127.0.0.1:5000/avaliar", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
